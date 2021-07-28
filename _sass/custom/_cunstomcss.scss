@@ -5,3 +5,44 @@
 .open-new {
   cursor: pointer;
 }
+
+.page__taxonomy-item-category {
+  display: inside;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  text-decoration: none;
+  border: 1px solid #373C3F;
+  border-radius: 4px;
+  background-color: #6d7275;
+  color: #ffc005;
+}
+.page__taxonomy-item-category:link,
+.page__taxonomy-item-category:visited {
+  color: #ffc005;
+}
+.page__taxonomy-item-category:hover {
+  color: #8cd2d5;
+}
+.page__taxonomy-item-tag {
+  display: inside;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  text-decoration: none;
+  border: 1px solid #373C3F;
+  border-radius: 4px;
+  background-color: #4D5357;
+  color: #FFBF00;
+}
+.page__taxonomy-item-tag:link,
+.page__taxonomy-item-tag:visited {
+  color: #ffc005;
+}
+.page__taxonomy-item-tag:hover {
+  color: #8cd2d5;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}

@@ -12,8 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 popular: true
-date: '2021-07-28'
-last_modified_at: '2021-07-28'
+date: '2021-07-27'
+last_modified_at: '2021-07-27'
 ---
 
 Github blog를 개설하는 과정을 간단하게 알아봅니다.

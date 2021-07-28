@@ -285,6 +285,7 @@ defaults:
       share: true
       related: true
       popular: false
+      sidebar_main: true
 
   # _pages
   - scope:

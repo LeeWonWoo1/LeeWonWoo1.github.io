@@ -1,5 +1,5 @@
 ---
-title: "[Jekyll] Github Blog 시작!"
+title: "[Github 블로그] Github Blog 시작!"
 excerpt: Github 블로그를 시작하기 위해 필요한 환경을 셋팅하고 Github과 연동합니다.
 categories:
 - Blog

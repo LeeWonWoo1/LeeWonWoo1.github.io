@@ -1,6 +1,6 @@
 ---
 title: "[Jekyll] Github Blog 시작!"
-excerpt: Visual Studio code를 사용하여 md 파일에 마크다운 문법으로 작성. Github 원격 저장소에 업로드.
+excerpt: Github 블로그를 시작하기 위해 필요한 환경을 셋팅하고 Github과 연동합니다.
 categories:
 - Blog
 tags:

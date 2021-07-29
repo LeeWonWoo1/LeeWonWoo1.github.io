@@ -1,0 +1,994 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 1-4. 인터페이스 설계 | LWW’s Tech Blog</title>
+<meta name="description" content="정보처리기사 필기 1과목 4장">
+
+
+  <meta name="author" content="이원우">
+  
+  <meta property="article:author" content="이원우">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[정보처리기사 필기] 1-4. 인터페이스 설계">
+<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp4/">
+
+
+  <meta property="og:description" content="정보처리기사 필기 1과목 4장">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-30T01:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-07-30T10:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp4/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이원우",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#jckp" itemprop="item"><span itemprop="name">Jckp</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[정보처리기사 필기] 1-4. 인터페이스 설계</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="이원우" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">이원우</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">11</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+      <!--Blog-->
+        <span class="nav__sub-title">Blog</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (2)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (5)</a></li>
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[정보처리기사 필기] 1-4. 인터페이스 설계">
+    <meta itemprop="description" content="정보처리기사 필기 1과목 4장">
+    <meta itemprop="datePublished" content="2021-07-30T01:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-07-30T10:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/jckp/etc-jckp4/" class="u-url" itemprop="url">[정보처리기사 필기] 1-4. 인터페이스 설계
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-시스템-인터페이스-요구사항-분석--b">1. 시스템 인터페이스 요구사항 분석 – B</a><ul><li><a href="#--시스템-인터페이스-요구사항-구성">- 시스템 인터페이스 요구사항 구성</a></li><li><a href="#--시스템-인터페이스-요구사항-분석">- 시스템 인터페이스 요구사항 분석</a></li><li><a href="#--시스템-인터페이스-요구사항-분석-절차">- 시스템 인터페이스 요구사항 분석 절차</a></li></ul></li><li><a href="#2-인터페이스-요구사항-검증--b">2. 인터페이스 요구사항 검증 – B</a><ul><li><a href="#--요구사항-검증-방법">- 요구사항 검증 방법</a></li><li><a href="#--인터페이스-요구사항-검증의-주요-항목">- 인터페이스 요구사항 검증의 주요 항목</a></li></ul></li><li><a href="#3-인터페이스-방법-명세화--b">3. 인터페이스 방법 명세화 – B</a><ul><li><a href="#--시스템-연계-기술">- 시스템 연계 기술</a></li><li><a href="#--인터페이스-통신-유형">- 인터페이스 통신 유형</a></li><li><a href="#--인터페이스-처리-유형">- 인터페이스 처리 유형</a></li></ul></li><li><a href="#4-미들웨어-솔루션-명세--a">4. 미들웨어 솔루션 명세 – A</a><ul><li><a href="#--미들웨어의-개념-및-종류">- 미들웨어의 개념 및 종류</a></li><li><a href="#--dbdatabase">- DB(DataBase)</a></li><li><a href="#--rpcremote-procedure-call">- RPC(Remote Procedure Call)</a></li><li><a href="#--mommessage-oriented-middleware">- MOM(Message Oriented Middleware)</a></li><li><a href="#--tp-monitortransaction-processing-monitor">- TP-Monitor(Transaction Processing Monitor)</a></li><li><a href="#--orbobject-request-broker">- ORB(Object Request Broker)</a></li><li><a href="#--wasweb-application-server">- WAS(Web Application Server)</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p class="notice--primary">2020 시나공 정보처리기사 필기책 참고</p>
+
+<p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 제외</p>
+
+<h2 id="1-시스템-인터페이스-요구사항-분석--b">1. 시스템 인터페이스 요구사항 분석 – B</h2>
+
+<h3 id="--시스템-인터페이스-요구사항-구성">- 시스템 인터페이스 요구사항 구성</h3>
+
+<ul>
+  <li>시스템끼리 서로 연동하여 상호작용하기 위한 접속 방법이나 규칙</li>
+  <li>명세서에는 이름, 연계 대상 시스템, 연계 범위 및 내용, 연계 방식, 송신 데이터, 주기 등 포함</li>
+</ul>
+
+<h3 id="--시스템-인터페이스-요구사항-분석">- 시스템 인터페이스 요구사항 분석</h3>
+
+<ul>
+  <li>기능적 요구사항과 비기능적 요구사항으로 분류</li>
+  <li>요구사항 분석 기법을 적절히 이용</li>
+  <li>적절한 수준으로 세분화</li>
+  <li>누락된 요구사항이나 제한조건 추가</li>
+  <li>상대적 중요도를 평가하여 우선순위를 부여</li>
+</ul>
+
+<h3 id="--시스템-인터페이스-요구사항-분석-절차">- 시스템 인터페이스 요구사항 분석 절차</h3>
+
+<ul>
+  <li>요구사항 선별 -&gt; 요구사항 관련 자료 준비 -&gt; 요구사항 분류 -&gt; 요구사항 분석 및 명세서 구체화 -&gt; 요구사항 명세서 공유</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-인터페이스-요구사항-검증--b">2. 인터페이스 요구사항 검증 – B</h2>
+
+<ul>
+  <li>요구사항 명세서에 정확하고 완전하게 기술되었는지 검토하고 베이스라인 설정</li>
+  <li>검토 계획 수립 -&gt; 검토 및 오류 수정 -&gt; 베이스라인 설정</li>
+</ul>
+
+<h3 id="--요구사항-검증-방법">- 요구사항 검증 방법</h3>
+
+<ul>
+  <li>요구사항 검토
+    <ul>
+      <li>동료 검토 : 동료들이 결함 발견</li>
+      <li>워크스루 : 짧은 검토 회의를 통해 결함 발견</li>
+      <li>인스펙션 : 검토 전문가들이 결함 발견</li>
+    </ul>
+  </li>
+  <li>프로토타이핑</li>
+  <li>테스트 설계</li>
+  <li>CASE 도구 활용</li>
+</ul>
+
+<h3 id="--인터페이스-요구사항-검증의-주요-항목">- 인터페이스 요구사항 검증의 주요 항목</h3>
+
+<ul>
+  <li>완전성(Completeness)</li>
+  <li>일관성(Consistency)</li>
+  <li>명확성(Unambiguity)</li>
+  <li>기능성(Functionality)</li>
+  <li>검증 가능성(Verifiability)</li>
+  <li>추적 가능성(Traceability)</li>
+  <li>변경 용이성(Easily Changeable)</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-인터페이스-방법-명세화--b">3. 인터페이스 방법 명세화 – B</h2>
+
+<h3 id="--시스템-연계-기술">- 시스템 연계 기술</h3>
+
+<ul>
+  <li>DB Link : DB Link 객체를 이용하는 방식</li>
+  <li>API/Open API : DB에서 데이터를 읽어 와 제공</li>
+  <li>연계 솔루션 : EAI 서버와 송수신 시스템에 설치되는 클라이언트 이용</li>
+  <li>Socket : 서버는 통신을 위한 소켓을 생성하여 포토 할당하여 클라이언트의 통신 요청 시 연결하여 통신</li>
+  <li>Web Service : WSDL, UDDI, SOAP 프로토콜을 이용하여 연계하는 서비스</li>
+</ul>
+
+<h3 id="--인터페이스-통신-유형">- 인터페이스 통신 유형</h3>
+
+<ul>
+  <li>단방향 : 요청만 하고 응답이 없는 방식</li>
+  <li>동기 : 요청하고 응답이 올때까지 대기</li>
+  <li>비동기 : 요청하고 다른 작업을 수행하다 응답이 오면 처리</li>
+</ul>
+
+<h3 id="--인터페이스-처리-유형">- 인터페이스 처리 유형</h3>
+
+<ul>
+  <li>실시간 방식 : 요청한 내용을 바로 처리</li>
+  <li>지연 처리 방식 : 매건 단위로 처리할 경우 비용이 많이 발생할 때</li>
+  <li>배치 방식 : 대량의 데이터를 처리할 때</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="4-미들웨어-솔루션-명세--a">4. 미들웨어 솔루션 명세 – A</h2>
+
+<h3 id="--미들웨어의-개념-및-종류">- 미들웨어의 개념 및 종류</h3>
+
+<ul>
+  <li>운영체제와 응용프로그램 사이에서 추가적인 서비스를 제공하는 소프트웨어</li>
+  <li>표준화된 인터페이스 제공하여 데이터 교환에 일관성 보장</li>
+</ul>
+
+<h3 id="--dbdatabase">- DB(DataBase)</h3>
+
+<ul>
+  <li>클라이언트에서 원격의 DB와 연결하기 위한 미들웨어</li>
+  <li>DB를 사용해서 시스템 구축하는 경우 2-Tier 아키텍처라고 함</li>
+  <li>ODBC, IDAPI, Glue</li>
+</ul>
+
+<h3 id="--rpcremote-procedure-call">- RPC(Remote Procedure Call)</h3>
+
+<ul>
+  <li>응용 프로그램의 프로시저를 사용하여 원격 프로시저를 로컬 프로시저처럼 호출하는 방식</li>
+  <li>Entera, ONC/RPC</li>
+</ul>
+
+<h3 id="--mommessage-oriented-middleware">- MOM(Message Oriented Middleware)</h3>
+
+<ul>
+  <li>메시지 기반의 비동기형 메시지를 전달하는 방식</li>
+  <li>온라인 업무보다 이기종 분산 데이터 시스템의 데이터 동기를 위해 사용됨</li>
+  <li>MQ, Message Q, JMS</li>
+</ul>
+
+<h3 id="--tp-monitortransaction-processing-monitor">- TP-Monitor(Transaction Processing Monitor)</h3>
+
+<ul>
+  <li>온라인 트랜잭션 업무에서 트랜잭션을 처리 및 감시하는 미들웨어</li>
+  <li>빠른 응답 속도를 유지해야 하는 업무에 사용</li>
+  <li>tuxedo, tmax</li>
+</ul>
+
+<h3 id="--orbobject-request-broker">- ORB(Object Request Broker)</h3>
+
+<ul>
+  <li>객체 지향 미들웨어로 코바(CORBA) 표준 스펙을 구현</li>
+  <li>트랜잭션 처리와 모니터링 등을 추가로 구현한 제품도 있음</li>
+  <li>Orbix, CORBA</li>
+</ul>
+
+<h3 id="--wasweb-application-server">- WAS(Web Application Server)</h3>
+
+<ul>
+  <li>동적인 콘텐츠를 처리하기 위해 사용되는 미들웨어</li>
+  <li>웹 환경을 구현하기 위한 미들웨어</li>
+  <li>웹 서버 기능뿐만 아니라 미션-크리티컬한 기업 업무까지 JAVA, EJB 컴포넌트 기반으로 구현 가능</li>
+  <li>WebLogic, WebSphere</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-30">July 30, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+1-4.+%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4+%EC%84%A4%EA%B3%84%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/jckp/etc-jckp3/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 1-3. 애플리케이션 설계</a>
+  
+  
+  <a href="/jckp/etc-jckp5/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[정보처리기사 필기] 2-1. 데이터 입출력 구현</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp5/" rel="permalink">[정보처리기사 필기] 2-1. 데이터 입출력 구현
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 1장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/css/frontend-css-properties-boxmodel/" rel="permalink">[CSS] CSS 박스모델
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#css"
+      class="page__taxonomy-item-category" rel="tag">CSS</a>
+    
+    
+    <a href="/tags/#css"
+      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">CSS 속성인 박스모델
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/css/frontend-css-basic/" rel="permalink">[CSS] CSS 개요
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#css"
+      class="page__taxonomy-item-category" rel="tag">CSS</a>
+    
+    
+    <a href="/tags/#css"
+      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">CSS 기본 문법부터 선택자 우선순위까지
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/html/frontend-html-structure/" rel="permalink">[HTML] HTML 구조 및 태그
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#html"
+      class="page__taxonomy-item-category" rel="tag">HTML</a>
+    
+    
+    <a href="/tags/#html"
+      class="page__taxonomy-item-tag" rel="tag">HTML</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">HTML 요소의 구조 및 태그를 학습
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이원우. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jckp/etc-jckp4"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

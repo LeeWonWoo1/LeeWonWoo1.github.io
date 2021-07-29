@@ -37,7 +37,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Javascript" %}
-                        <li><a href="/categories/Javascript" class="">Javascript ({{category[1].size}})</a></li>
+                        <li><a href="/categories/javascript" class="">Javascript ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -51,6 +51,16 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "JCKP" %}
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>            
       </li>
   </ul>
 </nav>

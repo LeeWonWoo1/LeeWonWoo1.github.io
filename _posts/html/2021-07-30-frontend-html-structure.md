@@ -88,7 +88,8 @@ last_modified_at: 2021-07-30T01:30:00
 ### - script 태그
 
 ```html
-<script src="./main.js"></script>  <!-- JS파일 가져오는 경우-->
+<script defer src="./main.js"></script>  <!-- JS파일 가져오는 경우-->
+<!-- defer : HTML 구조가 준비된 후에 JS를 해석 -->
 
 <!-- JS를 HTML 문서 안에서 작성하는 경우 -->
 <script>
@@ -235,6 +236,8 @@ last_modified_at: 2021-07-30T01:30:00
 A B
 C D
 ```
+**주의!** TABLE 요소보다 Grid같은 CSS 기능으로 레이아웃을 작업해야 함
+{: .notice--danger}
 
 
 ## HTML 전역 속성

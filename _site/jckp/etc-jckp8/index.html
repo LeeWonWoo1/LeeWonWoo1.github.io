@@ -1,0 +1,1209 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리 | LWW’s Tech Blog</title>
+<meta name="description" content="정보처리기사 필기 2과목 4장">
+
+
+  <meta name="author" content="이원우">
+  
+  <meta property="article:author" content="이원우">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리">
+<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp8/">
+
+
+  <meta property="og:description" content="정보처리기사 필기 2과목 4장">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-30T21:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-07-31T06:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp8/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이원우",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#jckp" itemprop="item"><span itemprop="name">Jckp</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="이원우" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">이원우</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">14</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+      <!--Blog-->
+        <span class="nav__sub-title">Blog</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (2)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (8)</a></li>
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리">
+    <meta itemprop="description" content="정보처리기사 필기 2과목 4장">
+    <meta itemprop="datePublished" content="2021-07-30T21:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-07-31T06:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/jckp/etc-jckp8/" class="u-url" itemprop="url">[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-애플리케이션-테스트--b">1. 애플리케이션 테스트 – B</a><ul><li><a href="#--애플리케이션-테스트의-개념">- 애플리케이션 테스트의 개념</a></li><li><a href="#--애플리케이션-테스트의-필요성">- 애플리케이션 테스트의 필요성</a></li><li><a href="#--애플리케이션-테스트의-기본-원리">- 애플리케이션 테스트의 기본 원리</a></li></ul></li><li><a href="#2-애플리케이션-테스트의-분류--b">2. 애플리케이션 테스트의 분류 – B</a><ul><li><a href="#--프로그램-실행-여부에-따른-테스트">- 프로그램 실행 여부에 따른 테스트</a><ul><li><a href="#-정적-테스트">@ 정적 테스트</a></li><li><a href="#-동적-테스트">@ 동적 테스트</a></li></ul></li><li><a href="#--테스트-기반에-따른-테스트">- 테스트 기반에 따른 테스트</a><ul><li><a href="#-명세-기반-테스트">@ 명세 기반 테스트</a></li><li><a href="#-구조-기반-테스트">@ 구조 기반 테스트</a></li><li><a href="#-경험-기반-테스트">@ 경험 기반 테스트</a></li></ul></li><li><a href="#--시각에-따른-테스트">- 시각에 따른 테스트</a><ul><li><a href="#-검증verification-테스트">@ 검증(Verification) 테스트</a></li><li><a href="#-확인validation-테스트">@ 확인(Validation) 테스트</a></li></ul></li><li><a href="#--목적에-따른-테스트">- 목적에 따른 테스트</a><ul><li><a href="#-회복-테스트">@ 회복 테스트</a></li><li><a href="#-안전-테스트">@ 안전 테스트</a></li><li><a href="#-강도-테스트">@ 강도 테스트</a></li><li><a href="#-성능-테스트">@ 성능 테스트</a></li><li><a href="#-구조-테스트">@ 구조 테스트</a></li><li><a href="#-회귀-테스트">@ 회귀 테스트</a></li><li><a href="#-병행-테스트">@ 병행 테스트</a></li></ul></li></ul></li><li><a href="#3-테스트-기법에-따른-애플리케이션-테스트--a">3. 테스트 기법에 따른 애플리케이션 테스트 – A</a><ul><li><a href="#--화이트박스-테스트">- 화이트박스 테스트</a></li><li><a href="#--화이트박스-테스트의-종류">- 화이트박스 테스트의 종류</a><ul><li><a href="#-기초-경로-검사">@ 기초 경로 검사</a></li><li><a href="#-제어-구조-검사">@ 제어 구조 검사</a></li></ul></li><li><a href="#--화이트박스-테스트의-검증-기준">- 화이트박스 테스트의 검증 기준</a></li><li><a href="#--블랙박스-테스트">- 블랙박스 테스트</a></li><li><a href="#--블랙박스-테스트의-종류">- 블랙박스 테스트의 종류</a><ul><li><a href="#-동치-분할-검사">@ 동치 분할 검사</a></li><li><a href="#-경계값-분석">@ 경계값 분석</a></li><li><a href="#-원인-효과-그래프-검사">@ 원인-효과 그래프 검사</a></li><li><a href="#-오류-예측-검사">@ 오류 예측 검사</a></li><li><a href="#-비교-검사">@ 비교 검사</a></li></ul></li></ul></li><li><a href="#4-개발-단계에-따른-애플리케이션-테스트--a">4. 개발 단계에 따른 애플리케이션 테스트 – A</a><ul><li><a href="#--개발-단계에-따른-애플리케이션-테스트">- 개발 단계에 따른 애플리케이션 테스트</a></li><li><a href="#--단위-테스트unit-test">- 단위 테스트(Unit Test)</a></li><li><a href="#--통합-테스트integration-test">- 통합 테스트(Integration Test)</a></li><li><a href="#--시스템-테스트system-test">- 시스템 테스트(System Test)</a></li><li><a href="#--인수-테스트acceptance-test">- 인수 테스트(Acceptance Test)</a></li></ul></li><li><a href="#5-통합-테스트--a">5. 통합 테스트 – A</a><ul><li><a href="#--하향식-통합-테스트">- 하향식 통합 테스트</a></li><li><a href="#--상향식-통합-테스트">- 상향식 통합 테스트</a></li><li><a href="#--테스트-driver와-stub의-차이점">- 테스트 Driver와 Stub의 차이점</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p class="notice--primary">2020 시나공 정보처리기사 필기책 참고</p>
+
+<p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 제외</p>
+
+<h2 id="1-애플리케이션-테스트--b">1. 애플리케이션 테스트 – B</h2>
+
+<h3 id="--애플리케이션-테스트의-개념">- 애플리케이션 테스트의 개념</h3>
+
+<ul>
+  <li>잠재되어 있는 결함을 찾아내는 일련의 행위</li>
+  <li>고객의 요구사항을 만족시키는지 확인(Validation)</li>
+  <li>기능을 정확히 수행하는지 검증(Verrfication)</li>
+  <li>개발할 소프트웨어의 유형을 분류하고 특성을 정리해서 중점적으로 테스트할 사항을 정리</li>
+</ul>
+
+<h3 id="--애플리케이션-테스트의-필요성">- 애플리케이션 테스트의 필요성</h3>
+
+<ul>
+  <li>프로그램 실행 전에 오류를 발견하여 예방</li>
+  <li>제품의 신뢰도 향상</li>
+  <li>새로운 오류의 유입 예방</li>
+  <li>최소한의 시간과 노력으로 많은 결함을 찾아낼 수 있음</li>
+</ul>
+
+<h3 id="--애플리케이션-테스트의-기본-원리">- 애플리케이션 테스트의 기본 원리</h3>
+
+<ul>
+  <li>잠재적인 결함은 줄일 수 있지만 완벽한 소프트웨어 테스팅은 불가능</li>
+  <li>결함 대부분은 특정 모듈에 집중. 20%의 코드에서 80%의 결함이 발견. <strong><em>파레토 법칙</em></strong> 적용</li>
+  <li>동일한 테스트를 반복하면 더 이상 결함이 발견되지 않는 <strong><em>살충제 패러독스</em></strong> 발생</li>
+  <li>정황에 따라 테스트를 다르게 수행</li>
+  <li>결함을 제거해도 요구사항을 만족시키지 못하면 품질이 높다고 말할 수 없음. <strong><em>오류 부재의 궤변</em></strong></li>
+  <li>테스트와 위험은 반비례</li>
+  <li>작은 부분에서 시작하여 점점 확대하며 진행</li>
+  <li>개발자와 관계없는 별도의 팀에서 수행</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-애플리케이션-테스트의-분류--b">2. 애플리케이션 테스트의 분류 – B</h2>
+
+<h3 id="--프로그램-실행-여부에-따른-테스트">- 프로그램 실행 여부에 따른 테스트</h3>
+
+<h4 id="-정적-테스트">@ 정적 테스트</h4>
+
+<ul>
+  <li>프로그램을 실행하지 않고 명세서나 소스 코드를 대상으로 분석</li>
+  <li>개발 초기에 결함 발견 가능. 개발 비용을 낮출 수 있음</li>
+  <li>워크스루, 인스펙션, 코드 검사 등</li>
+</ul>
+
+<h4 id="-동적-테스트">@ 동적 테스트</h4>
+
+<ul>
+  <li>프로그램을 실행하여 오류를 찾는 테스트. 개발 모든 단계에서 수행 가능</li>
+  <li>블래박스 테스트, 화이트박스 테스트</li>
+</ul>
+
+<h3 id="--테스트-기반에-따른-테스트">- 테스트 기반에 따른 테스트</h3>
+
+<h4 id="-명세-기반-테스트">@ 명세 기반 테스트</h4>
+
+<ul>
+  <li>요구사항에 대한 명세를 빠짐없이 테스트 케이스로 만들어 구현하고 있는지 확인</li>
+  <li>동등 분할, 경계 값 분석 등</li>
+</ul>
+
+<h4 id="-구조-기반-테스트">@ 구조 기반 테스트</h4>
+
+<ul>
+  <li>내부의 논리 흐름에 따라 테스트 케이스를 작성하고 확인</li>
+  <li>구문 기반, 결정 기반, 조건 기반 등</li>
+</ul>
+
+<h4 id="-경험-기반-테스트">@ 경험 기반 테스트</h4>
+
+<ul>
+  <li>유사 소프트웨어나 기술 등에 대한 경험을 기반으로 함</li>
+  <li>요구사항에 대한 명세가 불충분하거나 테스트 시간에 제약이 있는 경우 효과적</li>
+  <li>에러 추정, 체크 리스트, 탐색적 테스팅</li>
+</ul>
+
+<h3 id="--시각에-따른-테스트">- 시각에 따른 테스트</h3>
+
+<h4 id="-검증verification-테스트">@ 검증(Verification) 테스트</h4>
+
+<ul>
+  <li>개발자의 시각에서 명세서대로 완성됐는지 테스트</li>
+</ul>
+
+<h4 id="-확인validation-테스트">@ 확인(Validation) 테스트</h4>
+
+<ul>
+  <li>사용자의 시각에서 요구한대로 제품이 완성됐는지, 정상 동작하는지 테스트</li>
+</ul>
+
+<h3 id="--목적에-따른-테스트">- 목적에 따른 테스트</h3>
+
+<h4 id="-회복-테스트">@ 회복 테스트</h4>
+
+<ul>
+  <li>결함을 주어 실패하도록 한 후 올바르게 복구되는지 확인</li>
+</ul>
+
+<h4 id="-안전-테스트">@ 안전 테스트</h4>
+
+<ul>
+  <li>불법적인 침입으로부터 시스템을 보호할 수 있는지 확인</li>
+</ul>
+
+<h4 id="-강도-테스트">@ 강도 테스트</h4>
+
+<ul>
+  <li>과도한 정보량이나 빈도 등을 부과하여 과부하 시에도 정상적으로 실행되는지 확인</li>
+</ul>
+
+<h4 id="-성능-테스트">@ 성능 테스트</h4>
+
+<ul>
+  <li>실시간 성능이나 전체적인 효율성을 진단하는 테스트</li>
+</ul>
+
+<h4 id="-구조-테스트">@ 구조 테스트</h4>
+
+<ul>
+  <li>내부의 논리적인 경로, 소스 코드의 복잡도 등을 평가하는 테스트</li>
+</ul>
+
+<h4 id="-회귀-테스트">@ 회귀 테스트</h4>
+
+<ul>
+  <li>변경 또는 수정된 코드에 새로운 결함이 없음을 확인</li>
+</ul>
+
+<h4 id="-병행-테스트">@ 병행 테스트</h4>
+
+<ul>
+  <li>기존 소프트웨어에 동일한 데이터를 입력하여 결과를 비교</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-테스트-기법에-따른-애플리케이션-테스트--a">3. 테스트 기법에 따른 애플리케이션 테스트 – A</h2>
+
+<h3 id="--화이트박스-테스트">- 화이트박스 테스트</h3>
+
+<ul>
+  <li>원시 코드를 오픈시킨 상태에서 논리적인 모든 경로를 테스트하여 테스트 케이스를 설계</li>
+  <li>구조적 테스트. 프로시저 설계의 제어 구조를 사용하여 테스트 케이스를 설계</li>
+  <li>테스트 과정의 초기에 적용</li>
+  <li>모듈 안의 작동을 직접 관찰</li>
+  <li>모든 문장을 한 번 이상 실행하여 수행</li>
+  <li>선택, 반복 등의 분기점 부분들을 수행함으로써 논리적 경로를 제어</li>
+</ul>
+
+<h3 id="--화이트박스-테스트의-종류">- 화이트박스 테스트의 종류</h3>
+
+<h4 id="-기초-경로-검사">@ 기초 경로 검사</h4>
+
+<ul>
+  <li>대표적인 화이트박스 테스트 기법</li>
+  <li>절차적 설계의 논리적 복잡성을 측정할 수 있게 해줌</li>
+  <li>실행 경로의 기초를 정의하는 데 지침으로 사용</li>
+</ul>
+
+<h4 id="-제어-구조-검사">@ 제어 구조 검사</h4>
+
+<ul>
+  <li>조건 검사 : 논리적 조건을 테스트하는 설계 기법</li>
+  <li>루프 검사 : 반복 구조에 초점을 맞춰 실시하는 설계 기법</li>
+  <li>데이터 흐름 검사 : 변수의 정의와 변수 사용의 위치에 초점을 맞춰 실시하는 설계 기법</li>
+</ul>
+
+<h3 id="--화이트박스-테스트의-검증-기준">- 화이트박스 테스트의 검증 기준</h3>
+
+<ul>
+  <li>문장 검증 기준 : 모든 구문이 한 번 이상 수행되도록 설계</li>
+  <li>분기 검증 기준 : 모든 조건문이 한 번 이상 수행되도록 설계</li>
+  <li>조건 검증 기준 : 모든 조건문에 대해 조건문이 True, False 경우가 한 번 이상 수행되도록 설계</li>
+  <li>분기/조건 기준 : 모든 조건문과 각 조건문에 포함된 개별 조건식의 결과가 True, False인 경우가 한 번 이상 수행되도록 설계</li>
+</ul>
+
+<h3 id="--블랙박스-테스트">- 블랙박스 테스트</h3>
+
+<ul>
+  <li>각 기능이 완전히 작동되는 것을 입증하는 테스트. 기능 테스트</li>
+  <li>요구사항 명세서를 보면서 테스트하는 것. 구현된 기능을 테스트</li>
+  <li>인터페이스에서 실시되는 테스트</li>
+  <li>테스트 과정의 후반부에 적용</li>
+</ul>
+
+<h3 id="--블랙박스-테스트의-종류">- 블랙박스 테스트의 종류</h3>
+
+<h4 id="-동치-분할-검사">@ 동치 분할 검사</h4>
+
+<ul>
+  <li>입력 자료에 초점을 맞춰 검사</li>
+  <li>타당한 입력 자료와 타당하지 않은 입력 자료의 개수를 균등하게 함. 자료에 맞는 결과가 출력되는지 확인</li>
+</ul>
+
+<h4 id="-경계값-분석">@ 경계값 분석</h4>
+
+<ul>
+  <li>동치 분할 기법을 보완하기 위함</li>
+  <li>중간값보다 경계값에서 오류가 발생될 확률이 높다는 점 이용</li>
+  <li>입력 조건의 경계값을 테스트 케이스로 선정하여 검사</li>
+</ul>
+
+<h4 id="-원인-효과-그래프-검사">@ 원인-효과 그래프 검사</h4>
+
+<ul>
+  <li>입력 데이터 간의 관계와 출력에 영향을 미치는 상황을 체계적으로 분석한 후 효용성 높은 케이스 선정하여 검사</li>
+</ul>
+
+<h4 id="-오류-예측-검사">@ 오류 예측 검사</h4>
+
+<ul>
+  <li>과거의 경험이나 확인자의 감각으로 테스트</li>
+  <li>보충적 검사 기법. 데이터 확인 검사</li>
+</ul>
+
+<h4 id="-비교-검사">@ 비교 검사</h4>
+
+<ul>
+  <li>여러 버전의 프로그램에 동일한 테스트 자료를 제공하여 동일한 결과가 출력되는지 테스트</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="4-개발-단계에-따른-애플리케이션-테스트--a">4. 개발 단계에 따른 애플리케이션 테스트 – A</h2>
+
+<h3 id="--개발-단계에-따른-애플리케이션-테스트">- 개발 단계에 따른 애플리케이션 테스트</h3>
+
+<ul>
+  <li>코드 상의 오류뿐만 아니라 요구 분석의 오류, 설계 인터페이스 오류 등도 발견할 수 있음</li>
+  <li>애플리케이션 테스트 + 소프트웨어 개발 단계 = V-모델</li>
+  <li>요구사항 -&gt; 분석 -&gt; 설계 -&gt; 구현 -&gt; // 단위테스트 -&gt; 통합테스트 -&gt; 시스템티스트 -&gt; 인수테스트</li>
+</ul>
+
+<h3 id="--단위-테스트unit-test">- 단위 테스트(Unit Test)</h3>
+
+<ul>
+  <li>설계의 최소 단위인 모듈이나 컴포넌트에 초점을 맞춰 테스트</li>
+  <li>사용자의 요구사항을 기반으로 한 기능성 테스트를 최우선으로 수행</li>
+  <li>구조 기반 테스트와 명세기반 테스트로 나뉘지만 주로 구조 기반 테스트를 시행
+    <ul>
+      <li>구조 기반 테스트 : 화이트박스 테스트</li>
+      <li>명세 기반 테스트 : 블랙박스 테스트</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--통합-테스트integration-test">- 통합 테스트(Integration Test)</h3>
+
+<ul>
+  <li>단위 테스트가 완료된 모듈들을 결합하여 하나의 시스템으로 완성시키는 과정에서의 테스트</li>
+  <li>모듈 간 또는 통합된 컴포넌트 간의 상호 작용 오류를 검사</li>
+</ul>
+
+<h3 id="--시스템-테스트system-test">- 시스템 테스트(System Test)</h3>
+
+<ul>
+  <li>개발된 S/W가 해당 컴퓨터 시스템에서 완벽하게 수행되는가를 점검</li>
+  <li>실제 사용 환경과 유사하게 만든 테스트 환경에서 수행</li>
+  <li>기능적 요구사항 : 블랙박스 테스트 시행</li>
+  <li>비기능적 요구사항 : 화이트박스 테스트 시행</li>
+</ul>
+
+<h3 id="--인수-테스트acceptance-test">- 인수 테스트(Acceptance Test)</h3>
+
+<ul>
+  <li>개발한 S/W가 사용자의 요구사항을 충족하는지에 중점</li>
+  <li>사용자가 직접 테스트</li>
+  <li>문제가 없으면 사용자는 S/W를 인수하고 프로젝트 종료</li>
+  <li>사용자 인수 테스트 : 사용자가 시스템 사용의 적절성 여부 확인</li>
+  <li>운영상의 인수 테스트 : 시스템 관리자가 수행</li>
+  <li>계약 인수 테스트 : 계약상의 인수/검수 조건을 준수하는지 여부 확인</li>
+  <li>규정 인수 테스트 : 규정에 맞게 개발되었는지 확인</li>
+  <li>알파 테스트
+    <ul>
+      <li>개발자의 장소에서 사용자가 개발자 앞에서 행하는 테스트</li>
+      <li>통제된 환경에서 시행. 문제점을 사용자와 개발자가 함께 확인</li>
+    </ul>
+  </li>
+  <li>베타 테스트
+    <ul>
+      <li>최종 사용자가 여러 명의 사용자 앞에서 행하는 테스트</li>
+      <li>사용자가 직접 테스트</li>
+      <li>개발자에 의해 제어되지 않은 상태에서 테스트</li>
+      <li>오류와 사용상의 문제점을 기록하고 개발자에게 주기적으로 보고</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="5-통합-테스트--a">5. 통합 테스트 – A</h2>
+
+<ul>
+  <li>단위 테스트가 끝난 모듈을 통합하는 과정에서 발생하는 오류 및 결함을 찾는 테스트</li>
+  <li>비점진적 통합 방식
+    <ul>
+      <li>모든 모둘이 미리 결합되어 있는 프로그램 전체를 테스트. 빅뱅 통합 테스트</li>
+      <li>규모가 작은 소프트웨어에 유리. 단시간 내에 테스트 가능</li>
+      <li>오류 발견 및 장애 위치 파악 및 수정이 어려움</li>
+    </ul>
+  </li>
+  <li>점진적 통합 방식
+    <ul>
+      <li>모듈 단위로 단계적으로 통합하면서 테스트. 하향식, 상향식, 혼합식</li>
+      <li>오류 수정이 용이하고, 인터페이스와 연관된 오류를 완전히 테스트 할 가능성 높음</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--하향식-통합-테스트">- 하향식 통합 테스트</h3>
+
+<ul>
+  <li>상위 모듈에서 하위 모듈 방향으로 통합하면서 테스트</li>
+  <li>깊이 우선 통합법이나 넓이 우선 통합법 사용</li>
+  <li>테스트 초기부터 사용자에게 시스템 구조를 보여줄 수 있음</li>
+  <li>상위 모듈에서는 테스트 케이스를 사용하기 어려움</li>
+  <li>절차
+    <ol>
+      <li>주요 제어 모듈은 작성된 프로그램 사용. 종속 모듈은 Stub으로 대체</li>
+      <li>하위 모듈인 Stub들이 한 번에 하나씩 실제 모듈로 교체됨</li>
+      <li>모듈이 통합될 때마다 테스트를 실시</li>
+      <li>새로운 오류가 발생하지 않음을 보증하기 위해 회귀 테스트 실시</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="--상향식-통합-테스트">- 상향식 통합 테스트</h3>
+
+<ul>
+  <li>하위 모듈에서 상위 모듈 방향으로 통합하면서 테스트</li>
+  <li>Stub은 필요하지 않지만, 하나의 주요 제어 모듈과 관련된 종속 모듈의 그룹인 Cluster가 필요
+-절차
+    <ol>
+      <li>하위 모듈들을 Cluster로 결합</li>
+      <li>더미 모듈인 Driver를 작성</li>
+      <li>통합된 클러스터 단위로 테스트</li>
+      <li>테스트가 완료되면 Cluster는 프로그램 구조의 상위로 이동하여 결합하고 Driver는 실제 모듈로 대체</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="--테스트-driver와-stub의-차이점">- 테스트 Driver와 Stub의 차이점</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>Driver</th>
+      <th>Stub</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>필요시기</td>
+      <td>상위 모듈 없음</td>
+      <td>하위 모듈 없음</td>
+    </tr>
+    <tr>
+      <td>테스트방식</td>
+      <td>상향식</td>
+      <td>하향식</td>
+    </tr>
+    <tr>
+      <td>공통점</td>
+      <td>소프트웨어 개발과 테스트를 병행할 경우 이용</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>차이점</td>
+      <td>인터페이스 역할, 원래 모듈로 교체</td>
+      <td>가짜 모듈의 역할, 작성하기 쉬움</td>
+    </tr>
+  </tbody>
+</table>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-30">July 30, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+2-4.+%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98+%ED%85%8C%EC%8A%A4%ED%8A%B8+%EA%B4%80%EB%A6%AC%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/jckp/etc-jckp7/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징</a>
+  
+  
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp7/" rel="permalink">[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 3장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp6/" rel="permalink">[정보처리기사 필기] 2-2. 통합 구현
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 2장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp5/" rel="permalink">[정보처리기사 필기] 2-1. 데이터 입출력 구현
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 1장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/css/frontend-css-properties-boxmodel/" rel="permalink">[CSS] CSS 박스모델
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#css"
+      class="page__taxonomy-item-category" rel="tag">CSS</a>
+    
+    
+    <a href="/tags/#css"
+      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">CSS 속성인 박스모델
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이원우. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jckp/etc-jckp8"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

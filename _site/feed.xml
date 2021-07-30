@@ -1,6 +1,1010 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-07-30T04:49:44+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 2-1. 데이터 입출력 구현</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp5/" rel="alternate" type="text/html" title="[정보처리기사 필기] 2-1. 데이터 입출력 구현" /><published>2021-07-30T04:00:05+09:00</published><updated>2021-07-30T13:00:05+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp5</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp5/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-07-30T21:41:05+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp8/" rel="alternate" type="text/html" title="[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리" /><published>2021-07-30T21:00:00+09:00</published><updated>2021-07-31T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp8</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp8/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
-&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 2과목 1장</summary></entry><entry><title type="html">[CSS] CSS 박스모델</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-boxmodel/" rel="alternate" type="text/html" title="[CSS] CSS 박스모델" /><published>2021-07-30T04:00:00+09:00</published><updated>2021-07-30T13:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-boxmodel</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-boxmodel/"></content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 박스모델</summary></entry><entry><title type="html">[CSS] CSS 개요</title><link href="https://leewonwoo1.github.io/css/frontend-css-basic/" rel="alternate" type="text/html" title="[CSS] CSS 개요" /><published>2021-07-30T03:30:00+09:00</published><updated>2021-07-30T12:30:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-basic</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-basic/">&lt;h2 id=&quot;css-기본-문법&quot;&gt;CSS 기본 문법&lt;/h2&gt;
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-애플리케이션-테스트--b&quot;&gt;1. 애플리케이션 테스트 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--애플리케이션-테스트의-개념&quot;&gt;- 애플리케이션 테스트의 개념&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;잠재되어 있는 결함을 찾아내는 일련의 행위&lt;/li&gt;
+  &lt;li&gt;고객의 요구사항을 만족시키는지 확인(Validation)&lt;/li&gt;
+  &lt;li&gt;기능을 정확히 수행하는지 검증(Verrfication)&lt;/li&gt;
+  &lt;li&gt;개발할 소프트웨어의 유형을 분류하고 특성을 정리해서 중점적으로 테스트할 사항을 정리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--애플리케이션-테스트의-필요성&quot;&gt;- 애플리케이션 테스트의 필요성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그램 실행 전에 오류를 발견하여 예방&lt;/li&gt;
+  &lt;li&gt;제품의 신뢰도 향상&lt;/li&gt;
+  &lt;li&gt;새로운 오류의 유입 예방&lt;/li&gt;
+  &lt;li&gt;최소한의 시간과 노력으로 많은 결함을 찾아낼 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--애플리케이션-테스트의-기본-원리&quot;&gt;- 애플리케이션 테스트의 기본 원리&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;잠재적인 결함은 줄일 수 있지만 완벽한 소프트웨어 테스팅은 불가능&lt;/li&gt;
+  &lt;li&gt;결함 대부분은 특정 모듈에 집중. 20%의 코드에서 80%의 결함이 발견. &lt;strong&gt;&lt;em&gt;파레토 법칙&lt;/em&gt;&lt;/strong&gt; 적용&lt;/li&gt;
+  &lt;li&gt;동일한 테스트를 반복하면 더 이상 결함이 발견되지 않는 &lt;strong&gt;&lt;em&gt;살충제 패러독스&lt;/em&gt;&lt;/strong&gt; 발생&lt;/li&gt;
+  &lt;li&gt;정황에 따라 테스트를 다르게 수행&lt;/li&gt;
+  &lt;li&gt;결함을 제거해도 요구사항을 만족시키지 못하면 품질이 높다고 말할 수 없음. &lt;strong&gt;&lt;em&gt;오류 부재의 궤변&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;테스트와 위험은 반비례&lt;/li&gt;
+  &lt;li&gt;작은 부분에서 시작하여 점점 확대하며 진행&lt;/li&gt;
+  &lt;li&gt;개발자와 관계없는 별도의 팀에서 수행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-애플리케이션-테스트의-분류--b&quot;&gt;2. 애플리케이션 테스트의 분류 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--프로그램-실행-여부에-따른-테스트&quot;&gt;- 프로그램 실행 여부에 따른 테스트&lt;/h3&gt;
+
+&lt;h4 id=&quot;-정적-테스트&quot;&gt;@ 정적 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그램을 실행하지 않고 명세서나 소스 코드를 대상으로 분석&lt;/li&gt;
+  &lt;li&gt;개발 초기에 결함 발견 가능. 개발 비용을 낮출 수 있음&lt;/li&gt;
+  &lt;li&gt;워크스루, 인스펙션, 코드 검사 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-동적-테스트&quot;&gt;@ 동적 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그램을 실행하여 오류를 찾는 테스트. 개발 모든 단계에서 수행 가능&lt;/li&gt;
+  &lt;li&gt;블래박스 테스트, 화이트박스 테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--테스트-기반에-따른-테스트&quot;&gt;- 테스트 기반에 따른 테스트&lt;/h3&gt;
+
+&lt;h4 id=&quot;-명세-기반-테스트&quot;&gt;@ 명세 기반 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;요구사항에 대한 명세를 빠짐없이 테스트 케이스로 만들어 구현하고 있는지 확인&lt;/li&gt;
+  &lt;li&gt;동등 분할, 경계 값 분석 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-구조-기반-테스트&quot;&gt;@ 구조 기반 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;내부의 논리 흐름에 따라 테스트 케이스를 작성하고 확인&lt;/li&gt;
+  &lt;li&gt;구문 기반, 결정 기반, 조건 기반 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-경험-기반-테스트&quot;&gt;@ 경험 기반 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;유사 소프트웨어나 기술 등에 대한 경험을 기반으로 함&lt;/li&gt;
+  &lt;li&gt;요구사항에 대한 명세가 불충분하거나 테스트 시간에 제약이 있는 경우 효과적&lt;/li&gt;
+  &lt;li&gt;에러 추정, 체크 리스트, 탐색적 테스팅&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--시각에-따른-테스트&quot;&gt;- 시각에 따른 테스트&lt;/h3&gt;
+
+&lt;h4 id=&quot;-검증verification-테스트&quot;&gt;@ 검증(Verification) 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발자의 시각에서 명세서대로 완성됐는지 테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-확인validation-테스트&quot;&gt;@ 확인(Validation) 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자의 시각에서 요구한대로 제품이 완성됐는지, 정상 동작하는지 테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--목적에-따른-테스트&quot;&gt;- 목적에 따른 테스트&lt;/h3&gt;
+
+&lt;h4 id=&quot;-회복-테스트&quot;&gt;@ 회복 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결함을 주어 실패하도록 한 후 올바르게 복구되는지 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-안전-테스트&quot;&gt;@ 안전 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;불법적인 침입으로부터 시스템을 보호할 수 있는지 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-강도-테스트&quot;&gt;@ 강도 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;과도한 정보량이나 빈도 등을 부과하여 과부하 시에도 정상적으로 실행되는지 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-성능-테스트&quot;&gt;@ 성능 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;실시간 성능이나 전체적인 효율성을 진단하는 테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-구조-테스트&quot;&gt;@ 구조 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;내부의 논리적인 경로, 소스 코드의 복잡도 등을 평가하는 테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-회귀-테스트&quot;&gt;@ 회귀 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;변경 또는 수정된 코드에 새로운 결함이 없음을 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-병행-테스트&quot;&gt;@ 병행 테스트&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기존 소프트웨어에 동일한 데이터를 입력하여 결과를 비교&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-테스트-기법에-따른-애플리케이션-테스트--a&quot;&gt;3. 테스트 기법에 따른 애플리케이션 테스트 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--화이트박스-테스트&quot;&gt;- 화이트박스 테스트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;원시 코드를 오픈시킨 상태에서 논리적인 모든 경로를 테스트하여 테스트 케이스를 설계&lt;/li&gt;
+  &lt;li&gt;구조적 테스트. 프로시저 설계의 제어 구조를 사용하여 테스트 케이스를 설계&lt;/li&gt;
+  &lt;li&gt;테스트 과정의 초기에 적용&lt;/li&gt;
+  &lt;li&gt;모듈 안의 작동을 직접 관찰&lt;/li&gt;
+  &lt;li&gt;모든 문장을 한 번 이상 실행하여 수행&lt;/li&gt;
+  &lt;li&gt;선택, 반복 등의 분기점 부분들을 수행함으로써 논리적 경로를 제어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--화이트박스-테스트의-종류&quot;&gt;- 화이트박스 테스트의 종류&lt;/h3&gt;
+
+&lt;h4 id=&quot;-기초-경로-검사&quot;&gt;@ 기초 경로 검사&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대표적인 화이트박스 테스트 기법&lt;/li&gt;
+  &lt;li&gt;절차적 설계의 논리적 복잡성을 측정할 수 있게 해줌&lt;/li&gt;
+  &lt;li&gt;실행 경로의 기초를 정의하는 데 지침으로 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-제어-구조-검사&quot;&gt;@ 제어 구조 검사&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조건 검사 : 논리적 조건을 테스트하는 설계 기법&lt;/li&gt;
+  &lt;li&gt;루프 검사 : 반복 구조에 초점을 맞춰 실시하는 설계 기법&lt;/li&gt;
+  &lt;li&gt;데이터 흐름 검사 : 변수의 정의와 변수 사용의 위치에 초점을 맞춰 실시하는 설계 기법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--화이트박스-테스트의-검증-기준&quot;&gt;- 화이트박스 테스트의 검증 기준&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문장 검증 기준 : 모든 구문이 한 번 이상 수행되도록 설계&lt;/li&gt;
+  &lt;li&gt;분기 검증 기준 : 모든 조건문이 한 번 이상 수행되도록 설계&lt;/li&gt;
+  &lt;li&gt;조건 검증 기준 : 모든 조건문에 대해 조건문이 True, False 경우가 한 번 이상 수행되도록 설계&lt;/li&gt;
+  &lt;li&gt;분기/조건 기준 : 모든 조건문과 각 조건문에 포함된 개별 조건식의 결과가 True, False인 경우가 한 번 이상 수행되도록 설계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--블랙박스-테스트&quot;&gt;- 블랙박스 테스트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 기능이 완전히 작동되는 것을 입증하는 테스트. 기능 테스트&lt;/li&gt;
+  &lt;li&gt;요구사항 명세서를 보면서 테스트하는 것. 구현된 기능을 테스트&lt;/li&gt;
+  &lt;li&gt;인터페이스에서 실시되는 테스트&lt;/li&gt;
+  &lt;li&gt;테스트 과정의 후반부에 적용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--블랙박스-테스트의-종류&quot;&gt;- 블랙박스 테스트의 종류&lt;/h3&gt;
+
+&lt;h4 id=&quot;-동치-분할-검사&quot;&gt;@ 동치 분할 검사&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력 자료에 초점을 맞춰 검사&lt;/li&gt;
+  &lt;li&gt;타당한 입력 자료와 타당하지 않은 입력 자료의 개수를 균등하게 함. 자료에 맞는 결과가 출력되는지 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-경계값-분석&quot;&gt;@ 경계값 분석&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동치 분할 기법을 보완하기 위함&lt;/li&gt;
+  &lt;li&gt;중간값보다 경계값에서 오류가 발생될 확률이 높다는 점 이용&lt;/li&gt;
+  &lt;li&gt;입력 조건의 경계값을 테스트 케이스로 선정하여 검사&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-원인-효과-그래프-검사&quot;&gt;@ 원인-효과 그래프 검사&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력 데이터 간의 관계와 출력에 영향을 미치는 상황을 체계적으로 분석한 후 효용성 높은 케이스 선정하여 검사&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-오류-예측-검사&quot;&gt;@ 오류 예측 검사&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;과거의 경험이나 확인자의 감각으로 테스트&lt;/li&gt;
+  &lt;li&gt;보충적 검사 기법. 데이터 확인 검사&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-비교-검사&quot;&gt;@ 비교 검사&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 버전의 프로그램에 동일한 테스트 자료를 제공하여 동일한 결과가 출력되는지 테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-개발-단계에-따른-애플리케이션-테스트--a&quot;&gt;4. 개발 단계에 따른 애플리케이션 테스트 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--개발-단계에-따른-애플리케이션-테스트&quot;&gt;- 개발 단계에 따른 애플리케이션 테스트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;코드 상의 오류뿐만 아니라 요구 분석의 오류, 설계 인터페이스 오류 등도 발견할 수 있음&lt;/li&gt;
+  &lt;li&gt;애플리케이션 테스트 + 소프트웨어 개발 단계 = V-모델&lt;/li&gt;
+  &lt;li&gt;요구사항 -&amp;gt; 분석 -&amp;gt; 설계 -&amp;gt; 구현 -&amp;gt; // 단위테스트 -&amp;gt; 통합테스트 -&amp;gt; 시스템티스트 -&amp;gt; 인수테스트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--단위-테스트unit-test&quot;&gt;- 단위 테스트(Unit Test)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;설계의 최소 단위인 모듈이나 컴포넌트에 초점을 맞춰 테스트&lt;/li&gt;
+  &lt;li&gt;사용자의 요구사항을 기반으로 한 기능성 테스트를 최우선으로 수행&lt;/li&gt;
+  &lt;li&gt;구조 기반 테스트와 명세기반 테스트로 나뉘지만 주로 구조 기반 테스트를 시행
+    &lt;ul&gt;
+      &lt;li&gt;구조 기반 테스트 : 화이트박스 테스트&lt;/li&gt;
+      &lt;li&gt;명세 기반 테스트 : 블랙박스 테스트&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--통합-테스트integration-test&quot;&gt;- 통합 테스트(Integration Test)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단위 테스트가 완료된 모듈들을 결합하여 하나의 시스템으로 완성시키는 과정에서의 테스트&lt;/li&gt;
+  &lt;li&gt;모듈 간 또는 통합된 컴포넌트 간의 상호 작용 오류를 검사&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--시스템-테스트system-test&quot;&gt;- 시스템 테스트(System Test)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발된 S/W가 해당 컴퓨터 시스템에서 완벽하게 수행되는가를 점검&lt;/li&gt;
+  &lt;li&gt;실제 사용 환경과 유사하게 만든 테스트 환경에서 수행&lt;/li&gt;
+  &lt;li&gt;기능적 요구사항 : 블랙박스 테스트 시행&lt;/li&gt;
+  &lt;li&gt;비기능적 요구사항 : 화이트박스 테스트 시행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--인수-테스트acceptance-test&quot;&gt;- 인수 테스트(Acceptance Test)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발한 S/W가 사용자의 요구사항을 충족하는지에 중점&lt;/li&gt;
+  &lt;li&gt;사용자가 직접 테스트&lt;/li&gt;
+  &lt;li&gt;문제가 없으면 사용자는 S/W를 인수하고 프로젝트 종료&lt;/li&gt;
+  &lt;li&gt;사용자 인수 테스트 : 사용자가 시스템 사용의 적절성 여부 확인&lt;/li&gt;
+  &lt;li&gt;운영상의 인수 테스트 : 시스템 관리자가 수행&lt;/li&gt;
+  &lt;li&gt;계약 인수 테스트 : 계약상의 인수/검수 조건을 준수하는지 여부 확인&lt;/li&gt;
+  &lt;li&gt;규정 인수 테스트 : 규정에 맞게 개발되었는지 확인&lt;/li&gt;
+  &lt;li&gt;알파 테스트
+    &lt;ul&gt;
+      &lt;li&gt;개발자의 장소에서 사용자가 개발자 앞에서 행하는 테스트&lt;/li&gt;
+      &lt;li&gt;통제된 환경에서 시행. 문제점을 사용자와 개발자가 함께 확인&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;베타 테스트
+    &lt;ul&gt;
+      &lt;li&gt;최종 사용자가 여러 명의 사용자 앞에서 행하는 테스트&lt;/li&gt;
+      &lt;li&gt;사용자가 직접 테스트&lt;/li&gt;
+      &lt;li&gt;개발자에 의해 제어되지 않은 상태에서 테스트&lt;/li&gt;
+      &lt;li&gt;오류와 사용상의 문제점을 기록하고 개발자에게 주기적으로 보고&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-통합-테스트--a&quot;&gt;5. 통합 테스트 – A&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단위 테스트가 끝난 모듈을 통합하는 과정에서 발생하는 오류 및 결함을 찾는 테스트&lt;/li&gt;
+  &lt;li&gt;비점진적 통합 방식
+    &lt;ul&gt;
+      &lt;li&gt;모든 모둘이 미리 결합되어 있는 프로그램 전체를 테스트. 빅뱅 통합 테스트&lt;/li&gt;
+      &lt;li&gt;규모가 작은 소프트웨어에 유리. 단시간 내에 테스트 가능&lt;/li&gt;
+      &lt;li&gt;오류 발견 및 장애 위치 파악 및 수정이 어려움&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;점진적 통합 방식
+    &lt;ul&gt;
+      &lt;li&gt;모듈 단위로 단계적으로 통합하면서 테스트. 하향식, 상향식, 혼합식&lt;/li&gt;
+      &lt;li&gt;오류 수정이 용이하고, 인터페이스와 연관된 오류를 완전히 테스트 할 가능성 높음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--하향식-통합-테스트&quot;&gt;- 하향식 통합 테스트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상위 모듈에서 하위 모듈 방향으로 통합하면서 테스트&lt;/li&gt;
+  &lt;li&gt;깊이 우선 통합법이나 넓이 우선 통합법 사용&lt;/li&gt;
+  &lt;li&gt;테스트 초기부터 사용자에게 시스템 구조를 보여줄 수 있음&lt;/li&gt;
+  &lt;li&gt;상위 모듈에서는 테스트 케이스를 사용하기 어려움&lt;/li&gt;
+  &lt;li&gt;절차
+    &lt;ol&gt;
+      &lt;li&gt;주요 제어 모듈은 작성된 프로그램 사용. 종속 모듈은 Stub으로 대체&lt;/li&gt;
+      &lt;li&gt;하위 모듈인 Stub들이 한 번에 하나씩 실제 모듈로 교체됨&lt;/li&gt;
+      &lt;li&gt;모듈이 통합될 때마다 테스트를 실시&lt;/li&gt;
+      &lt;li&gt;새로운 오류가 발생하지 않음을 보증하기 위해 회귀 테스트 실시&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--상향식-통합-테스트&quot;&gt;- 상향식 통합 테스트&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하위 모듈에서 상위 모듈 방향으로 통합하면서 테스트&lt;/li&gt;
+  &lt;li&gt;Stub은 필요하지 않지만, 하나의 주요 제어 모듈과 관련된 종속 모듈의 그룹인 Cluster가 필요
+-절차
+    &lt;ol&gt;
+      &lt;li&gt;하위 모듈들을 Cluster로 결합&lt;/li&gt;
+      &lt;li&gt;더미 모듈인 Driver를 작성&lt;/li&gt;
+      &lt;li&gt;통합된 클러스터 단위로 테스트&lt;/li&gt;
+      &lt;li&gt;테스트가 완료되면 Cluster는 프로그램 구조의 상위로 이동하여 결합하고 Driver는 실제 모듈로 대체&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--테스트-driver와-stub의-차이점&quot;&gt;- 테스트 Driver와 Stub의 차이점&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;구분&lt;/th&gt;
+      &lt;th&gt;Driver&lt;/th&gt;
+      &lt;th&gt;Stub&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;필요시기&lt;/td&gt;
+      &lt;td&gt;상위 모듈 없음&lt;/td&gt;
+      &lt;td&gt;하위 모듈 없음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;테스트방식&lt;/td&gt;
+      &lt;td&gt;상향식&lt;/td&gt;
+      &lt;td&gt;하향식&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;공통점&lt;/td&gt;
+      &lt;td&gt;소프트웨어 개발과 테스트를 병행할 경우 이용&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;차이점&lt;/td&gt;
+      &lt;td&gt;인터페이스 역할, 원래 모듈로 교체&lt;/td&gt;
+      &lt;td&gt;가짜 모듈의 역할, 작성하기 쉬움&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 2과목 4장</summary></entry><entry><title type="html">[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp7/" rel="alternate" type="text/html" title="[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징" /><published>2021-07-30T20:00:00+09:00</published><updated>2021-07-31T05:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp7</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp7/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-소프트웨어-패키징--b&quot;&gt;1. 소프트웨어 패키징 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--소프트웨어-패키징의-개요&quot;&gt;- 소프트웨어 패키징의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모듈별로 생성한 실행 파일들을 묶어 배포용 설치 파일을 만드는 것&lt;/li&gt;
+  &lt;li&gt;사용자를 중심으로 진행&lt;/li&gt;
+  &lt;li&gt;모듈화하여 패키징&lt;/li&gt;
+  &lt;li&gt;일반적인 배포 형태로 패키징&lt;/li&gt;
+  &lt;li&gt;사용자의 편의성 및 실행 환경을 우선적으로 고려&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--패키징-시-고려사항&quot;&gt;- 패키징 시 고려사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자의 시스템 환경에 필요한 최소 환경을 정의&lt;/li&gt;
+  &lt;li&gt;UI는 눈으로 직접 확인할 수 있도록 시각적인 자료와 함께 제공하고 매뉴얼과 일치&lt;/li&gt;
+  &lt;li&gt;하드웨어와 함께 관리될 수 있도록 Managed Service 형태로 제공&lt;/li&gt;
+  &lt;li&gt;편의성을 고려한 안정적인 배포가 중요&lt;/li&gt;
+  &lt;li&gt;패키징의 변경 및 개선에 대한 관리를 항상 고려&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--패키징-작업-순서&quot;&gt;- 패키징 작업 순서&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;애자일 기법의 경우 2~4주 내에서 지정하며, 각 주기가 끝날 때마다 패키징 수행&lt;/li&gt;
+  &lt;li&gt;주기별로 패키징한 결과물은 테스트 서버에 배포&lt;/li&gt;
+  &lt;li&gt;최종 패키징한 결과물은 사용할 수 있도록 온라인 또는 오프라인으로 배포&lt;/li&gt;
+  &lt;li&gt;기능 식별 -&amp;gt; 모듈화 -&amp;gt; 빌드 -&amp;gt; 사용자 환경 분석 -&amp;gt; 패키징 및 적용시험 -&amp;gt; 패키징 변경 개선 -&amp;gt; 배포&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-릴리즈-노트-작성--b&quot;&gt;2. 릴리즈 노트 작성 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--릴리즈-노트의-개요&quot;&gt;- 릴리즈 노트의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;릴리즈 정보를 소프트웨어의 최종 사용자인 고객과 공유하기 위한 문서&lt;/li&gt;
+  &lt;li&gt;테스트 진행 방법에 대한 결과와 S/W 사양에 대한 개발팀의 정확한 준수 여부 확인 가능&lt;/li&gt;
+  &lt;li&gt;전체 기능, 서비스의 내용, 개선 사항 등을 사용자와 공유&lt;/li&gt;
+  &lt;li&gt;버전 관리나 릴리즈 정보를 체계적으로 관리&lt;/li&gt;
+  &lt;li&gt;초기 배포 시 또는 출시 후 개선 사항을 적용한 추가 배포 시에 제공&lt;/li&gt;
+  &lt;li&gt;포함된 기능이나 사용 환경에 대한 내용을 확인&lt;/li&gt;
+  &lt;li&gt;개선된 작업이 있을 때마다 관련 내용을 릴리즈 노트에 담아 제공&lt;/li&gt;
+  &lt;li&gt;철저한 테스트를 거친 것, 사양에 대한 최종 승인을 얻은 후 문서화 되어 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--릴리즈-노트-초기-버전-작성-시-고려사항&quot;&gt;- 릴리즈 노트 초기 버전 작성 시 고려사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정확하고 완전한 정보를 기반으로 개발팀에서 직접 현재 시제로 작성&lt;/li&gt;
+  &lt;li&gt;변경 또는 개선된 항목에 대한 이력 정보들도 작성&lt;/li&gt;
+  &lt;li&gt;표준 형식은 없음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--릴리즈-노트-추가-버전-작성-시-고려사항&quot;&gt;- 릴리즈 노트 추가 버전 작성 시 고려사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특수한 상황이 발생하는 경우 릴리즈 노트를 추가로 작성&lt;/li&gt;
+  &lt;li&gt;모든 수정된 내용을 담아 릴리즈 노트를 작성&lt;/li&gt;
+  &lt;li&gt;기능 업그레이드를 완료한 경우에는 릴리즈 버전을 출시하고 릴리즈 노트를 작성&lt;/li&gt;
+  &lt;li&gt;요구사항에 의해 추가나 수정된 경우 별도의 릴리즈 버전으로 출시하고 릴리즈 노트 작성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--릴리즈-노트-작성-순서&quot;&gt;- 릴리즈 노트 작성 순서&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모듈 식별 -&amp;gt; 릴리즈 정보 확인 -&amp;gt; 릴리즈 노트 개요 작성 -&amp;gt; 영향도 체크 -&amp;gt; 정식 릴리즈 노트 작성 -&amp;gt; 추가 개선 항목 식별&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-디지털-저작권-관리drm--a&quot;&gt;3. 디지털 저작권 관리(DRM) – A&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;저작권이란 창작자가 가지는 배타적 독점적 권리로 타인의 침해를 받지 않을 고유한 권한&lt;/li&gt;
+  &lt;li&gt;복제하기 쉬운 저작물에 대해 이를 막기 위한 기술적인 방법을 통칭해 저작권 보호 기술이라 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--디지털-저작권-관리drm-digital-right-management의-개요&quot;&gt;- 디지털 저작권 관리(DRM; Digital Right Management)의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;디지털 콘텐츠 관리 및 보호 기술&lt;/li&gt;
+  &lt;li&gt;원본 콘텐츠가 아날로그인 경우 디지털로 변환한 후 패키저로 DRM 패키징 수행&lt;/li&gt;
+  &lt;li&gt;크기가 작은 경우 실시간 패키징 수행, 크기가 큰 경우 미리 패키징 수행 후 배포&lt;/li&gt;
+  &lt;li&gt;패키징을 수행하면 암호화된 전자서명이 포함되고 라이선스 정보가 클리어링 하우스에 등록&lt;/li&gt;
+  &lt;li&gt;콘텐츠를 사용하기 위해 사용자 인증과 콘텐츠 사용 권한 소유 여부를 확인&lt;/li&gt;
+  &lt;li&gt;종량제 방식을 적용한 경우 실제 사용량을 측정하여 이용한 만큼의 요금 부과&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--디지털-저작권-관리의-흐름도&quot;&gt;- 디지털 저작권 관리의 흐름도&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클리어링 하우스 : 저작권에 대한 사용 권한, 라이선스 발급, 결제 관리 등 수행&lt;/li&gt;
+  &lt;li&gt;콘텐츠 제공자 : 콘텐츠를 제공하는 저작권자&lt;/li&gt;
+  &lt;li&gt;패키저 : 콘텐츠를 메타 데이터와 함께 배포 가능한 형태로 묶어 암호화하는 프로그램&lt;/li&gt;
+  &lt;li&gt;콘텐츠 분배자 : 암호화된 콘텐츠를 유통하는 곳이나 사람&lt;/li&gt;
+  &lt;li&gt;콘텐츠 소비자 : 콘텐츠를 구매해서 사용하는 주체&lt;/li&gt;
+  &lt;li&gt;DRM 컨트롤러 : 배포된 콘텐츠의 이용 권한을 통제하는 프로그램&lt;/li&gt;
+  &lt;li&gt;보안 컨테이너 : 콘텐츠 원본을 안전하게 유통하기 위한 전자적 보안 장치&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--디지털-저작권-관리의-기술-요소&quot;&gt;- 디지털 저작권 관리의 기술 요소&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;암호화(Encryption) : 콘텐츠를 암호화하고 전자 서명을 할 수 있는 기술&lt;/li&gt;
+  &lt;li&gt;키 관리(Key Management) : 콘텐츠를 암호화한 키에 대한 저장 및 분배 기술&lt;/li&gt;
+  &lt;li&gt;암호화 파일 생성(Packager) : 콘텐츠를 암호화된 콘텐츠로 생성하기 위한 기술&lt;/li&gt;
+  &lt;li&gt;식별 기술(Identification) : 콘텐츠에 대한 식별 체계 표현 기술&lt;/li&gt;
+  &lt;li&gt;저작권 표현(Right Expression) : 라이선스의 내용 표현 기술&lt;/li&gt;
+  &lt;li&gt;정책 관리(Policy Management) : 라이선스 발급 및 사용에 대한 정책 표현 및 관리 기술&lt;/li&gt;
+  &lt;li&gt;크랙 방지(Tamper Resistance) : 크랙에 의한 콘텐츠 사용 방지 기술&lt;/li&gt;
+  &lt;li&gt;인증(Authentication) : 라이선스 발급 및 사용의 기준이 되는 사용자 인증 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-소프트웨어-버전-등록--b&quot;&gt;4. 소프트웨어 버전 등록 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--소프트웨어-패키징의-형상-관리&quot;&gt;- 소프트웨어 패키징의 형상 관리&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;형상관리(SCM)는 소프트웨어의 변경 사항을 관리하기 위해 개발된 일련의 활동&lt;/li&gt;
+  &lt;li&gt;S/W 변경의 원인을 알아내고 제어, 적절히 변경되고 있는지 확인하며 해당 담당자에게 통보&lt;/li&gt;
+  &lt;li&gt;S/W 개발의 전 단계에 적용되는 활동. 유지보수 단계에서도 수행&lt;/li&gt;
+  &lt;li&gt;S/W 개발의 전체 비용을 줄이고, 방해 요인이 최소화되도록 보증&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--형상-관리의-중요성&quot;&gt;- 형상 관리의 중요성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;변경 사항을 체계적으로 추적하고 통제할 수 있음&lt;/li&gt;
+  &lt;li&gt;무절제한 변경을 방지할 수 있음&lt;/li&gt;
+  &lt;li&gt;발견된 버그나 수정 사항을 추적할 수 있음&lt;/li&gt;
+  &lt;li&gt;S/W는 형태가 없어 가시성이 결핍되므로 진행 정도를 확인하기 위한 기준으로 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--형상-관리-기능&quot;&gt;- 형상 관리 기능&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;형상 식별 : 이름과 관리 번호를 부여, Tree 구조로 구분하여 수정 및 추적이 용이하도록 함&lt;/li&gt;
+  &lt;li&gt;버전 제어 : 다른 버전의 형상 항목을 관리, 특정 절차와 도구를 결합&lt;/li&gt;
+  &lt;li&gt;형상 통제 : 변경 요구를 검토하여 현재의 기준선이 잘 반영될 수 있도록 조정&lt;/li&gt;
+  &lt;li&gt;형상 감사 : 기준선의 무결성을 평가하기 위해 공식적으로 승인하는 작업&lt;/li&gt;
+  &lt;li&gt;형상 기록 : 결과를 기록, 관리하고 보고서를 작성하는 작업&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--소프트웨어의-버전-등록-관련-주요-용어&quot;&gt;- 소프트웨어의 버전 등록 관련 주요 용어&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Repository : 최신 버전의 파일들과 변경 내역에 대한 정보들이 저장&lt;/li&gt;
+  &lt;li&gt;Import : 아무것도 없는 저장소에 처음으로 파일을 복사&lt;/li&gt;
+  &lt;li&gt;Check-Out : 저장소에서 파일을 받아옴. 버전관리를 위한 파일들도 받아옴&lt;/li&gt;
+  &lt;li&gt;Check-In : 수정을 완료한 후 저장소의 파일을 새로운 버전으로 갱신&lt;/li&gt;
+  &lt;li&gt;Commit : 충돌을 알리고 diff 도구를 이용해 수정한 후 갱신을 완료&lt;/li&gt;
+  &lt;li&gt;Update : 저장소에 있는 최신 버전으로 자신의 작업 공간을 동기화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--소프트웨어-버전-등록-과정&quot;&gt;- 소프트웨어 버전 등록 과정&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Import -&amp;gt; Check-Out -&amp;gt; Commit -&amp;gt; Update -&amp;gt; Diff&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-소프트웨어-버전-관리-도구--a&quot;&gt;5. 소프트웨어 버전 관리 도구 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--공유-폴더-방식&quot;&gt;- 공유 폴더 방식&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;로컬 컴퓨터의 공유 폴더에 저장되어 관리&lt;/li&gt;
+  &lt;li&gt;약속된 공유 폴더에 매일 복사&lt;/li&gt;
+  &lt;li&gt;담당자는 파일을 자기 PC로 복사한 후 컴파일 하여 이상 유무를 확인&lt;/li&gt;
+  &lt;li&gt;파일 오류가 확인되면, 개발자에게 수정 의뢰&lt;/li&gt;
+  &lt;li&gt;이상 없으면 개발자들이 동작 여부 다시 확인&lt;/li&gt;
+  &lt;li&gt;파일의 변경 사항을 DB에 기록하여 관리&lt;/li&gt;
+  &lt;li&gt;SCCS, RCS, PVCS, QVCS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--클라이언트서버-방식&quot;&gt;- 클라이언트/서버 방식&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;버전 관리 자료가 중앙 시스템에 저장되어 관리되는 방식&lt;/li&gt;
+  &lt;li&gt;서버의 자료를 PC로 복사하여 작업한 후 변경된 내용을 서버에 반영&lt;/li&gt;
+  &lt;li&gt;모든 버전 관리는 서버에서 수행&lt;/li&gt;
+  &lt;li&gt;하나의 파일을 서로 다른 개발자가 작업할 경우 경고 메시지 출력&lt;/li&gt;
+  &lt;li&gt;서버에 문제가 생기면 협업 및 버전 관리 작업 중단&lt;/li&gt;
+  &lt;li&gt;CVS, SVN(Subversion), CVSNT, Clear Case, CMVC, Perforce&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-subversion서브버전-svn&quot;&gt;@ Subversion(서브버전, SVN)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CVS를 개선한 것&lt;/li&gt;
+  &lt;li&gt;서버에는 최신 버전의 파일들과 변경 내역이 관리&lt;/li&gt;
+  &lt;li&gt;서버의 자료를 클라이언트로 복사해와 작업한 후 변경 내용을 서버에 반영&lt;/li&gt;
+  &lt;li&gt;모든 개발 작업은 trunk 디렉터리에서 수행&lt;/li&gt;
+  &lt;li&gt;추가 작업은 branches 디렉터리 안에 별도의 디렉터리 만들어 작업&lt;/li&gt;
+  &lt;li&gt;완료후 trunk 디렉터리와 병합&lt;/li&gt;
+  &lt;li&gt;커밋 할 때마다 리비전이 1씩 증가&lt;/li&gt;
+  &lt;li&gt;서버는 주로 유닉스 사용&lt;/li&gt;
+  &lt;li&gt;소스가 오픈되어 있어 무료로 사용 가능&lt;/li&gt;
+  &lt;li&gt;CVS의 단점이었던 파일이나 디렉터리의 이름 변경, 이동 등이 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--분산-저장소-방식&quot;&gt;- 분산 저장소 방식&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하나의 원격 저장소와 분산된 개발자 PC의 로컬 저장소에 함께 저장되어 관리&lt;/li&gt;
+  &lt;li&gt;작업한 후 변경된 내용을 로컬에서 우선 반영한 후, 이를 원격 저장소에 반영&lt;/li&gt;
+  &lt;li&gt;원격 저장소에 문제가 생겨도 로컬 저장소의 자료를 이용하여 작업할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-git&quot;&gt;@ Git&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;로컬 저장소와 원격 저장소 존재&lt;/li&gt;
+  &lt;li&gt;로컬 저장소는 실제 개발을 진행하는 장소로, 버전 관리가 수행&lt;/li&gt;
+  &lt;li&gt;원격 저장소는 버전을 공동 관리하는 곳&lt;/li&gt;
+  &lt;li&gt;버전 관리가 신속하게 처리되고, 원격 저장소나 네트워크에 문제가 있어도 작업 가능&lt;/li&gt;
+  &lt;li&gt;branch를 이용하면 기본 버전 관리 틀에 영향을 주지 않으면서 다양한 형태의 기능 테스팅 가능&lt;/li&gt;
+  &lt;li&gt;파일의 변화를 스냅샷으로 저장. 스냅샷은 이전 스냅샷의 포인터를 가지므로 버전의 흐름 파악 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;6-빌드-자동화-도구--b&quot;&gt;6. 빌드 자동화 도구 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--빌드-자동화-도구의-개념&quot;&gt;- 빌드 자동화 도구의 개념&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;빌드란 소스 코드 파일들을 컴파일한 후 여러 개의 모듈을 묶어 실행 파일로 만드는 과정&lt;/li&gt;
+  &lt;li&gt;빌드 자동화 도구는 빌드를 포함하여 테스트 및 배포를 자동화하는 도구&lt;/li&gt;
+  &lt;li&gt;애자일 환경같은 지속적인 통합 개발 환경에서 유용하게 활용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--jenkins&quot;&gt;- Jenkins&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jenkins는 Java 기반의 오픈소스 형태, 가장 많이 사용되는 빌드 자동화 도구&lt;/li&gt;
+  &lt;li&gt;서블릿 컨테이너에서 실행되는 서버 기반 도구&lt;/li&gt;
+  &lt;li&gt;SVN, Git 등 대부분의 형상 관리 도구와 연동이 가능&lt;/li&gt;
+  &lt;li&gt;친숙한 Web GUI 제공으로 사용이 쉬움&lt;/li&gt;
+  &lt;li&gt;여러 대의 컴퓨터를 이용한 분산 빌드나 테스트가 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--gradle&quot;&gt;- Gradle&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Groovy를 기반으로 한 오픈 소스 형태의 자동화 도구. 안드로이드 앱 개발 환경에서 사용&lt;/li&gt;
+  &lt;li&gt;플러그인을 설정하면 Java, C/C++, Python 등의 언어도 빌드 가능&lt;/li&gt;
+  &lt;li&gt;Groovy를 사용해서 만든 DSL(Domain Specific Language)을 스크립트 언어로 사용&lt;/li&gt;
+  &lt;li&gt;실행할 처리 명령을 모아 Task로 만든 후 Task 단위로 실행&lt;/li&gt;
+  &lt;li&gt;Task를 재사용하거나 공유할 수 있는 빌드 캐시 기능을 지원해 빌드의 속도를 향상시킬 수 있음&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 2과목 3장</summary></entry><entry><title type="html">[정보처리기사 필기] 2-2. 통합 구현</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp6/" rel="alternate" type="text/html" title="[정보처리기사 필기] 2-2. 통합 구현" /><published>2021-07-30T19:00:00+09:00</published><updated>2021-07-31T04:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp6</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp6/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-단위-모듈-테스트--b&quot;&gt;1. 단위 모듈 테스트 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--단위-모듈-테스트의-개요&quot;&gt;- 단위 모듈 테스트의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모듈이 정해진 기능을 정확히 수행하는지 검증&lt;/li&gt;
+  &lt;li&gt;단위 테스르라고도 하며, 화이트박스 테스트와 블랙박스 테스트 기법 사용&lt;/li&gt;
+  &lt;li&gt;모듈을 단독적으로 실행할 수 있는 환경과 테스트에 필요한 데이터 모두 준비&lt;/li&gt;
+  &lt;li&gt;에러를 쉽게 발견하고 수정할 수 있음&lt;/li&gt;
+  &lt;li&gt;시스템 수준의 오류는 잡아낼 수 없음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--테스트-케이스&quot;&gt;- 테스트 케이스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자의 요구사항을 정확하게 준수했는지를 확인하기 위함&lt;/li&gt;
+  &lt;li&gt;테스트 항목에 대한 명세서로, 명세 기반 테스트의 설계 산출물에 해당&lt;/li&gt;
+  &lt;li&gt;직관적인 테스트는 검증이 누락되거나 불필요한 반복으로 인력과 시간을 낭비 할 수 있음&lt;/li&gt;
+  &lt;li&gt;ISO/IEC/IEEE 29119-3 표준에 따른 테스트 케이스 구성 요소
+    &lt;ul&gt;
+      &lt;li&gt;식별자&lt;/li&gt;
+      &lt;li&gt;테스트 항목&lt;/li&gt;
+      &lt;li&gt;입력 명세&lt;/li&gt;
+      &lt;li&gt;출력 명세&lt;/li&gt;
+      &lt;li&gt;환경 설정&lt;/li&gt;
+      &lt;li&gt;특수 절차 요구&lt;/li&gt;
+      &lt;li&gt;의존성 기술&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--테스트-프로세스&quot;&gt;- 테스트 프로세스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;게획 및 제어 -&amp;gt; 분석 밀 설계 -&amp;gt; 구현 및 실현 -&amp;gt; 평가 -&amp;gt; 완료&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-개발-지원-도구--b&quot;&gt;2. 개발 지원 도구 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--통합-개발-환경ide-integrated-development-environment&quot;&gt;- 통합 개발 환경(IDE; Integrated Development Environment)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;편집기, 컴파일러, 디버거 등의 다양한 툴을 하나의 인터페이스로 통합하여 제공&lt;/li&gt;
+  &lt;li&gt;통합 개발 환경을 제공하는 S/W&lt;/li&gt;
+  &lt;li&gt;코드의 자동 생성 및 컴파일 가능, 추가 기능을 위한 도구를 추가할 수 있음&lt;/li&gt;
+  &lt;li&gt;오류가 발생할 부분을 시각화하므로 수정이 용이&lt;/li&gt;
+  &lt;li&gt;다양한 서비스와 연동하여 개발에 편의를 제공하고 필요한 정보를 공유&lt;/li&gt;
+  &lt;li&gt;이클립스, 비주얼 스튜디오, 엑스 코드, 안드로이드 스튜디오, IDEA 등&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--빌드-도구&quot;&gt;- 빌드 도구&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;빌드는 소스 코드 파일들을 실행할 수 있는 제품 S/W로 변환하는 과정 또는 결과물&lt;/li&gt;
+  &lt;li&gt;전처리, 컴파일 등의 작업들을 수행하는 S/W&lt;/li&gt;
+  &lt;li&gt;Ant
+    &lt;ul&gt;
+      &lt;li&gt;자바 프로젝트의 공식 빌드 도구&lt;/li&gt;
+      &lt;li&gt;XML 기반의 빌드 스크립트, 자유도와 유연성이 높음&lt;/li&gt;
+      &lt;li&gt;개발자가 모든 것을 정의, 스크립트 재사용이 어려움&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Maven
+    &lt;ul&gt;
+      &lt;li&gt;Ant의 대안으로 개발됨&lt;/li&gt;
+      &lt;li&gt;규칙이나 표준이 존재하여 예외 사항만 기록, 컴파일과 빌드를 동시에 수행&lt;/li&gt;
+      &lt;li&gt;의존성을 설정하여 라이브러리를 관리&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Gradle
+    &lt;ul&gt;
+      &lt;li&gt;Ant와 Mavn을 보완하여 개발&lt;/li&gt;
+      &lt;li&gt;안드로이드 스튜디오의 공식 빌드 도구&lt;/li&gt;
+      &lt;li&gt;의존성을 활용하여 Groovy 기반의 빌드 스크립트 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--기타-협업-도구&quot;&gt;- 기타 협업 도구&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서로 다른 작업 환경에서 원활히 프로젝트를 수행할 수 있도록 도와주는 도구&lt;/li&gt;
+  &lt;li&gt;업무 보조 도구 포함&lt;/li&gt;
+  &lt;li&gt;다양한 플랫폼에서 사용할 수 있도록 제공&lt;/li&gt;
+  &lt;li&gt;익숙하지 않거나 이용할 의지가 없으면 오히려 협업의 방해 요소가 될 수 있음&lt;/li&gt;
+  &lt;li&gt;협업 도구 종류
+    &lt;ul&gt;
+      &lt;li&gt;일정 관리 : Google Calendar, Wunderlist, Trello, Jira, Flow&lt;/li&gt;
+      &lt;li&gt;정보 공유 및 커뮤니케이션 : Slack, Jandi, Taskworld&lt;/li&gt;
+      &lt;li&gt;디자인 : Sketch, Zeplin&lt;/li&gt;
+      &lt;li&gt;기타 : Evernote(아이디어 공유), Swagger(API 문서화로 협업도움), Github&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 2과목 2장</summary></entry><entry><title type="html">[정보처리기사 필기] 2-1. 데이터 입출력 구현</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp5/" rel="alternate" type="text/html" title="[정보처리기사 필기] 2-1. 데이터 입출력 구현" /><published>2021-07-30T04:00:05+09:00</published><updated>2021-07-30T13:00:05+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp5</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp5/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-자료구조--a&quot;&gt;1. 자료구조 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--자료-구조의-정의&quot;&gt;- 자료 구조의 정의&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자료의 표현과 그것과 관련된 연산&lt;/li&gt;
+  &lt;li&gt;자료들을 조직하고 구조화하는 것&lt;/li&gt;
+  &lt;li&gt;필요한 모든 연산들을 처리할 수 있음&lt;/li&gt;
+  &lt;li&gt;프로그램 실행시간이 달라짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--자료-구조의-분류&quot;&gt;- 자료 구조의 분류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;선형 구조
+    &lt;ul&gt;
+      &lt;li&gt;배열&lt;/li&gt;
+      &lt;li&gt;선형 리스트
+        &lt;ul&gt;
+          &lt;li&gt;연속 리스트&lt;/li&gt;
+          &lt;li&gt;연결 리스트&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;스택&lt;/li&gt;
+      &lt;li&gt;큐&lt;/li&gt;
+      &lt;li&gt;데크&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;비선형 구조
+    &lt;ul&gt;
+      &lt;li&gt;트리&lt;/li&gt;
+      &lt;li&gt;그래프&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--배열array&quot;&gt;- 배열(Array)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 자료형의 데이터들이 같은 크기로 나열되어 순서를 갖고 있는 집합&lt;/li&gt;
+  &lt;li&gt;정적인 자료구조&lt;/li&gt;
+  &lt;li&gt;기억장소 추가가 어려움&lt;/li&gt;
+  &lt;li&gt;데이터 삭제 시 데이터가 저장되어 있던 기억장소가 빈 공간으로 남아있어 메모리 낭비 발생&lt;/li&gt;
+  &lt;li&gt;첨자를 이용하여 데이터에 접근&lt;/li&gt;
+  &lt;li&gt;반복적인 데이터 처리 작업에 적합한 구조&lt;/li&gt;
+  &lt;li&gt;동일한 이름의 변수를 사용하여 처리가 간편&lt;/li&gt;
+  &lt;li&gt;첨자의 개수에 따라 n차원 배열이라고 부름&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--선형-리스트linear-list&quot;&gt;- 선형 리스트(Linear List)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;일정한 순서에 의해 나열된 자료 구조&lt;/li&gt;
+  &lt;li&gt;배열을 이용하는 연속 리스트, 포인터를 이용하는 연결 리스트로 구분&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-연속-리스트contiguous-list&quot;&gt;@ 연속 리스트(Contiguous List)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;연속되는 기억장소에 저장되는 자료 구조&lt;/li&gt;
+  &lt;li&gt;기억장소 이용 효율은 밀도가 1로서 가장 좋음&lt;/li&gt;
+  &lt;li&gt;데이터 삽입, 삭제 시 자료의 이동이 필요&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-연결-리스트linked-list&quot;&gt;@ 연결 리스트(Linked List)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자료들을 반드시 연속적으로 배열시키지 않고 노드의 포인터 부분을 이용해서 서로 연결&lt;/li&gt;
+  &lt;li&gt;노드의 삽입, 삭제 작업이 용이&lt;/li&gt;
+  &lt;li&gt;기억공간이 연속적으로 놓여있지 않아도 저장 가능&lt;/li&gt;
+  &lt;li&gt;순차 리스트에 비해 기억 공간의 이용 효율이 좋지 않음&lt;/li&gt;
+  &lt;li&gt;포인터를 찾는 시간이 필요해 접근 속도가 느림&lt;/li&gt;
+  &lt;li&gt;중간 노드 연결이 끊어지면 그 다음 노드를 찾기 힘듬&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--스택stack&quot;&gt;- 스택(Stack)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리스트의 한쪽 끝으로만 자료의 삽입, 삭제가 이루어짐&lt;/li&gt;
+  &lt;li&gt;후입선출(LIFO)&lt;/li&gt;
+  &lt;li&gt;기억공간이 꽉 차있는 상태에서 삽입되면 Overflow 발생&lt;/li&gt;
+  &lt;li&gt;기억공간이 비어있는 상태에서 삭제하면 Underflow 발생&lt;/li&gt;
+  &lt;li&gt;삽입(PUSH), 삭제(POP), 마지막 삽입 자료(Top), 밑바닥(Bottom)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--큐queue&quot;&gt;- 큐(Queue)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리스트의 한쪽에서는 삽입, 다른 한쪽에서는 삭제가 이루어짐&lt;/li&gt;
+  &lt;li&gt;선입선출(FIFO)&lt;/li&gt;
+  &lt;li&gt;시작과 끝을 표시하는 두 개의 포인터가 있음&lt;/li&gt;
+  &lt;li&gt;프런트(F, Front) 포인터 : 가장 먼저 삽입된 자료의 기억공간을 가리킴. 삭제 작업&lt;/li&gt;
+  &lt;li&gt;리어(R, Rear) 포인터 : 가장 마지막에 삽입된 자료의 기억공간을 가리킴. 삽입작업&lt;/li&gt;
+  &lt;li&gt;운영체제의 작업 스케줄링에 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--트리tree&quot;&gt;- 트리(Tree)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정점(Node)과 선분(Branch)을 이용하여 사이클을 이루지 않도록 구성한 그래프의 형태&lt;/li&gt;
+  &lt;li&gt;하나의 기억공간을 노드(Node), 노드와 노드를 연결하는 선을 링크(Link)&lt;/li&gt;
+  &lt;li&gt;가족의 계보, 조직도 등을 표현하기 적합&lt;/li&gt;
+  &lt;li&gt;노드 : 자료 항목과 다른 항목에 대한 가지를 합친 것&lt;/li&gt;
+  &lt;li&gt;근 노드(Root Node) : 트리의 맨 위에 있는 노드&lt;/li&gt;
+  &lt;li&gt;차수(Degree) : 각 노드에서 뻗어 나온 가지의 수&lt;/li&gt;
+  &lt;li&gt;단말 노드(Terminal Node) = 잎 노드(Leaf Node) : 자식이 하나도 없는 노드&lt;/li&gt;
+  &lt;li&gt;자식 노드(Son Node) : 어떤 노드에 연결된 다음 레벨의 노드들&lt;/li&gt;
+  &lt;li&gt;부모 노드(Parent Node) : 어떤 노드에 연결된 이전 레벨의 노드들&lt;/li&gt;
+  &lt;li&gt;형제 노드(Brother Node, Sibling) : 동일한 부모를 갖는 노드들&lt;/li&gt;
+  &lt;li&gt;트리의 차수 : 노드들의 차수 중에서 가장 많은 수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-데이터저장소--데이터베이스--dbms--a&quot;&gt;2. 데이터저장소 / 데이터베이스 / DBMS – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--데이터저장소&quot;&gt;- 데이터저장소&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터들을 논리적인 구조로 조직화하거나, 물리적인 공간에 구축한 것&lt;/li&gt;
+  &lt;li&gt;논리 데이터 저장소 : 데이터 간 연관성, 제약조건을 식별하여 논리적인 구조로 조직화&lt;/li&gt;
+  &lt;li&gt;물리 데이터 저장소 : 물리적 특성을 고려하여 하드웨어적인 저장장치에 저장&lt;/li&gt;
+  &lt;li&gt;데이터베이스를 구축하는 과정과 동일&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터베이스&quot;&gt;- 데이터베이스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상호 관련된 데이터들의 모임&lt;/li&gt;
+  &lt;li&gt;통합된 데이터(Integrated Data) : 중복을 배제한 데이터의 모임&lt;/li&gt;
+  &lt;li&gt;저장된 데이터(Stored Data) : 컴퓨터가 접근할 수 있는 저장 매체에 저장된 자료&lt;/li&gt;
+  &lt;li&gt;운영 데이터(Operational Data) : 조직의 고유한 업무를 수행하는 데 없어서는 안 될 자료&lt;/li&gt;
+  &lt;li&gt;공용 데이터(Shared Data) : 공동으로 소유하고 유지하는 자료&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--dbmsdatabase-management-system&quot;&gt;- DBMS(DataBase Management System)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자의 요구에 따라 정보를 생성해주고, 데이터베이스를 관리해 주는 S/W&lt;/li&gt;
+  &lt;li&gt;데이터의 종속성과 중복성의 문제를 해결&lt;/li&gt;
+  &lt;li&gt;모든 응용 프로그램들이 DB를 공용할 수 있도록 관리&lt;/li&gt;
+  &lt;li&gt;DB의 구성, 접근 방법, 유지관리에 대한 모든 책임을 짐&lt;/li&gt;
+  &lt;li&gt;DBMS의 필수 기능
+    &lt;ul&gt;
+      &lt;li&gt;정의 기능 : 데이터 Type과 구조에 대한 정의, 이용 방식, 제약 조건 등을 명시&lt;/li&gt;
+      &lt;li&gt;조작 기능 : 검색, 갱신, 삽입, 삭제 등의 인터페이스 수단을 제공&lt;/li&gt;
+      &lt;li&gt;제어 기능 : 데이터의 무결성이 유지되도록 제어, 보안 유지, 권한 검사, 병행 제어&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;장점
+    &lt;ul&gt;
+      &lt;li&gt;데이터의 논리적, 물리적 독립성 보장&lt;/li&gt;
+      &lt;li&gt;데이터의 중복을 피할 수 있어 기억 공간 절약&lt;/li&gt;
+      &lt;li&gt;자료를 공동으로 이용할 수 있음&lt;/li&gt;
+      &lt;li&gt;데이터의 일관성을 유지할 수 있음&lt;/li&gt;
+      &lt;li&gt;데이터의 무결성을 유지할 수 있음&lt;/li&gt;
+      &lt;li&gt;보안을 유지할 수 있음&lt;/li&gt;
+      &lt;li&gt;데이터를 표준화 할 수 있음&lt;/li&gt;
+      &lt;li&gt;통합 관리가 가능&lt;/li&gt;
+      &lt;li&gt;최신의 데이터 유지 가능&lt;/li&gt;
+      &lt;li&gt;실시간 처리 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점
+    &lt;ul&gt;
+      &lt;li&gt;DB 전문가 부족&lt;/li&gt;
+      &lt;li&gt;전산화 비용 증가&lt;/li&gt;
+      &lt;li&gt;Overhead 발생&lt;/li&gt;
+      &lt;li&gt;Backup과 Recovery이 어려움&lt;/li&gt;
+      &lt;li&gt;시스템이 복잡&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터의-독립성&quot;&gt;- 데이터의 독립성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터의 독립성은 DBMS의 궁극적 목표&lt;/li&gt;
+  &lt;li&gt;논리적 독립성 : 데이터의 논리적 구조를 변경해도 응용 프로그램은 변경되지 않음&lt;/li&gt;
+  &lt;li&gt;물리적 독립성 : 응용 프로그램에는 영향을 주지 않고, 데이터의 물리적 구조만을 변경&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-데이터-입출력--b&quot;&gt;3. 데이터 입출력 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--데이터-입출력-개요&quot;&gt;- 데이터 입출력 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB에 데이터를 입력하거나 출력하는 작업&lt;/li&gt;
+  &lt;li&gt;데이터를 조작하는 모든 행위를 의미. SQL 사용&lt;/li&gt;
+  &lt;li&gt;개발 코드 내에 SQL 코드를 삽입하거나, 객체와 데이터를 연결하는 데이터 접속(Data Mapping)&lt;/li&gt;
+  &lt;li&gt;논리적 기능을 수행하기 위한 작업의 단위 또는 한번에 수행되야 할 연산들을 트랜잭션이라고 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--sqlstructured-query-language&quot;&gt;- SQL(Structured Query Language)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;많은 회사에서 관계형 데이터베이스(RDB)를 지원하는 언어로 채택&lt;/li&gt;
+  &lt;li&gt;관계대수와 관계해석을 기초로 한 혼합 데이터&lt;/li&gt;
+  &lt;li&gt;질의어지만 질의 기능뿐만 아니라, 데이터 구조 정의, 조작, 제어기능을 모두 갖춤&lt;/li&gt;
+  &lt;li&gt;데이터 정의어(DDL), 데이터 조작어(DML), 데이터 제어어(DCL)로 구분
+    &lt;ul&gt;
+      &lt;li&gt;DDL : SCHEMA, DOMAIN, TABLE, VIEW, INDEX를 정의, 변경, 삭제&lt;/li&gt;
+      &lt;li&gt;DML : 저장된 데이터를 실질적으로 처리&lt;/li&gt;
+      &lt;li&gt;DCL : 보안, 무결성, 회복, 병행수행 제어 등을 정의하는데 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터-접속data-mapping&quot;&gt;- 데이터 접속(Data Mapping)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그래밍 코드와 DB의 데이터를 연결하는 것&lt;/li&gt;
+  &lt;li&gt;SQL Mapping : 코드 내에 SQL을 직접 입력하여 DBMS 객체에 접속. JDBC, ODBC, MyBatis&lt;/li&gt;
+  &lt;li&gt;ORM(Object-Relational Mapping) : 객체와 RDB의 데이터를 연결. JPA, Hibernate, Django&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--트랜잭션transaction&quot;&gt;- 트랜잭션(Transaction)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB 상태를 변환시키는 논리적 기능을 수행하기 위한 작업의 단위 또는 한꺼번에 수행돼야 할 연산&lt;/li&gt;
+  &lt;li&gt;TCL : 트랜잭션을 제어하기 위한 명령어. COMMIT, ROLLBACK, SAVEPOINT
+    &lt;ul&gt;
+      &lt;li&gt;COMMIT : 트랜잭션이 수행한 변경 내용을 DB에 저장&lt;/li&gt;
+      &lt;li&gt;ROLLBACK : 모든 변경 작업을 취소하고 이전 상태로 되돌림&lt;/li&gt;
+      &lt;li&gt;SAVEPOINT(=CHECKPOINT) : ROLLBACK 할 저장점을 지정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-절차형-sql--b&quot;&gt;4. 절차형 SQL – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--절차형-sql-개요&quot;&gt;- 절차형 SQL 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그래밍 언어와 같이 연속적인 실행이나 분기, 반복 등의 제어가 가능한 SQL&lt;/li&gt;
+  &lt;li&gt;프로그래밍 언어에 비해 효율은 떨어지지만, 연속적인 작업들을 처리하는데 적합&lt;/li&gt;
+  &lt;li&gt;다양한 기능을 수행하는 저장 모듈 생성할 수 있음&lt;/li&gt;
+  &lt;li&gt;DBMS 엔진에서 직접 실행돼 입출력 패킷이 적은 편&lt;/li&gt;
+  &lt;li&gt;BEGIN ~ END 형식의 블록 구조로 되어 있어 기능별 모듈화 가능&lt;/li&gt;
+  &lt;li&gt;프로시저 : 트랜잭션 언어, 호출을 통해 실행되어 미리 저장해 놓은 SQL 작업 수행&lt;/li&gt;
+  &lt;li&gt;트리거 : 이벤트가 발생할 때마다 관련 작업이 자동으로 수행&lt;/li&gt;
+  &lt;li&gt;사용자 정의 함수 : 예약어 RETURN을 사용하여 처리 결과를 단일값으로 반환&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--절차형-sql의-테스트와-디버깅&quot;&gt;- 절차형 SQL의 테스트와 디버깅&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;디버깅을 통해 기능의 적합성 여부를 검증, 실행을 통해 결과를 테스트&lt;/li&gt;
+  &lt;li&gt;테스트 전에 생성을 통해 구문 오류나 참조 오류의 존재 여부 확인&lt;/li&gt;
+  &lt;li&gt;SHOW  명령어를 통해 내용을 확인하고 문제를 수정&lt;/li&gt;
+  &lt;li&gt;디버깅을 통해 로직을 검증하고, 결과를 통해 최종적으로 확인&lt;/li&gt;
+  &lt;li&gt;DB에 변화를 줄 수 있는 삽입 등의 SQL 문을 주석으로 처리하고, 출력문을 이용해 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--쿼리-성능-최적화&quot;&gt;- 쿼리 성능 최적화&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터 입출력 애플리케이션의 성능 향상을 위해 SQL 코드를 최적화&lt;/li&gt;
+  &lt;li&gt;성능 측정 도구인 APM을 사용하여 최적화 할 쿼리 선정&lt;/li&gt;
+  &lt;li&gt;옵티마이저가 수립한 실행 계획을 검토하고 SQL 코드와 인덱스 재구성&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 2과목 1장</summary></entry><entry><title type="html">[CSS] CSS 박스모델</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-boxmodel/" rel="alternate" type="text/html" title="[CSS] CSS 박스모델" /><published>2021-07-30T04:00:00+09:00</published><updated>2021-07-30T13:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-boxmodel</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-boxmodel/"></content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 박스모델</summary></entry><entry><title type="html">[CSS] CSS 개요</title><link href="https://leewonwoo1.github.io/css/frontend-css-basic/" rel="alternate" type="text/html" title="[CSS] CSS 개요" /><published>2021-07-30T03:30:00+09:00</published><updated>2021-07-30T12:30:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-basic</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-basic/">&lt;h2 id=&quot;css-기본-문법&quot;&gt;CSS 기본 문법&lt;/h2&gt;
 
 &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 주석 */&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;선택자&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -901,28 +1905,28 @@ C D
   &lt;li&gt;결합도가 강하면 시스템 구현 및 유지보수 작업이 어려움&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-내용-결합도content-coupling&quot;&gt;– 내용 결합도(Content Coupling)&lt;/h4&gt;
+&lt;h4 id=&quot;-내용-결합도content-coupling&quot;&gt;@ 내용 결합도(Content Coupling)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;한 모듈이 다른 모듈이 내부 기능 및 그 내부 자료를 직접 참조하거나 수정&lt;/li&gt;
   &lt;li&gt;제어가 이동하는 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-공통공유-결합도common-coupling&quot;&gt;– 공통(공유) 결합도(Common Coupling)&lt;/h4&gt;
+&lt;h4 id=&quot;-공통공유-결합도common-coupling&quot;&gt;@ 공통(공유) 결합도(Common Coupling)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;공통 데이터 영역을 여러 모듈이 사용할 때의 결합도&lt;/li&gt;
   &lt;li&gt;조금의 변경이 모든 모듈에 영향을 미치므로 모듈의 독립성을 약하게 함&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-외부-결합도external-coupling&quot;&gt;– 외부 결합도(External Coupling)&lt;/h4&gt;
+&lt;h4 id=&quot;-외부-결합도external-coupling&quot;&gt;@ 외부 결합도(External Coupling)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;선언한 데이터를 외부의 다른 모듈에서 참조할 때의 결합도&lt;/li&gt;
   &lt;li&gt;데이터의 범위를 각 모듈에서 제한할 수 있음&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-제어-결합도control-coupling&quot;&gt;– 제어 결합도(Control Coupling)&lt;/h4&gt;
+&lt;h4 id=&quot;-제어-결합도control-coupling&quot;&gt;@ 제어 결합도(Control Coupling)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;다른 모듈 내부의 논리적 흐름을 제어하기 위해 제어신호를 이용하여 통신&lt;/li&gt;
@@ -931,14 +1935,14 @@ C D
   &lt;li&gt;하위 모듈이 상위 모듈에게 처리 명령을 내리는 권리 전도현상 발생&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-스탬프-결합도stamp-coupling&quot;&gt;– 스탬프 결합도(Stamp Coupling)&lt;/h4&gt;
+&lt;h4 id=&quot;-스탬프-결합도stamp-coupling&quot;&gt;@ 스탬프 결합도(Stamp Coupling)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;배열이나 레코드 등의 자료 구조가 전달될 때의 결합도&lt;/li&gt;
   &lt;li&gt;동일한 자료 구조를 조회하는 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-자료-결합도data-coupling&quot;&gt;– 자료 결합도(Data Coupling)&lt;/h4&gt;
+&lt;h4 id=&quot;-자료-결합도data-coupling&quot;&gt;@ 자료 결합도(Data Coupling)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;자료 요소로만 구성될 때의 결합도&lt;/li&gt;
@@ -953,43 +1957,43 @@ C D
   &lt;li&gt;응집도가 강할수록 품질이 높고, 약할수록 품질이 낮음&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-기능적-응집도functional-cohesion&quot;&gt;– 기능적 응집도(Functional Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-기능적-응집도functional-cohesion&quot;&gt;@ 기능적 응집도(Functional Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;모든 기능 요소들이 단일 문제와 연관되어 수행될 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-순차적-응집도sequential-cohesion&quot;&gt;– 순차적 응집도(Sequential Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-순차적-응집도sequential-cohesion&quot;&gt;@ 순차적 응집도(Sequential Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;출력 데이터를 그 다음 활동의 입력 데이터로 사용할 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-교환적-응집도communication-cohesion&quot;&gt;– 교환적 응집도(Communication Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-교환적-응집도communication-cohesion&quot;&gt;@ 교환적 응집도(Communication Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;동일한 입출력을 사용하여 서로 다른 기능을 수행하는 구성요소들이 모였을 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-절차적-응집도procedural-cohesion&quot;&gt;– 절차적 응집도(Procedural Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-절차적-응집도procedural-cohesion&quot;&gt;@ 절차적 응집도(Procedural Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;다수의 관련 기능을 가질 때 모듈 안의 구성 요소들이 그 기능을 순차적으로 수행할 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-시간적-응집도temporal-cohesion&quot;&gt;– 시간적 응집도(Temporal Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-시간적-응집도temporal-cohesion&quot;&gt;@ 시간적 응집도(Temporal Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;특정 시간에 처리되는 몇 개의 기능을 모아 하나의 모듈로 작성할 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-논리적-응집도logical-cohesion&quot;&gt;– 논리적 응집도(Logical Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-논리적-응집도logical-cohesion&quot;&gt;@ 논리적 응집도(Logical Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;유사한 성격을 갖거나 특정 형태로 분류되는 처리 요소들로 하나의 모듈이 형성되는 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-우연적-응집도coincidental-cohesion&quot;&gt;– 우연적 응집도(Coincidental Cohesion)&lt;/h4&gt;
+&lt;h4 id=&quot;-우연적-응집도coincidental-cohesion&quot;&gt;@ 우연적 응집도(Coincidental Cohesion)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;각 구성 요소들이 서로 관련 없는 요소로만 구성된 경우&lt;/li&gt;
@@ -1109,35 +2113,35 @@ C D
   &lt;li&gt;객체의 생성과 참조 과정을 캡슐화하여 프로그램에 유연성을 더해줌&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-추상-팩토리abstract-factory&quot;&gt;– 추상 팩토리(Abstract Factory)&lt;/h4&gt;
+&lt;h4 id=&quot;-추상-팩토리abstract-factory&quot;&gt;@ 추상 팩토리(Abstract Factory)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;인터페이스를 통해 서료 연관, 의존하는 객체들의 그룹으로 생성하여 추상적으로 표현&lt;/li&gt;
   &lt;li&gt;연관된 서브 클래스를 묶어 한 번에 교체하는 것이 가능&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-빌더builder&quot;&gt;– 빌더(Builder)&lt;/h4&gt;
+&lt;h4 id=&quot;-빌더builder&quot;&gt;@ 빌더(Builder)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;작게 분리된 인스턴스를 건축 하듯이 조합하여 객체 생성&lt;/li&gt;
   &lt;li&gt;동일한 객체 생성에서도 서로 다른 결과를 만들어 낼 수 있음&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-팩토리-메소드factory-method&quot;&gt;– 팩토리 메소드(Factory Method)&lt;/h4&gt;
+&lt;h4 id=&quot;-팩토리-메소드factory-method&quot;&gt;@ 팩토리 메소드(Factory Method)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체 생성을 서브클래스에서 처리하도록 분리하여 캡슐화&lt;/li&gt;
   &lt;li&gt;상위클래스에서는 인터페이스 정의하고 실제 생성은 서브 클래스가 담당&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-프로토타입prototype&quot;&gt;– 프로토타입(Prototype)&lt;/h4&gt;
+&lt;h4 id=&quot;-프로토타입prototype&quot;&gt;@ 프로토타입(Prototype)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;원본 객체를 복제하는 방법으로 객체를 생성&lt;/li&gt;
   &lt;li&gt;비용이 큰 경우 이용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-싱글톤singleton&quot;&gt;– 싱글톤(Singleton)&lt;/h4&gt;
+&lt;h4 id=&quot;-싱글톤singleton&quot;&gt;@ 싱글톤(Singleton)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체를 생성하면 어디서든 참조할 수 있지만, 여러 프로세스가 동시 참조 불가&lt;/li&gt;
@@ -1151,49 +2155,49 @@ C D
   &lt;li&gt;구조가 복잡한 시스템을 개발하기 쉽게 도와줌&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-어댑터adapter&quot;&gt;– 어댑터(Adapter)&lt;/h4&gt;
+&lt;h4 id=&quot;-어댑터adapter&quot;&gt;@ 어댑터(Adapter)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;인터페이스를 다른 클래스가 이용할 수 있도록 변환&lt;/li&gt;
   &lt;li&gt;인터페이스가 일치하지 않을 때 이용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-브리지bridge&quot;&gt;– 브리지(Bridge)&lt;/h4&gt;
+&lt;h4 id=&quot;-브리지bridge&quot;&gt;@ 브리지(Bridge)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;서로가 독립적으로 확장할 수 있도록 구성한 패턴&lt;/li&gt;
   &lt;li&gt;기능과 구현을 두 개의 별도 클래스로 구현&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-컴포지트composite&quot;&gt;– 컴포지트(Composite)&lt;/h4&gt;
+&lt;h4 id=&quot;-컴포지트composite&quot;&gt;@ 컴포지트(Composite)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;복합 객체와 단일 객체를 구분 없이 다루고자 할 때 사용&lt;/li&gt;
   &lt;li&gt;객체를 트리구조로 구성&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-데코레이터decorator&quot;&gt;– 데코레이터(Decorator)&lt;/h4&gt;
+&lt;h4 id=&quot;-데코레이터decorator&quot;&gt;@ 데코레이터(Decorator)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체 간의 결합을 통해 능동적으로 기능들을 확장&lt;/li&gt;
   &lt;li&gt;부가적인 기능을 추가하기 위해 다른 객체들을 덧붙이는 방식&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-퍼싸드facade&quot;&gt;– 퍼싸드(Facade)&lt;/h4&gt;
+&lt;h4 id=&quot;-퍼싸드facade&quot;&gt;@ 퍼싸드(Facade)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;상위에 인터페이스를 구성함으로써 서브 클래스의 기능을 간편하게 사용할 수 있도록 함&lt;/li&gt;
   &lt;li&gt;통합 인터페이스를 제공하는 Wrapper 객체가 필요&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-플라이웨이트flyweight&quot;&gt;– 플라이웨이트(Flyweight)&lt;/h4&gt;
+&lt;h4 id=&quot;-플라이웨이트flyweight&quot;&gt;@ 플라이웨이트(Flyweight)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;매번 생성하는 것이 아니고 가능한 한 공유해서 사용해 메모리 절약&lt;/li&gt;
   &lt;li&gt;다수의 유사 객체를 생성하거나 조작할 때 유용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-프록시proxy&quot;&gt;– 프록시(Proxy)&lt;/h4&gt;
+&lt;h4 id=&quot;-프록시proxy&quot;&gt;@ 프록시(Proxy)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;접근이 어려운 객체와 여기에 연결하려는 객체 사이에서 인터페이스 역할&lt;/li&gt;
@@ -1207,76 +2211,76 @@ C D
   &lt;li&gt;하나의 객체로 수행할 수 없는 작업을 여러 객체로 분배하면서 결합도를 최소화하도록 도움&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-책임-연쇄chain-of-responsibility&quot;&gt;– 책임 연쇄(Chain of Responsibility)&lt;/h4&gt;
+&lt;h4 id=&quot;-책임-연쇄chain-of-responsibility&quot;&gt;@ 책임 연쇄(Chain of Responsibility)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체가 둘 이상 존재하여 한 객체가 처리하지 못하면 다음 객체로 넘어가는 형태&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-커맨드command&quot;&gt;– 커맨드(Command)&lt;/h4&gt;
+&lt;h4 id=&quot;-커맨드command&quot;&gt;@ 커맨드(Command)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;요청을 객체의 형태로 캡슐화하여 재이용하거나 취소할 수 있도록 요청에 필요한 정보를 저장&lt;/li&gt;
   &lt;li&gt;추상 클래스와 구체 클래스로 분리하여 단순화&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-인터프리터interpreter&quot;&gt;– 인터프리터(Interpreter)&lt;/h4&gt;
+&lt;h4 id=&quot;-인터프리터interpreter&quot;&gt;@ 인터프리터(Interpreter)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;언어에 문법 표현을 정의하는 패턴&lt;/li&gt;
   &lt;li&gt;SQL이나 통신 프로토콜과 같은 것을 개발할 때 사용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-반복자iterator&quot;&gt;– 반복자(Iterator)&lt;/h4&gt;
+&lt;h4 id=&quot;-반복자iterator&quot;&gt;@ 반복자(Iterator)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;접근이 잦은 객체에 대해 동일한 인터페이스를 사용하도록 하는 패턴&lt;/li&gt;
   &lt;li&gt;내부 표현 방법의 노출 없이 순차적인 접근이 가능&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-중재자mediator&quot;&gt;– 중재자(Mediator)&lt;/h4&gt;
+&lt;h4 id=&quot;-중재자mediator&quot;&gt;@ 중재자(Mediator)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;복잡한 상호작용을 캡슐화하여 객체로 정의&lt;/li&gt;
   &lt;li&gt;객체 사이의 의존성을 줄여 결합도 감소시킴&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-메멘토memento&quot;&gt;– 메멘토(Memento)&lt;/h4&gt;
+&lt;h4 id=&quot;-메멘토memento&quot;&gt;@ 메멘토(Memento)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체 내부 상태를 객체화함으로써 객체를 해당 시점의 상태로 돌릴 수 있는 기능 제공&lt;/li&gt;
   &lt;li&gt;Ctrl + Z 같은 기능 개발할 때 이용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-옵서저observer&quot;&gt;– 옵서저(Observer)&lt;/h4&gt;
+&lt;h4 id=&quot;-옵서저observer&quot;&gt;@ 옵서저(Observer)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체의 상태가 변화하면 상속되어 있는 다른 객체들에게 변화된 상태를 전달하는 패턴&lt;/li&gt;
   &lt;li&gt;분산 시스템 간에 이벤트를 생성, 발행하고, 이를 수신해야 할 때 이용&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-상태state&quot;&gt;– 상태(State)&lt;/h4&gt;
+&lt;h4 id=&quot;-상태state&quot;&gt;@ 상태(State)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;동일한 동작을 다르게 처리해야 할 때 사용하는 패턴&lt;/li&gt;
   &lt;li&gt;객체 상태를 캡슐화하고 이를 참조하는 방식으로 처리&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-전략strategy&quot;&gt;– 전략(Strategy)&lt;/h4&gt;
+&lt;h4 id=&quot;-전략strategy&quot;&gt;@ 전략(Strategy)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;동일한 계열의 알고리즘들을 개별적으로 캡슐화하여 상호 교환할 수 있게 정의하는 패턴&lt;/li&gt;
   &lt;li&gt;원하는 알고리즘을 선택하여 사용할 수 있으며, 클라이언트에 영향 없이 알고리즘 변경 가능&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-템플릿-메소드template-method&quot;&gt;– 템플릿 메소드(Template Method)&lt;/h4&gt;
+&lt;h4 id=&quot;-템플릿-메소드template-method&quot;&gt;@ 템플릿 메소드(Template Method)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;상위 클래스에서 골격을 정의하고, 하위 클래스에서 세부 처리를 구체화하는 패턴&lt;/li&gt;
   &lt;li&gt;코드의 양을 줄이고 유지보수를 용이하게 해줌&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;-방문자visitor&quot;&gt;– 방문자(Visitor)&lt;/h4&gt;
+&lt;h4 id=&quot;-방문자visitor&quot;&gt;@ 방문자(Visitor)&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;데이터 구조에서 처리 기능을 분리하여 별도의 클래스로 구성하는 패턴&lt;/li&gt;
@@ -1789,574 +2793,4 @@ C D
   &lt;li&gt;불필요한 기능 최소화&lt;/li&gt;
   &lt;li&gt;개발 비용 절감&lt;/li&gt;
   &lt;li&gt;개발 속도 향상&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 1과목 2장</summary></entry><entry><title type="html">[정보처리기사 필기] 1-1. 요구사항 확인</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp/" rel="alternate" type="text/html" title="[정보처리기사 필기] 1-1. 요구사항 확인" /><published>2021-07-29T20:00:00+09:00</published><updated>2021-07-30T05:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
-
-&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
-
-&lt;h2 id=&quot;1-소프트웨어-생명-주기software-life-cycle--a&quot;&gt;1. 소프트웨어 생명 주기(Software Life Cycle) – A&lt;/h2&gt;
-
-&lt;p&gt;소프트웨어 개발 방법론의 바탕&lt;/p&gt;
-
-&lt;h3 id=&quot;--폭포수-모형waterfall-model&quot;&gt;- 폭포수 모형(Waterfall Model)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;고전적 생명 주기 모형&lt;/li&gt;
-  &lt;li&gt;개발의 한 단계가 끝나야 다음 단계로 넘어가는 선형 순차적 모형&lt;/li&gt;
-  &lt;li&gt;메뉴얼 작성&lt;/li&gt;
-  &lt;li&gt;단계가 끝나면 다음 단계 _결과물 명확히 산출_되어야 함&lt;/li&gt;
-  &lt;li&gt;두 개 이상의 과정이 병행 수행 X&lt;/li&gt;
-  &lt;li&gt;타당성 검토 -&amp;gt; 계획 -&amp;gt; 요구 분석 -&amp;gt; 설계 -&amp;gt; 구현(코딩) -&amp;gt; 시험(검사) -&amp;gt; 유지보수&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--프로토타입-모형prototype-model&quot;&gt;- 프로토타입 모형(Prototype Model)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인터페이스에 중점을 두어 개발&lt;/li&gt;
-  &lt;li&gt;시스템의 일부를 만드는 과정으로 추후 구현 단계에서 사용될 골격 코드&lt;/li&gt;
-  &lt;li&gt;폭포수 모형의 단점 보완&lt;/li&gt;
-  &lt;li&gt;요구 수집 -&amp;gt; 빠른 설계 -&amp;gt; 프로토타입 구축 -&amp;gt; 고객 평가 -&amp;gt; 포로토타입 조정 -&amp;gt; 구현&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--나선형-모형spiral-model&quot;&gt;- 나선형 모형(Spiral Model)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로토타입 + 위험 분석 기능&lt;/li&gt;
-  &lt;li&gt;여러번의 개발 과정을 거쳐 완벽한 소프트웨어 개발. 점진적 모형&lt;/li&gt;
-  &lt;li&gt;위험의 관리와 최소화 목적&lt;/li&gt;
-  &lt;li&gt;누락되거나 추가된 요구사항 첨가 가능, 정밀&lt;/li&gt;
-  &lt;li&gt;유지보수 과정 필요 없음&lt;/li&gt;
-  &lt;li&gt;계획 및 정의 -&amp;gt; 위험 분석 -&amp;gt; 공학적 개발 -&amp;gt; 고객 평가&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--애자일-모형agile-model&quot;&gt;- 애자일 모형(Agile Model)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;일정 주기 반복 하며 개발&lt;/li&gt;
-  &lt;li&gt;고객과의 소통에 초점&lt;/li&gt;
-  &lt;li&gt;스프린트, 이터레이션의 짧은 개발 주기 반복&lt;/li&gt;
-  &lt;li&gt;결과물에 대한 고객의 평가와 요구를 적극 수용&lt;/li&gt;
-  &lt;li&gt;스크럼(Scrum), XP(eXtreme Programming), 칸반(Kanban), Lean, 크리스탈, ASD, FDD 등&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;-애자일-선언&quot;&gt;– 애자일 선언&lt;/h4&gt;
-
-&lt;p&gt;애자일 개발 4대 핵심 가치&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;개인과 상호작용에 더 가치를 둠&lt;/li&gt;
-  &lt;li&gt;실행되는 SW에 더 가치를 둠&lt;/li&gt;
-  &lt;li&gt;고객과 협업에 더 가치를 둠&lt;/li&gt;
-  &lt;li&gt;변화에 반응하는 것에 더 가치를 둠&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--폭포수-모형과-애자일의-비교&quot;&gt;- 폭포수 모형과 애자일의 비교&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;구분&lt;/th&gt;
-      &lt;th&gt;폭포수&lt;/th&gt;
-      &lt;th&gt;애자일&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;요구사항 반영&lt;/td&gt;
-      &lt;td&gt;어려움&lt;/td&gt;
-      &lt;td&gt;지속적으로 반영&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;고객과의 의사소통&lt;/td&gt;
-      &lt;td&gt;적음&lt;/td&gt;
-      &lt;td&gt;지속적&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;테스트&lt;/td&gt;
-      &lt;td&gt;마지막에 테스트&lt;/td&gt;
-      &lt;td&gt;반복되는 주기마다 테스트&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;개발 중심&lt;/td&gt;
-      &lt;td&gt;계획, 문서(메뉴얼)&lt;/td&gt;
-      &lt;td&gt;고객&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;2-스크럼scrum-기법--a&quot;&gt;2. 스크럼(Scrum) 기법 – A&lt;/h2&gt;
-
-&lt;p&gt;팀 중심으로 개발 효율성 높임&lt;/p&gt;
-
-&lt;h3 id=&quot;--개요&quot;&gt;- 개요&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;스스로 팀을 구성, 스스로 해결&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;제품 책임자(PO; Product Owner)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;개발 의뢰자나 사용자가 담당&lt;/li&gt;
-      &lt;li&gt;제품 요구사항 작성의 주체&lt;/li&gt;
-      &lt;li&gt;요구사항 백로그 작성, 우선순위 지정&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;스크럼 마스터(SM; Scrum Master)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;객관적인 시각에서 조언&lt;/li&gt;
-      &lt;li&gt;통제가 목표 아님&lt;/li&gt;
-      &lt;li&gt;진행사항 점검, 장애요소 공론화&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;개발팀(DT; Development Team)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;PO, SM을 제외한 개발에 참여하는 모든 사람&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--스크럼-개발-프로세스&quot;&gt;- 스크럼 개발 프로세스&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;제품 백로그 -&amp;gt; 스프린트 계획 회의 -&amp;gt; 스프린트 -&amp;gt; 일일 스크럼 회의 -&amp;gt; 스프린트 검토 회의 -&amp;gt; 스프린트 회고&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-xpextreme-programming-기법--a&quot;&gt;3. XP(eXtreme Programming) 기법 – A&lt;/h2&gt;
-
-&lt;p&gt;고객의 참여와 개발 과정의 반복을 극대화하여 개발 생산성을 향상&lt;/p&gt;
-
-&lt;h3 id=&quot;--xp&quot;&gt;- XP&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;짧고 반복적인 개발 주기, 단순한 설계, 고객의 적극적 참여로 S/W를 빠르게 개발&lt;/li&gt;
-  &lt;li&gt;릴리즈 기간을 짧게 반복&lt;/li&gt;
-  &lt;li&gt;릴리즈 테스트마다 고객을 직접 참여시킴&lt;/li&gt;
-  &lt;li&gt;소규모 인원 개발 프로젝트에 효과적&lt;/li&gt;
-  &lt;li&gt;XP의 5대 핵심 가치 : 의사소통, 단순성, 용기, 존중, 피드백&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--xp-개발-프로세스&quot;&gt;- XP 개발 프로세스&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자 스토리 -&amp;gt; 릴리즈 계획 수립 -&amp;gt; 스파이크 -&amp;gt; 이터레이션 -&amp;gt; 승인검사 -&amp;gt; 소규모 릴리즈&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--xp-주요-실천-방법&quot;&gt;- XP 주요 실천 방법&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;짝 프로그래밍(Pair Programming)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;다른 사람과 함께 스행하여 책임을 공동으로 나눔&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;테스트 주도 개발(Test-Driven Development)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;테스트 케이스 먼저 작성&lt;/li&gt;
-      &lt;li&gt;테스트가 지속적으로 진행될 수 있도록 자동화된 테스팅 도구 사용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;전체 팀(Whole Team)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;모든 구성원들을 각자 자신의 역할이 있고 거기에 책임을 가져야 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;계속적인 통합(Continuous Integration)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;모듈 단위로 개발된 코드가 지속적으로 통합&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;디자인 개선(Design Improvement) 또는 리팩토링(Refactoring)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;기능 변경 없이, 단순화, 유연성 강화 등을 통해 시스템 재구성&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;소규모 릴리즈(Small Releases)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;릴리즈 기간을 짧게 반복하여 고객 요구 변화에 신속히 대응&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;4-요구사항-정의--b&quot;&gt;4. 요구사항 정의 – B&lt;/h2&gt;
-
-&lt;h3 id=&quot;--요구사항-개념-및-특징&quot;&gt;- 요구사항 개념 및 특징&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;요구사항은 소프트웨어가 제공하는 서비스에 대한 설명과 운영되는데 필요한 제약 조건&lt;/li&gt;
-  &lt;li&gt;개발이나 유지 보수 과정에서 필요한 기준과 근거를 제공&lt;/li&gt;
-  &lt;li&gt;개발에 참여하는 이해관계자들 간의 의사소통을 원활하게 도움&lt;/li&gt;
-  &lt;li&gt;요구사항이 잘 정의 되어야 이후 과정의 목표와 계획을 수립할 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--요구사항의-유형&quot;&gt;- 요구사항의 유형&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;기능 요구사항&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;무엇을 하는지, 어떤 기능을 하는지&lt;/li&gt;
-      &lt;li&gt;입출력에 무엇이 포함되어야 하는지, 어떤 데이터를 저장하거나 연산을 수행해야 하는지&lt;/li&gt;
-      &lt;li&gt;반드시 수행해야 하는 기능&lt;/li&gt;
-      &lt;li&gt;사용자가 제공받기 원하는 기능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;비기능 요구사항&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;시스템 장비 구성&lt;/li&gt;
-      &lt;li&gt;성능&lt;/li&gt;
-      &lt;li&gt;인터페이스&lt;/li&gt;
-      &lt;li&gt;데이터&lt;/li&gt;
-      &lt;li&gt;테스트&lt;/li&gt;
-      &lt;li&gt;보안&lt;/li&gt;
-      &lt;li&gt;품질&lt;/li&gt;
-      &lt;li&gt;제약사항&lt;/li&gt;
-      &lt;li&gt;프로젝트 관리 요구사항&lt;/li&gt;
-      &lt;li&gt;프로젝트 지원 요구사항&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;사용자 요구사항&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;사용자 관점에서 본 시스템이 제공해야 할 요구사항&lt;/li&gt;
-      &lt;li&gt;친숙한 표현으로 이해하기 쉽게 작성&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;시스템 요구사항&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;개발자 관점에서 본 시스템이 사용자와 다른 시스템에 제공해야 할 요구사항&lt;/li&gt;
-      &lt;li&gt;전문적이고 기술적인 용어로 표현&lt;/li&gt;
-      &lt;li&gt;소프트웨어 요구사항이라고도 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--요구사항-개발-프로세스&quot;&gt;- 요구사항 개발 프로세스&lt;/h3&gt;
-
-&lt;p&gt;요구 사항 도출(Elicitation) -&amp;gt; 분석(Analysis) -&amp;gt; 명세(Specification) -&amp;gt; 확인(Validation)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;5-umlunified-modeling-language--a&quot;&gt;5. UML(Unified Modeling Language) – A&lt;/h2&gt;
-
-&lt;h3 id=&quot;--uml-개요&quot;&gt;- UML 개요&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체 지향 모델링 언어&lt;/li&gt;
-  &lt;li&gt;Rumbaugh, Booch, Jacobson 등 객체지향 방법론의 장접 통합. OMG에서 표준으로 지정&lt;/li&gt;
-  &lt;li&gt;구조 다이어그램 6개, 행위 다이어그램 7개&lt;/li&gt;
-  &lt;li&gt;사물과 사물 간의 관계를 용도에 맞게 표현&lt;/li&gt;
-  &lt;li&gt;구성요소는 사물, 관계, 다이어그램&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--사물things&quot;&gt;- 사물(Things)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;관계가 형성될 수 있는 대상&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;구조 사물(Structural Things)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;시스템의 개념적, 물리적 요소&lt;/li&gt;
-      &lt;li&gt;Class, Use Case, Component, Node 등&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;행동 사물(Behavioral Things)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;시간과 공간에 따른 요소들의 행위&lt;/li&gt;
-      &lt;li&gt;Interaction, State Machine&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;그룹 사물(Grouping Things)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;요소들을 그룹으로 묶어서 표현&lt;/li&gt;
-      &lt;li&gt;Package&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;주해 사물(Annotation Things)&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;부가적인 설명이나 제약조건&lt;/li&gt;
-      &lt;li&gt;Note&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--관계relationships&quot;&gt;- 관계(Relationships)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사물과 사물 사이의 연관성 표현&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;연관(Association) 관계&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;2개 이상의 사물이 서로 관련되어 있음&lt;/li&gt;
-      &lt;li&gt;사물 사이 실선 연결, 방향성은 화살표로&lt;/li&gt;
-      &lt;li&gt;양방향 관계의 경우 화살표 생략하고 실선으로만 연결&lt;/li&gt;
-      &lt;li&gt;다중도를 선 위에 표기&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;집합(Aggregation) 관계&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;하나의 사물이 다른 사물에 포함되어 있음&lt;/li&gt;
-      &lt;li&gt;서로 독립적&lt;/li&gt;
-      &lt;li&gt;포함하는 쪽으로 속이 빈 마름모 연결하여 표현&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;포함(Composition) 관계&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;포함하는 사물의 변화가 포함되는 사물에게 영향을 미치는 관계&lt;/li&gt;
-      &lt;li&gt;독립될 수 없고 생명주기를 함께 함&lt;/li&gt;
-      &lt;li&gt;포함하는 쪽으로 속이 채워진 마름모를 연결하여 표현&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;일반화(Generalization) 관계&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;하나의 사물이 다른 사물에 비해 더 일반적인지 구체적인지 표현&lt;/li&gt;
-      &lt;li&gt;일반적인 개념을 상위(부모), 구체적인 개념을 하위(자식)&lt;/li&gt;
-      &lt;li&gt;상위 사물 쪽으로 속이 빈 화살표 연결하여 표현&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;의존(Dependency) 관계&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;연관은 있으나 짧은 시간 동안만 연관을 유지하는 관계&lt;/li&gt;
-      &lt;li&gt;소유 관계는 아니지만 사물의 변화가 다른 사물에도 영향을 미치는 관계&lt;/li&gt;
-      &lt;li&gt;영향 받는 쪽으로 점선 화살표 연결하여 표현&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;실체화(Realization) 관계&lt;/em&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;할 수 있거나 해야 하는 기능으로 서로를 그룹화 할 수 있는 관계&lt;/li&gt;
-      &lt;li&gt;기능 쪽으로 속이 빈 점선 화살표 연결&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--다이어그램diagram&quot;&gt;- 다이어그램(Diagram)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사물과 관계를 도형으로 표현&lt;/li&gt;
-  &lt;li&gt;가시화한 View를 제공하여 의사소통에 도움&lt;/li&gt;
-  &lt;li&gt;정적 모델링에서는 구조적 다이어그램, 동적 모델링에서는 행위 다이어그램 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;--구조적-다이어그램&quot;&gt;- 구조적 다이어그램&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;클래스(Class) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;객체(Object) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;컴포넌트(Component) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;배치(Deployment) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;복합체 구조(Composite Structure) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;패키지(Package) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;--행위-다이어그램&quot;&gt;- 행위 다이어그램&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;유스케이스(Use Case) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;시퀀스(Sequence) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;커뮤니케이션(Communication) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;상태(State) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;활동(Activity) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;상호작용 개요(Interaction Overview) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;em&gt;타이밍(Timing) 다이어그램&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 1과목 1장</summary></entry><entry><title type="html">[HTML] 글자와 상자</title><link href="https://leewonwoo1.github.io/html/frontend-html-inlineblock/" rel="alternate" type="text/html" title="[HTML] 글자와 상자" /><published>2021-07-29T04:00:00+09:00</published><updated>2021-07-29T13:00:00+09:00</updated><id>https://leewonwoo1.github.io/html/frontend-html-inlineblock</id><content type="html" xml:base="https://leewonwoo1.github.io/html/frontend-html-inlineblock/">&lt;h2 id=&quot;글자와-상자&quot;&gt;글자와 상자&lt;/h2&gt;
-
-&lt;p&gt;요소가 화면에 출력되는 특성. 크게 2가지로 구분됨.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;인라인(Inline) 요소 :&lt;/strong&gt; 글자를 만들기 위한 요소&lt;br /&gt;
-&lt;strong&gt;블록(Block) 요소 :&lt;/strong&gt; 상자(레이아웃)를 만들기 위한 요소&lt;/p&gt;
-
-&lt;h3 id=&quot;--inline-요소&quot;&gt;- Inline 요소&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;World!!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Hello World!!
--------------&amp;gt;
-요소가 수평으로 쌓임
-
-가로는 포함한 콘텐츠 크기만큼 줄어듬
-&amp;lt;---&amp;gt; &amp;lt;-----&amp;gt;
-Hello World!! ↕ 세로도 포함한 콘텐츠 크기만큼 줄어듬
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;span&lt;/strong&gt;은 가장 대표적인 인라인 요소.&lt;br /&gt;
-본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정하는 용도&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Inline 요소는 가로, 세로 &lt;u&gt;너비를 지정할 수 없음&lt;/u&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;height: 100px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;World!!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Hello World!!  &amp;lt;-- 반응 없음
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-외부, 내부 여백을 지정할 수 있지만, &lt;u&gt;상하 여백은 사용 불가&lt;/u&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin: 20px 20px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding: 20px 20px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;World!!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;20px         20px   20px     20px
-&amp;lt;--&amp;gt;『Hello』&amp;lt;--&amp;gt; 『&amp;lt;--&amp;gt;World&amp;lt;--&amp;gt;』
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;안에&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;사용&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;불가&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;안에&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;사용&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;가능&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--block-요소&quot;&gt;- Block 요소&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;World!!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Hello     ↓
-World!!   ↓  요소가 수직으로 쌓임
-
-가로는 부모 요소의 크기만큼 늘어남
-&amp;lt;----------------------------------&amp;gt;
-Hello                              ↕
-World!!                            ↕
-세로는 포함한 콘텐츠 크기만큼 줄어듬
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;div&lt;/strong&gt;은 가장 대표적인 블록 요소.&lt;br /&gt;
-본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정하는 용도&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Block 요소는 가로, 세로 &lt;u&gt;너비를 지정할 수 있음&lt;/u&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;height: 40px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;World!!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     100px
-&amp;lt;--------------&amp;gt;
-Hello          ↕
-World!!                        ↕
-                               ↕ 40px
-&amp;lt;------------------------------&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-외부, 내부 &lt;u&gt;여백을 지정할 수 있음&lt;/u&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin: 20px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding: 20px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;World!!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;20px             ↕ 20px          20px
-&amp;lt;--&amp;gt;『Hello                    』&amp;lt;--&amp;gt;
-                 ↕ 20px
-『               ↕ 20px          20px
-&amp;lt;--&amp;gt;World!!                      &amp;lt;--&amp;gt;
- 20px            ↕ 20px             』
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;안에&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;사용&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;불가&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;안에&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;요소&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;사용&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;가능&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="HTML" /><category term="HTML" /><category term="Web" /><summary type="html">요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소</summary></entry><entry><title type="html">[Github 블로그] _config.yml 셋팅</title><link href="https://leewonwoo1.github.io/blog/github-blog-config/" rel="alternate" type="text/html" title="[Github 블로그] _config.yml 셋팅" /><published>2021-07-28T00:00:00+09:00</published><updated>2021-07-28T00:00:00+09:00</updated><id>https://leewonwoo1.github.io/blog/github-blog-config</id><content type="html" xml:base="https://leewonwoo1.github.io/blog/github-blog-config/">&lt;h2 id=&quot;config-수정-공식-사이트&quot;&gt;config 수정 공식 사이트&lt;/h2&gt;
-
-&lt;p class=&quot;notice--info&quot;&gt;&lt;a href=&quot;https://mmistakes.github.io/minimal-mistakes/docs/configuration/&quot; target=&quot;_blank&quot;&gt;minimal-mistakes _config.yml 설정 공식 사이트 &lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;_configyml-실행&quot;&gt;_config.yml 실행&lt;/h2&gt;
-
-&lt;p&gt;vscode로 루트경로에 있는 &lt;strong&gt;_config.yml&lt;/strong&gt; 을 열어주고 작업한다.&lt;br /&gt;
-필요없는 부분은 제외하고 작성했다.&lt;/p&gt;
-
-&lt;h2 id=&quot;_configyml-수정&quot;&gt;_config.yml 수정&lt;/h2&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;minimal_mistakes_skin    &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dark&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &quot;air&quot;, &quot;aqua&quot;, &quot;contrast&quot;, &quot;dark&quot;, &quot;dirt&quot;, &quot;neon&quot;, &quot;mint&quot;, &quot;plum&quot;, &quot;sunrise&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# 사이트 기본 세팅&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;locale                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ko-KR&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;title                    &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LWW's&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Tech&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Blog&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 타이틀&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;title_separator          &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;amp;#124;&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 구분자&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;subtitle                 &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Version&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;1.0&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 타이틀 하단 글씨&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;name                     &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;이원우&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# footer에 찍히는 이름&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;description              &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;꾸준히&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;기록하는&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;블로그&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 설명&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;url                      &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://LeeWonWoo1.github.io&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 호스트 주소&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;repository               &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LeeWonWoo1/LeeWonWoo1.github.io&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# GitHub 유저이름 / 레포지 이름&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;teaser                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-&lt;span class=&quot;na&quot;&gt;logo                     &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 타이틀 옆 이미지&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;masthead_title           &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LWW's&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Tech&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Blog&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 최 상단 타이틀&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;breadcrumbs              &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 브래드크럼 사용 여부&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;words_per_minute         &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;200&lt;/span&gt; 
-
-&lt;span class=&quot;c1&quot;&gt;# 댓글&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;comments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;provider               &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;disqus&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;disqus&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;shortname            &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;LWW&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# disqus에 입력한 Web Site Name&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;discourse&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;server               &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-
-&lt;span class=&quot;c1&quot;&gt;# 구글 Recaptcha&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;reCaptcha&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;siteKey                &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;secret                 &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;atom_feed&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;path                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-  &lt;span class=&quot;na&quot;&gt;hide                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-&lt;span class=&quot;na&quot;&gt;search                   &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt; 
-&lt;span class=&quot;na&quot;&gt;search_full_content      &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt; 
-
-&lt;span class=&quot;c1&quot;&gt;# Analytics&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;analytics&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;provider               &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt; 
-
-
-&lt;span class=&quot;c1&quot;&gt;# Site Author&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;name             &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;이원우&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;avatar           &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/assets/images/profile/bear.jpg&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 프로필 이미지&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;bio              &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;CS&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;FrontEnd&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;location         &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Republic&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Korea&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;email            &lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;plmplmdnjsdn@naver.com&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Website&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fas&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-fw&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-link&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://LeeWonWoo1.github.io&quot;&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GitHub&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fab&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-fw&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-github&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://github.com/LeeWonWoo1&quot;&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Site Footer&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;footer&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Email&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fab&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-fw&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-envelope-square&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mailto:plmplmdnjsdn@naver.com&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GitHub&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fab&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-fw&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fa-github&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://github.com/LeeWonWoo1&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Post에 적용될 default 설정&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# _posts&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;posts&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;single&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;author_profile&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;read_time&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;comments&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;share&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;related&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;popular&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;수정하면서 종종 jekyll 서버로 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll serve
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;github-연동&quot;&gt;Github 연동&lt;/h2&gt;
-&lt;p&gt;수정을 완료하면 Github에 연동한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;commit message&quot;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="Blog" /><category term="Blog" /><category term="jekyll" /><category term="Github" /><category term="Git" /><category term="minimal-mistake" /><summary type="html">자신의 블로그를 커스터마이징 하기 위해 _config.yml을 수정합니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 1과목 2장</summary></entry></feed>

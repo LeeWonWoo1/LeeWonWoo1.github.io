@@ -1,6 +1,6 @@
 ---
-title: "[CSS] CSS 박스모델"
-excerpt: CSS 속성인 박스모델
+title: "[CSS] CSS 속성 - 박스모델"
+excerpt: CSS 속성인 박스모델 정리
 categories:
 - CSS
 tags:

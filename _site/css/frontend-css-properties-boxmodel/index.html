@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">16</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">17</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
       <!--Blog-->
@@ -391,7 +391,7 @@
                     
                 
                     
-                        <li><a href="/categories/css" class="">CSS (2)</a></li>
+                        <li><a href="/categories/css" class="">CSS (3)</a></li>
                     
                 
             </ul>
@@ -471,7 +471,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          2 분 소요
         
       </span>
     
@@ -486,14 +486,14 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#박스-모델">박스 모델</a><ul><li><a href="#단위">단위</a></li><li><a href="#width-height">width, height</a></li><li><a href="#max-width-max-height">max-width, max-height</a></li><li><a href="#min-width-min-height">min-width, min-height</a></li><li><a href="#margin">margin</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#박스-모델">박스 모델</a><ul><li><a href="#--단위">- 단위</a></li><li><a href="#--색상-표현">- 색상 표현</a></li><li><a href="#--width-height">- width, height</a></li><li><a href="#--max-width-max-height">- max-width, max-height</a></li><li><a href="#--min-width-min-height">- min-width, min-height</a></li><li><a href="#--margin">- margin</a></li><li><a href="#--padding">- padding</a></li><li><a href="#--border">- border</a></li><li><a href="#--box-sizing">- box-sizing</a></li><li><a href="#--overflow">- overflow</a></li><li><a href="#--display">- display</a></li><li><a href="#--opacity">- opacity</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <h2 id="박스-모델">박스 모델</h2>
 
-<h3 id="단위">단위</h3>
+<h3 id="--단위">- 단위</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>px 픽셀
 % 상대적 백분율
@@ -505,7 +505,19 @@ vh 뷰포트 세로 너비의 백분율
 
 <p><br /></p>
 
-<h3 id="width-height">width, height</h3>
+<h3 id="--색상-표현">- 색상 표현</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>이름 : red, royalblue, tomato // 브라우저에서 제공하는 색 이름
+Hex 색상코드 : #000, #FFFFFF // 16진수 색상
+RGB : rgb(255, 255, 255) // 빛의 삼원색
+RGBA : rgba(0, 0, 0, 0.5) // 빛의 삼원색 + 투명도
+HSL : hsl(120, 100%, 50%) // 색상, 채도, 명도
+HSLA : hsla(120, 100%, 50%, 0.5) // 색상, 채도, 명도 + 투명도
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--width-height">- width, height</h3>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 가로/세로 너비 */</span>
 <span class="nt">width</span><span class="o">,</span> <span class="nt">height</span> <span class="p">{</span>
@@ -516,7 +528,7 @@ vh 뷰포트 세로 너비의 백분율
 
 <p><br /></p>
 
-<h3 id="max-width-max-height">max-width, max-height</h3>
+<h3 id="--max-width-max-height">- max-width, max-height</h3>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소가 커질 수 있는 최대 가로/세로 너비 */</span>
 <span class="nt">max-width</span><span class="o">,</span> <span class="nt">max-height</span> <span class="p">{</span>
@@ -527,7 +539,7 @@ vh 뷰포트 세로 너비의 백분율
 
 <p><br /></p>
 
-<h3 id="min-width-min-height">min-width, min-height</h3>
+<h3 id="--min-width-min-height">- min-width, min-height</h3>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소가 작아질 수 있는 최소 가로/세로 너비 */</span>
 <span class="nt">min-width</span><span class="o">,</span> <span class="nt">min-height</span> <span class="p">{</span>
@@ -538,16 +550,155 @@ vh 뷰포트 세로 너비의 백분율
 
 <p><br /></p>
 
-<h3 id="margin">margin</h3>
+<h3 id="--margin">- margin</h3>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 외부 여백을 지정하는 단축 속성 */</span>
 <span class="nt">margin</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="err">외부</span> <span class="err">여백</span> <span class="err">없음</span>
   <span class="err">auto</span> <span class="err">브라우저가</span> <span class="err">여백을</span> <span class="err">계산.</span> <span class="err">가운데</span> <span class="err">정렬에</span> <span class="err">활용</span>
   <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+  <span class="err">음수</span> <span class="err">사용</span> <span class="err">가능</span>
+<span class="p">}</span>
+
+<span class="nt">적용</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>  <span class="c">/* top, right, bottom, left*/</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span><span class="p">;</span>  <span class="c">/* top, bottom / left, right */</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span> <span class="m">30px</span><span class="p">;</span>  <span class="c">/* top / left, right / bottom */</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span> <span class="m">30px</span> <span class="m">40px</span><span class="p">;</span>  <span class="c">/* top / right / bottom / left */</span>
+<span class="p">}</span>
+
+<span class="nt">개별</span> <span class="nt">속성</span> <span class="p">{</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">margin-right</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
+<h3 id="--padding">- padding</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 내부 여백을 지정하는 단축 속성 */</span>
+<span class="nt">padding</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="err">내부</span> <span class="err">여백</span> <span class="err">없음</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+  <span class="err">%:</span> <span class="err">부모</span> <span class="err">요소의</span> <span class="err">가로</span> <span class="err">너비에</span> <span class="err">대한</span> <span class="err">비율로</span> <span class="err">지정</span>
+  <span class="err">요소의</span> <span class="err">크기가</span> <span class="err">커짐</span>
+<span class="p">}</span>
+
+<span class="nt">적용</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>  <span class="c">/* top, right, bottom, left*/</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span><span class="p">;</span>  <span class="c">/* top, bottom / left, right */</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span> <span class="m">30px</span><span class="p">;</span>  <span class="c">/* top / left, right / bottom */</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span> <span class="m">30px</span> <span class="m">40px</span><span class="p">;</span>  <span class="c">/* top / right / bottom / left */</span>
+<span class="p">}</span>
+
+<span class="nt">개별</span> <span class="nt">속성</span> <span class="p">{</span>
+  <span class="nl">padding-top</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--border">- border</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 테두리 선을 지정하는 단축 속성 */</span>
+<span class="nt">border</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="n">두께</span> <span class="n">종류</span> <span class="n">색상</span><span class="p">;</span>
+  <span class="err">요소의</span> <span class="err">크기가</span> <span class="err">커짐</span>
+<span class="p">}</span>
+
+<span class="nt">적용</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">4px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">두께</span> <span class="p">{</span>
+  <span class="nl">border-width</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="err">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">종류</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="err">선</span> <span class="err">없음</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span> <span class="err">실선</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">dashed</span><span class="p">;</span> <span class="err">파선</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">dotted</span><span class="p">;</span> <span class="err">점선</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">double</span><span class="p">;</span> <span class="err">두줄선</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">groove</span><span class="p">;</span> <span class="err">홈이</span> <span class="err">파여있는</span> <span class="err">모양</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">ridge</span><span class="p">;</span> <span class="err">솟은</span> <span class="err">모양(groove</span> <span class="err">반대)</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">inset</span><span class="p">;</span> <span class="err">요소</span> <span class="err">전체가</span> <span class="err">들어간</span> <span class="err">모양</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">outset</span><span class="p">;</span> <span class="err">요소</span> <span class="err">전체가</span> <span class="err">나온</span> <span class="err">모양</span>
+<span class="p">}</span>
+
+<span class="nt">색상</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
+  <span class="py">투명</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">모서리</span> <span class="p">{</span>
+  <span class="c">/* 둥글게 깎기 */</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--box-sizing">- box-sizing</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 크기 계산 기준을 지정 */</span>
+<span class="nt">box-sizing</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span> <span class="err">요소의</span> <span class="err">내용으로</span> <span class="err">크기</span> <span class="err">계산</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span> <span class="err">요소의</span> <span class="err">내용</span> <span class="err">+</span> <span class="err">padding</span> <span class="err">+</span> <span class="err">border로</span> <span class="err">크기</span> <span class="err">계산</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--overflow">- overflow</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 내용이 넘쳤을 때, 보여짐을 제어 */</span>
+<span class="nt">overflow</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">visible</span><span class="p">;</span> <span class="err">넘친</span> <span class="err">내용을</span> <span class="err">그대로</span> <span class="err">보여줌</span>
+  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span> <span class="err">넘친</span> <span class="err">내용을</span> <span class="err">잘라냄</span>
+  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">scroll</span><span class="p">;</span> <span class="err">넘친</span> <span class="err">내용을</span> <span class="err">잘라내고</span> <span class="err">스크롤바</span> <span class="err">생성</span>
+  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">넘친</span> <span class="err">내용이</span> <span class="err">있는</span> <span class="err">경우에만</span> <span class="err">잘라내고</span> <span class="err">스크롤바</span> <span class="err">생성</span>
+<span class="p">}</span>
+
+<span class="nt">개별속성</span> <span class="p">{</span>
+  <span class="err">overflow-x</span>
+  <span class="err">overflow-y</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--display">- display</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 화면 출력 특성 */</span>
+<span class="nt">display</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">inline</span><span class="p">;</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span> <span class="err">각</span> <span class="err">요소에</span> <span class="err">이미</span> <span class="err">지정되어</span> <span class="err">있는</span> <span class="err">값</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span> <span class="err">플렉스</span> <span class="err">박스</span> <span class="err">(1차원</span> <span class="err">레이아웃)</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span> <span class="err">그리드</span> <span class="err">(2차원</span> <span class="err">레이아웃)</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="err">보여짐</span> <span class="err">특성</span> <span class="err">없음,</span> <span class="err">화면에서</span> <span class="err">사라짐</span>
+  <span class="py">기타</span><span class="p">:</span> <span class="n">table</span><span class="p">,</span> <span class="nb">table-row</span><span class="p">,</span> <span class="nb">table-cell</span> <span class="n">등</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--opacity">- opacity</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소 투명도 */</span>
+<span class="nt">opacity</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span> <span class="err">불투명</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="err">~</span><span class="m">1</span><span class="p">;</span> <span class="err">0부터</span> <span class="err">1사이의</span> <span class="err">소수점</span> <span class="err">숫자</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
@@ -619,12 +770,14 @@ vh 뷰포트 세로 너비의 백분율
 
 
 
+
+
 <nav class="pagination_prev_next">
   
   <a href="/css/frontend-css-basic/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[CSS] CSS 개요</a>
   
   
-  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  <a href="/css/frontend-css-properties-font/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[CSS] CSS 속성 - 글꼴, 문자</a>
   
 </nav>
 
@@ -638,6 +791,45 @@ vh 뷰포트 세로 너비의 백분율
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/css/frontend-css-properties-font/" rel="permalink">[CSS] CSS 속성 - 글꼴, 문자
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#css"
+      class="page__taxonomy-item-category" rel="tag">CSS</a>
+    
+    
+    <a href="/tags/#css"
+      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">CSS 속성인 글꼴, 문자 정리
+</p>
+  </article>
+</div>
         
           
 
@@ -737,40 +929,6 @@ vh 뷰포트 세로 너비의 백분율
 </span>
     </small>
     <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 4장
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/jckp/etc-jckp7/" rel="permalink">[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
-    
-    
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 3장
 </p>
   </article>
 </div>

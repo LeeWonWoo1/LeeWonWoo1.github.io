@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Github 블로그] Github Blog 시작! | LWW’s Tech Blog</title>
-<meta name="description" content="Github 블로그를 시작하기 위해 필요한 환경을 셋팅하고 Github과 연동합니다.">
+<!-- begin _includes/seo.html --><title>[CSS] CSS 속성 - 글꼴, 문자 | LWW’s Tech Blog</title>
+<meta name="description" content="CSS 속성인 글꼴, 문자 정리">
 
 
   <meta name="author" content="이원우">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[Github 블로그] Github Blog 시작!">
-<meta property="og:url" content="https://leewonwoo1.github.io/blog/my-first-post/">
+<meta property="og:title" content="[CSS] CSS 속성 - 글꼴, 문자">
+<meta property="og:url" content="https://leewonwoo1.github.io/css/frontend-css-properties-font/">
 
 
-  <meta property="og:description" content="Github 블로그를 시작하기 위해 필요한 환경을 셋팅하고 Github과 연동합니다.">
-
-
-
+  <meta property="og:description" content="CSS 속성인 글꼴, 문자 정리">
 
 
 
 
-  <meta property="article:published_time" content="2021-07-27T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-07-27T00:00:00+09:00">
+  <meta property="article:published_time" content="2021-07-31T03:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-07-31T12:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://leewonwoo1.github.io/blog/my-first-post/">
+
+<link rel="canonical" href="https://leewonwoo1.github.io/css/frontend-css-properties-font/">
 
 
 
@@ -199,7 +199,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#blog" itemprop="item"><span itemprop="name">Blog</span></a>
+          <a href="/categories/#css" itemprop="item"><span itemprop="name">Css</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[Github 블로그] Github Blog 시작!</li>
+        <li class="current">[CSS] CSS 속성 - 글꼴, 문자</li>
       
     
   </ol>
@@ -445,16 +445,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Github 블로그] Github Blog 시작!">
-    <meta itemprop="description" content="Github 블로그를 시작하기 위해 필요한 환경을 셋팅하고 Github과 연동합니다.">
-    <meta itemprop="datePublished" content="2021-07-27T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-07-27T00:00:00+09:00">
+    <meta itemprop="headline" content="[CSS] CSS 속성 - 글꼴, 문자">
+    <meta itemprop="description" content="CSS 속성인 글꼴, 문자 정리">
+    <meta itemprop="datePublished" content="2021-07-31T03:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-07-31T12:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/blog/my-first-post/" class="u-url" itemprop="url">[Github 블로그] Github Blog 시작!
+            <a href="https://leewonwoo1.github.io/css/frontend-css-properties-font/" class="u-url" itemprop="url">[CSS] CSS 속성 - 글꼴, 문자
 </a>
           </h1>
           
@@ -471,7 +471,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
@@ -486,101 +486,86 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-github-repository-생성">1. Github repository 생성</a></li><li><a href="#2-import-code">2. Import code</a></li><li><a href="#3-git-clone">3. git clone</a></li><li><a href="#4-rubby-설치">4. Rubby 설치</a></li><li><a href="#5-jekyll-bundler-설치">5. Jekyll, Bundler 설치</a></li><li><a href="#6-불필요한-파일-삭제">6. 불필요한 파일 삭제</a></li><li><a href="#7-github-연동">7. Github 연동</a></li></ul>
+              <ul class="toc__menu"><li><a href="#글꼴">글꼴</a><ul><li><a href="#--font-style">- font-style</a></li><li><a href="#--font-weight">- font-weight</a></li><li><a href="#--font-size">- font-size</a></li><li><a href="#--line-height">- line-height</a></li><li><a href="#--font-family">- font-family</a></li></ul></li><li><a href="#문자">문자</a></li></ul>
 
             </nav>
           </aside>
         
-        <p>Github blog를 개설하는 과정을 간단하게 알아봅니다.</p>
+        <h2 id="글꼴">글꼴</h2>
 
-<p class="notice--danger"><strong>주의!</strong> Git의 사용법을 어느정도 숙지해야 합니다.</p>
+<h3 id="--font-style">- font-style</h3>
 
-<h2 id="1-github-repository-생성">1. Github repository 생성</h2>
-<p>새 repository 이름을 <strong>[자신의 Github ID].github.io</strong> 로 설정한다.</p>
-
-<p><img src="https://user-images.githubusercontent.com/62803763/127294001-f4640a23-8c82-47b9-bb55-243c7157a5fb.PNG" alt="create-repository" class="align-center open-new" /></p>
-
-<h2 id="2-import-code">2. Import code</h2>
-<p>원하는 Jekyll 테마를 선택하고 코드를 복사한다. Jekyll 테마를 모아둔 사이트는 다음과 같다.</p>
-
-<p class="notice--info"><strong>Jekyll ?</strong> Ruby 언어로 만들어져 html, markdown 등의 텍스트를 가공하는 텍스트 변환 엔진</p>
-<p><br />
-<a href="http://jekyllthemes.org/" target="_blank">http://jekyllthemes.org/</a><br />
-<a href="http://themes.jekyllrc.org/" target="_blank">http://themes.jekyllrc.org/</a><br />
-<a href="https://jekyllthemes.io/" target="_blank">https://jekyllthemes.io/</a><br />
-<br />
-나의 경우 <a href="https://github.com/mmistakes/minimal-mistakes" target="_blank">minimal-mistakes</a> 의 ‘dark’ 테마가 마음에 들어 선택했다.</p>
-
-<p>코드를 복사한 뒤 생성한 <strong>[자신의 Github ID].github.io</strong> repository로 돌아와 import 한다.</p>
-
-<p><img src="https://user-images.githubusercontent.com/62803763/127293828-d60e753f-9aa8-4293-a9b9-2af122c8c66d.PNG" alt="clone-https" class="align-center open-new" /></p>
-
-<p><img src="https://user-images.githubusercontent.com/62803763/127293893-f7b72c9d-915f-45ef-b14b-9ee19273a4f6.PNG" alt="import-repository" class="align-center open-new" /></p>
-
-<p><img src="https://user-images.githubusercontent.com/62803763/127293953-9ae44db5-abec-4273-90d0-6784d399e580.PNG" alt="import-repository2" class="align-center open-new" /></p>
-
-<p>이때 나와 같이 Import하지 않고 repository를 fork 하거나 파일을 Download해도 된다.</p>
-
-<h2 id="3-git-clone">3. git clone</h2>
-<p>Import한 파일들을 작업하기 위해 vscode 터미널에서 clone한다.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/Github ID/Github ID.github.io.git
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 글자의 기울기 */</span>
+<span class="nt">font-style</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span> <span class="err">기울기</span> <span class="err">없음</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span><span class="p">;</span> <span class="err">이텔릭체</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">oblique</span><span class="p">;</span> <span class="err">기울어진</span> <span class="err">글자</span>
+<span class="p">}</span>
 </code></pre></div></div>
-
-<h2 id="4-rubby-설치">4. Rubby 설치</h2>
-<p>Jekyll을 설치하기 <strong>전에</strong> Ruby를 설치한다.</p>
-
-<p class="notice--info"><strong>Linux Ubuntu 환경</strong></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>ruby-full
-<span class="nv">$ </span>ruby <span class="nt">-v</span>
-</code></pre></div></div>
-
-<p>설치가 잘 되었다면 cmd 창에 버전이 잘 출력될 것이다.</p>
 
 <p><br /></p>
 
-<p class="notice--info"><strong>Windows 환경</strong></p>
+<h3 id="--font-weight">- font-weight</h3>
 
-<p><a href="https://rubyinstaller.org/downloads/" target="_blank"> Ruby 다운로드 사이트 </a>에서 다운받아 설치한다.<br />
-설치 과정에서 <code class="language-plaintext highlighter-rouge">"Add Ruby executables to your PATH"</code> 에 체크하면 자동으로 환경변수 설정이 완료된다.</p>
-
-<h2 id="5-jekyll-bundler-설치">5. Jekyll, Bundler 설치</h2>
-<p>본인이 clone한 폴더로 들어가면 <strong>Gemfile</strong> 이라는 파일이 있을 것이다. cmd를 켜서 이 파일이 있는 경로로 들어간 후, 아래의 명령을 수행한다.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem <span class="nb">install </span>jekyll bundler
-<span class="nv">$ </span>bundle
-<span class="nv">$ </span>jekyll <span class="nt">-v</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 글자의 두께 */</span>
+<span class="nt">font-weight</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">normal</span> <span class="n">or</span> <span class="m">400</span><span class="p">;</span> <span class="err">기본</span> <span class="err">두께</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span> <span class="n">or</span> <span class="m">700</span><span class="p">;</span> <span class="err">두껍게</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span> <span class="err">부모</span> <span class="err">요소보다</span> <span class="err">두껍게</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">lighter</span><span class="p">;</span> <span class="err">부모</span> <span class="err">요소보다</span> <span class="err">얇게</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="m">100</span> <span class="err">~</span> <span class="m">900</span><span class="p">;</span> <span class="err">100단위의</span> <span class="err">숫자</span> <span class="err">9개</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>Jekyll이 잘 설치되었다면 cmd 창에 버전이 잘 출력될 것이다. 
-그 다음 아래의 명령어를 통해 로컬 환경에서 자신이 개발하는 블로그를 확인해 볼 수 있다.</p>
+<p><br /></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>jekyll serve
+<h3 id="--font-size">- font-size</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 글자의 크기 */</span>
+<span class="nt">font-size</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span> <span class="err">기본</span> <span class="err">크기</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span>
+  <span class="err">%:</span> <span class="err">부모</span> <span class="err">요소의</span> <span class="err">폰트</span> <span class="err">크기에</span> <span class="err">대한</span> <span class="err">비율</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">larger</span><span class="p">;</span> <span class="err">부모</span> <span class="err">요소보다</span> <span class="err">크게</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">smaller</span><span class="p">;</span> <span class="err">부모</span> <span class="err">요소보다</span> <span class="err">작게</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">xx-small</span> <span class="err">~</span> <span class="nb">xx-large</span><span class="p">;</span> <span class="err">가장</span> <span class="err">작은</span> <span class="err">크기</span> <span class="err">~</span> <span class="err">가장</span> <span class="err">큰</span> <span class="err">크기까지</span> <span class="err">7단계</span> <span class="err">크기</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>정상적으로 설치 되었다면 로컬서버 <a href="http://localhost:4000/" target="_blank">http://localhost:4000/ </a> 에서 확인하자.</p>
+<p><br /></p>
 
-<p><img src="https://user-images.githubusercontent.com/62803763/127294147-7b1c13aa-6e30-4066-8e96-504d0ef6c4a0.PNG" alt="first-page" class="align-center open-new" /></p>
+<h3 id="--line-height">- line-height</h3>
 
-<h2 id="6-불필요한-파일-삭제">6. 불필요한 파일 삭제</h2>
-<p>Github에 commit하기 전에 본인이 clone한 폴더에서 불필요한 파일을 삭제한다.</p>
-
-<p><img src="https://user-images.githubusercontent.com/62803763/127295569-ea06e4f0-f4ae-47ce-ba1d-bc2ffc7b84d6.PNG" alt="delete-file" class="align-center open-new" /></p>
-
-<p class="notice--danger"><strong>docs 폴더 :</strong> post 샘플이 들어가 있으므로 백업해 놓는다.</p>
-<p class="notice--danger"><strong>README.md :</strong> 다시 작성하기 위해 삭제했다.</p>
-
-<h2 id="7-github-연동">7. Github 연동</h2>
-<p>수정된 사항들을 깃헙에 “add-commit-push” 하여 반영한다.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span>
-<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"commit message"</span>
-<span class="nv">$ </span>git push origin master
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 한 줄의 높이, 행간과 유사 */</span>
+<span class="nt">line-height</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span> <span class="err">브라우저의</span> <span class="err">기본</span> <span class="err">정의</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="n">숫자</span><span class="p">;</span> <span class="err">요소의</span> <span class="err">글꼴</span> <span class="err">크기의</span> <span class="err">배수로</span> <span class="err">지정</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span>
+  <span class="err">%:</span> <span class="err">요소의</span> <span class="err">글꼴</span> <span class="err">크기의</span> <span class="err">비율로</span> <span class="err">지정</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<hr />
-<p>push가 완료되면 <strong>[자신의 Github ID].github.io</strong> 에서 블로그를 확인할 수 있다.</p>
+<p><br /></p>
+
+<h3 id="--font-family">- font-family</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">font-family</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">serif</span><span class="p">;</span> <span class="err">바탕체</span> <span class="err">계열</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span> <span class="err">고딕체</span> <span class="err">계열</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">monospace</span><span class="p">;</span> <span class="err">고정너비</span> <span class="err">글꼴</span> <span class="err">계열</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">cursive</span><span class="p">;</span> <span class="err">필기체</span> <span class="err">계열</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">fantasy</span><span class="p">;</span> <span class="err">장식</span> <span class="err">글꼴</span> <span class="err">계열</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div> style="font-family: serif"&gt;Hello World!</div>
+<div style="font-family: sans-serif">Hello World!</div>
+<div style="font-family: monospace">Hello World!</div>
+<div style="font-family: cursive">Hello World!</div>
+<div style="font-family: fantasy">Hello World!</div>
+
+<h2 id="문자">문자</h2>
+
 
         
       </section>
@@ -597,15 +582,9 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+      <a href="/tags/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a><span class="sep">, </span>
     
-      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
-    
-      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
-    
-      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
-    
-      <a href="/tags/#minimal-mistake" class="page__taxonomy-item p-category" rel="tag">minimal-mistake</a>
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
     
     </span>
   </p>
@@ -622,7 +601,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a>
+      <a href="/categories/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a>
     
     </span>
   </p>
@@ -630,7 +609,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-27">July 27, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-31">July 31, 2021</time></p>
 
       </footer>
 
@@ -639,11 +618,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BGithub+%EB%B8%94%EB%A1%9C%EA%B7%B8%5D+Github+Blog+%EC%8B%9C%EC%9E%91%21%20https%3A%2F%2Fleewonwoo1.github.io%2Fblog%2Fmy-first-post%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BCSS%5D+CSS+%EC%86%8D%EC%84%B1+-+%EA%B8%80%EA%BC%B4%2C+%EB%AC%B8%EC%9E%90%20https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-font%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fblog%2Fmy-first-post%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-font%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fblog%2Fmy-first-post%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-font%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -658,14 +637,12 @@
 
 
 
-
-
 <nav class="pagination_prev_next">
   
-  <a href="#" class="pagination_prev_next--pager disabled">첫 번째 글입니다</a>
+  <a href="/css/frontend-css-properties-boxmodel/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[CSS] CSS 속성 - 박스모델</a>
   
   
-  <a href="/blog/github-blog-config/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Github 블로그] _config.yml 셋팅</a>
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
   
 </nav>
 
@@ -679,45 +656,6 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/css/frontend-css-properties-font/" rel="permalink">[CSS] CSS 속성 - 글꼴, 문자
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#css"
-      class="page__taxonomy-item-category" rel="tag">CSS</a>
-    
-    
-    <a href="/tags/#css"
-      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#web"
-      class="page__taxonomy-item-tag" rel="tag">Web</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">CSS 속성인 글꼴, 문자 정리
-</p>
-  </article>
-</div>
         
           
 
@@ -821,6 +759,40 @@
   </article>
 </div>
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp7/" rel="permalink">[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 3장
+</p>
+  </article>
+</div>
+        
       </div>
     </div>
   
@@ -905,8 +877,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://leewonwoo1.github.io/blog/my-first-post/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/blog/my-first-post"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://leewonwoo1.github.io/css/frontend-css-properties-font/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/css/frontend-css-properties-font"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

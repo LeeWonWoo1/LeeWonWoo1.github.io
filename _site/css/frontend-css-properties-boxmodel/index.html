@@ -486,12 +486,68 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#박스-모델">박스 모델</a><ul><li><a href="#단위">단위</a></li><li><a href="#width-height">width, height</a></li><li><a href="#max-width-max-height">max-width, max-height</a></li><li><a href="#min-width-min-height">min-width, min-height</a></li><li><a href="#margin">margin</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        
+        <h2 id="박스-모델">박스 모델</h2>
+
+<h3 id="단위">단위</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>px 픽셀
+% 상대적 백분율
+em 요소의 글꼴 크기
+rem 루트 요소(html)의 글꼴 크기
+vw 뷰포트 가로 너비의 백분율
+vh 뷰포트 세로 너비의 백분율
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="width-height">width, height</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 가로/세로 너비 */</span>
+<span class="nt">width</span><span class="o">,</span> <span class="nt">height</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">브라우저가</span> <span class="err">너비를</span> <span class="err">계산</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="max-width-max-height">max-width, max-height</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소가 커질 수 있는 최대 가로/세로 너비 */</span>
+<span class="nt">max-width</span><span class="o">,</span> <span class="nt">max-height</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="err">최대</span> <span class="err">너비</span> <span class="err">제한</span> <span class="err">없음</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="min-width-min-height">min-width, min-height</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소가 작아질 수 있는 최소 가로/세로 너비 */</span>
+<span class="nt">min-width</span><span class="o">,</span> <span class="nt">min-height</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="err">최소</span> <span class="err">너비</span> <span class="err">제한</span> <span class="err">없음</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="margin">margin</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 외부 여백을 지정하는 단축 속성 */</span>
+<span class="nt">margin</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="err">auto</span> <span class="err">브라우저가</span> <span class="err">여백을</span> <span class="err">계산.</span> <span class="err">가운데</span> <span class="err">정렬에</span> <span class="err">활용</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">vw</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
 
         
       </section>

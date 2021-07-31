@@ -1,4 +1,1126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-07-31T03:23:12+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[CSS] CSS 속성 - 글꼴, 문자</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-font/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 글꼴, 문자" /><published>2021-07-31T03:00:00+09:00</published><updated>2021-07-31T12:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-font</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-font/">&lt;h2 id=&quot;글꼴&quot;&gt;글꼴&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-07-31T19:24:18+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 3-3. SQL 응용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp12/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-3. SQL 응용" /><published>2021-07-31T19:00:00+09:00</published><updated>2021-08-01T04:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp12</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp12/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-sql의-개념--b&quot;&gt;1. SQL의 개념 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--sql의-개요&quot;&gt;- SQL의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;국제 표준 DB 언어. 많은 회사에서 RDB를 지원하는 언어로 채택&lt;/li&gt;
+  &lt;li&gt;관계대수와 관계해석을 기초로 한 혼합 데이터 언어&lt;/li&gt;
+  &lt;li&gt;질의어지만 질의 기능 뿐만 아니라 데이터 구조 정의, 데이터 조작, 제어 기능을 모두 갖춤&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--sql의-분류&quot;&gt;- SQL의 분류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DDL(Data Define Language, 데이터 정의어)
+    &lt;ul&gt;
+      &lt;li&gt;SCHEMA, DOMAIN, TABLE, VIEW, INDEX를 정의하거나 변경 또는 삭제할 때 사용&lt;/li&gt;
+      &lt;li&gt;논리적 데이터 구조와 물리적 데이터 구조의 사상을 정의&lt;/li&gt;
+      &lt;li&gt;DB 관리자나 DB 설계자가 사용&lt;/li&gt;
+      &lt;li&gt;CREATE : SCHEMA, DOMAIN, TABLE, VIEW, INDEX를 정의&lt;/li&gt;
+      &lt;li&gt;ALTER : TABLE에 대한 정의를 변경하는 데 사용&lt;/li&gt;
+      &lt;li&gt;DROP : SCHEMA, DOMAIN, TABLE, VIEW, INDEX를 삭제&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DML(Data Manipulation Language, 데이터 조작어)
+    &lt;ul&gt;
+      &lt;li&gt;저장된 데이터를 실질적으로 처리하는 데 사용&lt;/li&gt;
+      &lt;li&gt;DB 사용자와 DB 관리 시스템 간의 인터페이스 제공&lt;/li&gt;
+      &lt;li&gt;SELECT : 튜플 검색&lt;/li&gt;
+      &lt;li&gt;INSERT : 튜플 삽입&lt;/li&gt;
+      &lt;li&gt;DELETE : 튜플 삭제&lt;/li&gt;
+      &lt;li&gt;UPDATE : 튜플 내용 변경&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DCL(Data Control Language, 데이터 제어어)
+    &lt;ul&gt;
+      &lt;li&gt;데이터의 보안, 무결성, 회복, 병행 수행 제어 등을 정의하는데 사용&lt;/li&gt;
+      &lt;li&gt;DB 관리자가 데이터 관리를 목적으로 사용&lt;/li&gt;
+      &lt;li&gt;COMMIT : 결과를 물리적 디스크로 저장. 작업이 완료되었음을 관리자에게 알려줌&lt;/li&gt;
+      &lt;li&gt;ROLLBACK : 비정상적으로 종료되었을 때 원래의 상태로 복구&lt;/li&gt;
+      &lt;li&gt;GRANT : 사용자에게 사용 권한을 부여&lt;/li&gt;
+      &lt;li&gt;REVOKE : 사용자의 사용 권한을 취소&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-ddl--c&quot;&gt;2. DDL – C&lt;/h2&gt;
+
+&lt;h3 id=&quot;--ddl-개념&quot;&gt;- DDL 개념&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB를 구축하거나 수정 할 목적으로 사용하는 언어&lt;/li&gt;
+  &lt;li&gt;데이터 사전에 여러개의 테이블로서 저장됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--create-schema&quot;&gt;- CREATE SCHEMA&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스키마를 정의하는 명령문&lt;/li&gt;
+  &lt;li&gt;스키마 이름과 소유권자나 허가권자를 정의&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SCHEMA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;스키마명&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AUTHORIZATION&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;사용자_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ID가 홍길동인 스키마 대학교를 정의하는 SQL문&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SCHEMA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;대학교&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AUTHORIZATION&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;홍길동&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;--create-domain&quot;&gt;- CREATE DOMAIN&lt;/h1&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 3장</summary></entry><entry><title type="html">[정보처리기사 필기] 3-2. 물리 데이터베이스 설계</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp11/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-2. 물리 데이터베이스 설계" /><published>2021-07-31T08:00:00+09:00</published><updated>2021-07-31T17:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp11</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp11/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-사전-조사-분석--b&quot;&gt;1. 사전 조사 분석 – B&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리적 구조료 표현된 논리적 DB를 물리적 저장장치에 저장할 수 있는 물리적 구조의 데이터로 변환&lt;/li&gt;
+  &lt;li&gt;데이터 단위는 저장 레코드&lt;/li&gt;
+  &lt;li&gt;꼭 포함되어야 할 것은 저장 레코드의 양식 설계, 레코드 집중의 분석 및 설계, 접근 경로 설계 등&lt;/li&gt;
+  &lt;li&gt;여러 가지 타입의 저장 레코드 집합이라는 면에서 단순한 파일과 다름&lt;/li&gt;
+  &lt;li&gt;물리적 DB 구조는 DB 시스템 성능에 중대한 영향을 미친다&lt;/li&gt;
+  &lt;li&gt;고려사항
+    &lt;ul&gt;
+      &lt;li&gt;인덱스 구조&lt;/li&gt;
+      &lt;li&gt;레코드 크기&lt;/li&gt;
+      &lt;li&gt;레코드 개수&lt;/li&gt;
+      &lt;li&gt;트랜잭션의 갱신과 참조 성향&lt;/li&gt;
+      &lt;li&gt;개념 스키마의 변경 여부 검토&lt;/li&gt;
+      &lt;li&gt;트랜잭션들의 수행속도를 높이기 위한 고려&lt;/li&gt;
+      &lt;li&gt;파일 크기의 변화 가능성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;기존 시스템을 분석하여 파악&lt;/li&gt;
+  &lt;li&gt;물리적 설계 옵션
+    &lt;ul&gt;
+      &lt;li&gt;반응시간&lt;/li&gt;
+      &lt;li&gt;공간 활용도&lt;/li&gt;
+      &lt;li&gt;트랜잭션 처리량&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터-명명-규칙-파악&quot;&gt;- 데이터 명명 규칙 파악&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터 표준화 및 논리 DB 설계의 결과물 등을 통해 파악&lt;/li&gt;
+  &lt;li&gt;서로 일관성 유지&lt;/li&gt;
+  &lt;li&gt;동일 명칭 부여의 근거&lt;/li&gt;
+  &lt;li&gt;중복 구축 등을 방지&lt;/li&gt;
+  &lt;li&gt;도메인과 데이터 사전에 대한 지식 필요&lt;/li&gt;
+  &lt;li&gt;도메인 : 객체에 포함된 속성들의 데이터 타입, 크기 등을 표준화 규칙에 따라 일관성 있게 정의한 것&lt;/li&gt;
+  &lt;li&gt;데이터 사전
+    &lt;ul&gt;
+      &lt;li&gt;일관성 있는 데이터 이름과 인터페이스를 제공하기 위해 데이터 속성의 논리명, 물리명, 용어정의를 기술&lt;/li&gt;
+      &lt;li&gt;프로젝트에서 사용하는 명칭 부여의 근거&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--시스템-자원-파악&quot;&gt;- 시스템 자원 파악&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시스템 자원은 DB 설치에 영향을 미칠 수 있는 물리적 요소. 사전에 미리 파악해야 함&lt;/li&gt;
+  &lt;li&gt;하드웨어 자원, 운영체제 및 DBMS 버전, DBMS 파라미터 정보&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터베이스-관리-요소-파악&quot;&gt;- 데이터베이스 관리 요소 파악&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB 관리 요소는 운영과 관련된 관리 요소. 미리 파악해야 함&lt;/li&gt;
+  &lt;li&gt;파악한 후 DB 시스템 조사 분석서 작성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-데이터베이스-저장-공간-설계--b&quot;&gt;2. 데이터베이스 저장 공간 설계 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--테이블&quot;&gt;- 테이블&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Row와 Column으로 구성&lt;/li&gt;
+  &lt;li&gt;모든 데이터는 테이블에 저장됨&lt;/li&gt;
+  &lt;li&gt;논리 설계 단계의 개체에 대응하는 객체&lt;/li&gt;
+  &lt;li&gt;DBMS 종류에 따라 테이블의 명칭과 기능 등은 약간씩 차이가 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-일반-테이블&quot;&gt;@ 일반 테이블&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대부분의 DBMS에서 표준 테이블로 사용되는 테이블&lt;/li&gt;
+  &lt;li&gt;Row 위치는 속성 값에 상관없이 데이터가 저장되는 순서에 따라 결정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-클러스터드-인덱스-테이블&quot;&gt;@ 클러스터드 인덱스 테이블&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기본키나 인덱스키의 순서에 따라 데이터가 저장되는 테이블&lt;/li&gt;
+  &lt;li&gt;접근 경로가 단축됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-파티셔닝-테이블&quot;&gt;@ 파티셔닝 테이블&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대용량의 테이블을 작은 논리적 단위인 파티션으로 나눈 테이블&lt;/li&gt;
+  &lt;li&gt;대용량의 데이터를 효과적으로 관리할 수 있음&lt;/li&gt;
+  &lt;li&gt;파티션 키를 잘못 구성하면 성능 저하 등의 역효과 초래&lt;/li&gt;
+  &lt;li&gt;범위분할 : 지정한 열의 값을 기준으로 분할&lt;/li&gt;
+  &lt;li&gt;해시분할 : 해시 함수를 적용한 결과 값에 따라 분할&lt;/li&gt;
+  &lt;li&gt;조합분할 : 범위 분할로 분할한 다음 해시 함수를 적용하여 다시 분할&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-외부-테이블&quot;&gt;@ 외부 테이블&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB에서 일반 테이블처럼 이용할 수 있는 외부 파일. 객체로 존재&lt;/li&gt;
+  &lt;li&gt;데이터웨어하우스에서 ETL 등의 작업에 유용하게 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-임시-테이블&quot;&gt;@ 임시 테이블&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;트랜잭션이나 세션별로 데이터를 저장하고 처리할 수 있는 테이블&lt;/li&gt;
+  &lt;li&gt;트랜잭션이 종료되면 삭제됨&lt;/li&gt;
+  &lt;li&gt;임시로 사용하는 테이블&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--column&quot;&gt;- Column&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블의 열. 데이터 타입, 길이 등으로 정의됨&lt;/li&gt;
+  &lt;li&gt;데이터 타입은 데이터의 일관성 유지를 위해 사용되는 가장 기본적인 것&lt;/li&gt;
+  &lt;li&gt;도메인을 정의한 경우 도메인에 따라 데이터의 타입과 길이 정의&lt;/li&gt;
+  &lt;li&gt;두 컬럼의 데이터 타입이나 길이가 다르면 DBMS 내부적으로 데이터 타입을 변환한 수 비교 연산 수행&lt;/li&gt;
+  &lt;li&gt;참조 관계인 컬럼들은 데이터 타입과 길이가 일치해야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--테이블스페이스&quot;&gt;- 테이블스페이스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블이 저장되는 논리적인 영역. 하나 또는 그 이상의 테이블 저장 가능&lt;/li&gt;
+  &lt;li&gt;테이블을 저장하면 논리적으로는 테이블스페이스에 저장, 물리적으로는 연관된 데이터 파일에 저장&lt;/li&gt;
+  &lt;li&gt;나눠 관리하면 논리적 구성이 물리적 구성에 종속되지 않아 투명성이 보장됨&lt;/li&gt;
+  &lt;li&gt;고려사항
+    &lt;ul&gt;
+      &lt;li&gt;업무별로 구분하여 지정&lt;/li&gt;
+      &lt;li&gt;대용량 테이블은 하나의 테이블스페이스에 독립적으로 저장&lt;/li&gt;
+      &lt;li&gt;테이블과 인덱스는 분리하여 저장&lt;/li&gt;
+      &lt;li&gt;LOB 타입의 데이터는 독립적인 공간으로 지정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-트랜잭션-분석--crud-분석--b&quot;&gt;3. 트랜잭션 분석 / CRUD 분석 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--트랜잭션-정의&quot;&gt;- 트랜잭션 정의&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB의 상태를 변화시키는 하나의 논리적 기능을 수행하기 위한 작업의 단위 또는 한꺼번에 모두 수행되어야 할 연산&lt;/li&gt;
+  &lt;li&gt;병행 제어 및 회복 작업 시 처리되는 작업의 논리적 단위&lt;/li&gt;
+  &lt;li&gt;시스템이 응답하기 위한 상태 변환 과정의 작업 단위&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--트랜잭션의-특성&quot;&gt;- 트랜잭션의 특성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Atomicity(원자성)
+    &lt;ul&gt;
+      &lt;li&gt;트랜잭션의 연산은 완료(Commit)되든지 전혀 반영되지 않도록 복구(Rollback)되어야 함&lt;/li&gt;
+      &lt;li&gt;모든 명령은 반드시 완벽히 수행되야 하며, 오류 발생 시 트랜잭션 전부가 취소돼야 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Consistency(일관성)
+    &lt;ul&gt;
+      &lt;li&gt;실행을 성공적으로 완료하면 언제나 일관성 있는 DB 상태로 변환&lt;/li&gt;
+      &lt;li&gt;고정 요소는 트랜잭션 수행 전과 후의 상태가 같아야 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Isolation(독립성, 격리성, 순차성)
+    &lt;ul&gt;
+      &lt;li&gt;트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없음&lt;/li&gt;
+      &lt;li&gt;완전히 완료될 때까지 다른 트랜잭션에서 수행 결과를 참조할 수 없음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Durability(영속성, 지속성)
+    &lt;ul&gt;
+      &lt;li&gt;완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--crud-분석&quot;&gt;- CRUD 분석&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create, Read, Update, Delete&lt;/li&gt;
+  &lt;li&gt;CRUD 매트릭스를 작성하여 분석&lt;/li&gt;
+  &lt;li&gt;트랜잭션의 주기별 발생 횟수를 파악하고, 테이블에 저장되는 데이터의 양을 유추할 수 있음&lt;/li&gt;
+  &lt;li&gt;많은 트랜잭션이 몰리는 테이블을 파악할 수 있음&lt;/li&gt;
+  &lt;li&gt;연결 지연이나 타임아웃 오류를 방지할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--crud-매트릭스&quot;&gt;- CRUD 매트릭스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Row에는 프로세스를, Column에는 테이블을, 행과 열이 만나는 위치에는 변화를 표시&lt;/li&gt;
+  &lt;li&gt;프로세스의 트랜잭션이 테이블에 수행하는 작업을 검증&lt;/li&gt;
+  &lt;li&gt;복수의 변화를 줄 때는 C &amp;gt; D &amp;gt; U &amp;gt; R의 우선순위 적용&lt;/li&gt;
+  &lt;li&gt;불필요하거나 누락된 테이블 또는 프로세스를 찾음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--트랜잭션-분석&quot;&gt;- 트랜잭션 분석&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블에 저장되는 데이터의 양을 유추하고 이를 근거로 DB 용량을 산정하고 구조를 최적화&lt;/li&gt;
+  &lt;li&gt;업무 개발 담당자가 수행&lt;/li&gt;
+  &lt;li&gt;디스크 입출력 분산을 통한 성능 향상을 가져올 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--트랜잭션-분석서&quot;&gt;- 트랜잭션 분석서&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단위 프로세스와 CRUD 매트릭스를 이용하여 작성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-인덱스-설계--a&quot;&gt;4. 인덱스 설계 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--인덱스의-개념&quot;&gt;- 인덱스의 개념&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&amp;lt;키 값, 포인터&amp;gt; 쌍으로 구성되는 데이터 구조&lt;/li&gt;
+  &lt;li&gt;물리적 구조와 밀접한 관계&lt;/li&gt;
+  &lt;li&gt;물리적 구조에 접근하는 방법 제공&lt;/li&gt;
+  &lt;li&gt;파일의 레코드에 대한 액세스를 빠르게 수행&lt;/li&gt;
+  &lt;li&gt;삽입, 삭제가 수시로 일어나는 경우, 인덱스의 개수를 최소로 하는 것이 효율적&lt;/li&gt;
+  &lt;li&gt;인덱스가 없으면 모든 데이터 페이지를 확인하는 TABLE SCAN 발생&lt;/li&gt;
+  &lt;li&gt;기본키를 위한 인덱스를 기본 인덱스, 기본 인덱스가 아닌 인덱스를 보조 인덱스라고 함&lt;/li&gt;
+  &lt;li&gt;DBMS에서는 모든 기본키에 대해서 자동적으로 기본 인덱스를 생성함&lt;/li&gt;
+  &lt;li&gt;레코드의 물리적 순서가 인덱스의 엔트리 순서와 일치하게 유지되도록 구성되는 인덱스를 클러스터트 인덱스라 함
+    &lt;ul&gt;
+      &lt;li&gt;클러스터드 인덱스
+        &lt;ul&gt;
+          &lt;li&gt;인덱스 키의 순서에 따라 데이터가 정렬되어 저장&lt;/li&gt;
+          &lt;li&gt;인덱스를 검색하지 않아도 원하는 데이터를 빠르게 찾을 수 있음&lt;/li&gt;
+          &lt;li&gt;삽입, 삭제 발생 시 순서를 유지하기 위해 데이터를 재정렬해야 함&lt;/li&gt;
+          &lt;li&gt;한 개의 릴레이션에 하나의 인덱스만 생성할 수 있음&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;넌클러스터드 인덱스
+        &lt;ul&gt;
+          &lt;li&gt;키 값만 정렬되어 있을 뿐 실제 데이터는 정렬되지 않는 방식&lt;/li&gt;
+          &lt;li&gt;데이터 검색을 위해 인덱스를 검색하여 실제 데이터의 위치를 확인해야 하므로 검색 속도가 떨어짐&lt;/li&gt;
+          &lt;li&gt;한 개의 릴레이션에 여러 개의 인덱스를 만들 수 있음&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--트리-기반-인덱스&quot;&gt;- 트리 기반 인덱스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인덱스를 저장하는 블록들이 트리 구조를 이루고 있는 것&lt;/li&gt;
+  &lt;li&gt;B 트리 인덱스
+    &lt;ul&gt;
+      &lt;li&gt;루트 노드에서 하위 노드로 키 값의 크기를 비교해 나가면서 검색&lt;/li&gt;
+      &lt;li&gt;포인터들이 트리 노드에 오름차순으로 저장&lt;/li&gt;
+      &lt;li&gt;모든 리프 노드는 같은 레벨에 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;B+ 트리 인덱스
+    &lt;ul&gt;
+      &lt;li&gt;단말 노드가 아닌 노드로 구성된 인덱스 세트와 단말 노드로만 구성된 순차 세트로 구분&lt;/li&gt;
+      &lt;li&gt;인덱스 세트에 있는 노드들은 경로로만 제공&lt;/li&gt;
+      &lt;li&gt;순차 세트에 있는 단말 노드가 해당 데이터 레코드의 주소를 가리킴&lt;/li&gt;
+      &lt;li&gt;단말 노드만을 이용한 순차 처리 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--비트맵-인덱스&quot;&gt;- 비트맵 인덱스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인덱스 컬럼의 데이터를 Bit 값인 0 또는 1로 변환하여 인덱스 키로 사용&lt;/li&gt;
+  &lt;li&gt;목적은 Row의 주소를 제공하는 것&lt;/li&gt;
+  &lt;li&gt;분포도가 좋은 컬럼에 적합하며, 성능 향상 효과를 얻을 수 있음&lt;/li&gt;
+  &lt;li&gt;효율적인 논리 연산이 가능하고 저장 공간이 작음&lt;/li&gt;
+  &lt;li&gt;다중 조건을 만족하는 튜플의 개수 계산에 적합&lt;/li&gt;
+  &lt;li&gt;동일한 값이 반복되는 경우가 많아 압축 효율이 좋음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--함수-기반-인덱스&quot;&gt;- 함수 기반 인덱스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;컬럼의 값 대신 특정 함수나 수식을 적용하여 산출된 값을 사용&lt;/li&gt;
+  &lt;li&gt;B+ 트리 인덱스 또는 비트맵 인덱스를 생성하여 사용&lt;/li&gt;
+  &lt;li&gt;데이터를 입력하거나 수정할 때 함수를 적용해야 하므로 부하 발생할 수 있음&lt;/li&gt;
+  &lt;li&gt;사용자 정의 함수일 경우 시스템 함수보다 부하가 더 큼&lt;/li&gt;
+  &lt;li&gt;대소문자, 띄어쓰기 등에 상관없이 조회할 때 유용하게 사용됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--비트맵-조인-인덱스&quot;&gt;- 비트맵 조인 인덱스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다수의 조인된 객체로 구성된 인덱스&lt;/li&gt;
+  &lt;li&gt;비트맵 인덱스와 물리적 구조가 동일&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--도메인-인덱스&quot;&gt;- 도메인 인덱스&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발자가 필요한 인덱스를 직접 만들어 사용하는 것. 확장형 인덱스&lt;/li&gt;
+  &lt;li&gt;프로그램에서 제공하는 인덱스처럼 사용할 수도 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--인덱스-설계&quot;&gt;- 인덱스 설계&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;분명하게 드러난 컬럼에 대해 기본적인 인덱스를 먼저 지정&lt;/li&gt;
+  &lt;li&gt;테이블, 컬럼 등 선정 -&amp;gt; 인덱스 최적화 수행 -&amp;gt; 인덱스 정의서 작성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--인덱스-대상-테이블-선정-기순&quot;&gt;- 인덱스 대상 테이블 선정 기순&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MULTI BLOCK READ 수에 따라 판단&lt;/li&gt;
+  &lt;li&gt;랜덤 액세스가 빈번한 테이블&lt;/li&gt;
+  &lt;li&gt;특정 범위나 특정 순서로 데이터 조회가 필요한 테이블&lt;/li&gt;
+  &lt;li&gt;다른 테이블과 순차적 조인이 발생되는 테이블&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--인덱스-대상-컬럼-선정-기준&quot;&gt;- 인덱스 대상 컬럼 선정 기준&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;컬럼의 분포도가 10~15% 이내인 컬럼&lt;/li&gt;
+  &lt;li&gt;분포도가 10~15% 이상이어도 부분 처리를 목적으로 하는 컬럼&lt;/li&gt;
+  &lt;li&gt;조회 및 출력 조건으로 사용되는 컬럼&lt;/li&gt;
+  &lt;li&gt;기본키와 Unique키 제약 조건을 사용한 컬럼&lt;/li&gt;
+  &lt;li&gt;수정이 빈번하지 않은 컬럼&lt;/li&gt;
+  &lt;li&gt;ORDER BY, GROUP BY, UNION이 빈번한 컬럼&lt;/li&gt;
+  &lt;li&gt;분포도가 좁은 컬럼은 단독 인덱스로 생성&lt;/li&gt;
+  &lt;li&gt;인덱스들이 자주 조합되어 사용되는 경우 하나의 결합 인덱스로 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--인덱스-설계-시-고려사항&quot;&gt;- 인덱스 설계 시 고려사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;새로 추가되는 인덱스는 기존 액세스 경로에 영향을 미칠 수 있음&lt;/li&gt;
+  &lt;li&gt;인덱스를 지나치게 많이 만들면 오버헤드 발생&lt;/li&gt;
+  &lt;li&gt;넓은 범위를 인덱스로 처리하면 많은 오버헤드 발생&lt;/li&gt;
+  &lt;li&gt;인덱스를 만들면 추가적인 저장 공간이 필요&lt;/li&gt;
+  &lt;li&gt;인덱스와 테이블 데이터의 저장 공간이 분리되도록 설계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-view-설계--a&quot;&gt;5. View 설계 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--view의-개요&quot;&gt;- View의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;접근이 허용된 자료만을 제한적으로 보여주기 위해 기본 테이블로부터 유도된 가상 테이블&lt;/li&gt;
+  &lt;li&gt;물리적으로 존재하지 않지만, 있는 것처럼 간주&lt;/li&gt;
+  &lt;li&gt;임시적인 작업을 위한 용도로 활용&lt;/li&gt;
+  &lt;li&gt;조인문의 사용 최소화로 사용상의 편의성을 최대화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--view의-특징&quot;&gt;- View의 특징&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기본 테이블과 같은 형태의 구조를 사용, 조작도 기본 테이블과 거의 같음&lt;/li&gt;
+  &lt;li&gt;물리적으로 구현되어 있지 않음&lt;/li&gt;
+  &lt;li&gt;데이터의 논리적 독립성을 제공&lt;/li&gt;
+  &lt;li&gt;관리가 용이하고 명령문이 간단해짐&lt;/li&gt;
+  &lt;li&gt;뷰에 나타나지 않는 데이터를 안전하게 보호하는 효율적인 기법으로 사용&lt;/li&gt;
+  &lt;li&gt;기본 테이블의 기본키를 포함한 속성 집합으로 뷰를 구성해야 삽입, 삭제, 갱신등의 연산 가능&lt;/li&gt;
+  &lt;li&gt;정의된 뷰는 다른 뷰의 정의에 기초가 될 수 있음&lt;/li&gt;
+  &lt;li&gt;뷰가 정의된 기본 테이블이나 뷰를 삭제하면 그 테이블이나 뷰를 기초로 정의된 다른 뷰도 삭제됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--view의-장단점&quot;&gt;- View의 장단점&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;장점
+    &lt;ul&gt;
+      &lt;li&gt;논리적 데이터 독립성 제공&lt;/li&gt;
+      &lt;li&gt;동일 데이터에 동시에 여러 사용자의 상이한 응용이나 요구 지원&lt;/li&gt;
+      &lt;li&gt;데이터 관리를 간단하게 해줌&lt;/li&gt;
+      &lt;li&gt;접근 제어를 통한 자동 보안이 제공&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점
+    &lt;ul&gt;
+      &lt;li&gt;독립적인 인덱스를 가질 수 없음&lt;/li&gt;
+      &lt;li&gt;뷰가 정의를 변경할 수 없음&lt;/li&gt;
+      &lt;li&gt;삽입, 삭제, 갱신 연산에 제약이 따름&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--view-설계-순서&quot;&gt;- View 설계 순서&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대상 테이블 선정 -&amp;gt; 대상 컬럼 선정 -&amp;gt; 정의서 작성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--view-설계시-고려-사항&quot;&gt;- View 설계시 고려 사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;반복적으로 조인을 설정하여 사용하거나 동일한 조건절을 사용하는 테이블을 뷰로 생성&lt;/li&gt;
+  &lt;li&gt;사용할 데이터를 다양한 관점에서 제시해야 함&lt;/li&gt;
+  &lt;li&gt;데이터의 보안 유지를 고려하여 설계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;6-클러스터-설계--a&quot;&gt;6. 클러스터 설계 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--클러스터의-개요&quot;&gt;- 클러스터의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 성격의 데이터를 동일한 데이터 블록에 저장하는 물리적 저장 방법&lt;/li&gt;
+  &lt;li&gt;클러스터링키로 지정된 컬럼 값의 순서대로 저장, 여러 개의 테이블이 하나의 클러스터에 저장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--클러스터의-특징&quot;&gt;- 클러스터의 특징&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터 조회 속도는 향상. 입력, 수정, 삭제 성능은 저하&lt;/li&gt;
+  &lt;li&gt;데이터의 분포도가 넓을수록 유리&lt;/li&gt;
+  &lt;li&gt;저장 공간을 절약할 수 있음&lt;/li&gt;
+  &lt;li&gt;저장 공간이 줄어듬&lt;/li&gt;
+  &lt;li&gt;대용량 처리 트랜잭션은 클러스터링 안하는게 좋음&lt;/li&gt;
+  &lt;li&gt;처리 범위가 넓은 경우는 단일 테이블 클러스터링 사용&lt;/li&gt;
+  &lt;li&gt;조인이 많이 발생하는 경우는 다중 테이블 클러스터링 사용&lt;/li&gt;
+  &lt;li&gt;파티셔닝된 테이블에는 클러스터링 할 수 없음&lt;/li&gt;
+  &lt;li&gt;클러스터링 하면 디스크 I/O가 줄어듬&lt;/li&gt;
+  &lt;li&gt;클러스터드 인덱스를 생성하면 접근 성능이 향상됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--클러스터-대상-테이블&quot;&gt;- 클러스터 대상 테이블&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;분포도가 넓은 테이블&lt;/li&gt;
+  &lt;li&gt;대량의 범위를 자주 조회하는 테이블&lt;/li&gt;
+  &lt;li&gt;입력, 수정, 삭제가 자주 발생하지 않는 테이블&lt;/li&gt;
+  &lt;li&gt;자주 조인되어 사용되는 테이블&lt;/li&gt;
+  &lt;li&gt;ORDER BY, GROUP BY, UNION이 빈번한 테이블&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;7-파티션-설계--a&quot;&gt;7. 파티션 설계 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--파티션의-개요&quot;&gt;- 파티션의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대용량의 테이블이나 인덱스를 작은 논리적 단위인 파티션으로 나누는 것&lt;/li&gt;
+  &lt;li&gt;성능 저하를 방지할 뿐만 아니라 데이터 관리가 쉬워짐&lt;/li&gt;
+  &lt;li&gt;파티션키 또는 인덱스키에 따라 물리적으로 별도의 공간에 데이터가 저장&lt;/li&gt;
+  &lt;li&gt;데이터 처리는 테이블 단위로 이뤄지고, 데이터 저장은 파티션별로 수행됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--파티션의-장단점&quot;&gt;- 파티션의 장단점&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;장점
+    &lt;ul&gt;
+      &lt;li&gt;데이터 접근 시 액세스 범위를 줄여 쿼리 성능 향상&lt;/li&gt;
+      &lt;li&gt;디스크의 성능 향상&lt;/li&gt;
+      &lt;li&gt;속도가 빠름&lt;/li&gt;
+      &lt;li&gt;데이터 손상 정도를 최소화 할 수 있음&lt;/li&gt;
+      &lt;li&gt;데이터 가용성이 향상&lt;/li&gt;
+      &lt;li&gt;입출력을 분산시킬 수 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점
+    &lt;ul&gt;
+      &lt;li&gt;세심한 관리가 요구됨&lt;/li&gt;
+      &lt;li&gt;조인에 대한 비용이 증가&lt;/li&gt;
+      &lt;li&gt;용량이 작은 테이블에 파티셔닝을 수행하면 오히려 성능 저하&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--파티션의-종류&quot;&gt;- 파티션의 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;범위 분할
+    &lt;ul&gt;
+      &lt;li&gt;지정한 열의 값을 기준으로 분할&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;해시 분할
+    &lt;ul&gt;
+      &lt;li&gt;해시 함수를 적용한 결과 값에 따라 데이터를 분할&lt;/li&gt;
+      &lt;li&gt;범위 분할의 단점을 보완. 데이터를 고르게 분산할 때 유용&lt;/li&gt;
+      &lt;li&gt;특정 데이터가 어디에 있는지 판단할 수 없음&lt;/li&gt;
+      &lt;li&gt;데이터가 고르게 분포한 컬럼에 효과적&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;조합 분할
+    &lt;ul&gt;
+      &lt;li&gt;범위 분할로 분할한 다음 해시 함수를 적용하여 다시 분할&lt;/li&gt;
+      &lt;li&gt;범위 분할한 파티션이 너무 커서 관리가 어려울 때 유용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--파티션키-선정-시-고려-사항&quot;&gt;- 파티션키 선정 시 고려 사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블 접근 유형에 따라 파티셔닝이 이뤄지도록 선정&lt;/li&gt;
+  &lt;li&gt;이력성 데이터는 파티션 생성주기와 소멸주기를 일치시켜야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--인덱스-파티션&quot;&gt;- 인덱스 파티션&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파티션된 테이블의 데이터를 관리하기 위해 인덱스를 나눈 것&lt;/li&gt;
+  &lt;li&gt;파티션된 테이블의 종속 여부
+    &lt;ul&gt;
+      &lt;li&gt;Local Partitioned Index : 테이블 파티션과 인덱스 파티션이 1:1 대응&lt;/li&gt;
+      &lt;li&gt;Global Partitioned Index : 테이블 파티션과 인덱스 파티션이 독립적으로 구성&lt;/li&gt;
+      &lt;li&gt;Local Partitioned Index가 데이터 관리가 쉬움&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;인덱스 파티션키 컬럼의 위치
+    &lt;ul&gt;
+      &lt;li&gt;Prefixed Partitioned Index : 인덱스 파티션키와 인덱스 첫 번째 컬럼이 같음&lt;/li&gt;
+      &lt;li&gt;Non-Prefixed Partitioned Index : 인덱스 파티션키와 인덱스 첫 번째 컬럼이 다름&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;8-분산-데이터베이스-설계--a&quot;&gt;8. 분산 데이터베이스 설계 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--분산-데이터베이스-정의&quot;&gt;- 분산 데이터베이스 정의&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리적으로는 하나의 시스템에 속하지만 물리적으로 네트워크를 통해 연결된 여러 개의 컴퓨터 사이트에 분산되어 있는 DB&lt;/li&gt;
+  &lt;li&gt;데이터의 처리나 이용이 많은 지역에 DB를 위치해 데이터 처리가 해당 지역에서 해결&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--분산-데이터베이스의-구성-요소&quot;&gt;- 분산 데이터베이스의 구성 요소&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;분산 처리기 : 자체 처리 능력. 지리적으로 분산되어 있는 컴퓨터 시스템&lt;/li&gt;
+  &lt;li&gt;분산 데이터베이스 : 지리적으로 분산되어 있는 DB. 해당 지역의 특성에 맞게 DB 구성&lt;/li&gt;
+  &lt;li&gt;통신 네트워크 : 분산 처리기들을 통신망으로 연결하는 통신 네트워크&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--분산-데이터베이스-설계-시-고려-사항&quot;&gt;- 분산 데이터베이스 설계 시 고려 사항&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;작업부하의 노드별 분산 정책&lt;/li&gt;
+  &lt;li&gt;지역의 자치성 보장 정책&lt;/li&gt;
+  &lt;li&gt;데이터의 일관성 정책&lt;/li&gt;
+  &lt;li&gt;사이트나 회선의 고장으로부터의 회복 기능&lt;/li&gt;
+  &lt;li&gt;통신 네트워크를 통한 원격 접근 기능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--분산-데이터베이스의-목표&quot;&gt;- 분산 데이터베이스의 목표&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;위치 투명성 : 실제 위치를 알 필요 없이 DB의 논리적인 명칭만으로 액세스 가능&lt;/li&gt;
+  &lt;li&gt;중복 투명성 : 데이터가 중복되어 있더라도 사용자는 하나의 데이터만 존재하는 것처럼 사용하고, 시스템은 자동으로 여러 자료에 대한 작업 수행&lt;/li&gt;
+  &lt;li&gt;병행 투명성 : 다수의 트랜잭션들이 동시에 실현되더라도 그 트랜잭션의 결과는 영향을 받지 않음&lt;/li&gt;
+  &lt;li&gt;장애 투명성 : 장애에도 불구하고 트랜잭션을 정확하게 처리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--분산-데이터베이스의-장단점&quot;&gt;- 분산 데이터베이스의 장단점&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;장점
+    &lt;ul&gt;
+      &lt;li&gt;지역 자치성이 높음&lt;/li&gt;
+      &lt;li&gt;자료의 공유성 향상&lt;/li&gt;
+      &lt;li&gt;분산 제어 가능&lt;/li&gt;
+      &lt;li&gt;시스템 성낭 향상&lt;/li&gt;
+      &lt;li&gt;중앙 컴퓨터의 장애가 전체 시스템에 영향을 끼치지 않음&lt;/li&gt;
+      &lt;li&gt;효용성과 융통성이 높음&lt;/li&gt;
+      &lt;li&gt;신뢰성 및 가용성 높음&lt;/li&gt;
+      &lt;li&gt;점진적 시스템 용량 확장이 용이&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점
+    &lt;ul&gt;
+      &lt;li&gt;DBMS가 수행할 기능이 복잡&lt;/li&gt;
+      &lt;li&gt;DB 설계가 어려움&lt;/li&gt;
+      &lt;li&gt;개발 비용 증가&lt;/li&gt;
+      &lt;li&gt;처리 비용 증가&lt;/li&gt;
+      &lt;li&gt;잠재적 오류 증가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--분산-데이터베이스-설계&quot;&gt;- 분산 데이터베이스 설계&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;전역 관계망을 논리적 측면에서 소규모 단위로 분할한 후, 분할된 결과를 복수의 노드에 할당하는 과정으로 진행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-테이블-위치-분산&quot;&gt;@ 테이블 위치 분산&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블을 각기 다른 서버에 분산시켜 배치&lt;/li&gt;
+  &lt;li&gt;테이블의 구조를 변경하지 않으며, 다른 DB의 테이블과 중복되지 않게 배치&lt;/li&gt;
+  &lt;li&gt;해당 테이블들이 놓일 서버들을 미리 설정해야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-분할&quot;&gt;@ 분할&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블의 데이터를 분할하여 분산시키는 것&lt;/li&gt;
+  &lt;li&gt;분할 규칙
+    &lt;ul&gt;
+      &lt;li&gt;완전성 : 전체 데이터를 대상으로 분할&lt;/li&gt;
+      &lt;li&gt;재구성 : 분할된 데이터는 관계 연산을 활용하여 본래의 데이터로 재구성할 수 있어야 함&lt;/li&gt;
+      &lt;li&gt;상호 중첩 배제 : 분할된 데이터는 서로 다른 분할의 항목에 속하지 않아야 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;주요 분할 방법
+    &lt;ul&gt;
+      &lt;li&gt;수평 분할 : 속성의 값을 기준으로 Row 단위로 분할&lt;/li&gt;
+      &lt;li&gt;수직 분할 : 속성 단위로 분할&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-할당&quot;&gt;@ 할당&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 분할을 여러 개의 서버에 생성하는 분산 방법&lt;/li&gt;
+  &lt;li&gt;비중복 할당 방식
+    &lt;ul&gt;
+      &lt;li&gt;분산 DB의 단일 노드에서만 분할이 존재&lt;/li&gt;
+      &lt;li&gt;분할된 테이블 간의 의존성은 무시되고 비용 증가, 성능 저하 등의 문제 발생 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;중복 할당 박식
+    &lt;ul&gt;
+      &lt;li&gt;동일한 테이블을 다른 서버에 복제하는 방식&lt;/li&gt;
+      &lt;li&gt;일부만 복제하는 부분복제, 전체를 복제하는 완전 복제가 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;9-데이터베이스-이중화--서버-클러스터링--b&quot;&gt;9. 데이터베이스 이중화 / 서버 클러스터링 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--데이터베이스-이중화&quot;&gt;- 데이터베이스 이중화&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시스템 오류로 인한 DB 서비스 중단이나 물리적 손상 발생 시 이를 복구하기 위해 동일한 DB를 복제하여 관리&lt;/li&gt;
+  &lt;li&gt;문제가 발생하면 복제된 DB를 이용하여 즉시 문제를 해결할 수 있음&lt;/li&gt;
+  &lt;li&gt;사용자가 수행하는 작업이 다른 DB에도 동일하게 적용&lt;/li&gt;
+  &lt;li&gt;DB 부하를 줄일 수 있음&lt;/li&gt;
+  &lt;li&gt;손쉽게 백업 서버를 운영할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터베이스-이중화의-분류&quot;&gt;- 데이터베이스 이중화의 분류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Eager 기법 : 데이터 변경이 발생하면 변경 내용이 즉시 적용&lt;/li&gt;
+  &lt;li&gt;Lazy 기법 : 트랜잭션 수행이 종료되면 변경 사실을 새로운 트랜잭션에 작성하여 각 DB에 전달&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터베이스-이중화-구성-방법&quot;&gt;- 데이터베이스 이중화 구성 방법&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;활동-대기 방법
+    &lt;ul&gt;
+      &lt;li&gt;한 DB가 활성 상태이면 다른 DB는 대기&lt;/li&gt;
+      &lt;li&gt;활성 DB에 장애가 발생하면 대기 DB가 자동으로 모든 서비스를 대신 수행&lt;/li&gt;
+      &lt;li&gt;구성 방법과 관리가 쉬움&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;활동-활동 방법
+    &lt;ul&gt;
+      &lt;li&gt;두개의 DB가 서로 다른 서비스를 제공하다가 한쪽에 문제가 생기면 나머지 DB가 서비스 제공&lt;/li&gt;
+      &lt;li&gt;처리율이 높지만 구성 방법 및 설정이 복잡&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--클러스터링&quot;&gt;- 클러스터링&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;두 대 이상의 서버를 하나의 서버처럼 운영하는 기술&lt;/li&gt;
+  &lt;li&gt;서버 이중화 및 공유 스토리지를 사용하여 서버의 고가용성을 제공&lt;/li&gt;
+  &lt;li&gt;고가용성 클러스터링
+    &lt;ul&gt;
+      &lt;li&gt;하나의 서버에 장애가 발생하면 다른 서바가 받아 처리하여 서비스 중단을 방지&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;병렬 처리 클러스터링
+    &lt;ul&gt;
+      &lt;li&gt;전체 처리율을 높이기 위해 하나의 작업을 여러 개의 서버에서 분산하여 처리&lt;/li&gt;
+      &lt;li&gt;사용자의 요청을 로드 밸런서가 여러 대의 서버로 분산&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;10-데이터베이스-보안--암호화--b&quot;&gt;10. 데이터베이스 보안 / 암호화 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--데이터베이스-보안의-개요&quot;&gt;- 데이터베이스 보안의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;권한이 없는 사용자가 액세스하는 것을 금지하기 위해 사용되는 기술&lt;/li&gt;
+  &lt;li&gt;DB 사용자들은 일반적으로 서로 다른 객체에 대하여 다른 접근 권리 또는 권한을 가짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--암호화&quot;&gt;- 암호화&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터를 보낼 때 송신자가 지정한 수신자 이외에는 그 내용을 알 수 없도록 함&lt;/li&gt;
+  &lt;li&gt;암호화 과정 : 평문 -&amp;gt; 암호문&lt;/li&gt;
+  &lt;li&gt;복호화 과정 : 암호문 -&amp;gt; 평문&lt;/li&gt;
+  &lt;li&gt;개인키 암호 방식(비밀키 암호 방식)
+    &lt;ul&gt;
+      &lt;li&gt;동일한 키로 데이터를 암호화하고 복호화 함&lt;/li&gt;
+      &lt;li&gt;대칭 암호 방식, 단일키 암호화 기법이라고도 함&lt;/li&gt;
+      &lt;li&gt;비밀키는 DB 사용 권한이 있는 사용자만 나누어 가짐&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;공개키 암호 방식
+    &lt;ul&gt;
+      &lt;li&gt;서로 다른 키로 데이터를 암호화하고 복호화 함&lt;/li&gt;
+      &lt;li&gt;공개키는 DB 사용자에게 공개. 복호화 키는 관리자가 비밀리에 관리&lt;/li&gt;
+      &lt;li&gt;비대칭 암호 방식. 대표적으로 RSA&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;11-데이터베이스-보안--접근통제--a&quot;&gt;11. 데이터베이스 보안 : 접근통제 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--접근통제&quot;&gt;- 접근통제&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터가 저장된 객체와 이를 사용하려는 주체 사이의 정보 흐름을 제한&lt;/li&gt;
+  &lt;li&gt;자원의 불법적인 접근 및 파괴를 예방&lt;/li&gt;
+  &lt;li&gt;비인가된 사용자의 접근 감시&lt;/li&gt;
+  &lt;li&gt;접근 요구자의 사용자 식별&lt;/li&gt;
+  &lt;li&gt;접근 요구의 정당성 확인 및 기록&lt;/li&gt;
+  &lt;li&gt;접근의 승인 및 거부&lt;/li&gt;
+  &lt;li&gt;임의 접근 통제
+    &lt;ul&gt;
+      &lt;li&gt;데이터에 접근하는 사용자의 신원에 따라 접근 권한을 부여&lt;/li&gt;
+      &lt;li&gt;주체가 접근통제 권한을 지정하고 제어&lt;/li&gt;
+      &lt;li&gt;부여된 권한을 다른 사용자에게 허가할 수 있음&lt;/li&gt;
+      &lt;li&gt;GRANT, REVOKE&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;강제 접근 통제
+    &lt;ul&gt;
+      &lt;li&gt;주체와 객체의 등급을 비교하여 접근 권한을 부여&lt;/li&gt;
+      &lt;li&gt;제3자가 접근통제 권한을 지정&lt;/li&gt;
+      &lt;li&gt;객체별로 보안 등급 부여, 사용자별로 인가 등급 부여&lt;/li&gt;
+      &lt;li&gt;자신보다 보안 등급이 높은 객체에 대해 읽기, 수정, 등록이 모두 불가능&lt;/li&gt;
+      &lt;li&gt;자신과 보안 등급이 같은 객체에 대해 읽기, 수정, 등록 가능&lt;/li&gt;
+      &lt;li&gt;자신보다 보안 등급이 낮은 객체에 대해 읽기 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--접근통제-정책&quot;&gt;- 접근통제 정책&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;신분 기반 정책
+    &lt;ul&gt;
+      &lt;li&gt;주체나 그룹의 신분에 근거하여 객체의 접근을 제한하는 방법&lt;/li&gt;
+      &lt;li&gt;IBP : 최소 권한 정책. 단일 주체에게 하나의 객체에 대한 허가 부여&lt;/li&gt;
+      &lt;li&gt;GBP : 복수 주체에 하나의 객체에 대한 허가 부여&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;규칙 기반 정책
+    &lt;ul&gt;
+      &lt;li&gt;주체가 갖는 권한에 근거하여 객체의 접근을 제한하는 방법&lt;/li&gt;
+      &lt;li&gt;MLP : 사용자 및 객체별로 지정된 기밀 분류에 따른 정책&lt;/li&gt;
+      &lt;li&gt;CBP : 집단별로 지정된 기밀 허가에 따른 정책&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;역할 기반 정책
+    &lt;ul&gt;
+      &lt;li&gt;주체의 신분이 아니라 주체가 맡은 역할에 근거하여 객체의 접근을 제한&lt;/li&gt;
+      &lt;li&gt;인사 담당자, DBA 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--접근통제-매커니즘&quot;&gt;- 접근통제 매커니즘&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;접근통제 정책을 구현하는 기술적인 방법&lt;/li&gt;
+  &lt;li&gt;접근통제 목록, 능력 리스트, 보안 등급, 패스워드, 암호화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--접근통제-보안-모델&quot;&gt;- 접근통제 보안 모델&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보안 정책을 구현하기 위한 정형화된 모델&lt;/li&gt;
+  &lt;li&gt;기밀성 모델
+    &lt;ul&gt;
+      &lt;li&gt;군사적인 목적으로 개발된 수학적 모델. 기밀성 보장이 최우선&lt;/li&gt;
+      &lt;li&gt;군대 시스템 등 특수 환경에서 주로 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;무결성 모델
+    &lt;ul&gt;
+      &lt;li&gt;불법적인 정보 변경을 방지하기 위해 무결성을 기반으로 개발된 모델&lt;/li&gt;
+      &lt;li&gt;데이터의 일관성 유지에 중점&lt;/li&gt;
+      &lt;li&gt;주체 및 객체의 보안 등급을 기반으로 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;접근통제 모델
+    &lt;ul&gt;
+      &lt;li&gt;접근통제 행렬 : 행은 주체, 열은 객체&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--접근통제-조건&quot;&gt;- 접근통제 조건&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;접근통제 매커니즘의 취약점을 보완하기 위해 접근통제 정책에 부가하여 적용할 수 있는 조건&lt;/li&gt;
+  &lt;li&gt;값 종속 통제 : 객체에 저장된 값에 따라 다르게 접근 통제를 허용해야 하는 경우&lt;/li&gt;
+  &lt;li&gt;다중 사용자 통제 : 다수의 사용자가 동시에 접근을 요구하는 경우&lt;/li&gt;
+  &lt;li&gt;컨텍스트 기반 통제 : 다른 보안 정책과 결합하여 보안 시스템의 취약점을 보완할 때&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--감사-추적&quot;&gt;- 감사 추적&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DB에 접근하여 수행한 모든 활동을 기록하는 기능&lt;/li&gt;
+  &lt;li&gt;오류가 발생한 DB를 복구하거나 부적절한 데이터 조작을 파악하기 위해 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;12-스토리지--b&quot;&gt;12. 스토리지 – B&lt;/h2&gt;
+
+&lt;h3 id=&quot;--스토리지-개요&quot;&gt;- 스토리지 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단일 디스크로 처리할 수 없는 대용량의 데이터를 저장하기 위해 서버와 저장장치를 연결하는 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--dasdirect-attached-storage&quot;&gt;- DAS(Direct Attached Storage)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서버와 저장장치를 전용 케이블로 직접 연결. 외장하드를 연결하는 것이 해당&lt;/li&gt;
+  &lt;li&gt;서버에서 저장장치를 관리&lt;/li&gt;
+  &lt;li&gt;직접 연결하므로 속도가 빠르고 설치 및 운영이 쉬움&lt;/li&gt;
+  &lt;li&gt;초기 구축 비용 및 유지보수 비용 저렴&lt;/li&gt;
+  &lt;li&gt;다른 서버에서 접근할 수 없고 파일 공유 불가능&lt;/li&gt;
+  &lt;li&gt;확장성 및 유연성이 상대적으로 떨어짐&lt;/li&gt;
+  &lt;li&gt;저장 데이터가 적고 공유가 필요 없는 환경에 적합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--nasnetwork-attached-storage&quot;&gt;- NAS(Network Attached Storage)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서버와 저장장치를 네트워크를 통해 연결&lt;/li&gt;
+  &lt;li&gt;NAS Storage가 내장된 저장장치를 직접 관리&lt;/li&gt;
+  &lt;li&gt;Ethernet 스위치를 통해 다른 서버에서도 스토리지에 접근할 수 있음&lt;/li&gt;
+  &lt;li&gt;파일 공유 가능, 장소에 구애받지 않고 저장장치에 쉽게 접근 가능&lt;/li&gt;
+  &lt;li&gt;확장성 및 유연성이 우수&lt;/li&gt;
+  &lt;li&gt;접속 증가 시 성능 저하&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--sanstorage-area-network&quot;&gt;- SAN(Storage Area Network)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서버와 저장장치를 연결하는 전용 네트워크를 별도로 구성&lt;/li&gt;
+  &lt;li&gt;파이어 채널 스위치를 이용하여 네트워크 구성&lt;/li&gt;
+  &lt;li&gt;광케이블로 연결하므로 처리 속도가 빠름&lt;/li&gt;
+  &lt;li&gt;저장장치 및 파일 공유 가능&lt;/li&gt;
+  &lt;li&gt;확장성, 유연성, 가용성이 뛰어남&lt;/li&gt;
+  &lt;li&gt;높은 트랜잭션 처리에 효과적&lt;/li&gt;
+  &lt;li&gt;장비의 업그레이드가 필요하고, 비용이 많이 듦&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;13-논리-데이터-모델의-물리-데이터-모델-변환--a&quot;&gt;13. 논리 데이터 모델의 물리 데이터 모델 변환 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--테이블-1&quot;&gt;- 테이블&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Row : 튜플, 인스턴스&lt;/li&gt;
+  &lt;li&gt;Column : 속성&lt;/li&gt;
+  &lt;li&gt;기본키 : 후보키 중에서 선택한 주키. 특정 튜플을 유일하게 구별할 수 있는 속성&lt;/li&gt;
+  &lt;li&gt;외래키 : 다른 릴레이션의 기본키를 참조하는 속성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--entity를-테이블로-변환&quot;&gt;- Entity를 테이블로 변환&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;고려사항
+    &lt;ul&gt;
+      &lt;li&gt;테이블과 Entity 명칭은 동일하게 하는 것을 권고&lt;/li&gt;
+      &lt;li&gt;Entity는 한글명 사용, 테이블은 영문명 사용&lt;/li&gt;
+      &lt;li&gt;메타 데이터 관리 시스템에 표준화된 용어가 있을 때는 메타에 등록된 단어를 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--슈퍼타입서브타입을-테이블로-변환&quot;&gt;- 슈퍼타입/서브타입을 테이블로 변환&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;물리 데이터 모델을 설계할 때는 슈퍼타입/서브타입을 테이블로 변환해야 함&lt;/li&gt;
+  &lt;li&gt;슈퍼타입 기준 테이블 변환
+    &lt;ul&gt;
+      &lt;li&gt;서브타입을 슈퍼타입에 통합하여 하나의 테이블로 만드는 것&lt;/li&gt;
+      &lt;li&gt;서브타입에 속성이나 관계가 적을 경우에 적용. 서브타입의 모든 속성이 포함&lt;/li&gt;
+      &lt;li&gt;장점
+        &lt;ul&gt;
+          &lt;li&gt;데이터 액세스가 상대적으로 용이&lt;/li&gt;
+          &lt;li&gt;뷰를 이용해 각각의 서브타입만을 액세스하거나 수정할 수 있음&lt;/li&gt;
+          &lt;li&gt;임의 집합에 대한 처리가 용이&lt;/li&gt;
+          &lt;li&gt;수행 속도가 빨라짐&lt;/li&gt;
+          &lt;li&gt;SQL 문장 구성이 단순해짐&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;단점
+        &lt;ul&gt;
+          &lt;li&gt;컬럼이 증가해 디스크 저장 공간이 증가&lt;/li&gt;
+          &lt;li&gt;서브타입에 대한 구분이 필요한 경우가 많이 발생&lt;/li&gt;
+          &lt;li&gt;인덱스 크기의 증가로 인덱스 효율이 떨어짐&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;서브타입 기준 테이블 변환
+    &lt;ul&gt;
+      &lt;li&gt;슈퍼타입 속성들을 각각의 서브타입에 추가하여 서브타입을 개별적인 테이블로 만드는 것&lt;/li&gt;
+      &lt;li&gt;서브타입에 속성이나 관계가 많이 포함된 경우 적용&lt;/li&gt;
+      &lt;li&gt;장점
+        &lt;ul&gt;
+          &lt;li&gt;서브타입 속성들의 선택 사양이 명확한 경우 유리&lt;/li&gt;
+          &lt;li&gt;처리할 때마다 서브타입 유형을 구분할 필요가 없음&lt;/li&gt;
+          &lt;li&gt;테이블당 크기가 감소하여 전체 테이블 스캔시 유리&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;단점
+        &lt;ul&gt;
+          &lt;li&gt;수행 속도 감소&lt;/li&gt;
+          &lt;li&gt;복잡한 처리를 하는 SQL의 통합이 어려움&lt;/li&gt;
+          &lt;li&gt;부분 범위에 대한 처리가 곤란&lt;/li&gt;
+          &lt;li&gt;여러 테이블을 통합한 뷰는 조회만 가능&lt;/li&gt;
+          &lt;li&gt;식별자의 유지 관리가 어려움&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;개별타입 기준 테이블 변환
+    &lt;ul&gt;
+      &lt;li&gt;슈퍼타입과 서브타입들을 각각의 개별적인 테이블로 변환&lt;/li&gt;
+      &lt;li&gt;1:1 관계가 형성&lt;/li&gt;
+      &lt;li&gt;전체 데이터에 대한 처리가 빈번한 경우&lt;/li&gt;
+      &lt;li&gt;서브타입의 처리가 대부분 독립적으로 발생하는 경우&lt;/li&gt;
+      &lt;li&gt;통합하는 테이블의 컬럼 수가 많은 경우&lt;/li&gt;
+      &lt;li&gt;서브타입의 컬럼 수가 많은 경우&lt;/li&gt;
+      &lt;li&gt;트랜잭션이 주로 슈퍼타입에서 발생하는 경우&lt;/li&gt;
+      &lt;li&gt;슈퍼타입의 처리 범위가 넓고 빈번하게 발생하여 단일 테이블 클러스터링이 필요한 경우&lt;/li&gt;
+      &lt;li&gt;장점
+        &lt;ul&gt;
+          &lt;li&gt;저장 공간이 상대적으로 작음&lt;/li&gt;
+          &lt;li&gt;슈퍼타입 또는 서브타입 각각의 테이블에 속한 정보만 조회하는 경우 문장 작성 용이&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;단점
+        &lt;ul&gt;
+          &lt;li&gt;슈퍼타입 또는 서브타입의 정보를 같이 처리하면 항상 조인이 발생하여 성능이 저하됨&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--속성을-컬럼으로-변환&quot;&gt;- 속성을 컬럼으로 변환&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리 데이터 모델에서 정의한 속성을 물리 데이터 모델의 컬럼으로 변환&lt;/li&gt;
+  &lt;li&gt;일반 속성 변환
+    &lt;ul&gt;
+      &lt;li&gt;표준화 된 약어를 사용하여 일치시키는 것이 좋음&lt;/li&gt;
+      &lt;li&gt;SQL 예약어 사용을 피함&lt;/li&gt;
+      &lt;li&gt;가능한 한 짧게 지정&lt;/li&gt;
+      &lt;li&gt;복합 단어를 컬럼명으로 사용할 때는 미리 정의된 표준을 따름&lt;/li&gt;
+      &lt;li&gt;샘플 데이터를 작성하여 컬럼의 정합성 검증&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Primary UID를 기본키로 변환
+    &lt;ul&gt;
+      &lt;li&gt;논리 데이터 모델에서의 Primary UIU는 물리 데이터 모델의 기본키로 만듬&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Primary UID(관계의 UID Bar)를 기본키로 변환
+    &lt;ul&gt;
+      &lt;li&gt;다른 Entity와의 관계로 인해 생성된 Primary UIU는 물리 데이터 모델의 기본키로 만듬&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Secondary(Alternate) UID를 유니크기로 변환
+    &lt;ul&gt;
+      &lt;li&gt;논리 모델링에서 정의된 Secondary UID 및 Alternate Key는 물리 모델에서 유니크 키로 만듬&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--관계를-외래키로-변환&quot;&gt;- 관계를 외래키로 변환&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기본키와 이를 참조하는 외래키로 변환&lt;/li&gt;
+  &lt;li&gt;1:1 관계
+    &lt;ul&gt;
+      &lt;li&gt;A의 기본키를 B의 외래키로 추가하거나 B의 기본키를 A의 외래키로 추가하여 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;1:N 관계
+    &lt;ul&gt;
+      &lt;li&gt;A의 기본키를 B의 외래키로 추가하여 표현하거나 별도의 테이블로 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;N:M 관계
+    &lt;ul&gt;
+      &lt;li&gt;A와 B의 기본키를 모두 포함한 별도의 릴레이션으로 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;1:N 순환 관계
+    &lt;ul&gt;
+      &lt;li&gt;A에 A의 기본키를 참조하는 외래키 컬럼을 추가하여 표현&lt;/li&gt;
+      &lt;li&gt;데이터의 계층 구조를 표현하기 위해 주로 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--관리-목적의-테이블컬럼-추가&quot;&gt;- 관리 목적의 테이블/컬럼 추가&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리 데이터 모델에 존재하지 않는 테이블이나 컬럼을 물리 데이터 모델에 추가하여 DB의 관리 혹은 프로그래밍의 수행 속도를 향상시킬 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--데이터-타입-선택&quot;&gt;- 데이터 타입 선택&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DBMS의 물리적 특성과 성능을 고려하여 최적의 데이터 타입과 데이터의 최대 길이 선택&lt;/li&gt;
+  &lt;li&gt;문자타입, 숫자타입, 날짜타입 등&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 2장</summary></entry><entry><title type="html">[CSS] CSS 속성 - 글꼴, 문자</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-font/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 글꼴, 문자" /><published>2021-07-31T03:00:00+09:00</published><updated>2021-07-31T12:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-font</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-font/">&lt;h2 id=&quot;글꼴&quot;&gt;글꼴&lt;/h2&gt;
 
 &lt;h3 id=&quot;--font-style&quot;&gt;- font-style&lt;/h3&gt;
 
@@ -65,13 +1187,67 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div&gt; style=&quot;font-family: serif&quot;&amp;gt;Hello World!&lt;/div&gt;
+&lt;div style=&quot;font-family: serif&quot;&gt;Hello World!&lt;/div&gt;
 &lt;div style=&quot;font-family: sans-serif&quot;&gt;Hello World!&lt;/div&gt;
 &lt;div style=&quot;font-family: monospace&quot;&gt;Hello World!&lt;/div&gt;
 &lt;div style=&quot;font-family: cursive&quot;&gt;Hello World!&lt;/div&gt;
 &lt;div style=&quot;font-family: fantasy&quot;&gt;Hello World!&lt;/div&gt;
 
-&lt;h2 id=&quot;문자&quot;&gt;문자&lt;/h2&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 글꼴, 문자 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 3-1. 논리 데이터베이스 설계</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp10/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-1. 논리 데이터베이스 설계" /><published>2021-07-30T23:00:00+09:00</published><updated>2021-07-31T08:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp10</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp10/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;h2 id=&quot;문자&quot;&gt;문자&lt;/h2&gt;
+
+&lt;h3 id=&quot;--color&quot;&gt;- color&lt;/h3&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 글자의 색상 */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;검정색&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;색상&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기타&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;지정&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가능한&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;색상&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--text-align&quot;&gt;- text-align&lt;/h3&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 문자의 정렬 방식 */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;text-align&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;왼쪽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;오른쪽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가운데&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;justify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;양쪽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--text-decoration&quot;&gt;- text-decoration&lt;/h3&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 문자의 장식(선) */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;text-decoration&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;장식&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;없음&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;underline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;밑줄&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;overline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;윗줄&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;line-through&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;중앙&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;선&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div&gt;Hello World!&lt;/div&gt;
+&lt;div style=&quot;text-decoration: underline&quot;&gt;Hello World!&lt;/div&gt;
+&lt;div style=&quot;text-decoration: overline&quot;&gt;Hello World!&lt;/div&gt;
+&lt;div style=&quot;text-decoration: line-through&quot;&gt;Hello World!&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--text-indent&quot;&gt;- text-indent&lt;/h3&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 문자 첫 줄의 들여쓰기 */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;text-indent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;들여쓰기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;없음&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;단위&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;%:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가로&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;너비에&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;대한&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;비율&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;음수&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;사용&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가능&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;반대는&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;내어쓰기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;outdent&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 글꼴, 문자 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 3-1. 논리 데이터베이스 설계</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp10/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-1. 논리 데이터베이스 설계" /><published>2021-07-30T23:00:00+09:00</published><updated>2021-07-31T08:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp10</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp10/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
 
@@ -2454,473 +3630,4 @@ HSLA : hsla(120, 100%, 50%, 0.5) // 색상, 채도, 명도 + 투명도
   &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;불투명&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;0부터&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1사이의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;소수점&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;숫자&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 박스모델 정리</summary></entry><entry><title type="html">[CSS] CSS 개요</title><link href="https://leewonwoo1.github.io/css/frontend-css-basic/" rel="alternate" type="text/html" title="[CSS] CSS 개요" /><published>2021-07-30T03:30:00+09:00</published><updated>2021-07-30T12:30:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-basic</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-basic/">&lt;h2 id=&quot;css-기본-문법&quot;&gt;CSS 기본 문법&lt;/h2&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 주석 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;선택자&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;속성&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;속성&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;css-선언-방식&quot;&gt;CSS 선언 방식&lt;/h2&gt;
-
-&lt;h3 id=&quot;--내장-방식&quot;&gt;- 내장 방식&lt;/h3&gt;
-
-&lt;p class=&quot;notice--info&quot;&gt;style 태그의 내용으로 스타일 작성&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--인라인-방식&quot;&gt;- 인라인 방식&lt;/h3&gt;
-
-&lt;p class=&quot;notice--info&quot;&gt;요쇼의 style 속성에 직접 스타일 작성&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color: red; margin: 10px;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--링크-방식&quot;&gt;- 링크 방식&lt;/h3&gt;
-
-&lt;p class=&quot;notice--info&quot;&gt;링크 태그로 외부 CSS 파일을 가져와서 연결&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./css/main.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* main.css */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--import-방식&quot;&gt;- @import 방식&lt;/h3&gt;
-
-&lt;p class=&quot;notice--info&quot;&gt;CSS의 @import 규칙으로 CSS문서 안에서 또 다른 CSS문서를 가져와 연결&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./css/main.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* main.css */&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&quot;./sub.css&quot;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* sub.css */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.sub&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;css-선택자&quot;&gt;CSS 선택자&lt;/h2&gt;
-
-&lt;h3 id=&quot;--기본&quot;&gt;- 기본&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 전체 선택자 : 모든 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 태그 선택자 : 태그 이름의 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 클래스 선택자 : class 속성 값의 요소 선택  */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 아이디 선택자 : id 속성 값의 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;#cat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--복합&quot;&gt;- 복합&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 일치 선택자 : 선택자를 동시에 만족하는 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 자식 선택자 : 자식 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 하위(후손) 선택자 : 하위 요소 선택. 띄어쓰기가 선택자의 기호 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 인접 형제 선택자 : 다음 형제 요소 하나를 선택 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 일반 형제 선택자 : 다음 형제 요소 모두를 선택 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--가상-클래스&quot;&gt;- 가상 클래스&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* hover : 마우스 커서가 올라가 있는 동안 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* active : 마우스를 클릭하고 있는 동안 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:active&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* focus : 포커스되면 선택 */&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;/* focus가 될 수 있는 요소는 HTML 대화형 콘텐츠가 해당 */&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;/* input, a, button, label, select 등 여러 요소 */&lt;/span&gt; 
-&lt;span class=&quot;c&quot;&gt;/* HTML 대화형 콘텐츠 요소가 아니더라도, tabindex 속성을 사용한 요소도 focus가 될 수 있음 */&lt;/span&gt; 
-&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:focus&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* first-child : 형제 요소중 첫째라면 선택*/&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:first-child&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* last-child : 형제 요소중 막내라면 선택 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:last-child&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* nth-child : 형제 요소중 n째라면 선택 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* not : 아닌 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:not&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--가상-요소&quot;&gt;- 가상 요소&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* before : 내부 앞에 내용을 삽입 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;::before&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&quot;앞&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* after 내부 뒤에 내용을 삽입 */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;::after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&quot;뒤&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--속성&quot;&gt;- 속성&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 속성 : 해당 속성을 포함한 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;/* 속성-값 : 해당 속성을 포함하고 값이 x인 요소 선택 */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;스타일-상속&quot;&gt;스타일 상속&lt;/h2&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.animals&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ecosystem&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;생태계
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;animals&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;동물
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cat&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;고양이&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dog&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;강아지&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tiger&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;호랑이&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;plant&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;식물&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;ecosystem&quot;&gt;생태계
-  &lt;div style=&quot;color: red;&quot; class=&quot;animals&quot;&gt;동물
-    &lt;div style=&quot;color: red;&quot; class=&quot;cat&quot;&gt;고양이&lt;/div&gt;
-    &lt;div style=&quot;color: red;&quot; class=&quot;dog&quot;&gt;강아지&lt;/div&gt;
-    &lt;div cstyle=&quot;color: red;&quot; lass=&quot;tiger&quot;&gt;호랑이&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;plant&quot;&gt;식물&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--상속되는-css-속성들&quot;&gt;- 상속되는 CSS 속성들&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;모두 글자/문자 관련 속성들&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;font-style&lt;/li&gt;
-  &lt;li&gt;font-weight&lt;/li&gt;
-  &lt;li&gt;font-size&lt;/li&gt;
-  &lt;li&gt;line-height&lt;/li&gt;
-  &lt;li&gt;font-family&lt;/li&gt;
-  &lt;li&gt;color&lt;/li&gt;
-  &lt;li&gt;text-align&lt;/li&gt;
-  &lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--강제-상속&quot;&gt;- 강제 상속&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;값에 &lt;em&gt;inherit&lt;/em&gt; 넣어서 명시하면 상속됨&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;선택자-우선순위&quot;&gt;선택자 우선순위&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;같은 요소가 여러 선언의 대상이 된 경우, 어떤 선언의 CSS속성을 우선 적용할지 결정하는 방법&lt;/li&gt;
-  &lt;li&gt;점수가 높은 선언 우선&lt;/li&gt;
-  &lt;li&gt;점수가 같으면 마지막에 해석된 선언이 우선&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* 전체 선택자 : 0점 */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;orange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;yellow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* 태그 선택자 : 1점 */&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.cat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* Class 선택자 : 10점 */&lt;/span&gt;
-
-&lt;span class=&quot;nf&quot;&gt;#dog&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* ID 선택자 : 100점 */&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color: darkblue;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hi&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 인라인 선언 : 1000점 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;purple&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* !important : 999999점 */&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 기본 문법부터 선택자 우선순위까지</summary></entry><entry><title type="html">[HTML] HTML 구조 및 태그</title><link href="https://leewonwoo1.github.io/html/frontend-html-structure/" rel="alternate" type="text/html" title="[HTML] HTML 구조 및 태그" /><published>2021-07-30T01:30:00+09:00</published><updated>2021-07-30T10:30:00+09:00</updated><id>https://leewonwoo1.github.io/html/frontend-html-structure</id><content type="html" xml:base="https://leewonwoo1.github.io/html/frontend-html-structure/">&lt;h2 id=&quot;html-구조&quot;&gt;HTML 구조&lt;/h2&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 문서의 HTML 버전을 지정 --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;       &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 문서의 전체 범위 --&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 문서의 정보를 나타내는 범위 --&amp;gt;&lt;/span&gt;
-             &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 웹 페이지의 보이지 않는 정보를 작성하는 범위 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 문서의 구조를 나타내는 범위 --&amp;gt;&lt;/span&gt;
-             &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 웹 페이지의 보여지는 구조를 작성하는 범위 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;head-태그-내부&quot;&gt;Head 태그 내부&lt;/h2&gt;
-
-&lt;h3 id=&quot;--meta-태그&quot;&gt;- meta 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 문자 인코딩 방식 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=xxxx...&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 정보의 종류     정보의 값 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;meta /&amp;gt;는 HTML 문서의 제작자, 내용, 키워드 등의 정보를 검색엔진이나 브라우저에 제공
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--title-태그&quot;&gt;- title 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Google&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- HTML 문서의 제목을 정의. 웹 브라우저 탭에 표시됨--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--link-태그&quot;&gt;- link 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 관계              경로 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./main.css&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;htrf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./favicon.png&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;link /&amp;gt;는 외부 문서를 가져와 연결할 때 사용. 대부분 CSS 파일
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--style-태그&quot;&gt;- style 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- CSS를 HTML 문서 안에서 작성하는 경우에 사용 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--script-태그&quot;&gt;- script 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./main.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- JS파일 가져오는 경우--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- defer : HTML 구조가 준비된 후에 JS를 해석 --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- JS를 HTML 문서 안에서 작성하는 경우 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hello World!!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;body-태그-내부&quot;&gt;Body 태그 내부&lt;/h2&gt;
-
-&lt;h3 id=&quot;--div-태그&quot;&gt;- div 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Block, 특별한 의미가 없는 구분을 위한 요소 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--h-태그&quot;&gt;- h 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;제목1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Block, 제목을 의미하는 요소 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;제목2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 숫자가 작을수록 더 중요한 제목--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h6&amp;gt;&lt;/span&gt;제목6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h6&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--p-태그&quot;&gt;- p 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;가나 다라마&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Block, 문장을 의미하는 요소 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--img-태그&quot;&gt;- img 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 경로              대체 텍스트 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;img/xxx.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xxx&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Inline, 이미지 삽입 요소--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--ul-li-태그&quot;&gt;- ul, li 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Block, 순서가 필요 없는 목록의 집합--&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;강아지&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt; 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;고양이&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 목록 내 각 항목 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;돼지&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--a-태그&quot;&gt;- a 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Inline, 다른/같은 페이지로 이동하는 하이퍼링크 지정하는 요소 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.google.com&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Google&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- URL                       URL의 표시(브라우저 탭) 위치 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--span-태그&quot;&gt;- span 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;가나다&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Inline, 특별한 의미가 없는 구분을 위한 요소--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--br-태그&quot;&gt;- br 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;가나다라&lt;span class=&quot;nt&quot;&gt;&amp;lt;br/&amp;gt;&lt;/span&gt;마바사아&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!--Inline, 줄바꿈 요소--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;가나다라
-마바사아
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--input-태그&quot;&gt;- input 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--Inline-Block, 데이터를 입력하는 요소--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xxx&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yyy&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--  타입         입력된 값     힌트            비활성화 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--label-태그&quot;&gt;- label 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!--Inline, 라벨 가능 요소(input)의 제목--&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; Dog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; Cat
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt; 
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- animals 그룹에서 1개만 입력 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;radio&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;animals&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; Dog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;radio&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;animals&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; Cat
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--table-tr-td-태그&quot;&gt;- table, tr, td 태그&lt;/h3&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;table&amp;gt;&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Table, 표 요소, 행과 열의 집합 --&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Table, 행을 지정하는 요소 --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;A&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&lt;/span&gt;B&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Table, 열을 지정하는 요소 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;C&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&lt;/span&gt;D&lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A B
-C D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; TABLE 요소보다 Grid같은 CSS 기능으로 레이아웃을 작업해야 함&lt;/p&gt;
-
-&lt;h2 id=&quot;html-전역-속성&quot;&gt;HTML 전역 속성&lt;/h2&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;태그&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;설명&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/태그&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 요소의 정보나 설명을 지정 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;태그&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;스타일&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/태그&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 요소에 적용할 스타일 지정 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;태그&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이름&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/태그&amp;gt;&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 요소를 지칭하는 중복 가능한 이름 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;태그&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;이름&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/태그&amp;gt;&lt;/span&gt;      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 요소를 지칭하는 고유한 이름 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;태그&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-이름=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;데이터&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/태그&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 요소에 데이터를 지정 --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="HTML" /><category term="HTML" /><category term="Web" /><summary type="html">HTML 요소의 구조 및 태그를 학습</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 박스모델 정리</summary></entry></feed>

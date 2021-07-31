@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">17</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">19</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
       <!--Blog-->
@@ -430,7 +430,7 @@
                     
                 
                     
-                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (10)</a></li>
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (12)</a></li>
                     
                 
                     
@@ -471,7 +471,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -486,7 +486,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#글꼴">글꼴</a><ul><li><a href="#--font-style">- font-style</a></li><li><a href="#--font-weight">- font-weight</a></li><li><a href="#--font-size">- font-size</a></li><li><a href="#--line-height">- line-height</a></li><li><a href="#--font-family">- font-family</a></li></ul></li><li><a href="#문자">문자</a></li></ul>
+              <ul class="toc__menu"><li><a href="#글꼴">글꼴</a><ul><li><a href="#--font-style">- font-style</a></li><li><a href="#--font-weight">- font-weight</a></li><li><a href="#--font-size">- font-size</a></li><li><a href="#--line-height">- line-height</a></li><li><a href="#--font-family">- font-family</a></li></ul></li><li><a href="#문자">문자</a><ul><li><a href="#--color">- color</a></li><li><a href="#--text-align">- text-align</a></li><li><a href="#--text-decoration">- text-decoration</a></li><li><a href="#--text-indent">- text-indent</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -558,7 +558,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div> style="font-family: serif"&gt;Hello World!</div>
+<div style="font-family: serif">Hello World!</div>
 <div style="font-family: sans-serif">Hello World!</div>
 <div style="font-family: monospace">Hello World!</div>
 <div style="font-family: cursive">Hello World!</div>
@@ -566,6 +566,59 @@
 
 <h2 id="문자">문자</h2>
 
+<h3 id="--color">- color</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 글자의 색상 */</span>
+<span class="nt">color</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span> <span class="err">검정색</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="n">색상</span><span class="p">;</span> <span class="err">기타</span> <span class="err">지정</span> <span class="err">가능한</span> <span class="err">색상</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--text-align">- text-align</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 문자의 정렬 방식 */</span>
+<span class="nt">text-align</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span> <span class="err">왼쪽</span> <span class="err">정렬</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span> <span class="err">오른쪽</span> <span class="err">정렬</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span> <span class="err">가운데</span> <span class="err">정렬</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">justify</span><span class="p">;</span> <span class="err">양쪽</span> <span class="err">정렬</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--text-decoration">- text-decoration</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 문자의 장식(선) */</span>
+<span class="nt">text-decoration</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="err">장식</span> <span class="err">없음</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span> <span class="err">밑줄</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">overline</span><span class="p">;</span> <span class="err">윗줄</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">line-through</span><span class="p">;</span> <span class="err">중앙</span> <span class="err">선</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div>Hello World!</div>
+<div style="text-decoration: underline">Hello World!</div>
+<div style="text-decoration: overline">Hello World!</div>
+<div style="text-decoration: line-through">Hello World!</div>
+
+<p><br /></p>
+
+<h3 id="--text-indent">- text-indent</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 문자 첫 줄의 들여쓰기 */</span>
+<span class="nt">text-indent</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="err">들여쓰기</span> <span class="err">없음</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span>
+  <span class="err">%:</span> <span class="err">요소의</span> <span class="err">가로</span> <span class="err">너비에</span> <span class="err">대한</span> <span class="err">비율</span>
+  <span class="err">음수</span> <span class="err">사용</span> <span class="err">가능</span>
+  <span class="err">반대는</span> <span class="err">내어쓰기</span> <span class="err">outdent</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
@@ -666,6 +719,74 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+      <a href="/jckp/etc-jckp12/" rel="permalink">[정보처리기사 필기] 3-3. SQL 응용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 3장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp11/" rel="permalink">[정보처리기사 필기] 3-2. 물리 데이터베이스 설계
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 2장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
       <a href="/jckp/etc-jckp10/" rel="permalink">[정보처리기사 필기] 3-1. 논리 데이터베이스 설계
 </a>
       
@@ -721,74 +842,6 @@
 </span>
     </small>
     <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 5장
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/jckp/etc-jckp8/" rel="permalink">[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
-    
-    
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 4장
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/jckp/etc-jckp7/" rel="permalink">[정보처리기사 필기] 2-3. 제품 소프트웨어 패키징
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
-    
-    
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 3장
 </p>
   </article>
 </div>

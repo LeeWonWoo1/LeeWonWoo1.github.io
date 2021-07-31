@@ -1,0 +1,1881 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 3-2. 물리 데이터베이스 설계 | LWW’s Tech Blog</title>
+<meta name="description" content="정보처리기사 필기 3과목 2장">
+
+
+  <meta name="author" content="이원우">
+  
+  <meta property="article:author" content="이원우">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[정보처리기사 필기] 3-2. 물리 데이터베이스 설계">
+<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp11/">
+
+
+  <meta property="og:description" content="정보처리기사 필기 3과목 2장">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-31T08:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-07-31T17:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp11/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이원우",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#jckp" itemprop="item"><span itemprop="name">Jckp</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[정보처리기사 필기] 3-2. 물리 데이터베이스 설계</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="이원우" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">이원우</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">19</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+      <!--Blog-->
+        <span class="nav__sub-title">Blog</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (3)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (12)</a></li>
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[정보처리기사 필기] 3-2. 물리 데이터베이스 설계">
+    <meta itemprop="description" content="정보처리기사 필기 3과목 2장">
+    <meta itemprop="datePublished" content="2021-07-31T08:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-07-31T17:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/jckp/etc-jckp11/" class="u-url" itemprop="url">[정보처리기사 필기] 3-2. 물리 데이터베이스 설계
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          17 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-사전-조사-분석--b">1. 사전 조사 분석 – B</a><ul><li><a href="#--데이터-명명-규칙-파악">- 데이터 명명 규칙 파악</a></li><li><a href="#--시스템-자원-파악">- 시스템 자원 파악</a></li><li><a href="#--데이터베이스-관리-요소-파악">- 데이터베이스 관리 요소 파악</a></li></ul></li><li><a href="#2-데이터베이스-저장-공간-설계--b">2. 데이터베이스 저장 공간 설계 – B</a><ul><li><a href="#--테이블">- 테이블</a><ul><li><a href="#-일반-테이블">@ 일반 테이블</a></li><li><a href="#-클러스터드-인덱스-테이블">@ 클러스터드 인덱스 테이블</a></li><li><a href="#-파티셔닝-테이블">@ 파티셔닝 테이블</a></li><li><a href="#-외부-테이블">@ 외부 테이블</a></li><li><a href="#-임시-테이블">@ 임시 테이블</a></li></ul></li><li><a href="#--column">- Column</a></li><li><a href="#--테이블스페이스">- 테이블스페이스</a></li></ul></li><li><a href="#3-트랜잭션-분석--crud-분석--b">3. 트랜잭션 분석 / CRUD 분석 – B</a><ul><li><a href="#--트랜잭션-정의">- 트랜잭션 정의</a></li><li><a href="#--트랜잭션의-특성">- 트랜잭션의 특성</a></li><li><a href="#--crud-분석">- CRUD 분석</a></li><li><a href="#--crud-매트릭스">- CRUD 매트릭스</a></li><li><a href="#--트랜잭션-분석">- 트랜잭션 분석</a></li><li><a href="#--트랜잭션-분석서">- 트랜잭션 분석서</a></li></ul></li><li><a href="#4-인덱스-설계--a">4. 인덱스 설계 – A</a><ul><li><a href="#--인덱스의-개념">- 인덱스의 개념</a></li><li><a href="#--트리-기반-인덱스">- 트리 기반 인덱스</a></li><li><a href="#--비트맵-인덱스">- 비트맵 인덱스</a></li><li><a href="#--함수-기반-인덱스">- 함수 기반 인덱스</a></li><li><a href="#--비트맵-조인-인덱스">- 비트맵 조인 인덱스</a></li><li><a href="#--도메인-인덱스">- 도메인 인덱스</a></li><li><a href="#--인덱스-설계">- 인덱스 설계</a></li><li><a href="#--인덱스-대상-테이블-선정-기순">- 인덱스 대상 테이블 선정 기순</a></li><li><a href="#--인덱스-대상-컬럼-선정-기준">- 인덱스 대상 컬럼 선정 기준</a></li><li><a href="#--인덱스-설계-시-고려사항">- 인덱스 설계 시 고려사항</a></li></ul></li><li><a href="#5-view-설계--a">5. View 설계 – A</a><ul><li><a href="#--view의-개요">- View의 개요</a></li><li><a href="#--view의-특징">- View의 특징</a></li><li><a href="#--view의-장단점">- View의 장단점</a></li><li><a href="#--view-설계-순서">- View 설계 순서</a></li><li><a href="#--view-설계시-고려-사항">- View 설계시 고려 사항</a></li></ul></li><li><a href="#6-클러스터-설계--a">6. 클러스터 설계 – A</a><ul><li><a href="#--클러스터의-개요">- 클러스터의 개요</a></li><li><a href="#--클러스터의-특징">- 클러스터의 특징</a></li><li><a href="#--클러스터-대상-테이블">- 클러스터 대상 테이블</a></li></ul></li><li><a href="#7-파티션-설계--a">7. 파티션 설계 – A</a><ul><li><a href="#--파티션의-개요">- 파티션의 개요</a></li><li><a href="#--파티션의-장단점">- 파티션의 장단점</a></li><li><a href="#--파티션의-종류">- 파티션의 종류</a></li><li><a href="#--파티션키-선정-시-고려-사항">- 파티션키 선정 시 고려 사항</a></li><li><a href="#--인덱스-파티션">- 인덱스 파티션</a></li></ul></li><li><a href="#8-분산-데이터베이스-설계--a">8. 분산 데이터베이스 설계 – A</a><ul><li><a href="#--분산-데이터베이스-정의">- 분산 데이터베이스 정의</a></li><li><a href="#--분산-데이터베이스의-구성-요소">- 분산 데이터베이스의 구성 요소</a></li><li><a href="#--분산-데이터베이스-설계-시-고려-사항">- 분산 데이터베이스 설계 시 고려 사항</a></li><li><a href="#--분산-데이터베이스의-목표">- 분산 데이터베이스의 목표</a></li><li><a href="#--분산-데이터베이스의-장단점">- 분산 데이터베이스의 장단점</a></li><li><a href="#--분산-데이터베이스-설계">- 분산 데이터베이스 설계</a><ul><li><a href="#-테이블-위치-분산">@ 테이블 위치 분산</a></li><li><a href="#-분할">@ 분할</a></li><li><a href="#-할당">@ 할당</a></li></ul></li></ul></li><li><a href="#9-데이터베이스-이중화--서버-클러스터링--b">9. 데이터베이스 이중화 / 서버 클러스터링 – B</a><ul><li><a href="#--데이터베이스-이중화">- 데이터베이스 이중화</a></li><li><a href="#--데이터베이스-이중화의-분류">- 데이터베이스 이중화의 분류</a></li><li><a href="#--데이터베이스-이중화-구성-방법">- 데이터베이스 이중화 구성 방법</a></li><li><a href="#--클러스터링">- 클러스터링</a></li></ul></li><li><a href="#10-데이터베이스-보안--암호화--b">10. 데이터베이스 보안 / 암호화 – B</a><ul><li><a href="#--데이터베이스-보안의-개요">- 데이터베이스 보안의 개요</a></li><li><a href="#--암호화">- 암호화</a></li></ul></li><li><a href="#11-데이터베이스-보안--접근통제--a">11. 데이터베이스 보안 : 접근통제 – A</a><ul><li><a href="#--접근통제">- 접근통제</a></li><li><a href="#--접근통제-정책">- 접근통제 정책</a></li><li><a href="#--접근통제-매커니즘">- 접근통제 매커니즘</a></li><li><a href="#--접근통제-보안-모델">- 접근통제 보안 모델</a></li><li><a href="#--접근통제-조건">- 접근통제 조건</a></li><li><a href="#--감사-추적">- 감사 추적</a></li></ul></li><li><a href="#12-스토리지--b">12. 스토리지 – B</a><ul><li><a href="#--스토리지-개요">- 스토리지 개요</a></li><li><a href="#--dasdirect-attached-storage">- DAS(Direct Attached Storage)</a></li><li><a href="#--nasnetwork-attached-storage">- NAS(Network Attached Storage)</a></li><li><a href="#--sanstorage-area-network">- SAN(Storage Area Network)</a></li></ul></li><li><a href="#13-논리-데이터-모델의-물리-데이터-모델-변환--a">13. 논리 데이터 모델의 물리 데이터 모델 변환 – A</a><ul><li><a href="#--테이블-1">- 테이블</a></li><li><a href="#--entity를-테이블로-변환">- Entity를 테이블로 변환</a></li><li><a href="#--슈퍼타입서브타입을-테이블로-변환">- 슈퍼타입/서브타입을 테이블로 변환</a></li><li><a href="#--속성을-컬럼으로-변환">- 속성을 컬럼으로 변환</a></li><li><a href="#--관계를-외래키로-변환">- 관계를 외래키로 변환</a></li><li><a href="#--관리-목적의-테이블컬럼-추가">- 관리 목적의 테이블/컬럼 추가</a></li><li><a href="#--데이터-타입-선택">- 데이터 타입 선택</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p class="notice--primary">2020 시나공 정보처리기사 필기책 참고</p>
+
+<p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 제외</p>
+
+<h2 id="1-사전-조사-분석--b">1. 사전 조사 분석 – B</h2>
+
+<ul>
+  <li>논리적 구조료 표현된 논리적 DB를 물리적 저장장치에 저장할 수 있는 물리적 구조의 데이터로 변환</li>
+  <li>데이터 단위는 저장 레코드</li>
+  <li>꼭 포함되어야 할 것은 저장 레코드의 양식 설계, 레코드 집중의 분석 및 설계, 접근 경로 설계 등</li>
+  <li>여러 가지 타입의 저장 레코드 집합이라는 면에서 단순한 파일과 다름</li>
+  <li>물리적 DB 구조는 DB 시스템 성능에 중대한 영향을 미친다</li>
+  <li>고려사항
+    <ul>
+      <li>인덱스 구조</li>
+      <li>레코드 크기</li>
+      <li>레코드 개수</li>
+      <li>트랜잭션의 갱신과 참조 성향</li>
+      <li>개념 스키마의 변경 여부 검토</li>
+      <li>트랜잭션들의 수행속도를 높이기 위한 고려</li>
+      <li>파일 크기의 변화 가능성</li>
+    </ul>
+  </li>
+  <li>기존 시스템을 분석하여 파악</li>
+  <li>물리적 설계 옵션
+    <ul>
+      <li>반응시간</li>
+      <li>공간 활용도</li>
+      <li>트랜잭션 처리량</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--데이터-명명-규칙-파악">- 데이터 명명 규칙 파악</h3>
+
+<ul>
+  <li>데이터 표준화 및 논리 DB 설계의 결과물 등을 통해 파악</li>
+  <li>서로 일관성 유지</li>
+  <li>동일 명칭 부여의 근거</li>
+  <li>중복 구축 등을 방지</li>
+  <li>도메인과 데이터 사전에 대한 지식 필요</li>
+  <li>도메인 : 객체에 포함된 속성들의 데이터 타입, 크기 등을 표준화 규칙에 따라 일관성 있게 정의한 것</li>
+  <li>데이터 사전
+    <ul>
+      <li>일관성 있는 데이터 이름과 인터페이스를 제공하기 위해 데이터 속성의 논리명, 물리명, 용어정의를 기술</li>
+      <li>프로젝트에서 사용하는 명칭 부여의 근거</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--시스템-자원-파악">- 시스템 자원 파악</h3>
+
+<ul>
+  <li>시스템 자원은 DB 설치에 영향을 미칠 수 있는 물리적 요소. 사전에 미리 파악해야 함</li>
+  <li>하드웨어 자원, 운영체제 및 DBMS 버전, DBMS 파라미터 정보</li>
+</ul>
+
+<h3 id="--데이터베이스-관리-요소-파악">- 데이터베이스 관리 요소 파악</h3>
+
+<ul>
+  <li>DB 관리 요소는 운영과 관련된 관리 요소. 미리 파악해야 함</li>
+  <li>파악한 후 DB 시스템 조사 분석서 작성</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-데이터베이스-저장-공간-설계--b">2. 데이터베이스 저장 공간 설계 – B</h2>
+
+<h3 id="--테이블">- 테이블</h3>
+
+<ul>
+  <li>Row와 Column으로 구성</li>
+  <li>모든 데이터는 테이블에 저장됨</li>
+  <li>논리 설계 단계의 개체에 대응하는 객체</li>
+  <li>DBMS 종류에 따라 테이블의 명칭과 기능 등은 약간씩 차이가 있음</li>
+</ul>
+
+<h4 id="-일반-테이블">@ 일반 테이블</h4>
+
+<ul>
+  <li>대부분의 DBMS에서 표준 테이블로 사용되는 테이블</li>
+  <li>Row 위치는 속성 값에 상관없이 데이터가 저장되는 순서에 따라 결정</li>
+</ul>
+
+<h4 id="-클러스터드-인덱스-테이블">@ 클러스터드 인덱스 테이블</h4>
+
+<ul>
+  <li>기본키나 인덱스키의 순서에 따라 데이터가 저장되는 테이블</li>
+  <li>접근 경로가 단축됨</li>
+</ul>
+
+<h4 id="-파티셔닝-테이블">@ 파티셔닝 테이블</h4>
+
+<ul>
+  <li>대용량의 테이블을 작은 논리적 단위인 파티션으로 나눈 테이블</li>
+  <li>대용량의 데이터를 효과적으로 관리할 수 있음</li>
+  <li>파티션 키를 잘못 구성하면 성능 저하 등의 역효과 초래</li>
+  <li>범위분할 : 지정한 열의 값을 기준으로 분할</li>
+  <li>해시분할 : 해시 함수를 적용한 결과 값에 따라 분할</li>
+  <li>조합분할 : 범위 분할로 분할한 다음 해시 함수를 적용하여 다시 분할</li>
+</ul>
+
+<h4 id="-외부-테이블">@ 외부 테이블</h4>
+
+<ul>
+  <li>DB에서 일반 테이블처럼 이용할 수 있는 외부 파일. 객체로 존재</li>
+  <li>데이터웨어하우스에서 ETL 등의 작업에 유용하게 사용</li>
+</ul>
+
+<h4 id="-임시-테이블">@ 임시 테이블</h4>
+
+<ul>
+  <li>트랜잭션이나 세션별로 데이터를 저장하고 처리할 수 있는 테이블</li>
+  <li>트랜잭션이 종료되면 삭제됨</li>
+  <li>임시로 사용하는 테이블</li>
+</ul>
+
+<h3 id="--column">- Column</h3>
+
+<ul>
+  <li>테이블의 열. 데이터 타입, 길이 등으로 정의됨</li>
+  <li>데이터 타입은 데이터의 일관성 유지를 위해 사용되는 가장 기본적인 것</li>
+  <li>도메인을 정의한 경우 도메인에 따라 데이터의 타입과 길이 정의</li>
+  <li>두 컬럼의 데이터 타입이나 길이가 다르면 DBMS 내부적으로 데이터 타입을 변환한 수 비교 연산 수행</li>
+  <li>참조 관계인 컬럼들은 데이터 타입과 길이가 일치해야 함</li>
+</ul>
+
+<h3 id="--테이블스페이스">- 테이블스페이스</h3>
+
+<ul>
+  <li>테이블이 저장되는 논리적인 영역. 하나 또는 그 이상의 테이블 저장 가능</li>
+  <li>테이블을 저장하면 논리적으로는 테이블스페이스에 저장, 물리적으로는 연관된 데이터 파일에 저장</li>
+  <li>나눠 관리하면 논리적 구성이 물리적 구성에 종속되지 않아 투명성이 보장됨</li>
+  <li>고려사항
+    <ul>
+      <li>업무별로 구분하여 지정</li>
+      <li>대용량 테이블은 하나의 테이블스페이스에 독립적으로 저장</li>
+      <li>테이블과 인덱스는 분리하여 저장</li>
+      <li>LOB 타입의 데이터는 독립적인 공간으로 지정</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-트랜잭션-분석--crud-분석--b">3. 트랜잭션 분석 / CRUD 분석 – B</h2>
+
+<h3 id="--트랜잭션-정의">- 트랜잭션 정의</h3>
+
+<ul>
+  <li>DB의 상태를 변화시키는 하나의 논리적 기능을 수행하기 위한 작업의 단위 또는 한꺼번에 모두 수행되어야 할 연산</li>
+  <li>병행 제어 및 회복 작업 시 처리되는 작업의 논리적 단위</li>
+  <li>시스템이 응답하기 위한 상태 변환 과정의 작업 단위</li>
+</ul>
+
+<h3 id="--트랜잭션의-특성">- 트랜잭션의 특성</h3>
+
+<ul>
+  <li>Atomicity(원자성)
+    <ul>
+      <li>트랜잭션의 연산은 완료(Commit)되든지 전혀 반영되지 않도록 복구(Rollback)되어야 함</li>
+      <li>모든 명령은 반드시 완벽히 수행되야 하며, 오류 발생 시 트랜잭션 전부가 취소돼야 함</li>
+    </ul>
+  </li>
+  <li>Consistency(일관성)
+    <ul>
+      <li>실행을 성공적으로 완료하면 언제나 일관성 있는 DB 상태로 변환</li>
+      <li>고정 요소는 트랜잭션 수행 전과 후의 상태가 같아야 함</li>
+    </ul>
+  </li>
+  <li>Isolation(독립성, 격리성, 순차성)
+    <ul>
+      <li>트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없음</li>
+      <li>완전히 완료될 때까지 다른 트랜잭션에서 수행 결과를 참조할 수 없음</li>
+    </ul>
+  </li>
+  <li>Durability(영속성, 지속성)
+    <ul>
+      <li>완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--crud-분석">- CRUD 분석</h3>
+
+<ul>
+  <li>Create, Read, Update, Delete</li>
+  <li>CRUD 매트릭스를 작성하여 분석</li>
+  <li>트랜잭션의 주기별 발생 횟수를 파악하고, 테이블에 저장되는 데이터의 양을 유추할 수 있음</li>
+  <li>많은 트랜잭션이 몰리는 테이블을 파악할 수 있음</li>
+  <li>연결 지연이나 타임아웃 오류를 방지할 수 있음</li>
+</ul>
+
+<h3 id="--crud-매트릭스">- CRUD 매트릭스</h3>
+
+<ul>
+  <li>Row에는 프로세스를, Column에는 테이블을, 행과 열이 만나는 위치에는 변화를 표시</li>
+  <li>프로세스의 트랜잭션이 테이블에 수행하는 작업을 검증</li>
+  <li>복수의 변화를 줄 때는 C &gt; D &gt; U &gt; R의 우선순위 적용</li>
+  <li>불필요하거나 누락된 테이블 또는 프로세스를 찾음</li>
+</ul>
+
+<h3 id="--트랜잭션-분석">- 트랜잭션 분석</h3>
+
+<ul>
+  <li>테이블에 저장되는 데이터의 양을 유추하고 이를 근거로 DB 용량을 산정하고 구조를 최적화</li>
+  <li>업무 개발 담당자가 수행</li>
+  <li>디스크 입출력 분산을 통한 성능 향상을 가져올 수 있음</li>
+</ul>
+
+<h3 id="--트랜잭션-분석서">- 트랜잭션 분석서</h3>
+
+<ul>
+  <li>단위 프로세스와 CRUD 매트릭스를 이용하여 작성</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="4-인덱스-설계--a">4. 인덱스 설계 – A</h2>
+
+<h3 id="--인덱스의-개념">- 인덱스의 개념</h3>
+
+<ul>
+  <li>&lt;키 값, 포인터&gt; 쌍으로 구성되는 데이터 구조</li>
+  <li>물리적 구조와 밀접한 관계</li>
+  <li>물리적 구조에 접근하는 방법 제공</li>
+  <li>파일의 레코드에 대한 액세스를 빠르게 수행</li>
+  <li>삽입, 삭제가 수시로 일어나는 경우, 인덱스의 개수를 최소로 하는 것이 효율적</li>
+  <li>인덱스가 없으면 모든 데이터 페이지를 확인하는 TABLE SCAN 발생</li>
+  <li>기본키를 위한 인덱스를 기본 인덱스, 기본 인덱스가 아닌 인덱스를 보조 인덱스라고 함</li>
+  <li>DBMS에서는 모든 기본키에 대해서 자동적으로 기본 인덱스를 생성함</li>
+  <li>레코드의 물리적 순서가 인덱스의 엔트리 순서와 일치하게 유지되도록 구성되는 인덱스를 클러스터트 인덱스라 함
+    <ul>
+      <li>클러스터드 인덱스
+        <ul>
+          <li>인덱스 키의 순서에 따라 데이터가 정렬되어 저장</li>
+          <li>인덱스를 검색하지 않아도 원하는 데이터를 빠르게 찾을 수 있음</li>
+          <li>삽입, 삭제 발생 시 순서를 유지하기 위해 데이터를 재정렬해야 함</li>
+          <li>한 개의 릴레이션에 하나의 인덱스만 생성할 수 있음</li>
+        </ul>
+      </li>
+      <li>넌클러스터드 인덱스
+        <ul>
+          <li>키 값만 정렬되어 있을 뿐 실제 데이터는 정렬되지 않는 방식</li>
+          <li>데이터 검색을 위해 인덱스를 검색하여 실제 데이터의 위치를 확인해야 하므로 검색 속도가 떨어짐</li>
+          <li>한 개의 릴레이션에 여러 개의 인덱스를 만들 수 있음</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--트리-기반-인덱스">- 트리 기반 인덱스</h3>
+
+<ul>
+  <li>인덱스를 저장하는 블록들이 트리 구조를 이루고 있는 것</li>
+  <li>B 트리 인덱스
+    <ul>
+      <li>루트 노드에서 하위 노드로 키 값의 크기를 비교해 나가면서 검색</li>
+      <li>포인터들이 트리 노드에 오름차순으로 저장</li>
+      <li>모든 리프 노드는 같은 레벨에 있음</li>
+    </ul>
+  </li>
+  <li>B+ 트리 인덱스
+    <ul>
+      <li>단말 노드가 아닌 노드로 구성된 인덱스 세트와 단말 노드로만 구성된 순차 세트로 구분</li>
+      <li>인덱스 세트에 있는 노드들은 경로로만 제공</li>
+      <li>순차 세트에 있는 단말 노드가 해당 데이터 레코드의 주소를 가리킴</li>
+      <li>단말 노드만을 이용한 순차 처리 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--비트맵-인덱스">- 비트맵 인덱스</h3>
+
+<ul>
+  <li>인덱스 컬럼의 데이터를 Bit 값인 0 또는 1로 변환하여 인덱스 키로 사용</li>
+  <li>목적은 Row의 주소를 제공하는 것</li>
+  <li>분포도가 좋은 컬럼에 적합하며, 성능 향상 효과를 얻을 수 있음</li>
+  <li>효율적인 논리 연산이 가능하고 저장 공간이 작음</li>
+  <li>다중 조건을 만족하는 튜플의 개수 계산에 적합</li>
+  <li>동일한 값이 반복되는 경우가 많아 압축 효율이 좋음</li>
+</ul>
+
+<h3 id="--함수-기반-인덱스">- 함수 기반 인덱스</h3>
+
+<ul>
+  <li>컬럼의 값 대신 특정 함수나 수식을 적용하여 산출된 값을 사용</li>
+  <li>B+ 트리 인덱스 또는 비트맵 인덱스를 생성하여 사용</li>
+  <li>데이터를 입력하거나 수정할 때 함수를 적용해야 하므로 부하 발생할 수 있음</li>
+  <li>사용자 정의 함수일 경우 시스템 함수보다 부하가 더 큼</li>
+  <li>대소문자, 띄어쓰기 등에 상관없이 조회할 때 유용하게 사용됨</li>
+</ul>
+
+<h3 id="--비트맵-조인-인덱스">- 비트맵 조인 인덱스</h3>
+
+<ul>
+  <li>다수의 조인된 객체로 구성된 인덱스</li>
+  <li>비트맵 인덱스와 물리적 구조가 동일</li>
+</ul>
+
+<h3 id="--도메인-인덱스">- 도메인 인덱스</h3>
+
+<ul>
+  <li>개발자가 필요한 인덱스를 직접 만들어 사용하는 것. 확장형 인덱스</li>
+  <li>프로그램에서 제공하는 인덱스처럼 사용할 수도 있음</li>
+</ul>
+
+<h3 id="--인덱스-설계">- 인덱스 설계</h3>
+
+<ul>
+  <li>분명하게 드러난 컬럼에 대해 기본적인 인덱스를 먼저 지정</li>
+  <li>테이블, 컬럼 등 선정 -&gt; 인덱스 최적화 수행 -&gt; 인덱스 정의서 작성</li>
+</ul>
+
+<h3 id="--인덱스-대상-테이블-선정-기순">- 인덱스 대상 테이블 선정 기순</h3>
+
+<ul>
+  <li>MULTI BLOCK READ 수에 따라 판단</li>
+  <li>랜덤 액세스가 빈번한 테이블</li>
+  <li>특정 범위나 특정 순서로 데이터 조회가 필요한 테이블</li>
+  <li>다른 테이블과 순차적 조인이 발생되는 테이블</li>
+</ul>
+
+<h3 id="--인덱스-대상-컬럼-선정-기준">- 인덱스 대상 컬럼 선정 기준</h3>
+
+<ul>
+  <li>컬럼의 분포도가 10~15% 이내인 컬럼</li>
+  <li>분포도가 10~15% 이상이어도 부분 처리를 목적으로 하는 컬럼</li>
+  <li>조회 및 출력 조건으로 사용되는 컬럼</li>
+  <li>기본키와 Unique키 제약 조건을 사용한 컬럼</li>
+  <li>수정이 빈번하지 않은 컬럼</li>
+  <li>ORDER BY, GROUP BY, UNION이 빈번한 컬럼</li>
+  <li>분포도가 좁은 컬럼은 단독 인덱스로 생성</li>
+  <li>인덱스들이 자주 조합되어 사용되는 경우 하나의 결합 인덱스로 생성</li>
+</ul>
+
+<h3 id="--인덱스-설계-시-고려사항">- 인덱스 설계 시 고려사항</h3>
+
+<ul>
+  <li>새로 추가되는 인덱스는 기존 액세스 경로에 영향을 미칠 수 있음</li>
+  <li>인덱스를 지나치게 많이 만들면 오버헤드 발생</li>
+  <li>넓은 범위를 인덱스로 처리하면 많은 오버헤드 발생</li>
+  <li>인덱스를 만들면 추가적인 저장 공간이 필요</li>
+  <li>인덱스와 테이블 데이터의 저장 공간이 분리되도록 설계</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="5-view-설계--a">5. View 설계 – A</h2>
+
+<h3 id="--view의-개요">- View의 개요</h3>
+
+<ul>
+  <li>접근이 허용된 자료만을 제한적으로 보여주기 위해 기본 테이블로부터 유도된 가상 테이블</li>
+  <li>물리적으로 존재하지 않지만, 있는 것처럼 간주</li>
+  <li>임시적인 작업을 위한 용도로 활용</li>
+  <li>조인문의 사용 최소화로 사용상의 편의성을 최대화</li>
+</ul>
+
+<h3 id="--view의-특징">- View의 특징</h3>
+
+<ul>
+  <li>기본 테이블과 같은 형태의 구조를 사용, 조작도 기본 테이블과 거의 같음</li>
+  <li>물리적으로 구현되어 있지 않음</li>
+  <li>데이터의 논리적 독립성을 제공</li>
+  <li>관리가 용이하고 명령문이 간단해짐</li>
+  <li>뷰에 나타나지 않는 데이터를 안전하게 보호하는 효율적인 기법으로 사용</li>
+  <li>기본 테이블의 기본키를 포함한 속성 집합으로 뷰를 구성해야 삽입, 삭제, 갱신등의 연산 가능</li>
+  <li>정의된 뷰는 다른 뷰의 정의에 기초가 될 수 있음</li>
+  <li>뷰가 정의된 기본 테이블이나 뷰를 삭제하면 그 테이블이나 뷰를 기초로 정의된 다른 뷰도 삭제됨</li>
+</ul>
+
+<h3 id="--view의-장단점">- View의 장단점</h3>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>논리적 데이터 독립성 제공</li>
+      <li>동일 데이터에 동시에 여러 사용자의 상이한 응용이나 요구 지원</li>
+      <li>데이터 관리를 간단하게 해줌</li>
+      <li>접근 제어를 통한 자동 보안이 제공</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>독립적인 인덱스를 가질 수 없음</li>
+      <li>뷰가 정의를 변경할 수 없음</li>
+      <li>삽입, 삭제, 갱신 연산에 제약이 따름</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--view-설계-순서">- View 설계 순서</h3>
+
+<ul>
+  <li>대상 테이블 선정 -&gt; 대상 컬럼 선정 -&gt; 정의서 작성</li>
+</ul>
+
+<h3 id="--view-설계시-고려-사항">- View 설계시 고려 사항</h3>
+
+<ul>
+  <li>반복적으로 조인을 설정하여 사용하거나 동일한 조건절을 사용하는 테이블을 뷰로 생성</li>
+  <li>사용할 데이터를 다양한 관점에서 제시해야 함</li>
+  <li>데이터의 보안 유지를 고려하여 설계</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="6-클러스터-설계--a">6. 클러스터 설계 – A</h2>
+
+<h3 id="--클러스터의-개요">- 클러스터의 개요</h3>
+
+<ul>
+  <li>동일한 성격의 데이터를 동일한 데이터 블록에 저장하는 물리적 저장 방법</li>
+  <li>클러스터링키로 지정된 컬럼 값의 순서대로 저장, 여러 개의 테이블이 하나의 클러스터에 저장</li>
+</ul>
+
+<h3 id="--클러스터의-특징">- 클러스터의 특징</h3>
+
+<ul>
+  <li>데이터 조회 속도는 향상. 입력, 수정, 삭제 성능은 저하</li>
+  <li>데이터의 분포도가 넓을수록 유리</li>
+  <li>저장 공간을 절약할 수 있음</li>
+  <li>저장 공간이 줄어듬</li>
+  <li>대용량 처리 트랜잭션은 클러스터링 안하는게 좋음</li>
+  <li>처리 범위가 넓은 경우는 단일 테이블 클러스터링 사용</li>
+  <li>조인이 많이 발생하는 경우는 다중 테이블 클러스터링 사용</li>
+  <li>파티셔닝된 테이블에는 클러스터링 할 수 없음</li>
+  <li>클러스터링 하면 디스크 I/O가 줄어듬</li>
+  <li>클러스터드 인덱스를 생성하면 접근 성능이 향상됨</li>
+</ul>
+
+<h3 id="--클러스터-대상-테이블">- 클러스터 대상 테이블</h3>
+
+<ul>
+  <li>분포도가 넓은 테이블</li>
+  <li>대량의 범위를 자주 조회하는 테이블</li>
+  <li>입력, 수정, 삭제가 자주 발생하지 않는 테이블</li>
+  <li>자주 조인되어 사용되는 테이블</li>
+  <li>ORDER BY, GROUP BY, UNION이 빈번한 테이블</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="7-파티션-설계--a">7. 파티션 설계 – A</h2>
+
+<h3 id="--파티션의-개요">- 파티션의 개요</h3>
+
+<ul>
+  <li>대용량의 테이블이나 인덱스를 작은 논리적 단위인 파티션으로 나누는 것</li>
+  <li>성능 저하를 방지할 뿐만 아니라 데이터 관리가 쉬워짐</li>
+  <li>파티션키 또는 인덱스키에 따라 물리적으로 별도의 공간에 데이터가 저장</li>
+  <li>데이터 처리는 테이블 단위로 이뤄지고, 데이터 저장은 파티션별로 수행됨</li>
+</ul>
+
+<h3 id="--파티션의-장단점">- 파티션의 장단점</h3>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>데이터 접근 시 액세스 범위를 줄여 쿼리 성능 향상</li>
+      <li>디스크의 성능 향상</li>
+      <li>속도가 빠름</li>
+      <li>데이터 손상 정도를 최소화 할 수 있음</li>
+      <li>데이터 가용성이 향상</li>
+      <li>입출력을 분산시킬 수 있음</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>세심한 관리가 요구됨</li>
+      <li>조인에 대한 비용이 증가</li>
+      <li>용량이 작은 테이블에 파티셔닝을 수행하면 오히려 성능 저하</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--파티션의-종류">- 파티션의 종류</h3>
+
+<ul>
+  <li>범위 분할
+    <ul>
+      <li>지정한 열의 값을 기준으로 분할</li>
+    </ul>
+  </li>
+  <li>해시 분할
+    <ul>
+      <li>해시 함수를 적용한 결과 값에 따라 데이터를 분할</li>
+      <li>범위 분할의 단점을 보완. 데이터를 고르게 분산할 때 유용</li>
+      <li>특정 데이터가 어디에 있는지 판단할 수 없음</li>
+      <li>데이터가 고르게 분포한 컬럼에 효과적</li>
+    </ul>
+  </li>
+  <li>조합 분할
+    <ul>
+      <li>범위 분할로 분할한 다음 해시 함수를 적용하여 다시 분할</li>
+      <li>범위 분할한 파티션이 너무 커서 관리가 어려울 때 유용</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--파티션키-선정-시-고려-사항">- 파티션키 선정 시 고려 사항</h3>
+
+<ul>
+  <li>테이블 접근 유형에 따라 파티셔닝이 이뤄지도록 선정</li>
+  <li>이력성 데이터는 파티션 생성주기와 소멸주기를 일치시켜야 함</li>
+</ul>
+
+<h3 id="--인덱스-파티션">- 인덱스 파티션</h3>
+
+<ul>
+  <li>파티션된 테이블의 데이터를 관리하기 위해 인덱스를 나눈 것</li>
+  <li>파티션된 테이블의 종속 여부
+    <ul>
+      <li>Local Partitioned Index : 테이블 파티션과 인덱스 파티션이 1:1 대응</li>
+      <li>Global Partitioned Index : 테이블 파티션과 인덱스 파티션이 독립적으로 구성</li>
+      <li>Local Partitioned Index가 데이터 관리가 쉬움</li>
+    </ul>
+  </li>
+  <li>인덱스 파티션키 컬럼의 위치
+    <ul>
+      <li>Prefixed Partitioned Index : 인덱스 파티션키와 인덱스 첫 번째 컬럼이 같음</li>
+      <li>Non-Prefixed Partitioned Index : 인덱스 파티션키와 인덱스 첫 번째 컬럼이 다름</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="8-분산-데이터베이스-설계--a">8. 분산 데이터베이스 설계 – A</h2>
+
+<h3 id="--분산-데이터베이스-정의">- 분산 데이터베이스 정의</h3>
+
+<ul>
+  <li>논리적으로는 하나의 시스템에 속하지만 물리적으로 네트워크를 통해 연결된 여러 개의 컴퓨터 사이트에 분산되어 있는 DB</li>
+  <li>데이터의 처리나 이용이 많은 지역에 DB를 위치해 데이터 처리가 해당 지역에서 해결</li>
+</ul>
+
+<h3 id="--분산-데이터베이스의-구성-요소">- 분산 데이터베이스의 구성 요소</h3>
+
+<ul>
+  <li>분산 처리기 : 자체 처리 능력. 지리적으로 분산되어 있는 컴퓨터 시스템</li>
+  <li>분산 데이터베이스 : 지리적으로 분산되어 있는 DB. 해당 지역의 특성에 맞게 DB 구성</li>
+  <li>통신 네트워크 : 분산 처리기들을 통신망으로 연결하는 통신 네트워크</li>
+</ul>
+
+<h3 id="--분산-데이터베이스-설계-시-고려-사항">- 분산 데이터베이스 설계 시 고려 사항</h3>
+
+<ul>
+  <li>작업부하의 노드별 분산 정책</li>
+  <li>지역의 자치성 보장 정책</li>
+  <li>데이터의 일관성 정책</li>
+  <li>사이트나 회선의 고장으로부터의 회복 기능</li>
+  <li>통신 네트워크를 통한 원격 접근 기능</li>
+</ul>
+
+<h3 id="--분산-데이터베이스의-목표">- 분산 데이터베이스의 목표</h3>
+
+<ul>
+  <li>위치 투명성 : 실제 위치를 알 필요 없이 DB의 논리적인 명칭만으로 액세스 가능</li>
+  <li>중복 투명성 : 데이터가 중복되어 있더라도 사용자는 하나의 데이터만 존재하는 것처럼 사용하고, 시스템은 자동으로 여러 자료에 대한 작업 수행</li>
+  <li>병행 투명성 : 다수의 트랜잭션들이 동시에 실현되더라도 그 트랜잭션의 결과는 영향을 받지 않음</li>
+  <li>장애 투명성 : 장애에도 불구하고 트랜잭션을 정확하게 처리</li>
+</ul>
+
+<h3 id="--분산-데이터베이스의-장단점">- 분산 데이터베이스의 장단점</h3>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>지역 자치성이 높음</li>
+      <li>자료의 공유성 향상</li>
+      <li>분산 제어 가능</li>
+      <li>시스템 성낭 향상</li>
+      <li>중앙 컴퓨터의 장애가 전체 시스템에 영향을 끼치지 않음</li>
+      <li>효용성과 융통성이 높음</li>
+      <li>신뢰성 및 가용성 높음</li>
+      <li>점진적 시스템 용량 확장이 용이</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>DBMS가 수행할 기능이 복잡</li>
+      <li>DB 설계가 어려움</li>
+      <li>개발 비용 증가</li>
+      <li>처리 비용 증가</li>
+      <li>잠재적 오류 증가</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--분산-데이터베이스-설계">- 분산 데이터베이스 설계</h3>
+
+<ul>
+  <li>전역 관계망을 논리적 측면에서 소규모 단위로 분할한 후, 분할된 결과를 복수의 노드에 할당하는 과정으로 진행</li>
+</ul>
+
+<h4 id="-테이블-위치-분산">@ 테이블 위치 분산</h4>
+
+<ul>
+  <li>테이블을 각기 다른 서버에 분산시켜 배치</li>
+  <li>테이블의 구조를 변경하지 않으며, 다른 DB의 테이블과 중복되지 않게 배치</li>
+  <li>해당 테이블들이 놓일 서버들을 미리 설정해야 함</li>
+</ul>
+
+<h4 id="-분할">@ 분할</h4>
+
+<ul>
+  <li>테이블의 데이터를 분할하여 분산시키는 것</li>
+  <li>분할 규칙
+    <ul>
+      <li>완전성 : 전체 데이터를 대상으로 분할</li>
+      <li>재구성 : 분할된 데이터는 관계 연산을 활용하여 본래의 데이터로 재구성할 수 있어야 함</li>
+      <li>상호 중첩 배제 : 분할된 데이터는 서로 다른 분할의 항목에 속하지 않아야 함</li>
+    </ul>
+  </li>
+  <li>주요 분할 방법
+    <ul>
+      <li>수평 분할 : 속성의 값을 기준으로 Row 단위로 분할</li>
+      <li>수직 분할 : 속성 단위로 분할</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="-할당">@ 할당</h4>
+
+<ul>
+  <li>동일한 분할을 여러 개의 서버에 생성하는 분산 방법</li>
+  <li>비중복 할당 방식
+    <ul>
+      <li>분산 DB의 단일 노드에서만 분할이 존재</li>
+      <li>분할된 테이블 간의 의존성은 무시되고 비용 증가, 성능 저하 등의 문제 발생 가능</li>
+    </ul>
+  </li>
+  <li>중복 할당 박식
+    <ul>
+      <li>동일한 테이블을 다른 서버에 복제하는 방식</li>
+      <li>일부만 복제하는 부분복제, 전체를 복제하는 완전 복제가 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="9-데이터베이스-이중화--서버-클러스터링--b">9. 데이터베이스 이중화 / 서버 클러스터링 – B</h2>
+
+<h3 id="--데이터베이스-이중화">- 데이터베이스 이중화</h3>
+
+<ul>
+  <li>시스템 오류로 인한 DB 서비스 중단이나 물리적 손상 발생 시 이를 복구하기 위해 동일한 DB를 복제하여 관리</li>
+  <li>문제가 발생하면 복제된 DB를 이용하여 즉시 문제를 해결할 수 있음</li>
+  <li>사용자가 수행하는 작업이 다른 DB에도 동일하게 적용</li>
+  <li>DB 부하를 줄일 수 있음</li>
+  <li>손쉽게 백업 서버를 운영할 수 있음</li>
+</ul>
+
+<h3 id="--데이터베이스-이중화의-분류">- 데이터베이스 이중화의 분류</h3>
+
+<ul>
+  <li>Eager 기법 : 데이터 변경이 발생하면 변경 내용이 즉시 적용</li>
+  <li>Lazy 기법 : 트랜잭션 수행이 종료되면 변경 사실을 새로운 트랜잭션에 작성하여 각 DB에 전달</li>
+</ul>
+
+<h3 id="--데이터베이스-이중화-구성-방법">- 데이터베이스 이중화 구성 방법</h3>
+
+<ul>
+  <li>활동-대기 방법
+    <ul>
+      <li>한 DB가 활성 상태이면 다른 DB는 대기</li>
+      <li>활성 DB에 장애가 발생하면 대기 DB가 자동으로 모든 서비스를 대신 수행</li>
+      <li>구성 방법과 관리가 쉬움</li>
+    </ul>
+  </li>
+  <li>활동-활동 방법
+    <ul>
+      <li>두개의 DB가 서로 다른 서비스를 제공하다가 한쪽에 문제가 생기면 나머지 DB가 서비스 제공</li>
+      <li>처리율이 높지만 구성 방법 및 설정이 복잡</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--클러스터링">- 클러스터링</h3>
+
+<ul>
+  <li>두 대 이상의 서버를 하나의 서버처럼 운영하는 기술</li>
+  <li>서버 이중화 및 공유 스토리지를 사용하여 서버의 고가용성을 제공</li>
+  <li>고가용성 클러스터링
+    <ul>
+      <li>하나의 서버에 장애가 발생하면 다른 서바가 받아 처리하여 서비스 중단을 방지</li>
+    </ul>
+  </li>
+  <li>병렬 처리 클러스터링
+    <ul>
+      <li>전체 처리율을 높이기 위해 하나의 작업을 여러 개의 서버에서 분산하여 처리</li>
+      <li>사용자의 요청을 로드 밸런서가 여러 대의 서버로 분산</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="10-데이터베이스-보안--암호화--b">10. 데이터베이스 보안 / 암호화 – B</h2>
+
+<h3 id="--데이터베이스-보안의-개요">- 데이터베이스 보안의 개요</h3>
+
+<ul>
+  <li>권한이 없는 사용자가 액세스하는 것을 금지하기 위해 사용되는 기술</li>
+  <li>DB 사용자들은 일반적으로 서로 다른 객체에 대하여 다른 접근 권리 또는 권한을 가짐</li>
+</ul>
+
+<h3 id="--암호화">- 암호화</h3>
+
+<ul>
+  <li>데이터를 보낼 때 송신자가 지정한 수신자 이외에는 그 내용을 알 수 없도록 함</li>
+  <li>암호화 과정 : 평문 -&gt; 암호문</li>
+  <li>복호화 과정 : 암호문 -&gt; 평문</li>
+  <li>개인키 암호 방식(비밀키 암호 방식)
+    <ul>
+      <li>동일한 키로 데이터를 암호화하고 복호화 함</li>
+      <li>대칭 암호 방식, 단일키 암호화 기법이라고도 함</li>
+      <li>비밀키는 DB 사용 권한이 있는 사용자만 나누어 가짐</li>
+    </ul>
+  </li>
+  <li>공개키 암호 방식
+    <ul>
+      <li>서로 다른 키로 데이터를 암호화하고 복호화 함</li>
+      <li>공개키는 DB 사용자에게 공개. 복호화 키는 관리자가 비밀리에 관리</li>
+      <li>비대칭 암호 방식. 대표적으로 RSA</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="11-데이터베이스-보안--접근통제--a">11. 데이터베이스 보안 : 접근통제 – A</h2>
+
+<h3 id="--접근통제">- 접근통제</h3>
+
+<ul>
+  <li>데이터가 저장된 객체와 이를 사용하려는 주체 사이의 정보 흐름을 제한</li>
+  <li>자원의 불법적인 접근 및 파괴를 예방</li>
+  <li>비인가된 사용자의 접근 감시</li>
+  <li>접근 요구자의 사용자 식별</li>
+  <li>접근 요구의 정당성 확인 및 기록</li>
+  <li>접근의 승인 및 거부</li>
+  <li>임의 접근 통제
+    <ul>
+      <li>데이터에 접근하는 사용자의 신원에 따라 접근 권한을 부여</li>
+      <li>주체가 접근통제 권한을 지정하고 제어</li>
+      <li>부여된 권한을 다른 사용자에게 허가할 수 있음</li>
+      <li>GRANT, REVOKE</li>
+    </ul>
+  </li>
+  <li>강제 접근 통제
+    <ul>
+      <li>주체와 객체의 등급을 비교하여 접근 권한을 부여</li>
+      <li>제3자가 접근통제 권한을 지정</li>
+      <li>객체별로 보안 등급 부여, 사용자별로 인가 등급 부여</li>
+      <li>자신보다 보안 등급이 높은 객체에 대해 읽기, 수정, 등록이 모두 불가능</li>
+      <li>자신과 보안 등급이 같은 객체에 대해 읽기, 수정, 등록 가능</li>
+      <li>자신보다 보안 등급이 낮은 객체에 대해 읽기 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--접근통제-정책">- 접근통제 정책</h3>
+
+<ul>
+  <li>신분 기반 정책
+    <ul>
+      <li>주체나 그룹의 신분에 근거하여 객체의 접근을 제한하는 방법</li>
+      <li>IBP : 최소 권한 정책. 단일 주체에게 하나의 객체에 대한 허가 부여</li>
+      <li>GBP : 복수 주체에 하나의 객체에 대한 허가 부여</li>
+    </ul>
+  </li>
+  <li>규칙 기반 정책
+    <ul>
+      <li>주체가 갖는 권한에 근거하여 객체의 접근을 제한하는 방법</li>
+      <li>MLP : 사용자 및 객체별로 지정된 기밀 분류에 따른 정책</li>
+      <li>CBP : 집단별로 지정된 기밀 허가에 따른 정책</li>
+    </ul>
+  </li>
+  <li>역할 기반 정책
+    <ul>
+      <li>주체의 신분이 아니라 주체가 맡은 역할에 근거하여 객체의 접근을 제한</li>
+      <li>인사 담당자, DBA 등</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--접근통제-매커니즘">- 접근통제 매커니즘</h3>
+
+<ul>
+  <li>접근통제 정책을 구현하는 기술적인 방법</li>
+  <li>접근통제 목록, 능력 리스트, 보안 등급, 패스워드, 암호화</li>
+</ul>
+
+<h3 id="--접근통제-보안-모델">- 접근통제 보안 모델</h3>
+
+<ul>
+  <li>보안 정책을 구현하기 위한 정형화된 모델</li>
+  <li>기밀성 모델
+    <ul>
+      <li>군사적인 목적으로 개발된 수학적 모델. 기밀성 보장이 최우선</li>
+      <li>군대 시스템 등 특수 환경에서 주로 사용</li>
+    </ul>
+  </li>
+  <li>무결성 모델
+    <ul>
+      <li>불법적인 정보 변경을 방지하기 위해 무결성을 기반으로 개발된 모델</li>
+      <li>데이터의 일관성 유지에 중점</li>
+      <li>주체 및 객체의 보안 등급을 기반으로 함</li>
+    </ul>
+  </li>
+  <li>접근통제 모델
+    <ul>
+      <li>접근통제 행렬 : 행은 주체, 열은 객체</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--접근통제-조건">- 접근통제 조건</h3>
+
+<ul>
+  <li>접근통제 매커니즘의 취약점을 보완하기 위해 접근통제 정책에 부가하여 적용할 수 있는 조건</li>
+  <li>값 종속 통제 : 객체에 저장된 값에 따라 다르게 접근 통제를 허용해야 하는 경우</li>
+  <li>다중 사용자 통제 : 다수의 사용자가 동시에 접근을 요구하는 경우</li>
+  <li>컨텍스트 기반 통제 : 다른 보안 정책과 결합하여 보안 시스템의 취약점을 보완할 때</li>
+</ul>
+
+<h3 id="--감사-추적">- 감사 추적</h3>
+
+<ul>
+  <li>DB에 접근하여 수행한 모든 활동을 기록하는 기능</li>
+  <li>오류가 발생한 DB를 복구하거나 부적절한 데이터 조작을 파악하기 위해 사용</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="12-스토리지--b">12. 스토리지 – B</h2>
+
+<h3 id="--스토리지-개요">- 스토리지 개요</h3>
+
+<ul>
+  <li>단일 디스크로 처리할 수 없는 대용량의 데이터를 저장하기 위해 서버와 저장장치를 연결하는 기술</li>
+</ul>
+
+<h3 id="--dasdirect-attached-storage">- DAS(Direct Attached Storage)</h3>
+
+<ul>
+  <li>서버와 저장장치를 전용 케이블로 직접 연결. 외장하드를 연결하는 것이 해당</li>
+  <li>서버에서 저장장치를 관리</li>
+  <li>직접 연결하므로 속도가 빠르고 설치 및 운영이 쉬움</li>
+  <li>초기 구축 비용 및 유지보수 비용 저렴</li>
+  <li>다른 서버에서 접근할 수 없고 파일 공유 불가능</li>
+  <li>확장성 및 유연성이 상대적으로 떨어짐</li>
+  <li>저장 데이터가 적고 공유가 필요 없는 환경에 적합</li>
+</ul>
+
+<h3 id="--nasnetwork-attached-storage">- NAS(Network Attached Storage)</h3>
+
+<ul>
+  <li>서버와 저장장치를 네트워크를 통해 연결</li>
+  <li>NAS Storage가 내장된 저장장치를 직접 관리</li>
+  <li>Ethernet 스위치를 통해 다른 서버에서도 스토리지에 접근할 수 있음</li>
+  <li>파일 공유 가능, 장소에 구애받지 않고 저장장치에 쉽게 접근 가능</li>
+  <li>확장성 및 유연성이 우수</li>
+  <li>접속 증가 시 성능 저하</li>
+</ul>
+
+<h3 id="--sanstorage-area-network">- SAN(Storage Area Network)</h3>
+
+<ul>
+  <li>서버와 저장장치를 연결하는 전용 네트워크를 별도로 구성</li>
+  <li>파이어 채널 스위치를 이용하여 네트워크 구성</li>
+  <li>광케이블로 연결하므로 처리 속도가 빠름</li>
+  <li>저장장치 및 파일 공유 가능</li>
+  <li>확장성, 유연성, 가용성이 뛰어남</li>
+  <li>높은 트랜잭션 처리에 효과적</li>
+  <li>장비의 업그레이드가 필요하고, 비용이 많이 듦</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="13-논리-데이터-모델의-물리-데이터-모델-변환--a">13. 논리 데이터 모델의 물리 데이터 모델 변환 – A</h2>
+
+<h3 id="--테이블-1">- 테이블</h3>
+
+<ul>
+  <li>Row : 튜플, 인스턴스</li>
+  <li>Column : 속성</li>
+  <li>기본키 : 후보키 중에서 선택한 주키. 특정 튜플을 유일하게 구별할 수 있는 속성</li>
+  <li>외래키 : 다른 릴레이션의 기본키를 참조하는 속성</li>
+</ul>
+
+<h3 id="--entity를-테이블로-변환">- Entity를 테이블로 변환</h3>
+
+<ul>
+  <li>고려사항
+    <ul>
+      <li>테이블과 Entity 명칭은 동일하게 하는 것을 권고</li>
+      <li>Entity는 한글명 사용, 테이블은 영문명 사용</li>
+      <li>메타 데이터 관리 시스템에 표준화된 용어가 있을 때는 메타에 등록된 단어를 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--슈퍼타입서브타입을-테이블로-변환">- 슈퍼타입/서브타입을 테이블로 변환</h3>
+
+<ul>
+  <li>물리 데이터 모델을 설계할 때는 슈퍼타입/서브타입을 테이블로 변환해야 함</li>
+  <li>슈퍼타입 기준 테이블 변환
+    <ul>
+      <li>서브타입을 슈퍼타입에 통합하여 하나의 테이블로 만드는 것</li>
+      <li>서브타입에 속성이나 관계가 적을 경우에 적용. 서브타입의 모든 속성이 포함</li>
+      <li>장점
+        <ul>
+          <li>데이터 액세스가 상대적으로 용이</li>
+          <li>뷰를 이용해 각각의 서브타입만을 액세스하거나 수정할 수 있음</li>
+          <li>임의 집합에 대한 처리가 용이</li>
+          <li>수행 속도가 빨라짐</li>
+          <li>SQL 문장 구성이 단순해짐</li>
+        </ul>
+      </li>
+      <li>단점
+        <ul>
+          <li>컬럼이 증가해 디스크 저장 공간이 증가</li>
+          <li>서브타입에 대한 구분이 필요한 경우가 많이 발생</li>
+          <li>인덱스 크기의 증가로 인덱스 효율이 떨어짐</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>서브타입 기준 테이블 변환
+    <ul>
+      <li>슈퍼타입 속성들을 각각의 서브타입에 추가하여 서브타입을 개별적인 테이블로 만드는 것</li>
+      <li>서브타입에 속성이나 관계가 많이 포함된 경우 적용</li>
+      <li>장점
+        <ul>
+          <li>서브타입 속성들의 선택 사양이 명확한 경우 유리</li>
+          <li>처리할 때마다 서브타입 유형을 구분할 필요가 없음</li>
+          <li>테이블당 크기가 감소하여 전체 테이블 스캔시 유리</li>
+        </ul>
+      </li>
+      <li>단점
+        <ul>
+          <li>수행 속도 감소</li>
+          <li>복잡한 처리를 하는 SQL의 통합이 어려움</li>
+          <li>부분 범위에 대한 처리가 곤란</li>
+          <li>여러 테이블을 통합한 뷰는 조회만 가능</li>
+          <li>식별자의 유지 관리가 어려움</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>개별타입 기준 테이블 변환
+    <ul>
+      <li>슈퍼타입과 서브타입들을 각각의 개별적인 테이블로 변환</li>
+      <li>1:1 관계가 형성</li>
+      <li>전체 데이터에 대한 처리가 빈번한 경우</li>
+      <li>서브타입의 처리가 대부분 독립적으로 발생하는 경우</li>
+      <li>통합하는 테이블의 컬럼 수가 많은 경우</li>
+      <li>서브타입의 컬럼 수가 많은 경우</li>
+      <li>트랜잭션이 주로 슈퍼타입에서 발생하는 경우</li>
+      <li>슈퍼타입의 처리 범위가 넓고 빈번하게 발생하여 단일 테이블 클러스터링이 필요한 경우</li>
+      <li>장점
+        <ul>
+          <li>저장 공간이 상대적으로 작음</li>
+          <li>슈퍼타입 또는 서브타입 각각의 테이블에 속한 정보만 조회하는 경우 문장 작성 용이</li>
+        </ul>
+      </li>
+      <li>단점
+        <ul>
+          <li>슈퍼타입 또는 서브타입의 정보를 같이 처리하면 항상 조인이 발생하여 성능이 저하됨</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--속성을-컬럼으로-변환">- 속성을 컬럼으로 변환</h3>
+
+<ul>
+  <li>논리 데이터 모델에서 정의한 속성을 물리 데이터 모델의 컬럼으로 변환</li>
+  <li>일반 속성 변환
+    <ul>
+      <li>표준화 된 약어를 사용하여 일치시키는 것이 좋음</li>
+      <li>SQL 예약어 사용을 피함</li>
+      <li>가능한 한 짧게 지정</li>
+      <li>복합 단어를 컬럼명으로 사용할 때는 미리 정의된 표준을 따름</li>
+      <li>샘플 데이터를 작성하여 컬럼의 정합성 검증</li>
+    </ul>
+  </li>
+  <li>Primary UID를 기본키로 변환
+    <ul>
+      <li>논리 데이터 모델에서의 Primary UIU는 물리 데이터 모델의 기본키로 만듬</li>
+    </ul>
+  </li>
+  <li>Primary UID(관계의 UID Bar)를 기본키로 변환
+    <ul>
+      <li>다른 Entity와의 관계로 인해 생성된 Primary UIU는 물리 데이터 모델의 기본키로 만듬</li>
+    </ul>
+  </li>
+  <li>Secondary(Alternate) UID를 유니크기로 변환
+    <ul>
+      <li>논리 모델링에서 정의된 Secondary UID 및 Alternate Key는 물리 모델에서 유니크 키로 만듬</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--관계를-외래키로-변환">- 관계를 외래키로 변환</h3>
+
+<ul>
+  <li>기본키와 이를 참조하는 외래키로 변환</li>
+  <li>1:1 관계
+    <ul>
+      <li>A의 기본키를 B의 외래키로 추가하거나 B의 기본키를 A의 외래키로 추가하여 표현</li>
+    </ul>
+  </li>
+  <li>1:N 관계
+    <ul>
+      <li>A의 기본키를 B의 외래키로 추가하여 표현하거나 별도의 테이블로 표현</li>
+    </ul>
+  </li>
+  <li>N:M 관계
+    <ul>
+      <li>A와 B의 기본키를 모두 포함한 별도의 릴레이션으로 표현</li>
+    </ul>
+  </li>
+  <li>1:N 순환 관계
+    <ul>
+      <li>A에 A의 기본키를 참조하는 외래키 컬럼을 추가하여 표현</li>
+      <li>데이터의 계층 구조를 표현하기 위해 주로 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--관리-목적의-테이블컬럼-추가">- 관리 목적의 테이블/컬럼 추가</h3>
+
+<ul>
+  <li>논리 데이터 모델에 존재하지 않는 테이블이나 컬럼을 물리 데이터 모델에 추가하여 DB의 관리 혹은 프로그래밍의 수행 속도를 향상시킬 수 있음</li>
+</ul>
+
+<h3 id="--데이터-타입-선택">- 데이터 타입 선택</h3>
+
+<ul>
+  <li>DBMS의 물리적 특성과 성능을 고려하여 최적의 데이터 타입과 데이터의 최대 길이 선택</li>
+  <li>문자타입, 숫자타입, 날짜타입 등</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-31">July 31, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+3-2.+%EB%AC%BC%EB%A6%AC+%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4+%EC%84%A4%EA%B3%84%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp11%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp11%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp11%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/jckp/etc-jckp10/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 3-1. 논리 데이터베이스 설계</a>
+  
+  
+  <a href="/jckp/etc-jckp12/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[정보처리기사 필기] 3-3. SQL 응용</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp12/" rel="permalink">[정보처리기사 필기] 3-3. SQL 응용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 3장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/css/frontend-css-properties-font/" rel="permalink">[CSS] CSS 속성 - 글꼴, 문자
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#css"
+      class="page__taxonomy-item-category" rel="tag">CSS</a>
+    
+    
+    <a href="/tags/#css"
+      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">CSS 속성인 글꼴, 문자 정리
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp10/" rel="permalink">[정보처리기사 필기] 3-1. 논리 데이터베이스 설계
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 1장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp9/" rel="permalink">[정보처리기사 필기] 2-5. 인터페이스 구현
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 2과목 5장
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이원우. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp11/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jckp/etc-jckp11"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

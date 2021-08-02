@@ -1,0 +1,1104 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[CSS] CSS 속성 - 정렬, 전환, 변환 | LWW’s Tech Blog</title>
+<meta name="description" content="CSS 속성인 정렬, 전환, 변환 정리">
+
+
+  <meta name="author" content="이원우">
+  
+  <meta property="article:author" content="이원우">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[CSS] CSS 속성 - 정렬, 전환, 변환">
+<meta property="og:url" content="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/">
+
+
+  <meta property="og:description" content="CSS 속성인 정렬, 전환, 변환 정리">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-01T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-01T09:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이원우",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#css" itemprop="item"><span itemprop="name">Css</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[CSS] CSS 속성 - 정렬, 전환, 변환</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="이원우" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">이원우</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">26</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+      <!--Blog-->
+        <span class="nav__sub-title">Blog</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (1)</a></li>
+                    
+                
+            </ul>
+
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (16)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[CSS] CSS 속성 - 정렬, 전환, 변환">
+    <meta itemprop="description" content="CSS 속성인 정렬, 전환, 변환 정리">
+    <meta itemprop="datePublished" content="2021-08-01T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-01T09:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/" class="u-url" itemprop="url">[CSS] CSS 속성 - 정렬, 전환, 변환
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#정렬">정렬</a><ul><li><a href="#--display">- display</a></li><li><a href="#--flex-direction">- flex-direction</a></li><li><a href="#--flex-wrap">- flex-wrap</a></li><li><a href="#--justify-content">- justify-content</a></li><li><a href="#--align-content">- align-content</a></li><li><a href="#--align-items">- align-items</a></li><li><a href="#--order">- order</a></li><li><a href="#--flex-grow">- flex-grow</a></li><li><a href="#--flex-shrink">- flex-shrink</a></li><li><a href="#--flex-basis">- flex-basis</a></li></ul></li><li><a href="#전환">전환</a><ul><li><a href="#--transition">- transition</a></li><li><a href="#--transition-property">- transition-property</a></li><li><a href="#--transition-duration">- transition-duration</a></li><li><a href="#--transition-timing-function">- transition-timing-function</a></li><li><a href="#--transition-delay">- transition-delay</a></li></ul></li><li><a href="#변환">변환</a><ul><li><a href="#--2d-변환-함수">- 2D 변환 함수</a></li><li><a href="#--3d-변환-함수">- 3D 변환 함수</a></li><li><a href="#--perspective">- perspective</a></li><li><a href="#--backface-visibility">- backface-visibility</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="정렬">정렬</h2>
+
+<h3 id="--display">- display</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Flex Container의 화면 출력 특성 */</span>
+<span class="nt">display</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span> <span class="err">블록</span> <span class="err">요소와</span> <span class="err">같이</span> <span class="err">Flex</span> <span class="err">Container</span> <span class="err">정의</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-flex</span><span class="p">;</span> <span class="err">인라인</span> <span class="err">요소와</span> <span class="err">같이</span> <span class="err">Flex</span> <span class="err">Container</span> <span class="err">정의</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--flex-direction">- flex-direction</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 주 축을 설정 */</span>
+<span class="nt">flex-direction</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">row</span><span class="p">;</span> <span class="err">행</span> <span class="err">축</span> <span class="err">(좌</span> <span class="err">-&gt;</span> <span class="err">우)</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row-reverse</span><span class="p">;</span> <span class="err">행</span> <span class="err">축</span> <span class="err">(우</span> <span class="err">-&gt;</span> <span class="err">좌)</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span> <span class="err">열</span> <span class="err">축</span> <span class="err">(위</span> <span class="err">-&gt;</span> <span class="err">아래)</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column-reverse</span><span class="p">;</span> <span class="err">열</span> <span class="err">축</span> <span class="err">(아래</span> <span class="err">-&gt;</span> <span class="err">위)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--flex-wrap">- flex-wrap</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Flex Items 묶음(줄 바꿈) 여부 */</span>
+<span class="nt">flex-wrap</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">nowrap</span><span class="p">;</span> <span class="err">묶음(줄</span> <span class="err">바꿈)</span> <span class="err">없음</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span> <span class="err">여러</span> <span class="err">줄로</span> <span class="err">묶음</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap-reverse</span><span class="p">;</span> <span class="err">wrap의</span> <span class="err">반대</span> <span class="err">방향으로</span> <span class="err">묶음</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--justify-content">- justify-content</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 주 축의 정렬 방법 */</span>
+<span class="nt">justify-content</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">flex-start</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">시작점으로</span> <span class="err">정렬</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">끝점으로</span> <span class="err">정렬</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">가운데</span> <span class="err">정렬</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-between</span><span class="p">;</span> <span class="err">각</span> <span class="err">Flex</span> <span class="err">Item</span> <span class="err">사이를</span> <span class="err">균등하게</span> <span class="err">정렬</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span> <span class="err">각</span> <span class="err">Flex</span> <span class="err">Item의</span> <span class="err">외부</span> <span class="err">여백을</span> <span class="err">균등하게</span> <span class="err">정렬</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--align-content">- align-content</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 교차 축의 여러 줄 정렬 방법 */</span>
+<span class="nt">align-content</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">stretch</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">시작점으로</span> <span class="err">정렬</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">flex-start</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">시작점으로</span> <span class="err">정렬</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">끝점으로</span> <span class="err">정렬</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">가운데</span> <span class="err">정렬</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">space-between</span><span class="p">;</span> <span class="err">각</span> <span class="err">Flex</span> <span class="err">Item</span> <span class="err">사이를</span> <span class="err">균등하게</span> <span class="err">정렬</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span> <span class="err">각</span> <span class="err">Flex</span> <span class="err">Item의</span> <span class="err">외부</span> <span class="err">여백을</span> <span class="err">균등하게</span> <span class="err">정렬</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--align-items">- align-items</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 교차 축의 한 줄 정렬 방법 */</span>
+<span class="nt">align-items</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">stretch</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">교차</span> <span class="err">축으로</span> <span class="err">늘림</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="n">flex-start</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">각</span> <span class="err">줄의</span> <span class="err">시작점으로</span> <span class="err">정렬</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="n">flex-end</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">각</span> <span class="err">줄의</span> <span class="err">끝점으로</span> <span class="err">정렬</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">각</span> <span class="err">줄의</span> <span class="err">가운데</span> <span class="err">정렬</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">baseline</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Items를</span> <span class="err">각</span> <span class="err">줄의</span> <span class="err">문자</span> <span class="err">기준선에</span> <span class="err">정렬</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--order">- order</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Flex Item의 순서 */</span>
+<span class="nt">order</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="err">순서</span> <span class="err">없음</span>
+  <span class="py">숫자</span><span class="p">:</span> <span class="n">숫자가</span> <span class="n">작을</span> <span class="n">수록</span> <span class="n">먼저</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--flex-grow">- flex-grow</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Flex Item의 증가 너비 비율 */</span>
+<span class="nt">flex-grow</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="err">증가</span> <span class="err">비율</span> <span class="err">없음</span>
+  <span class="py">숫자</span><span class="p">:</span> <span class="n">증가</span> <span class="n">비율</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--flex-shrink">- flex-shrink</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Flex Item의 감소 너비 비율 */</span>
+<span class="nt">flex-shrink</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span> <span class="err">Flex</span> <span class="err">Container</span> <span class="err">너비에</span> <span class="err">따라</span> <span class="err">감소</span> <span class="err">비율</span> <span class="err">적용</span>
+  <span class="py">숫자</span><span class="p">:</span> <span class="n">감소</span> <span class="n">비율</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--flex-basis">- flex-basis</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Flex Item의 공간 배분 전 기본 너비 */</span>
+<span class="nt">flex-basis</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">요소의</span> <span class="err">Content</span> <span class="err">너비</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="전환">전환</h2>
+
+<h3 id="--transition">- transition</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 전환(시작과 끝) 효과를 지정하는 단축 속성 */</span>
+<span class="nt">태그</span> <span class="p">{</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">속성명</span> <span class="n">지속시간</span> <span class="n">타이밍함수</span> <span class="n">대기시간</span><span class="p">;</span>
+  <span class="err">지속시간은</span> <span class="err">단축형으로</span> <span class="err">작성할</span> <span class="err">때,</span> <span class="err">필수</span> <span class="err">포함</span> <span class="err">속성</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--transition-property">- transition-property</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 전환 효과를 사용할 속성 이름을 지정 */</span>
+<span class="nt">transition-property</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">all</span><span class="p">;</span> <span class="err">모든</span> <span class="err">속성에</span> <span class="err">적용</span>
+  <span class="py">속성이름</span><span class="p">:</span> <span class="n">전환</span> <span class="n">효과를</span> <span class="n">사용할</span> <span class="n">속성</span> <span class="n">이름</span> <span class="n">명시</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--transition-duration">- transition-duration</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 전환 효과의 지속시간을 지정 */</span>
+<span class="nt">transition-duration</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0s</span><span class="p">;</span> <span class="err">전환</span> <span class="err">효과</span> <span class="err">없음</span>
+  <span class="py">시간</span><span class="p">:</span> <span class="n">지속시간</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="n">을</span> <span class="n">지정</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--transition-timing-function">- transition-timing-function</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 전환 효과의 타이밍(Easing) 함수를 지정 */</span>
+<span class="nt">transition-timing-function</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="n">ease</span><span class="p">;</span> <span class="err">느리게-빠르게-느리게</span>
+  <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">linear</span><span class="p">;</span> <span class="err">일정하게</span>
+  <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease-in</span><span class="p">;</span> <span class="err">느리게-빠르게</span>
+  <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease-out</span><span class="p">;</span> <span class="err">빠르게-느리게</span>
+  <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease-in-out</span><span class="p">;</span> <span class="err">느리게-빠르게-느리게</span>
+  <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> <span class="err">자신만의</span> <span class="err">값을</span> <span class="err">정의(0~1)</span>
+  <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">step</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="err">n번</span> <span class="err">분할된</span> <span class="err">애니메이션</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--transition-delay">- transition-delay</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 전환 효과가 몇 초 뒤에 시작할지 대기시간을 지정 */</span>
+<span class="nt">transition-delay</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0s</span><span class="p">;</span> <span class="err">대기시간</span> <span class="err">없음</span>
+  <span class="py">시간</span><span class="p">:</span> <span class="n">대기시간</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="n">을</span> <span class="n">지정</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="변환">변환</h2>
+
+<ul>
+  <li>요소의 변환 효과</li>
+  <li>transform: 변환함수1 변환함수2 변환함수3 …</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">태그</span> <span class="p">{</span>
+ <span class="nl">transform</span><span class="p">:</span> <span class="n">원근법</span> <span class="n">이동</span> <span class="n">크기</span> <span class="n">회전</span> <span class="n">기울임</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="--2d-변환-함수">- 2D 변환 함수</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">태그</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="err">이동(x축,</span> <span class="err">y축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="err">이동(x축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translateY</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="err">이동(y축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="err">크기(x축,</span> <span class="err">y축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">scaleX</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="err">크기(x축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">scaleY</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="err">크기(x축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="n">degree</span><span class="p">);</span> <span class="err">회전(각도)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">skew</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="err">기울임(x축,</span> <span class="err">y축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">skewX</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="err">기울임(x축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">skewY</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="err">기울임(y축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">matrix</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> <span class="err">2차원</span> <span class="err">변환</span> <span class="err">효과</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--3d-변환-함수">- 3D 변환 함수</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">태그</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translateZ</span><span class="p">(</span><span class="n">z</span><span class="p">);</span> <span class="err">이동(z축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translate3d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span> <span class="err">이동(x축,</span> <span class="err">y축,</span> <span class="err">z축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">scaleZ</span><span class="p">(</span><span class="n">z</span><span class="p">);</span> <span class="err">크기(z축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span> <span class="err">크기(x축,</span> <span class="err">y축,</span> <span class="err">z축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">perspective</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="err">원근법(거리)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">matrix3d</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">.....</span> <span class="p">,</span> <span class="n">n</span><span class="p">);</span> <span class="err">3차원</span> <span class="err">변환</span> <span class="err">효과</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotateX</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="err">회전(x축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotateY</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="err">회전(y축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotateZ</span><span class="p">(</span><span class="n">z</span><span class="p">);</span> <span class="err">회전(z축)</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate3d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span> <span class="err">회전(x축,</span> <span class="err">y축,</span> <span class="err">z축,</span> <span class="err">각도)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--perspective">- perspective</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 하위 요소를 관찰하는 원근 거리를 지정 */</span>
+<span class="nt">perspective</span> <span class="p">{</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--backface-visibility">- backface-visibility</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 3D 변환으로 회전된 요소의 뒷면 숨김 여부 */</span>
+<span class="nt">backface-visibility</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">visible</span><span class="p">;</span> <span class="err">뒷면</span> <span class="err">보임</span>
+  <span class="nl">backface-visibility</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span> <span class="err">뒷면</span> <span class="err">숨김</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-01">August 1, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BCSS%5D+CSS+%EC%86%8D%EC%84%B1+-+%EC%A0%95%EB%A0%AC%2C+%EC%A0%84%ED%99%98%2C+%EB%B3%80%ED%99%98%20https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-fltrtr%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-fltrtr%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-fltrtr%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/css/frontend-css-properties-bgpo/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[CSS] CSS 속성 - 배경, 배치</a>
+  
+  
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp16/" rel="permalink">[정보처리기사 필기] 4-2. 프로그래밍 언어 활용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.02
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 4과목 2장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/javascript/frontend-javascript-properties-fltrtr/" rel="permalink">[Javascript] 자료형
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.01
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
+    
+    
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">String, Number, Boolean, Undefined, Null, Object, Array
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp15/" rel="permalink">[정보처리기사 필기] 4-1. 서버 프로그램 구현
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.01
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 4과목 1장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp14/" rel="permalink">[정보처리기사 필기] 3-5. 데이터 전환
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 5장
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이원우. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/css/frontend-css-properties-fltrtr"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

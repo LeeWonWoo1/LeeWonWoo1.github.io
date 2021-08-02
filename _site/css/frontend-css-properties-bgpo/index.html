@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[HTML] 글자와 상자 | LWW’s Tech Blog</title>
-<meta name="description" content="요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소">
+<!-- begin _includes/seo.html --><title>[CSS] CSS 속성 - 배경, 배치 | LWW’s Tech Blog</title>
+<meta name="description" content="CSS 속성인 배경, 배치 정리">
 
 
   <meta name="author" content="이원우">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[HTML] 글자와 상자">
-<meta property="og:url" content="https://leewonwoo1.github.io/html/frontend-html-inlineblock/">
+<meta property="og:title" content="[CSS] CSS 속성 - 배경, 배치">
+<meta property="og:url" content="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/">
 
 
-  <meta property="og:description" content="요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소">
-
-
-
+  <meta property="og:description" content="CSS 속성인 배경, 배치 정리">
 
 
 
 
-  <meta property="article:published_time" content="2021-07-29T04:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-07-29T13:00:00+09:00">
+  <meta property="article:published_time" content="2021-07-31T11:30:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-07-31T20:30:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://leewonwoo1.github.io/html/frontend-html-inlineblock/">
+
+<link rel="canonical" href="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/">
 
 
 
@@ -199,7 +199,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#html" itemprop="item"><span itemprop="name">Html</span></a>
+          <a href="/categories/#css" itemprop="item"><span itemprop="name">Css</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[HTML] 글자와 상자</li>
+        <li class="current">[CSS] CSS 속성 - 배경, 배치</li>
       
     
   </ol>
@@ -459,16 +459,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[HTML] 글자와 상자">
-    <meta itemprop="description" content="요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소">
-    <meta itemprop="datePublished" content="2021-07-29T04:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-07-29T13:00:00+09:00">
+    <meta itemprop="headline" content="[CSS] CSS 속성 - 배경, 배치">
+    <meta itemprop="description" content="CSS 속성인 배경, 배치 정리">
+    <meta itemprop="datePublished" content="2021-07-31T11:30:00+09:00">
+    <meta itemprop="dateModified" content="2021-07-31T20:30:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/html/frontend-html-inlineblock/" class="u-url" itemprop="url">[HTML] 글자와 상자
+            <a href="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/" class="u-url" itemprop="url">[CSS] CSS 속성 - 배경, 배치
 </a>
           </h1>
           
@@ -500,112 +500,146 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#글자와-상자">글자와 상자</a><ul><li><a href="#--inline-요소">- Inline 요소</a></li><li><a href="#--block-요소">- Block 요소</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#배경">배경</a><ul><li><a href="#--background-color">- background-color</a></li><li><a href="#--background-image">- background-image</a></li><li><a href="#--background-repeat">- background-repeat</a></li><li><a href="#--background-position">- background-position</a></li><li><a href="#--background-size">- background-size</a></li><li><a href="#--background-attachment">- background-attachment</a></li></ul></li><li><a href="#배치">배치</a><ul><li><a href="#--position">- position</a></li><li><a href="#--요소-쌓임-순서">- 요소 쌓임 순서</a></li><li><a href="#--z-index">- z-index</a></li><li><a href="#--요소의-display가-변경">- 요소의 display가 변경</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="글자와-상자">글자와 상자</h2>
+        <h2 id="배경">배경</h2>
 
-<p>요소가 화면에 출력되는 특성. 크게 2가지로 구분됨.</p>
+<h3 id="--background-color">- background-color</h3>
 
-<p><strong>인라인(Inline) 요소 :</strong> 글자를 만들기 위한 요소<br />
-<strong>블록(Block) 요소 :</strong> 상자(레이아웃)를 만들기 위한 요소</p>
-
-<h3 id="--inline-요소">- Inline 요소</h3>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>Hello<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;span&gt;</span>World!!<span class="nt">&lt;/span&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!!
--------------&gt;
-요소가 수평으로 쌓임
-
-가로는 포함한 콘텐츠 크기만큼 줄어듬
-&lt;---&gt; &lt;-----&gt;
-Hello World!! ↕ 세로도 포함한 콘텐츠 크기만큼 줄어듬
-</code></pre></div></div>
-
-<p><strong>span</strong>은 가장 대표적인 인라인 요소.<br />
-본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정하는 용도<br /></p>
-
-<p><br />
-Inline 요소는 가로, 세로 <u>너비를 지정할 수 없음</u></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"width: 100px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"height: 100px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/span&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!!  &lt;-- 반응 없음
-</code></pre></div></div>
-
-<p><br />
-외부, 내부 여백을 지정할 수 있지만, <u>상하 여백은 사용 불가</u></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"margin: 20px 20px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"padding: 20px 20px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/span&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20px         20px   20px     20px
-&lt;--&gt;『Hello』&lt;--&gt; 『&lt;--&gt;World&lt;--&gt;』
-</code></pre></div></div>
-
-<p><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>    <span class="o">&lt;!--</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">불가</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;!--</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">가능</span> <span class="o">--&gt;</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 색상 */</span>
+<span class="nt">background-color</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span> <span class="err">투명함</span>
+  <span class="py">색상</span><span class="p">:</span> <span class="n">지정</span> <span class="n">가능한</span> <span class="n">색상</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
-<h3 id="--block-요소">- Block 요소</h3>
+<h3 id="--background-image">- background-image</h3>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>Hello<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div&gt;</span>World!!<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello     ↓
-World!!   ↓  요소가 수직으로 쌓임
-
-가로는 부모 요소의 크기만큼 늘어남
-&lt;----------------------------------&gt;
-Hello                              ↕
-World!!                            ↕
-세로는 포함한 콘텐츠 크기만큼 줄어듬
-</code></pre></div></div>
-
-<p><strong>div</strong>은 가장 대표적인 블록 요소.<br />
-본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정하는 용도<br /></p>
-
-<p><br />
-Block 요소는 가로, 세로 <u>너비를 지정할 수 있음</u></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"width: 100px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"height: 40px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     100px
-&lt;--------------&gt;
-Hello          ↕
-World!!                        ↕
-                               ↕ 40px
-&lt;------------------------------&gt;
-</code></pre></div></div>
-
-<p><br />
-외부, 내부 <u>여백을 지정할 수 있음</u></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"margin: 20px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"padding: 20px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20px             ↕ 20px          20px
-&lt;--&gt;『Hello                    』&lt;--&gt;
-                 ↕ 20px
-『               ↕ 20px          20px
-&lt;--&gt;World!!                      &lt;--&gt;
- 20px            ↕ 20px             』
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 삽입 */</span>
+<span class="nt">background-image</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="err">이미지</span> <span class="err">없음</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("경로")</span><span class="p">;</span> <span class="err">이미지</span> <span class="err">경로</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>    <span class="o">&lt;!--</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">불가</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>  <span class="o">&lt;!--</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">가능</span> <span class="o">--&gt;</span>
+
+<h3 id="--background-repeat">- background-repeat</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 반복 */</span>
+<span class="nt">background-repeat</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">repeat</span><span class="p">;</span> <span class="err">이미지를</span> <span class="err">수직,</span> <span class="err">수평</span> <span class="err">반복</span>
+  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-x</span><span class="p">;</span> <span class="err">이미지를</span> <span class="err">수평</span> <span class="err">반복</span>
+  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-y</span><span class="p">;</span> <span class="err">이미지를</span> <span class="err">수직</span> <span class="err">반복</span>
+  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">no-repeat</span><span class="p">;</span> <span class="err">반복</span> <span class="err">없음</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
+<p><br /></p>
+
+<h3 id="--background-position">- background-position</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 위치 */</span>
+<span class="nt">background-position</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="m">0%</span> <span class="m">0%</span><span class="p">;</span> <span class="err">0%</span> <span class="err">~</span> <span class="err">100%</span> <span class="err">사이</span> <span class="err">값</span>
+  <span class="py">방향</span><span class="p">:</span> <span class="nb">top</span><span class="p">,</span> <span class="nb">bottom</span><span class="p">,</span> <span class="nb">left</span><span class="p">,</span> <span class="nb">right</span><span class="p">,</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--background-size">- background-size</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 크기 */</span>
+<span class="nt">background-size</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">이미지의</span> <span class="err">실제</span> <span class="err">크기</span>
+  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span>
+  <span class="py">cover</span><span class="p">:</span> <span class="n">비율을</span> <span class="n">유지</span><span class="p">,</span> <span class="n">요소의</span> <span class="n">더</span> <span class="n">넓은</span> <span class="n">너비에</span> <span class="n">맞춤</span><span class="p">;</span>
+  <span class="py">contain</span><span class="p">:</span> <span class="n">비율을</span> <span class="n">유지</span><span class="p">,</span> <span class="n">요소의</span> <span class="n">더</span> <span class="n">짧은</span> <span class="n">너비에</span> <span class="n">맞춤</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--background-attachment">- background-attachment</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 스크롤 특성 */</span>
+<span class="nt">background-attachment</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">scroll</span><span class="p">;</span> <span class="err">이미지가</span> <span class="err">요소를</span> <span class="err">따라서</span> <span class="err">같이</span> <span class="err">스크롤</span>
+  <span class="nl">background-attachment</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span> <span class="err">이미지가</span> <span class="err">뷰포트에</span> <span class="err">고정,</span> <span class="err">스크롤X</span>
+  <span class="nl">background-attachment</span><span class="p">:</span> <span class="n">local</span><span class="p">;</span> <span class="err">요소</span> <span class="err">내</span> <span class="err">스크롤</span> <span class="err">시</span> <span class="err">이미지가</span> <span class="err">같이</span> <span class="err">스크롤</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="배치">배치</h2>
+
+<h3 id="--position">- position</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 위치 지정 기준 */</span>
+<span class="nt">position</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">static</span><span class="p">;</span> <span class="err">기준</span> <span class="err">없음</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span> <span class="err">요소</span> <span class="err">자신을</span> <span class="err">기준</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span> <span class="err">위치</span> <span class="err">상</span> <span class="err">부모</span> <span class="err">요소를</span> <span class="err">기준,</span> <span class="err">부모</span> <span class="err">꼭</span> <span class="err">확인해야</span> <span class="err">함</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span> <span class="err">뷰포트를</span> <span class="err">기준</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="n">sticky</span><span class="p">;</span> <span class="err">스크롤</span> <span class="err">영역</span> <span class="err">기준</span>
+  <span class="err">position과</span> <span class="err">같이</span> <span class="err">사용하는</span> <span class="err">CSS속성들은</span> <span class="err">모두</span> <span class="err">음수</span> <span class="err">사용</span> <span class="err">가능</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--요소-쌓임-순서">- 요소 쌓임 순서</h3>
+
+<ul>
+  <li>어떤 요소가 사용자와 더 가깝게 있는지 결정
+    <ol>
+      <li>요소에 position 속성의 값이 있는 경우 위에 쌓임(static제외)</li>
+      <li>1번 조건이 같은 경우, z-index 속성의 숫자 값이 높을 수록 위에 쌓임</li>
+      <li>1, 2번 조건이 같은 경우, HTML의 다음 구조일 수록 위에 쌓임</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="--z-index">- z-index</h3>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소 쌓임 정도를 지정 */</span>
+<span class="nt">z-index</span> <span class="p">{</span>
+  <span class="py">기본값</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">부모</span> <span class="err">요소와</span> <span class="err">동일한</span> <span class="err">쌓임</span> <span class="err">정도</span>
+  <span class="py">숫자</span><span class="p">:</span> <span class="n">숫자가</span> <span class="n">높을</span> <span class="n">수록</span> <span class="n">위에</span> <span class="n">쌓임</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="--요소의-display가-변경">- 요소의 display가 변경</h3>
+
+<ul>
+  <li>position 속성의 값으로 absolute, fixed가 지정된 요소는 display 속성이 block로 변경</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">태그</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* 위와 아래는 동일 */</span>
+
+<span class="nt">태그</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
@@ -622,7 +656,7 @@ World!!                        ↕
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#html" class="page__taxonomy-item p-category" rel="tag">HTML</a><span class="sep">, </span>
+      <a href="/tags/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a><span class="sep">, </span>
     
       <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
     
@@ -641,7 +675,7 @@ World!!                        ↕
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#html" class="page__taxonomy-item p-category" rel="tag">HTML</a>
+      <a href="/categories/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a>
     
     </span>
   </p>
@@ -649,7 +683,7 @@ World!!                        ↕
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-29">July 29, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-31">July 31, 2021</time></p>
 
       </footer>
 
@@ -658,11 +692,11 @@ World!!                        ↕
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BHTML%5D+%EA%B8%80%EC%9E%90%EC%99%80+%EC%83%81%EC%9E%90%20https%3A%2F%2Fleewonwoo1.github.io%2Fhtml%2Ffrontend-html-inlineblock%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BCSS%5D+CSS+%EC%86%8D%EC%84%B1+-+%EB%B0%B0%EA%B2%BD%2C+%EB%B0%B0%EC%B9%98%20https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-bgpo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fhtml%2Ffrontend-html-inlineblock%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-bgpo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fhtml%2Ffrontend-html-inlineblock%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-bgpo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -681,10 +715,10 @@ World!!                        ↕
 
 <nav class="pagination_prev_next">
   
-  <a href="#" class="pagination_prev_next--pager disabled">첫 번째 글입니다</a>
+  <a href="/css/frontend-css-properties-font/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[CSS] CSS 속성 - 글꼴, 문자</a>
   
   
-  <a href="/html/frontend-html-structure/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[HTML] HTML 구조 및 태그</a>
+  <a href="/css/frontend-css-properties-fltrtr/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[CSS] CSS 속성 - 정렬, 전환, 변환</a>
   
 </nav>
 
@@ -934,8 +968,8 @@ World!!                        ↕
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://leewonwoo1.github.io/html/frontend-html-inlineblock/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/html/frontend-html-inlineblock"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/css/frontend-css-properties-bgpo"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

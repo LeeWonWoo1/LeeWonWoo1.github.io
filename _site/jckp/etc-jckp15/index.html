@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[HTML] 글자와 상자 | LWW’s Tech Blog</title>
-<meta name="description" content="요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소">
+<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 4-1. 서버 프로그램 구현 | LWW’s Tech Blog</title>
+<meta name="description" content="정보처리기사 필기 4과목 1장">
 
 
   <meta name="author" content="이원우">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[HTML] 글자와 상자">
-<meta property="og:url" content="https://leewonwoo1.github.io/html/frontend-html-inlineblock/">
+<meta property="og:title" content="[정보처리기사 필기] 4-1. 서버 프로그램 구현">
+<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp15/">
 
 
-  <meta property="og:description" content="요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소">
-
-
-
+  <meta property="og:description" content="정보처리기사 필기 4과목 1장">
 
 
 
 
-  <meta property="article:published_time" content="2021-07-29T04:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-07-29T13:00:00+09:00">
+  <meta property="article:published_time" content="2021-08-01T09:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-08-01T18:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://leewonwoo1.github.io/html/frontend-html-inlineblock/">
+
+<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp15/">
 
 
 
@@ -199,7 +199,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#html" itemprop="item"><span itemprop="name">Html</span></a>
+          <a href="/categories/#jckp" itemprop="item"><span itemprop="name">Jckp</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[HTML] 글자와 상자</li>
+        <li class="current">[정보처리기사 필기] 4-1. 서버 프로그램 구현</li>
       
     
   </ol>
@@ -459,16 +459,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[HTML] 글자와 상자">
-    <meta itemprop="description" content="요소가 화면에 출력되는 특성인 Inline 요소와 Block 요소">
-    <meta itemprop="datePublished" content="2021-07-29T04:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-07-29T13:00:00+09:00">
+    <meta itemprop="headline" content="[정보처리기사 필기] 4-1. 서버 프로그램 구현">
+    <meta itemprop="description" content="정보처리기사 필기 4과목 1장">
+    <meta itemprop="datePublished" content="2021-08-01T09:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-01T18:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/html/frontend-html-inlineblock/" class="u-url" itemprop="url">[HTML] 글자와 상자
+            <a href="https://leewonwoo1.github.io/jckp/etc-jckp15/" class="u-url" itemprop="url">[정보처리기사 필기] 4-1. 서버 프로그램 구현
 </a>
           </h1>
           
@@ -485,7 +485,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          4 분 소요
         
       </span>
     
@@ -500,112 +500,247 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#글자와-상자">글자와 상자</a><ul><li><a href="#--inline-요소">- Inline 요소</a></li><li><a href="#--block-요소">- Block 요소</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-개발-환경-구축--b">1. 개발 환경 구축 – B</a><ul><li><a href="#--개발-환경-구축의-개요">- 개발 환경 구축의 개요</a></li><li><a href="#--하드웨어-환경">- 하드웨어 환경</a></li><li><a href="#--web-server의-기능">- Web Server의 기능</a></li><li><a href="#--소프트웨어-환경">- 소프트웨어 환경</a></li><li><a href="#--개발-언어의-선정-기준">- 개발 언어의 선정 기준</a></li></ul></li><li><a href="#2-보안-및-api--b">2. 보안 및 API – B</a><ul><li><a href="#--소프트웨어-개발-보안의-개요">- 소프트웨어 개발 보안의 개요</a></li><li><a href="#--소프트웨어-개발-보안-점검-항목">- 소프트웨어 개발 보안 점검 항목</a></li><li><a href="#--apiapplication-programming-interface">- API(Application Programming Interface)</a></li></ul></li><li><a href="#3-배치-프로그램--b">3. 배치 프로그램 – B</a><ul><li><a href="#--배치-프로그램의-개요">- 배치 프로그램의 개요</a></li><li><a href="#--배치-스케줄러">- 배치 스케줄러</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="글자와-상자">글자와 상자</h2>
+        <p class="notice--primary">2020 시나공 정보처리기사 필기책 참고</p>
 
-<p>요소가 화면에 출력되는 특성. 크게 2가지로 구분됨.</p>
+<p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 일부 제외</p>
 
-<p><strong>인라인(Inline) 요소 :</strong> 글자를 만들기 위한 요소<br />
-<strong>블록(Block) 요소 :</strong> 상자(레이아웃)를 만들기 위한 요소</p>
+<h2 id="1-개발-환경-구축--b">1. 개발 환경 구축 – B</h2>
 
-<h3 id="--inline-요소">- Inline 요소</h3>
+<h3 id="--개발-환경-구축의-개요">- 개발 환경 구축의 개요</h3>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span&gt;</span>Hello<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;span&gt;</span>World!!<span class="nt">&lt;/span&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!!
--------------&gt;
-요소가 수평으로 쌓임
+<ul>
+  <li>개발 프로젝트를 이해하고 소프트웨어 및 하드웨어 장비를 구축하는 것</li>
+  <li>응용 소프트웨어가 운영될 환경과 유사한 구조로 구축</li>
+  <li>개발 프로젝트의 분석 단계의 산출물을 바탕으로 개발에 필요한 하드웨어와 소프트웨어를 선정</li>
+  <li>비즈니스 환경에 적합한 제품들을 최종적으로 결정하여 구축</li>
+</ul>
 
-가로는 포함한 콘텐츠 크기만큼 줄어듬
-&lt;---&gt; &lt;-----&gt;
-Hello World!! ↕ 세로도 포함한 콘텐츠 크기만큼 줄어듬
-</code></pre></div></div>
+<h3 id="--하드웨어-환경">- 하드웨어 환경</h3>
 
-<p><strong>span</strong>은 가장 대표적인 인라인 요소.<br />
-본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정하는 용도<br /></p>
+<ul>
+  <li>인터페이스 역할을 하는 클라이언트, 클라이언트와 통신하여 서비스를 제공하는 서버로 구성</li>
+  <li>클라이언트에는 PC, 스마트폰 등이 있음</li>
+  <li>서버는 사용 목적에 따라 웹 서버, 웹 애플리케이션 서버, DB 서버, 파일 서버 등이 있음</li>
+  <li>웹 서버(Web Server)
+    <ul>
+      <li>클라이언트로부터 직접 요청을 받아 처리하는 서버. 정적 파일들을 제공</li>
+      <li>Apache HTTP Server, Microsoft Internet Information Service, Google Web Server 등</li>
+    </ul>
+  </li>
+  <li>웹 애플리케이션 서버(WAS; Web Application Server)
+    <ul>
+      <li>동적 서비스를 제공하기 위해 웹 서버로부터 요청을 받아 데이터 가공 작업을 수행</li>
+      <li>웹 서버와 DB서버 또는 웹 서버와 파일 서버 사이에서 인터페이스 역할 수행</li>
+      <li>Apache Tomcat, IBM WebSphere, Oracle WebLogic 등</li>
+    </ul>
+  </li>
+  <li>DB Server
+    <ul>
+      <li>DB와 이를 관리하는 DBMS를 운영하는 서버</li>
+      <li>MySQL Server, Oracle Server, Microsoft SQL Server 등</li>
+    </ul>
+  </li>
+  <li>파일 서버(File Server)
+    <ul>
+      <li>DB에 저장하기에는 비효율적이거나, 서비스 제공을 목적으로 유지하는 파일들을 저장하는 서버</li>
+      <li>AWS S3 등</li>
+    </ul>
+  </li>
+</ul>
 
-<p><br />
-Inline 요소는 가로, 세로 <u>너비를 지정할 수 없음</u></p>
+<h3 id="--web-server의-기능">- Web Server의 기능</h3>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"width: 100px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"height: 100px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/span&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!!  &lt;-- 반응 없음
-</code></pre></div></div>
+<ul>
+  <li>HTTP/HTTPS 지원 : 브라우저로부터 요청을 받아 응답할 때 사용되는 프로토콜</li>
+  <li>통신 기록 : 처리한 요청들을 로그 파일로 기록하는 기능</li>
+  <li>정적 파일 관리 : HTML, CSS, 이미지 등의 정적 파일들을 저장하고 관리하는 기능</li>
+  <li>대역폭 제한 : 네트워크 트래픽의 포화를 방지하기 위해 응답 속도를 제한하는 기능</li>
+  <li>가상 호스팅 : 하나의 서버로 여러 개의 도메인 이름을 연결하는 기능</li>
+  <li>인증 : 사용자가 합법적인 사용자인지를 확인하는 기능</li>
+</ul>
 
-<p><br />
-외부, 내부 여백을 지정할 수 있지만, <u>상하 여백은 사용 불가</u></p>
+<h3 id="--소프트웨어-환경">- 소프트웨어 환경</h3>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"margin: 20px 20px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"padding: 20px 20px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/span&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20px         20px   20px     20px
-&lt;--&gt;『Hello』&lt;--&gt; 『&lt;--&gt;World&lt;--&gt;』
-</code></pre></div></div>
+<ul>
+  <li>클라이언트 + 서버 운영을 위한 시스템 S/W + 개발에 사용되는 개발 S/W</li>
+  <li>시스템 S/W : 운영체제, 웹 서버 및 WAS 운용을 위한 서버 프로그램, DBMS 등</li>
+  <li>개발 S/W : 요구사항 관리 도구, 설계/모델링 도구, 구현 도구, 빌드 도구, 테스트 도구, 형상관리 도구
+    <ul>
+      <li>요구사항 관리 도구
+        <ul>
+          <li>요구사항의 수집과 분석, 추적 등을 편리하게 도와주는 S/W</li>
+          <li>JIRA, IBM DOORS, inteGREAT, Reqtify, Trello 등</li>
+        </ul>
+      </li>
+      <li>설계/모델링 도구
+        <ul>
+          <li>UML을 지원하며, 개발의 전 과정에서 설계 및 모델링을 도와주는 S/W</li>
+          <li>DB Designer, PlantUML, ArgoUML</li>
+        </ul>
+      </li>
+      <li>구현 도구
+        <ul>
+          <li>개발 언어를 통해 애플리케이션의 실제 구현을 지원하는 S/W</li>
+          <li>Eclipse, IntelliJ IDEA, Visual Studio, Netbeans, Node.js 등</li>
+        </ul>
+      </li>
+      <li>빌드 도구
+        <ul>
+          <li>구현 도구를 통해 작성된 소스의 빌드 및 배포, 라이브러리 관리를 지원하는 S/W</li>
+          <li>Ant, Graddle, Maven, Jenkins 등</li>
+        </ul>
+      </li>
+      <li>테스트 도구
+        <ul>
+          <li>모듈들이 요구사항에 적합하게 구현되었는지 테스트하는 S/W</li>
+          <li>CppUnit, JUnit, HttpUnit, NUnit, SpringTest 등</li>
+        </ul>
+      </li>
+      <li>형상 관리 도구
+        <ul>
+          <li>산출물들을 버전별로 관리하여 품질 향상을 지원하는 S/W</li>
+          <li>GIT, CVS, Subversion, Mercurial</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--개발-언어의-선정-기준">- 개발 언어의 선정 기준</h3>
+
+<ul>
+  <li>적정성, 효율성, 이식성, 친밀성, 범용성</li>
+</ul>
 
 <p><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>    <span class="o">&lt;!--</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">불가</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;!--</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">가능</span> <span class="o">--&gt;</span>
-</code></pre></div></div>
+
+<h2 id="2-보안-및-api--b">2. 보안 및 API – B</h2>
+
+<h3 id="--소프트웨어-개발-보안의-개요">- 소프트웨어 개발 보안의 개요</h3>
+
+<ul>
+  <li>보안 취약점을 최소화하여 보안 위협으로부터 안전한 S/W를 개발하기 위한 일련의 보안 활동</li>
+  <li>S/W 개발 보안은 데이터의 기밀성, 무결성, 가용성을 유지하는 것을 목표로 함</li>
+  <li>S/W 개발 보안 가이드를 참고하여 점검해야 할 보안 항목들을 점검</li>
+</ul>
+
+<h3 id="--소프트웨어-개발-보안-점검-항목">- 소프트웨어 개발 보안 점검 항목</h3>
+
+<ul>
+  <li>세션 통제
+    <ul>
+      <li>세션의 연결과 연결로 인해 발생하는 정보를 관리하는 것</li>
+      <li>보안 약점에는 불충분한 세션 관리, 잘못된 세션에 의한 정보 노출 등</li>
+    </ul>
+  </li>
+  <li>입력 데이터 검증 및 표현
+    <ul>
+      <li>입력 데이터에 대한 유효검 검증체계를 갖추고, 검증 실패 시 이를 처리할 수 있도록 코딩</li>
+      <li>보안 약점에는 SQL 삽입, 경로 조작 및 자원 삽입, 크로스사이트 스크립팅(XSS) 등</li>
+    </ul>
+  </li>
+  <li>보안 기능
+    <ul>
+      <li>인증, 접근제어, 기밀성, 암호화 등의 기능을 의미</li>
+      <li>보안 약점에는 적절한 인증 없는 중요기능 허용, 부적절한 인가 등</li>
+    </ul>
+  </li>
+  <li>시간 및 상태
+    <ul>
+      <li>다수의 프로세스가 동작하는 환경에서 시간과 실행 상태를 관리하여 시스템이 원활히 동작되도록 코딩</li>
+      <li>보안 약점에는 검사 시점과 사용 시점(TOCTOU) 경쟁조건, 종료되지 않는 반복문 또는 재귀함수 등</li>
+    </ul>
+  </li>
+  <li>에러처리
+    <ul>
+      <li>오류들을 사전에 정의하여 에러로 인해 발생할 수 있는 문제들을 예방</li>
+      <li>오류 메시지를 통한 정보 노출, 오류 상황 대응 부재 등</li>
+    </ul>
+  </li>
+  <li>코드 오류
+    <ul>
+      <li>코딩 중 실수하기 쉬운 Type 변환, 자원의 반환 등을 고려하며 코딩</li>
+      <li>보안 약점에는 널 포인터 역참조, 부적절한 자원 해제 등</li>
+    </ul>
+  </li>
+  <li>캡슐화
+    <ul>
+      <li>데이터와 데이터를 처리하는 함수를 하나의 객체로 묶어 코딩하는 것</li>
+      <li>보안 약점에는 잘못된 세션에 의한 데이터 정보 노출, 제거되지 않고 남은 디버그 코드 등</li>
+    </ul>
+  </li>
+  <li>API 오용
+    <ul>
+      <li>API를 잘못 사용하거나 보안에 취약한 API를 사용하지 않도록 고려하여 코딩</li>
+      <li>보안 약점에는 DNS lookup에 의존한 보안결정, 취약한 API 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--apiapplication-programming-interface">- API(Application Programming Interface)</h3>
+
+<ul>
+  <li>운영체제나 프로그래밍 언어 등에 있는 라이브러리를 이용할 수 있도록 규칙 등을 정의해 놓은 인터페이스</li>
+  <li>프로그래밍 언어에서 특정한 작업을 수행하기 위해 사용</li>
+  <li>운영체제의 파일 제어, 화상 처리, 문자 제어 등의 기능을 활용하기 위해 사용</li>
+  <li>개발에 필요한 여러 도구를 제공. 원하는 기능을 쉽고 효율적으로 구현 가능</li>
+  <li>공개된 API를 Open API라고 함</li>
+</ul>
 
 <p><br /></p>
 
-<h3 id="--block-요소">- Block 요소</h3>
+<h2 id="3-배치-프로그램--b">3. 배치 프로그램 – B</h2>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>Hello<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div&gt;</span>World!!<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello     ↓
-World!!   ↓  요소가 수직으로 쌓임
+<h3 id="--배치-프로그램의-개요">- 배치 프로그램의 개요</h3>
 
-가로는 부모 요소의 크기만큼 늘어남
-&lt;----------------------------------&gt;
-Hello                              ↕
-World!!                            ↕
-세로는 포함한 콘텐츠 크기만큼 줄어듬
-</code></pre></div></div>
+<ul>
+  <li>사용자와의 상호 작용 없이 여러 작업들을 미리 정해진 일련의 순서에 따라 일괄적으로 처리</li>
+  <li>정기 배치 : 정해진 기간에 정기적으로 수행</li>
+  <li>이벤트성 배치 : 조건이 충족될 때만 수행</li>
+  <li>On-Demand 배치 : 사용자 요청 시 수행</li>
+  <li>필수요소 : 대용량 데이터, 자동화, 견고성, 안정성/신뢰성, 성능</li>
+</ul>
 
-<p><strong>div</strong>은 가장 대표적인 블록 요소.<br />
-본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정하는 용도<br /></p>
+<h3 id="--배치-스케줄러">- 배치 스케줄러</h3>
 
-<p><br />
-Block 요소는 가로, 세로 <u>너비를 지정할 수 있음</u></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"width: 100px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"height: 40px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     100px
-&lt;--------------&gt;
-Hello          ↕
-World!!                        ↕
-                               ↕ 40px
-&lt;------------------------------&gt;
-</code></pre></div></div>
-
-<p><br />
-외부, 내부 <u>여백을 지정할 수 있음</u></p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"margin: 20px;"</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"padding: 20px;"</span><span class="nt">&gt;</span>World!!<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20px             ↕ 20px          20px
-&lt;--&gt;『Hello                    』&lt;--&gt;
-                 ↕ 20px
-『               ↕ 20px          20px
-&lt;--&gt;World!!                      &lt;--&gt;
- 20px            ↕ 20px             』
-</code></pre></div></div>
-
-<p><br /></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>    <span class="o">&lt;!--</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">불가</span> <span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>  <span class="o">&lt;!--</span> <span class="nc">Block</span> <span class="n">요소</span> <span class="n">안에</span> <span class="nc">Inline</span> <span class="n">요소</span> <span class="n">사용</span> <span class="n">가능</span> <span class="o">--&gt;</span>
-</code></pre></div></div>
-
+<ul>
+  <li>일괄 처리 작업이 설정된 주기에 맞춰 자동으로 수행되도록 지원해주는 도구</li>
+  <li>특정 업무를 원하는 시간에 처리할 수 있도록 지원. 잡스케줄러라고도 함</li>
+  <li>스프링 배치
+    <ul>
+      <li>스프링이 가지고 있는 다양한 기능들을 모두 사용할 수 있음</li>
+      <li>DB나 파일의 데이터를 교환하는데 필요한 컴포넌트들을 제공</li>
+      <li>로그 관리, 추적, 트랜잭션 관리, 작업 처리 통계, 작업 재시작 등</li>
+      <li>구성 요소와 역할
+        <ul>
+          <li>Job : 수행할 작업 정의</li>
+          <li>Job Launcher : 실행을 위한 인터페이스</li>
+          <li>Step : Job 처리를 위한 제어 정보</li>
+          <li>Job Repository : Step의 제어 정보를 포함하여 작업 실행을 위한 모든 정보 저장</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Quartz
+    <ul>
+      <li>응용 프로그램들의 일괄 처리를 위한 다양한 기능 제공. 오픈 소스 라이브러리</li>
+      <li>요소들을 분리하여 일괄 처리 작업에 유연성 제공</li>
+      <li>구성 요소와 역할
+        <ul>
+          <li>Scheduler : 실행 환경 관리</li>
+          <li>Job : 수행할 작업 정의</li>
+          <li>JobDetail : Job의 상세 정보</li>
+          <li>Trigger : Job의 실행 스케줄 정의</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
         
       </section>
@@ -622,9 +757,7 @@ World!!                        ↕
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#html" class="page__taxonomy-item p-category" rel="tag">HTML</a><span class="sep">, </span>
-    
-      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+      <a href="/tags/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
     
     </span>
   </p>
@@ -641,7 +774,7 @@ World!!                        ↕
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#html" class="page__taxonomy-item p-category" rel="tag">HTML</a>
+      <a href="/categories/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
     
     </span>
   </p>
@@ -649,7 +782,7 @@ World!!                        ↕
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-29">July 29, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-01">August 1, 2021</time></p>
 
       </footer>
 
@@ -658,11 +791,11 @@ World!!                        ↕
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BHTML%5D+%EA%B8%80%EC%9E%90%EC%99%80+%EC%83%81%EC%9E%90%20https%3A%2F%2Fleewonwoo1.github.io%2Fhtml%2Ffrontend-html-inlineblock%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+4-1.+%EC%84%9C%EB%B2%84+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8+%EA%B5%AC%ED%98%84%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp15%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fhtml%2Ffrontend-html-inlineblock%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp15%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fhtml%2Ffrontend-html-inlineblock%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp15%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -681,10 +814,10 @@ World!!                        ↕
 
 <nav class="pagination_prev_next">
   
-  <a href="#" class="pagination_prev_next--pager disabled">첫 번째 글입니다</a>
+  <a href="/jckp/etc-jckp14/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 3-5. 데이터 전환</a>
   
   
-  <a href="/html/frontend-html-structure/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[HTML] HTML 구조 및 태그</a>
+  <a href="/jckp/etc-jckp16/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[정보처리기사 필기] 4-2. 프로그래밍 언어 활용</a>
   
 </nav>
 
@@ -786,40 +919,6 @@ World!!                        ↕
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp15/" rel="permalink">[정보처리기사 필기] 4-1. 서버 프로그램 구현
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.01
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
-    
-    
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 4과목 1장
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
       <a href="/css/frontend-css-properties-fltrtr/" rel="permalink">[CSS] CSS 속성 - 정렬, 전환, 변환
 </a>
       
@@ -846,6 +945,40 @@ World!!                        ↕
 </span>
     </small>
     <p class="archive__item-excerpt" itemprop="description">CSS 속성인 정렬, 전환, 변환 정리
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp14/" rel="permalink">[정보처리기사 필기] 3-5. 데이터 전환
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 5장
 </p>
   </article>
 </div>
@@ -934,8 +1067,8 @@ World!!                        ↕
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://leewonwoo1.github.io/html/frontend-html-inlineblock/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/html/frontend-html-inlineblock"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp15/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jckp/etc-jckp15"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

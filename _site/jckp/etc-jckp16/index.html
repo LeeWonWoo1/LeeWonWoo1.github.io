@@ -1,0 +1,1400 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 4-2. 프로그래밍 언어 활용 | LWW’s Tech Blog</title>
+<meta name="description" content="정보처리기사 필기 4과목 2장">
+
+
+  <meta name="author" content="이원우">
+  
+  <meta property="article:author" content="이원우">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[정보처리기사 필기] 4-2. 프로그래밍 언어 활용">
+<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp16/">
+
+
+  <meta property="og:description" content="정보처리기사 필기 4과목 2장">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-02T18:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-03T03:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp16/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "이원우",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#jckp" itemprop="item"><span itemprop="name">Jckp</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[정보처리기사 필기] 4-2. 프로그래밍 언어 활용</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="이원우" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">이원우</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">26</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+      <!--Blog-->
+        <span class="nav__sub-title">Blog</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (1)</a></li>
+                    
+                
+            </ul>
+
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (16)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[정보처리기사 필기] 4-2. 프로그래밍 언어 활용">
+    <meta itemprop="description" content="정보처리기사 필기 4과목 2장">
+    <meta itemprop="datePublished" content="2021-08-02T18:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-03T03:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/jckp/etc-jckp16/" class="u-url" itemprop="url">[정보처리기사 필기] 4-2. 프로그래밍 언어 활용
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-데이터-타입--b">1. 데이터 타입 – B</a><ul><li><a href="#--cc의-데이터-타입-크기-및-기억-범위">- C/C++의 데이터 타입 크기 및 기억 범위</a></li><li><a href="#--java의-데이터-타입-크기-및-기억-범위">- Java의 데이터 타입 크기 및 기억 범위</a></li></ul></li><li><a href="#2-변수--a">2. 변수 – A</a><ul><li><a href="#--변수명-작성-규칙">- 변수명 작성 규칙</a></li><li><a href="#--기억-클래스">- 기억 클래스</a></li><li><a href="#--변수의-선언">- 변수의 선언</a></li></ul></li><li><a href="#3-연산자--a">3. 연산자 – A</a><ul><li><a href="#--산술-연산자">- 산술 연산자</a></li><li><a href="#--관계-연산자">- 관계 연산자</a></li><li><a href="#--비트-연산자">- 비트 연산자</a></li><li><a href="#--논리-연산자">- 논리 연산자</a></li><li><a href="#--대입-연산자">- 대입 연산자</a></li><li><a href="#--조건-연산자">- 조건 연산자</a></li><li><a href="#--기타-연산자">- 기타 연산자</a></li><li><a href="#--연산자-우선순위">- 연산자 우선순위</a></li></ul></li><li><a href="#4-제어문--a">4. 제어문 – A</a><ul><li><a href="#--단순-if-문">- 단순 if 문</a></li><li><a href="#--다중-if-문">- 다중 if 문</a></li><li><a href="#--switch문">- switch문</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p class="notice--primary">2020 시나공 정보처리기사 필기책 참고</p>
+
+<p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 일부 제외</p>
+
+<h2 id="1-데이터-타입--b">1. 데이터 타입 – B</h2>
+
+<ul>
+  <li>변수에 저장될 데이터의 형식</li>
+  <li>데이터 타입의 유형
+    <ul>
+      <li>Integer : 정수</li>
+      <li>Floating Poing : 소수점 이하가 있는 실수</li>
+      <li>Character : 한 문자. ‘ ‘안에 표시</li>
+      <li>String : 문자열. “ “안에 표시</li>
+      <li>Boolean : True or False. 기본값은 False</li>
+      <li>Array : 같은 타입의 데이터 집합. { }안에 ,로 구분</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--cc의-데이터-타입-크기-및-기억-범위">- C/C++의 데이터 타입 크기 및 기억 범위</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>데이터 타입</th>
+      <th>크기</th>
+      <th>기억 범위</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>문자</td>
+      <td>char</td>
+      <td>1Byte</td>
+      <td>-128 ~ 127</td>
+    </tr>
+    <tr>
+      <td>부호없는 문자</td>
+      <td>unsigned char</td>
+      <td>1Byte</td>
+      <td>0 ~ 2^8 - 1</td>
+    </tr>
+    <tr>
+      <td>정수</td>
+      <td>short</td>
+      <td>2Byte</td>
+      <td>-2^15 ~ 2^15 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>int</td>
+      <td>4Byte</td>
+      <td>-2^31 ~ 2^31 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>long</td>
+      <td>4Byte</td>
+      <td>-2^31 ~ 2^31 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>long long</td>
+      <td>8Byte</td>
+      <td>-2^63 ~ 2^63 - 1</td>
+    </tr>
+    <tr>
+      <td>부호없는 정수</td>
+      <td>unsigned short</td>
+      <td>2Byte</td>
+      <td>0 ~ 2^16 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>unsigned int</td>
+      <td>4Byte</td>
+      <td>0 ~ 2^32 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>unsigned long</td>
+      <td>4Byte</td>
+      <td>0 ~ 2^64 - 1</td>
+    </tr>
+    <tr>
+      <td>실수</td>
+      <td>float</td>
+      <td>4Byte</td>
+      <td>1.2 * 10^-38 ~ 3.4 * 10^38</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>double</td>
+      <td>8Byte</td>
+      <td>2.2 * 10^-308 ~ 1.8 * 10^308</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>long double</td>
+      <td>8Byte</td>
+      <td>2.2 * 10^-308 ~ 1.8 * 10^308</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="--java의-데이터-타입-크기-및-기억-범위">- Java의 데이터 타입 크기 및 기억 범위</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>데이터 타입</th>
+      <th>크기</th>
+      <th>기억 범위</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>문자</td>
+      <td>char</td>
+      <td>2Byte</td>
+      <td>0 ~ 2^16 - 1</td>
+    </tr>
+    <tr>
+      <td>정수</td>
+      <td>byte</td>
+      <td>1Byte</td>
+      <td>-2^7 ~ 2^7 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>short</td>
+      <td>2Byte</td>
+      <td>-2^15 ~ 2^15 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>int</td>
+      <td>4Byte</td>
+      <td>-2^31 ~ 2~31 - 1</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>long</td>
+      <td>8Byte</td>
+      <td>-2^63 ~ 2^63 - 1</td>
+    </tr>
+    <tr>
+      <td>실수</td>
+      <td>float</td>
+      <td>4Byte</td>
+      <td>1.4 * 10^-45 ~ 3.4 * 10^38</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>double</td>
+      <td>8Byte</td>
+      <td>4.9 * 10^-324 ~ 1.8 * 10^308</td>
+    </tr>
+    <tr>
+      <td>논리</td>
+      <td>boolean</td>
+      <td>1Byte</td>
+      <td>true or false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="2-변수--a">2. 변수 – A</h2>
+
+<h3 id="--변수명-작성-규칙">- 변수명 작성 규칙</h3>
+
+<ul>
+  <li>영문자, 숫자, 언더바 사용 가능</li>
+  <li>첫 글자는 숫자 올 수 없음</li>
+  <li>글자 수 제한 없음</li>
+  <li>공백이나 특수문자 사용 불가</li>
+  <li>대소문자 구분</li>
+  <li>예약어를 변수명으로 사용할 수 없음</li>
+  <li>변수 선언 시 문장 끝에 반드시 ; 붙어야 함</li>
+</ul>
+
+<h3 id="--기억-클래스">- 기억 클래스</h3>
+
+<ul>
+  <li>기억영역을 결정하는 작업</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>기억영역</th>
+      <th>예약어</th>
+      <th>생존기간</th>
+      <th>사용 범위</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>자동 변수</td>
+      <td>메모리(스택)</td>
+      <td>auto</td>
+      <td>일시적</td>
+      <td>지역적</td>
+    </tr>
+    <tr>
+      <td>레지스터 변수</td>
+      <td>레지스터</td>
+      <td>register</td>
+      <td>”</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>정적 변수(내부)</td>
+      <td>메모리(데이터)</td>
+      <td>static</td>
+      <td>영구적</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>정적 변수(외부)</td>
+      <td>”</td>
+      <td>”</td>
+      <td>”</td>
+      <td>전역적</td>
+    </tr>
+    <tr>
+      <td>외부 변수</td>
+      <td>”</td>
+      <td>extern</td>
+      <td>”</td>
+      <td>”</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>자동 변수
+    <ul>
+      <li>함수나 코드의 범위를 한정하는 블록 내에서 선언되는 변수</li>
+      <li>함수나 블록을 벗어나면 자동으로 소멸</li>
+      <li>초기화하지 않으면 쓰레기값이 저장됨</li>
+    </ul>
+  </li>
+  <li>외부 변수
+    <ul>
+      <li>선언된 변수나 함수를 참조하기 위한 변수</li>
+      <li>함수 밖에서 선언</li>
+      <li>함수가 종료된 후에도 값이 소멸되지 않음</li>
+      <li>초기화되지 않으면 자동으로 0으로 초기화</li>
+      <li>다른 파일에서 선언된 변수를 참조할 경우 초기화 할 수 없음</li>
+    </ul>
+  </li>
+  <li>정적 변수
+    <ul>
+      <li>함수나 블록 내에서 선언하는 내부 정적 변수, 함수 외부에서 선언하는 외부 정적 변수</li>
+      <li>내부 정적 변수는 함수나 블록 내에서만 사용, 외부 정적 변수는 모든 함수에서 사용</li>
+      <li>함수나 블록이 종료된 뒤에도 값이 소멸되지 않음</li>
+      <li>초기화는 변수 선언 시 한 번만 가능. 초기화를 생략하면 자동으로 0으로 초기화</li>
+    </ul>
+  </li>
+  <li>레지스터 변수
+    <ul>
+      <li>메모리가 아닌 CPU 내부의 레지스터에 기억영역을 할당받는 변수</li>
+      <li>자주 사용하는 변수를 레지스터에 저장하여 처리 속도를 높이기 위해 사용</li>
+      <li>함수나 블록을 벗어나면 자동으로 소멸</li>
+      <li>데이터를 저장할 레지스터가 없는 경우 자동 변수로 취급되어 메모리에 할당</li>
+      <li>변수의 주소를 구하는 주소 연산자(&amp;)를 사용할 수 없음</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--변수의-선언">- 변수의 선언</h3>
+
+<ul>
+  <li>자료형 변수명 = 값;</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-연산자--a">3. 연산자 – A</h2>
+
+<h3 id="--산술-연산자">- 산술 연산자</h3>
+
+<ul>
+  <li>산술 계산에 사용되는 연산자</li>
+  <li>+, -, *, /, %, ++, –</li>
+  <li>++, –
+    <ul>
+      <li>전치 : 먼저 변수의 값을 증감시킨 후 변수를 연산에 사용</li>
+      <li>후치 : 변수를 연산에 사용한 후 변수의 값을 증감</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--관계-연산자">- 관계 연산자</h3>
+
+<ul>
+  <li>참, 거짓을 결과로 얻는 연산자</li>
+  <li>==, !=, &gt;, &gt;=, &lt;, &lt;=</li>
+</ul>
+
+<h3 id="--비트-연산자">- 비트 연산자</h3>
+
+<ul>
+  <li>비트별(0, 1)로 연산하여 결과를 얻는 연산자</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>&amp;, ^,</td>
+          <td>, ~, «, »</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="--논리-연산자">- 논리 연산자</h3>
+
+<ul>
+  <li>참, 거짓을 결과로 얻는 연산자</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>&amp;&amp;,</td>
+          <td> </td>
+          <td>, !</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="--대입-연산자">- 대입 연산자</h3>
+
+<ul>
+  <li>연산식을 간략하게 입력할 수 있음</li>
+  <li>산술, 관계, 비트, 논리 연산자에 모두 적용 가능</li>
+  <li>+=, -=, *=, /=, %=, «=, »=</li>
+</ul>
+
+<h3 id="--조건-연산자">- 조건 연산자</h3>
+
+<ul>
+  <li>조건에 따라 서로 다른 수식을 수행</li>
+  <li>조건 ? 수식1 : 수식2 : 조건의 수식이 참이면 수식1, 거짓이면 수식2 실행</li>
+</ul>
+
+<h3 id="--기타-연산자">- 기타 연산자</h3>
+
+<ul>
+  <li>sizeof : 자료형의 크기를 표시</li>
+  <li>,(콤마) : 한 줄에 두 개 이상의 수식을 작성하거나 변수를 정의. 순서 연산자</li>
+  <li>(자료형) : 형 변환을 위해 사용. cast 연산자</li>
+</ul>
+
+<h3 id="--연산자-우선순위">- 연산자 우선순위</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>대분류</th>
+      <th>중분류</th>
+      <th>연산자</th>
+      <th>결합규칙</th>
+      <th>우선 순위</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>단항 연산자</td>
+      <td>단항 연산자</td>
+      <td>! ~ ++ – sizeof</td>
+      <td>←</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>이항 연산자</td>
+      <td>산술 연산자</td>
+      <td>* / %</td>
+      <td>→</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>”</td>
+      <td>+ -</td>
+      <td>”</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>시프트 연산자</td>
+      <td>« »</td>
+      <td>”</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>관계 연산자</td>
+      <td>&lt; &lt;= &gt;= &gt;</td>
+      <td>”</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>”</td>
+      <td>== !=</td>
+      <td>”</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>비트 연산자</td>
+      <td>&amp;</td>
+      <td>”</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>”</td>
+      <td>^</td>
+      <td>”</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>”</td>
+      <td>비트 or</td>
+      <td>”</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>논리 연산자</td>
+      <td>&amp;&amp;</td>
+      <td>”</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>”</td>
+      <td>논리 or</td>
+      <td>”</td>
+      <td>”</td>
+    </tr>
+    <tr>
+      <td>삼항 연산자</td>
+      <td>조건 연산자</td>
+      <td>? :</td>
+      <td>→</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>대입 연산자</td>
+      <td>대입 연산자</td>
+      <td>= += -= *= /= %= «= »= 등</td>
+      <td>←</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>순서 연산자</td>
+      <td>순서 연산자</td>
+      <td>,</td>
+      <td>→</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="4-제어문--a">4. 제어문 – A</h2>
+
+<h3 id="--단순-if-문">- 단순 if 문</h3>
+
+<ul>
+  <li>조건이 한 개 일 때 사용</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 조건이 참일 때만 실행</span>
+<span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="p">)</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">1</span><span class="p">;</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">2</span><span class="p">;</span>
+
+
+<span class="c1">// 조건이 참일 떄와 거짓 때 실행할 문장이 다름</span>
+<span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="p">)</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">else</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--다중-if-문">- 다중 if 문</h3>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// else if</span>
+<span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="mi">1</span><span class="p">)</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="mi">2</span><span class="p">)</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">2</span><span class="p">;</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="mi">3</span><span class="p">)</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">3</span><span class="p">;</span>
+<span class="k">else</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">4</span><span class="p">;</span>
+
+
+<span class="c1">// 중첩 if문</span>
+<span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="err">조건</span><span class="mi">2</span><span class="p">)</span>
+      <span class="err">실행할</span> <span class="err">문장</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span>
+      <span class="err">실행할</span> <span class="err">문장</span><span class="mi">2</span>
+  <span class="p">}</span>
+<span class="k">else</span>
+  <span class="err">실행할</span> <span class="err">문장</span><span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--switch문">- switch문</h3>
+
+<ul>
+  <li>조건에 따라 분기할 곳이 여러 곳인 경우 간단하게 처리</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="err">수식</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">case</span> <span class="err">레이블</span><span class="mi">1</span><span class="p">:</span>
+    <span class="err">실행할</span> <span class="err">문장</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="err">레이블</span><span class="mi">2</span><span class="p">:</span>
+    <span class="err">실행할</span> <span class="err">문장</span><span class="mi">2</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="nl">default:</span>
+    <span class="err">실행할</span> <span class="err">문장</span><span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-02">August 2, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+4-2.+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EC%96%B8%EC%96%B4+%ED%99%9C%EC%9A%A9%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp16%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp16%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp16%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/jckp/etc-jckp15/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 4-1. 서버 프로그램 구현</a>
+  
+  
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/javascript/frontend-javascript-properties-fltrtr/" rel="permalink">[Javascript] 자료형
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.01
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
+    
+    
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">String, Number, Boolean, Undefined, Null, Object, Array
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp15/" rel="permalink">[정보처리기사 필기] 4-1. 서버 프로그램 구현
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.01
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 4과목 1장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/css/frontend-css-properties-fltrtr/" rel="permalink">[CSS] CSS 속성 - 정렬, 전환, 변환
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.01
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#css"
+      class="page__taxonomy-item-category" rel="tag">CSS</a>
+    
+    
+    <a href="/tags/#css"
+      class="page__taxonomy-item-tag" rel="tag">CSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">CSS 속성인 정렬, 전환, 변환 정리
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp14/" rel="permalink">[정보처리기사 필기] 3-5. 데이터 전환
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.07.31
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 3과목 5장
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 이원우. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp16/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jckp/etc-jckp16"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

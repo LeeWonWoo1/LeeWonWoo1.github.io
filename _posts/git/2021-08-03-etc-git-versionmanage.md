@@ -65,6 +65,18 @@ $ git status
 # 메시지(-m)와 함께 버전을 생성
 $ git commit -m '메시지'
 
+# commit list 확인
+$ git log
+
+# 한 버전 뒤로 되돌리기
+$ git reset --hard HEAD~1
+
+# N 버전 뒤로 되돌리기
+$ git reset --hard HEAD~N
+
+# 되돌린 버전 원상복귀
+$ git reset --hard ORIG_HEAD
+
 # origin이라는 별칭으로 원격 저장소를 연결
 $ git remote add origin 원격 저장소 url
 

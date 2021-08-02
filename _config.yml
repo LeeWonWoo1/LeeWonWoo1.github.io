@@ -9,7 +9,7 @@ locale                   : "ko-KR"
 title                    : "LWW's Tech Blog" # Meta 태그에 들어가는 영역
 title_separator          : "&#124;" # 타이틀 사이 구분자
 subtitle                 : "Version 1.0" # 타이틀 아래에 나올 작은 글씨
-name                     : "이원우" # 맨 하단 이름 찍히는 영역
+name                     : "LWW" # 맨 하단 이름 찍히는 영역
 description              : "꾸준히 기록하는 블로그" # Meta 태그에 들어가는 영역
 url                      : "https://LeeWonWoo1.github.io" # 호스트 주소
 repository               : "LeeWonWoo1/LeeWonWoo1.github.io" # GitHub 유저이름 / 레포지 이름
@@ -95,9 +95,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "이원우"
+  name             : "LWW"
   avatar           : "/assets/images/profile/bear.jpg" # 프로필 이미지
-  bio              : "CS / FrontEnd"
+  bio              : "CS / FrontEnd / BackEnd / DataScience / Programming"
   location         : "Republic of Korea"
   email            : "plmplmdnjsdn@naver.com"
   links:

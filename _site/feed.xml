@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-02T19:19:46+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 4-2. 프로그래밍 언어 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp16/" rel="alternate" type="text/html" title="[정보처리기사 필기] 4-2. 프로그래밍 언어 활용" /><published>2021-08-02T18:00:00+09:00</published><updated>2021-08-03T03:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp16</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp16/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-02T20:25:43+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 4-3. 응용 SW 기초 기술 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp17/" rel="alternate" type="text/html" title="[정보처리기사 필기] 4-3. 응용 SW 기초 기술 활용" /><published>2021-08-02T20:00:00+09:00</published><updated>2021-08-03T05:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp17</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp17/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
+
+&lt;h2 id=&quot;1-운영체제의-개념--a&quot;&gt;1. 운영체제의 개념 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--운영체제os-operating-system의-정의&quot;&gt;- 운영체제(OS; Operating System)의 정의&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;시스템의 자원을 효율적으로 관리&lt;/li&gt;
+  &lt;li&gt;컴퓨터를 편리하고 효과적으로 사용할 수 있도록 환경을 제공&lt;/li&gt;
+  &lt;li&gt;사용자와 하드웨어 간의 인터페이스로서 동작하는 시스템 S/W&lt;/li&gt;
+  &lt;li&gt;응용 프로그램이 유용한 작업을 할 수 있도록 환경 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--운영체제의-목적&quot;&gt;- 운영체제의 목적&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;처리 능력 : 일정 시간 내에 시스템이 처리하는 일의 양&lt;/li&gt;
+  &lt;li&gt;반환 시간 : 작업을 의뢰한 시간부터 처리가 완료될 때까지 걸린 시간&lt;/li&gt;
+  &lt;li&gt;사용 가능도 : 즉시 사용 가능한 정도&lt;/li&gt;
+  &lt;li&gt;신뢰도 : 문제를 정확하게 해결하는 정도&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--운영체제의-기능&quot;&gt;- 운영체제의 기능&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로세서, 기억장치, 입출력장치, 파일 및 정보 등의 자원 관리&lt;/li&gt;
+  &lt;li&gt;자원의 스케줄링 기능 제공&lt;/li&gt;
+  &lt;li&gt;편리한 인터페이스 제공&lt;/li&gt;
+  &lt;li&gt;각종 하드웨어와 네트워크를 관리 및 제어&lt;/li&gt;
+  &lt;li&gt;데이터를 관리하고 데이터 및 자원의 공유 기능 제공&lt;/li&gt;
+  &lt;li&gt;시스템의 오류를 검사하고 복구&lt;/li&gt;
+  &lt;li&gt;자원 보호 기능 제공&lt;/li&gt;
+  &lt;li&gt;입출력에 대한 보조 기능 제공&lt;/li&gt;
+  &lt;li&gt;가상 계산기 기능 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--운영체제의-주요-자원-관리&quot;&gt;- 운영체제의 주요 자원 관리&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 4과목 3장</summary></entry><entry><title type="html">[정보처리기사 필기] 4-2. 프로그래밍 언어 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp16/" rel="alternate" type="text/html" title="[정보처리기사 필기] 4-2. 프로그래밍 언어 활용" /><published>2021-08-02T18:00:00+09:00</published><updated>2021-08-03T03:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp16</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp16/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 
@@ -544,10 +586,314 @@
   &lt;span class=&quot;nl&quot;&gt;default:&lt;/span&gt;
     &lt;span class=&quot;err&quot;&gt;실행할&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문장&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 4과목 2장</summary></entry><entry><title type="html">[Javascript] 자료형</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-properties-fltrtr/" rel="alternate" type="text/html" title="[Javascript] 자료형" /><published>2021-08-01T15:00:00+09:00</published><updated>2021-08-02T00:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-properties-fltrtr</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-properties-fltrtr/">&lt;h2 id=&quot;1-string&quot;&gt;1. String&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--goto문&quot;&gt;- goto문&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;현재 위치에서 원하는 다른 문장으로 건너뛰어 수행을 계속하기 위해 사용&lt;/li&gt;
+  &lt;li&gt;많이 사용하면 프로그램의 이해와 유지 보수가 어려워져 거의 사용하지 않음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;goto&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;레이블&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;레이블&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;실행할&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문장&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-반복문--a&quot;&gt;5. 반복문 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--for문&quot;&gt;- for문&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;초기값, 최종값, 증가값을 지정하는 수식을 이용해 정해진 횟수를 반복&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;식&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;식&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;식&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;실행할&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문장&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--while-문&quot;&gt;- while 문&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;조건이 참인 동안 실행할 문장을 반복&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;조건&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;실행할&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문장&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--do--while문&quot;&gt;- do ~ while문&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;실행할 문장을 무조건 한 번 실행한 다음 조건을 판단하여 탈출 여부를 결정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;실행할&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문장&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;조건&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--break-continue&quot;&gt;- break, continue&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;break : switch문이나 반복문 안에서 break가 나오면 블록을 벗어남&lt;/li&gt;
+  &lt;li&gt;continue : continue 이후의 문장을 실행하지 않고 제어를 반복문의 처음으로 옮김. 반복문에서만 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;6-배열과-문자열--a&quot;&gt;6. 배열과 문자열 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--배열의-개념&quot;&gt;- 배열의 개념&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개별적인 요소들의 위치는 첨자를 이용하여 지정&lt;/li&gt;
+  &lt;li&gt;변수명 뒤에 []를 붙이고 그 안에 사용할 개수 지정&lt;/li&gt;
+  &lt;li&gt;배열의 위치는 0부터 시작&lt;/li&gt;
+  &lt;li&gt;행 우선으로 데이터가 기억장소에 할당&lt;/li&gt;
+  &lt;li&gt;첨자 없이 배열 이름을 사용하면 배열의 첫 번째 요소의 주소를 지정하는 것과 같음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--1차원-배열&quot;&gt;- 1차원 배열&lt;/h3&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;자료형&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;변수명&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;개수&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--2차원-배열&quot;&gt;- 2차원 배열&lt;/h3&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;자료형&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;변수명&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;행개수&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;열개수&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--배열의-초기화&quot;&gt;- 배열의 초기화&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배열 선언 시 초기값을 지정할 수 있음&lt;/li&gt;
+  &lt;li&gt;배열 선언 시 배열의 크기를 생략하는 경우, 반드시 초기값을 지정해야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--배열-형태의-문자열-변수&quot;&gt;- 배열 형태의 문자열 변수&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;C에서 “ “로 묶인 글자는 글자 수에 관계없이 문자열로 처리&lt;/li&gt;
+  &lt;li&gt;C에는 문자열을 저장하는 자료형이 없기 때문에 배열, 포인터를 이용하여 처리&lt;/li&gt;
+  &lt;li&gt;배열에 문자열을 저장하면 문자열의 끝을 알리기 위한 널 문자(‘\0’)가 자동으로 삽입&lt;/li&gt;
+  &lt;li&gt;배열에 문자열을 저장할 때는 배열 선언 시 초기값으로 지정. 선언된 배열에는 문자열 저장 불가&lt;/li&gt;
+  &lt;li&gt;널 문자를 고려하여 배열 크기를 지정해야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;배열이름&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;크기&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;문자열&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Java에는 주소를 컨트롤하는 기능이 없음&lt;/li&gt;
+  &lt;li&gt;하지만 Java는 문자열을 처리할 수 있도록 클래스를 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;7-포인터--a&quot;&gt;7. 포인터 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--포인터와-포인터-변수&quot;&gt;- 포인터와 포인터 변수&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;포인터는 변수의 주소를 말함. C에서는 주소를 제어할 수 있는 기능을 제공&lt;/li&gt;
+  &lt;li&gt;변수의 주소를 저장할 때 사용하는 변수를 포인터 변수라 함&lt;/li&gt;
+  &lt;li&gt;포인터 변수를 선언할 때는 자료의 형을 먼저 쓰고 변수명 앞에 * 를 붙임(int *a;)&lt;/li&gt;
+  &lt;li&gt;포인터 변수에 주소를 저장하기 위해 변수의 주소를 알아낼 때는 변수 앞에 &amp;amp; 를 붙임(a = &amp;amp;b;)&lt;/li&gt;
+  &lt;li&gt;실행문에서 포인터에 * 를 붙이면 해당 포인터 변수가 가리키는 곳의 값임(c = *a;)&lt;/li&gt;
+  &lt;li&gt;포인터 변수는 동적으로 할당되는 메모리 영역인 힙 영역에 접근하는 동적 변수&lt;/li&gt;
+  &lt;li&gt;포인터 변수의 용도
+    &lt;ul&gt;
+      &lt;li&gt;연결된 자료 구조를 구성하기 위해 사용&lt;/li&gt;
+      &lt;li&gt;동적으로 할당된 자료 구조를 지정하기 위해 사용&lt;/li&gt;
+      &lt;li&gt;배열을 인수로 전달하기 위해 사용&lt;/li&gt;
+      &lt;li&gt;문자열을 표현하기 위해 사용&lt;/li&gt;
+      &lt;li&gt;요소를 효율적으로 저장하기 위해 사용&lt;/li&gt;
+      &lt;li&gt;메모리에 직접 접근하기 위해 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--포인터와-배열&quot;&gt;- 포인터와 배열&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배열을 포인터 변수에 저장한 후 포인터를 이용해 배열의 요소에 접근 가능&lt;/li&gt;
+  &lt;li&gt;첨자를 생략하고 배열의 대표명만 지정하면 배열의 첫 번째 요소의 주소를 지정하는 것&lt;/li&gt;
+  &lt;li&gt;배열 요소에 대한 주소를 지정할 때는 일반 변수와 동일하게 &amp;amp; 연산자 사용&lt;/li&gt;
+  &lt;li&gt;배열의 요소가 포인터인 포인터형 배열을 선언할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;8-데이터-입출력--a&quot;&gt;8. 데이터 입출력 – A&lt;/h2&gt;
+
+&lt;h3 id=&quot;--c언어의-표준-입출력-함수의-개요&quot;&gt;- C언어의 표준 입출력 함수의 개요&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;키보드로 입력받아 화면으로 출력할 때 사용하는 함수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--scanf-함수&quot;&gt;- scanf() 함수&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;표준 입력함수. 키보드로 입력받아 변수에 저장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 형식&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;서식&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문자열&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;변수의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;주소&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// % : 서식 문자임을 지정&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 3 : 입력 자릿수를 3자리로 지정&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// d : 10진수로 입력&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;amp;a : 입력받은 데이터를 변수 a의 주소에 저장&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%3d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특징
+    &lt;ul&gt;
+      &lt;li&gt;입력받을 데이터의 자료형, 자릿수 등을 지정할 수 있음&lt;/li&gt;
+      &lt;li&gt;여러 개의 데이터를 입력 받을 수 있음&lt;/li&gt;
+      &lt;li&gt;서식 문자열과 변수의 자료형은 일치해야 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;서식 문자열
+    &lt;ul&gt;
+      &lt;li&gt;%d : 정수형 10진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%u : 부호없는 정수형 10진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%o : 정수형 8진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%x : 정수형 16진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%c : 문자를 입출력&lt;/li&gt;
+      &lt;li&gt;%s : 문자열을 입출력&lt;/li&gt;
+      &lt;li&gt;%f : 소수점을 포함하는 실수를 입출력&lt;/li&gt;
+      &lt;li&gt;%e : 지수형 실수를 입출력&lt;/li&gt;
+      &lt;li&gt;%ld : long형 10진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%lo : long형 8진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%lx : long형 16진수를 입출력&lt;/li&gt;
+      &lt;li&gt;%p : 주소를 16진수로 입출력&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--java에서의-표준-입력&quot;&gt;- Java에서의 표준 입력&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Scanner 클래스를 이용해 키보드로부터 값을 입력받는 객체 변수를 생성한 후 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 형식&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Scanner&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Scanner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;객체 변수 생성
+    &lt;ul&gt;
+      &lt;li&gt;Scanner : 입력에 사용할 객체 변수를 생성할 때 사용&lt;/li&gt;
+      &lt;li&gt;scan : 객체 변수명&lt;/li&gt;
+      &lt;li&gt;new : 객체 생성 예약어&lt;/li&gt;
+      &lt;li&gt;Scanner() : 클래스 이름&lt;/li&gt;
+      &lt;li&gt;System.in : 표준 입력장치. 즉 키보드&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;객체 변수 활용
+    &lt;ul&gt;
+      &lt;li&gt;a : 입력받은 값을 저장할 변수&lt;/li&gt;
+      &lt;li&gt;scan.nextInt()
+        &lt;ul&gt;
+          &lt;li&gt;scan : 입력에 사용할 객체 변수 이름&lt;/li&gt;
+          &lt;li&gt;nextInt() : 입력받은 값을 정수형으로 반환&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--printf-함수&quot;&gt;- printf() 함수&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;C언어의 표준 출력 함수. 인수로 주어진 값을 화면에 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 형식&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;서식&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;문자열&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;변수&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// % : 서식 문자임을 지정&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// - : 왼쪽부터 출력&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 8 : 출력 자리수를 8자리로 지정&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 2 : 소수점 이하를 2자리로 지정&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// f : 실수로 출력&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%-8.2f&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 200.20VV (V는 빈칸을 의미)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주요 제어 문자
+    &lt;ul&gt;
+      &lt;li&gt;\n : 커서를 다음 줄 앞으로 이동&lt;/li&gt;
+      &lt;li&gt;\b : 커서를 왼쪽으로 한 칸 이동&lt;/li&gt;
+      &lt;li&gt;\t : 커서를 일정 간격 띄움&lt;/li&gt;
+      &lt;li&gt;\r : 커서를 현재 줄의 처음으로 이동&lt;/li&gt;
+      &lt;li&gt;\0 : 널 문자를 출력&lt;/li&gt;
+      &lt;li&gt;' : 작은따옴표 출력&lt;/li&gt;
+      &lt;li&gt;&quot; : 큰따옴표 출력&lt;/li&gt;
+      &lt;li&gt;\a : 스피커로 벨 소리를 출력&lt;/li&gt;
+      &lt;li&gt;\ : 역 슬래시를 출력&lt;/li&gt;
+      &lt;li&gt;\f : 한 페이지를 넘김&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--java에서의-표준-출력&quot;&gt;- Java에서의 표준 출력&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Java에서 값을 화면에 출력할 때는 printf() 메소드 이용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 형식&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;서식&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;문자열&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;변수&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;System 클래스의 서브 클래스인 out 클래스의 메소드 printf()를 사용하여 출력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--기타-표준-입출력-함수&quot;&gt;- 기타 표준 입출력 함수&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력
+    &lt;ul&gt;
+      &lt;li&gt;getchar() : 한 문자를 입력받아 변수에 저장&lt;/li&gt;
+      &lt;li&gt;gets() : 문자열을 입력받아 변수로 저장. enter를 누르기 전까지를 하나의 문자열로 인식&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;출력
+    &lt;ul&gt;
+      &lt;li&gt;putchar() : 한 문자를 화면에 출력&lt;/li&gt;
+      &lt;li&gt;puts() : 문자열을 화면에 출력한 후 커서를 자동으로 다음 줄 앞으로 이동&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 4과목 2장</summary></entry><entry><title type="html">[Javascript] 자료형</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-properties-fltrtr/" rel="alternate" type="text/html" title="[Javascript] 자료형" /><published>2021-08-01T15:00:00+09:00</published><updated>2021-08-02T00:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-properties-fltrtr</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-properties-fltrtr/">&lt;h2 id=&quot;1-string&quot;&gt;1. String&lt;/h2&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">String, Number, Boolean, Undefined, Null, Object, Array</summary></entry><entry><title type="html">[정보처리기사 필기] 4-1. 서버 프로그램 구현</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp15/" rel="alternate" type="text/html" title="[정보처리기사 필기] 4-1. 서버 프로그램 구현" /><published>2021-08-01T09:00:00+09:00</published><updated>2021-08-01T18:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp15</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp15/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">String, Number, Boolean, Undefined, Null, Object, Array</summary></entry><entry><title type="html">[정보처리기사 필기] 4-1. 서버 프로그램 구현</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp15/" rel="alternate" type="text/html" title="[정보처리기사 필기] 4-1. 서버 프로그램 구현" /><published>2021-08-01T09:00:00+09:00</published><updated>2021-08-01T18:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp15</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp15/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 
@@ -782,7 +1128,7 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 4과목 1장</summary></entry><entry><title type="html">[CSS] CSS 속성 - 정렬, 전환, 변환</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 정렬, 전환, 변환" /><published>2021-08-01T00:00:00+09:00</published><updated>2021-08-01T09:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/">&lt;h2 id=&quot;정렬&quot;&gt;정렬&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 4과목 1장</summary></entry><entry><title type="html">[CSS] CSS 속성 - 정렬, 전환, 변환</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 정렬, 전환, 변환" /><published>2021-08-01T00:00:00+09:00</published><updated>2021-08-01T09:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-fltrtr/">&lt;h2 id=&quot;정렬&quot;&gt;정렬&lt;/h2&gt;
 
 &lt;h3 id=&quot;--display&quot;&gt;- display&lt;/h3&gt;
 
@@ -1035,7 +1381,7 @@
   &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;뒷면&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;보임&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;backface-visibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;뒷면&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;숨김&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 정렬, 전환, 변환 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 3-5. 데이터 전환</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp14/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-5. 데이터 전환" /><published>2021-07-31T23:00:00+09:00</published><updated>2021-08-01T08:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp14</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp14/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 정렬, 전환, 변환 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 3-5. 데이터 전환</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp14/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-5. 데이터 전환" /><published>2021-07-31T23:00:00+09:00</published><updated>2021-08-01T08:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp14</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp14/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 
@@ -1053,7 +1399,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;데이터 전환 작업에 필요한 모든 계획을 기록하는 문서&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 5장</summary></entry><entry><title type="html">[정보처리기사 필기] 3-4. SQL 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp13/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-4. SQL 활용" /><published>2021-07-31T21:00:00+09:00</published><updated>2021-08-01T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp13</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp13/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 5장</summary></entry><entry><title type="html">[정보처리기사 필기] 3-4. SQL 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp13/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-4. SQL 활용" /><published>2021-07-31T21:00:00+09:00</published><updated>2021-08-01T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp13</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp13/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 
@@ -1561,7 +1907,7 @@
   &lt;li&gt;의도대로 SQL이 작성되었는지 확인할 필요가 있음&lt;/li&gt;
   &lt;li&gt;프로젝트가 크고 복잡해질수록 ORM 기술을 적용하기 어려움&lt;/li&gt;
   &lt;li&gt;ORM에 적합하게 변환하려면 많은 시간과 노력 필요&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 4장</summary></entry><entry><title type="html">[정보처리기사 필기] 3-3. SQL 응용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp12/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-3. SQL 응용" /><published>2021-07-31T19:00:00+09:00</published><updated>2021-08-01T04:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp12</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp12/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 4장</summary></entry><entry><title type="html">[정보처리기사 필기] 3-3. SQL 응용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp12/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-3. SQL 응용" /><published>2021-07-31T19:00:00+09:00</published><updated>2021-08-01T04:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp12</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp12/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 
@@ -2197,7 +2543,7 @@
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;별칭1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.]&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;속성명&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;별칭1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.]&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;속성명&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;테이블명1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;별칭1&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JOIN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;테이블명1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;별칭2&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;별칭1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;속성명&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;별칭2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;속성명&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 3장</summary></entry><entry><title type="html">[CSS] CSS 속성 - 배경, 배치</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 배경, 배치" /><published>2021-07-31T11:30:00+09:00</published><updated>2021-07-31T20:30:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-bgpo</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/">&lt;h2 id=&quot;배경&quot;&gt;배경&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 3장</summary></entry><entry><title type="html">[CSS] CSS 속성 - 배경, 배치</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 배경, 배치" /><published>2021-07-31T11:30:00+09:00</published><updated>2021-07-31T20:30:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-bgpo</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/">&lt;h2 id=&quot;배경&quot;&gt;배경&lt;/h2&gt;
 
 &lt;h3 id=&quot;--background-color&quot;&gt;- background-color&lt;/h3&gt;
 
@@ -2331,7 +2677,7 @@
   &lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;z-index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 배경, 배치 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 3-2. 물리 데이터베이스 설계</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp11/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-2. 물리 데이터베이스 설계" /><published>2021-07-31T08:00:00+09:00</published><updated>2021-07-31T17:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp11</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp11/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 배경, 배치 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 3-2. 물리 데이터베이스 설계</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp11/" rel="alternate" type="text/html" title="[정보처리기사 필기] 3-2. 물리 데이터베이스 설계" /><published>2021-07-31T08:00:00+09:00</published><updated>2021-07-31T17:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp11</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp11/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 제외&lt;/p&gt;
 
@@ -3380,131 +3726,4 @@
 &lt;ul&gt;
   &lt;li&gt;DBMS의 물리적 특성과 성능을 고려하여 최적의 데이터 타입과 데이터의 최대 길이 선택&lt;/li&gt;
   &lt;li&gt;문자타입, 숫자타입, 날짜타입 등&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 2장</summary></entry><entry><title type="html">[CSS] CSS 속성 - 글꼴, 문자</title><link href="https://leewonwoo1.github.io/css/frontend-css-properties-font/" rel="alternate" type="text/html" title="[CSS] CSS 속성 - 글꼴, 문자" /><published>2021-07-31T03:00:00+09:00</published><updated>2021-07-31T12:00:00+09:00</updated><id>https://leewonwoo1.github.io/css/frontend-css-properties-font</id><content type="html" xml:base="https://leewonwoo1.github.io/css/frontend-css-properties-font/">&lt;h2 id=&quot;글꼴&quot;&gt;글꼴&lt;/h2&gt;
-
-&lt;h3 id=&quot;--font-style&quot;&gt;- font-style&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 글자의 기울기 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-style&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기울기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;없음&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;italic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;이텔릭체&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;oblique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기울어진&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;글자&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--font-weight&quot;&gt;- font-weight&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 글자의 두께 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-weight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기본&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;두께&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;두껍게&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소보다&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;두껍게&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lighter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소보다&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;얇게&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;900&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;100단위의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;숫자&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;9개&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--font-size&quot;&gt;- font-size&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 글자의 크기 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기본&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;단위&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;%:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;폰트&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기에&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;대한&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;비율&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;larger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소보다&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크게&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;smaller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소보다&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;작게&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;xx-small&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;xx-large&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가장&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;작은&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가장&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;큰&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기까지&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;7단계&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--line-height&quot;&gt;- line-height&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 한 줄의 높이, 행간과 유사 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;line-height&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;브라우저의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기본&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정의&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;숫자&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;글꼴&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;배수로&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;지정&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;단위&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;%:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;글꼴&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;크기의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;비율로&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;지정&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--font-family&quot;&gt;- font-family&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;바탕체&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;계열&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;고딕체&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;계열&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;monospace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;고정너비&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;글꼴&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;계열&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cursive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;필기체&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;계열&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;fantasy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;장식&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;글꼴&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;계열&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div style=&quot;font-family: serif&quot;&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;font-family: sans-serif&quot;&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;font-family: monospace&quot;&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;font-family: cursive&quot;&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;font-family: fantasy&quot;&gt;Hello World!&lt;/div&gt;
-
-&lt;h2 id=&quot;문자&quot;&gt;문자&lt;/h2&gt;
-
-&lt;h3 id=&quot;--color&quot;&gt;- color&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 글자의 색상 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;검정색&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;색상&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;기타&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;지정&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가능한&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;색상&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--text-align&quot;&gt;- text-align&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 문자의 정렬 방식 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;text-align&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;왼쪽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;오른쪽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가운데&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;justify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;양쪽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;정렬&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--text-decoration&quot;&gt;- text-decoration&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 문자의 장식(선) */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;text-decoration&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;장식&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;없음&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;underline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;밑줄&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;overline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;윗줄&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;line-through&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;중앙&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;선&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;text-decoration: underline&quot;&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;text-decoration: overline&quot;&gt;Hello World!&lt;/div&gt;
-&lt;div style=&quot;text-decoration: line-through&quot;&gt;Hello World!&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--text-indent&quot;&gt;- text-indent&lt;/h3&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* 문자 첫 줄의 들여쓰기 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;text-indent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;기본값&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;들여쓰기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;없음&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;단위&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;%:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;요소의&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가로&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;너비에&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;대한&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;비율&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;음수&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;사용&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;가능&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;반대는&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;내어쓰기&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;outdent&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이원우</name><email>plmplmdnjsdn@naver.com</email></author><category term="CSS" /><category term="CSS" /><category term="Web" /><summary type="html">CSS 속성인 글꼴, 문자 정리</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 3과목 2장</summary></entry></feed>

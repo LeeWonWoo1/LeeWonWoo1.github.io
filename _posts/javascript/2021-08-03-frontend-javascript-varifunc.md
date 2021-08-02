@@ -73,6 +73,7 @@ function helloFunc() {
 // 함수 호출
 helloFunc();  // Hello
 ```
+<br>
 
 ```javascript
 function returnFunc() {
@@ -82,6 +83,8 @@ function returnFunc() {
 let a = returnFunc();
 console.log(a);  // 777
 ```
+
+<br>
 
 ```javascript
 function sum(a, b) { // a, b는 매개변수(Parameters)
@@ -95,6 +98,8 @@ let c = sum(5, 6);
 
 console.log(a, b, c);  // 3, 7, 11
 ```
+
+<br>
 
 ```javascript
 // 기명 함수
@@ -110,6 +115,8 @@ let world = function () {
 hello();  // Hello
 world();  // World
 ```
+
+<br>
 
 ```javascript
 // 객체 데이터

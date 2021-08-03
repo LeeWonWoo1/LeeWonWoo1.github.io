@@ -326,6 +326,8 @@ function func() {
 $ git commit -m 'Study Markdown'
 ```
 
+<br>
+
 ```plaintext
 가나다라 마바사아  
 자차카타 파하
@@ -372,7 +374,7 @@ fixed | 뷰포트 | X
 
 <a href="https://naver.com" title="NAVER로 이동!" target="_blank">NAVER</a>
 
-<img width="100" src="https://user-images.githubusercontent.com/62803763/127985736-2879d5fd-621b-4872-8b9b-0b0ce9141c7a.jpg" alt="ggam4" /> 
+<img width="500" src="https://user-images.githubusercontent.com/62803763/127985736-2879d5fd-621b-4872-8b9b-0b0ce9141c7a.jpg" alt="ggam4" /> 
 ```
 
 동해물과 <u>백두산</u>이 마르고 닳도록<br/>
@@ -380,7 +382,7 @@ fixed | 뷰포트 | X
 
 <a href="https://naver.com" title="NAVER로 이동!" target="_blank">NAVER</a>
 
-<img width="100" src="https://user-images.githubusercontent.com/62803763/127985736-2879d5fd-621b-4872-8b9b-0b0ce9141c7a.jpg" alt="ggam4" /> 
+<img width="500" src="https://user-images.githubusercontent.com/62803763/127985736-2879d5fd-621b-4872-8b9b-0b0ce9141c7a.jpg" alt="ggam4" /> 
 
 
 <br>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-03T17:45:07+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[Git &amp;amp; Github] Markdown</title><link href="https://leewonwoo1.github.io/git/etc-git-markdown/" rel="alternate" type="text/html" title="[Git &amp;amp; Github] Markdown" /><published>2021-08-03T17:00:00+09:00</published><updated>2021-08-04T02:00:00+09:00</updated><id>https://leewonwoo1.github.io/git/etc-git-markdown</id><content type="html" xml:base="https://leewonwoo1.github.io/git/etc-git-markdown/">&lt;h2 id=&quot;1-제목header&quot;&gt;1. 제목(Header)&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-03T18:03:27+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[Git &amp;amp; Github] Markdown</title><link href="https://leewonwoo1.github.io/git/etc-git-markdown/" rel="alternate" type="text/html" title="[Git &amp;amp; Github] Markdown" /><published>2021-08-03T17:00:00+09:00</published><updated>2021-08-04T02:00:00+09:00</updated><id>https://leewonwoo1.github.io/git/etc-git-markdown</id><content type="html" xml:base="https://leewonwoo1.github.io/git/etc-git-markdown/">&lt;h2 id=&quot;1-제목header&quot;&gt;1. 제목(Header)&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;#의 개수에 따라 h1 ~ h6 태그의 크기로 Header이 적용&lt;/li&gt;
@@ -157,6 +157,17 @@ _이텔릭_
   &lt;li&gt;순서가 필요하지 않은 목록&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&quot;--체크-리스트&quot;&gt;- 체크 리스트&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- [X] 체크
+- [ ] 체크X
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;체크&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;체크X&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;6-링크links&quot;&gt;6. 링크(Links)&lt;/h2&gt;
@@ -200,6 +211,8 @@ _이텔릭_
 
 &lt;h2 id=&quot;7-이미지image&quot;&gt;7. 이미지(Image)&lt;/h2&gt;
 
+&lt;h3 id=&quot;--일반&quot;&gt;- 일반&lt;/h3&gt;
+
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![이미지](경로)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -207,9 +220,7 @@ _이텔릭_
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;이미지에 링크 걸기&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;--이미지에-링크-걸기&quot;&gt;- 이미지에 링크 걸기&lt;/h3&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[![이미지](경로)](링크 url)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -218,7 +229,164 @@ _이텔릭_
   &lt;li&gt;사진 클릭하면 구글로 이동&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://google.com&quot;&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/62803763/127985728-a9c23902-b17c-4d97-9b47-b3481735f854.jpg&quot; alt=&quot;ggam2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Git" /><category term="Github" /><category term="Git" /><category term="Markdown" /><summary type="html">Markdown 문법 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 5-1. 소프트웨어 개발 방법론 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp18/" rel="alternate" type="text/html" title="[정보처리기사 필기] 5-1. 소프트웨어 개발 방법론 활용" /><published>2021-08-03T09:00:00+09:00</published><updated>2021-08-03T18:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp18</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp18/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://google.com&quot;&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/62803763/127985728-a9c23902-b17c-4d97-9b47-b3481735f854.jpg&quot; alt=&quot;ggam2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;8-인용문&quot;&gt;8. 인용문&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; 남의 말이나 글에서 직접 또는 간접으로 따온 문장.  
+&amp;gt; (네이버 국어 사전)
+
+&amp;gt; 인용문을 작성하세요!
+    &amp;gt;&amp;gt; 중첩된 인용문
+      &amp;gt;&amp;gt;&amp;gt; 중중첩된 인용문 1
+      &amp;gt;&amp;gt;&amp;gt; 중중첩된 인용문 2
+      &amp;gt;&amp;gt;&amp;gt; 중중첩된 인용문 3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;남의 말이나 글에서 직접 또는 간접으로 따온 문장.&lt;br /&gt;
+(네이버 국어 사전)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인용문을 작성하세요!
+    » 중첩된 인용문
+      »&amp;gt; 중중첩된 인용문 1
+      »&amp;gt; 중중첩된 인용문 2
+      »&amp;gt; 중중첩된 인용문 3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;9-인라인inline-코드-강조&quot;&gt;9. 인라인(inline) 코드 강조&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;백틱기호 ` `를 사용해 강조
+
+CSS에서 `background` 혹은 `background-image` 속성으로 요소에 배경 이미지를 삽입할 수 있습니다.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CSS에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;background&lt;/code&gt; 혹은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;background-image&lt;/code&gt; 속성으로 요소에 배경 이미지를 삽입할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;10-블록block-코드-강조&quot;&gt;10. 블록(block) 코드 강조&lt;/h2&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://www.google.co.kr/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;GOOGLE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;AAA&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Study Markdown'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;가나다라 마바사아  
+자차카타 파하
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;11-표table&quot;&gt;11. 표(Table)&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;|:--| : 왼쪽 정렬
+|--:| : 오른쪽 정렬
+|:--:| : 가운데 정렬
+
+
+position 속성
+
+값 | 의미 | 기본값
+--|:--:|--:
+static | 기준 없음 | O
+relative | 요소 자신 | X
+absolute | 위치 상 부모 요소 | X
+fixed | 뷰포트 | X
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;position 속성&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;값&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;의미&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;기본값&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;static&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;기준 없음&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;O&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;relative&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;요소 자신&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;X&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;absolute&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;위치 상 부모 요소&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;X&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;fixed&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;뷰포트&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;X&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;12-원시-htmlraw-html&quot;&gt;12. 원시 HTML(Raw HTML)&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;동해물과 &amp;lt;u&amp;gt;백두산&amp;lt;/u&amp;gt;이 마르고 닳도록&amp;lt;br/&amp;gt;
+&amp;lt;span style=&quot;text-decoration: underline;&quot;&amp;gt;하느님&amp;lt;/span&amp;gt;이 보우하사 우리나라 만세
+
+&amp;lt;a href=&quot;https://naver.com&quot; title=&quot;NAVER로 이동!&quot; target=&quot;_blank&quot;&amp;gt;NAVER&amp;lt;/a&amp;gt;
+
+&amp;lt;img width=&quot;500&quot; src=&quot;https://user-images.githubusercontent.com/62803763/127985736-2879d5fd-621b-4872-8b9b-0b0ce9141c7a.jpg&quot; alt=&quot;ggam4&quot; /&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;동해물과 &lt;u&gt;백두산&lt;/u&gt;이 마르고 닳도록&lt;br /&gt;
+&lt;span style=&quot;text-decoration: underline;&quot;&gt;하느님&lt;/span&gt;이 보우하사 우리나라 만세&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://naver.com&quot; title=&quot;NAVER로 이동!&quot; target=&quot;_blank&quot;&gt;NAVER&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500&quot; src=&quot;https://user-images.githubusercontent.com/62803763/127985736-2879d5fd-621b-4872-8b9b-0b0ce9141c7a.jpg&quot; alt=&quot;ggam4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;13-수평선horizontal-rule&quot;&gt;13. 수평선(Horizontal Rule)&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+
+***
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Git" /><category term="Github" /><category term="Git" /><category term="Markdown" /><summary type="html">Markdown 문법 정리</summary></entry><entry><title type="html">[정보처리기사 필기] 5-1. 소프트웨어 개발 방법론 활용</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp18/" rel="alternate" type="text/html" title="[정보처리기사 필기] 5-1. 소프트웨어 개발 방법론 활용" /><published>2021-08-03T09:00:00+09:00</published><updated>2021-08-03T18:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp18</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp18/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 5과목 1장</summary></entry><entry><title type="html">[Git &amp;amp; Github] Branch</title><link href="https://leewonwoo1.github.io/git/etc-git-branch/" rel="alternate" type="text/html" title="[Git &amp;amp; Github] Branch" /><published>2021-08-03T03:00:00+09:00</published><updated>2021-08-03T12:00:00+09:00</updated><id>https://leewonwoo1.github.io/git/etc-git-branch</id><content type="html" xml:base="https://leewonwoo1.github.io/git/etc-git-branch/">&lt;h2 id=&quot;1-branch란&quot;&gt;1. Branch란?&lt;/h2&gt;
 

@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">33</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">35</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -485,7 +485,7 @@
                     
                 
                     
-                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (18)</a></li>
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (20)</a></li>
                     
                 
                     
@@ -567,9 +567,7 @@
         
         <h2 id="1-제목header">1. 제목(Header)</h2>
 
-<ul>
-  <li>#의 개수에 따라 h1 ~ h6 태그의 크기로 Header이 적용</li>
-</ul>
+<p>#의 개수에 따라 h1 ~ h6 태그의 크기로 Header이 적용</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 제목1
 ## 제목2
@@ -750,9 +748,7 @@ _이텔릭_
 
 <p><br /></p>
 
-<ul>
-  <li>title : 링크에 마우스를 올렸을 때 나타나는 메시지</li>
-</ul>
+<p>title : 링크에 마우스를 올렸을 때 나타나는 메시지</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="https://naver.com" title="NAVER로 이동!"&gt;NAVER&lt;/a&gt;
 &lt;br&gt;
@@ -765,9 +761,7 @@ _이텔릭_
 
 <p><br /></p>
 
-<ul>
-  <li>target=”_blank” : 링크를 클릭했을 때 창이 새 탭에 열림</li>
-</ul>
+<p>target=”_blank” : 링크를 클릭했을 때 창이 새 탭에 열림</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="https://naver.com" title="NAVER로 이동!" target="_blank"&gt;NAVER&lt;/a&gt;
 </code></pre></div></div>
@@ -806,10 +800,10 @@ _이텔릭_
 &gt; (네이버 국어 사전)
 
 &gt; 인용문을 작성하세요!
-    &gt;&gt; 중첩된 인용문
-      &gt;&gt;&gt; 중중첩된 인용문 1
-      &gt;&gt;&gt; 중중첩된 인용문 2
-      &gt;&gt;&gt; 중중첩된 인용문 3
+&gt;&gt; 중첩된 인용문
+&gt;&gt;&gt; 중중첩된 인용문 1
+&gt;&gt;&gt; 중중첩된 인용문 2
+&gt;&gt;&gt; 중중첩된 인용문 3
 </code></pre></div></div>
 
 <blockquote>
@@ -818,11 +812,15 @@ _이텔릭_
 </blockquote>
 
 <blockquote>
-  <p>인용문을 작성하세요!
-    » 중첩된 인용문
-      »&gt; 중중첩된 인용문 1
-      »&gt; 중중첩된 인용문 2
-      »&gt; 중중첩된 인용문 3</p>
+  <p>인용문을 작성하세요!</p>
+  <blockquote>
+    <p>중첩된 인용문</p>
+    <blockquote>
+      <p>중중첩된 인용문 1
+중중첩된 인용문 2
+중중첩된 인용문 3</p>
+    </blockquote>
+  </blockquote>
 </blockquote>
 
 <p><br /></p>
@@ -840,14 +838,27 @@ CSS에서 `background` 혹은 `background-image` 속성으로 요소에 배경 �
 
 <h2 id="10-블록block-코드-강조">10. 블록(block) 코드 강조</h2>
 
-<p>`<code class="language-plaintext highlighter-rouge">html
+<p>백틱기호 3개(‘’’) 언어 이름(html, css, javascript, java, c, bash, python…)
+코드
+백틱기호 3개(‘’’)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''html
 \&lt;a href="https://www.google.co.kr/" target="_blank"&gt;GOOGLE&lt;/a&gt;
-\</code>`</p>
+'''
+</code></pre></div></div>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://www.google.co.kr/"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>GOOGLE<span class="nt">&lt;/a&gt;</span>
 </code></pre></div></div>
 
 <p><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''css
+.list &gt; li {
+  position: absolute;
+  top: 40px;
+}
+'''
+</code></pre></div></div>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.list</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
   <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
@@ -857,6 +868,14 @@ CSS에서 `background` 혹은 `background-image` 속성으로 요소에 배경 �
 
 <p><br /></p>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''javascript
+function func() {
+  var a = 'AAA'
+  return a;
+}
+'''
+</code></pre></div></div>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">AAA</span><span class="dl">'</span>
   <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
@@ -865,10 +884,21 @@ CSS에서 `background` 혹은 `background-image` 속성으로 요소에 배경 �
 
 <p><br /></p>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''bash
+$ git commit -m 'Study Markdown'
+'''
+</code></pre></div></div>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s1">'Study Markdown'</span>
 </code></pre></div></div>
 
 <p><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''plaintext
+가나다라 마바사아  
+자차카타 파하
+'''
+</code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>가나다라 마바사아  
 자차카타 파하
@@ -952,10 +982,14 @@ fixed | 뷰포트 | X
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 
+&lt;br&gt;
+
 ***
 </code></pre></div></div>
 
 <hr />
+
+<p><br /></p>
 
 <hr />
 
@@ -1061,6 +1095,74 @@ fixed | 뷰포트 | X
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+      <a href="/jckp/etc-jckp20/" rel="permalink">[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.04
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 3장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp19/" rel="permalink">[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.03
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 2장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
       <a href="/jckp/etc-jckp18/" rel="permalink">[정보처리기사 필기] 5-1. 소프트웨어 개발 방법론 활용
 </a>
       
@@ -1121,89 +1223,6 @@ fixed | 뷰포트 | X
 </span>
     </small>
     <p class="archive__item-excerpt" itemprop="description">독립적인 Working Directory, Branch
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/git/etc-git-versionmanage/" rel="permalink">[Git &amp; Github] 버전 관리
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.03
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#git"
-      class="page__taxonomy-item-category" rel="tag">Git</a>
-    
-    
-    <a href="/tags/#github"
-      class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#git"
-      class="page__taxonomy-item-tag" rel="tag">Git</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">Git과 Github을 사용한 프로젝트 버전 관리 방법
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/javascript/frontend-javascript-ifdomchain/" rel="permalink">[Javascript] 조건문, DOM API, 메소드 체이닝
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.03
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#javascript"
-      class="page__taxonomy-item-category" rel="tag">Javascript</a>
-    
-    
-    <a href="/tags/#javascript"
-      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#programming"
-      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#web"
-      class="page__taxonomy-item-tag" rel="tag">Web</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">if, else, Document Object Model, Method Chaining 정리
 </p>
   </article>
 </div>

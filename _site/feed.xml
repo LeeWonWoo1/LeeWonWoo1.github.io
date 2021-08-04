@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-04T19:20:25+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp20/" rel="alternate" type="text/html" title="[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축" /><published>2021-08-04T18:00:00+09:00</published><updated>2021-08-05T03:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp20</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp20/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-04T19:32:13+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp20/" rel="alternate" type="text/html" title="[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축" /><published>2021-08-04T18:00:00+09:00</published><updated>2021-08-05T03:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp20</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp20/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 
@@ -321,21 +321,22 @@
 &lt;ul&gt;
   &lt;li&gt;중요정보를 보호하기 위해 평문을 암호화된 문장으로 만드는 절차 또는 방법&lt;/li&gt;
   &lt;li&gt;해시를 사용하는 단방향 암호화 방식, 개인키 및 공개키로 분류되는 양방향 암호화 방식
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;암호화 방식&lt;/p&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;양방향&lt;br /&gt;&lt;/p&gt;
     &lt;blockquote&gt;
-      &lt;p&gt;암호화 방식&lt;/p&gt;
+      &lt;p&gt;개인키&lt;br /&gt;&lt;/p&gt;
       &lt;blockquote&gt;
-        &lt;p&gt;양방향&lt;br /&gt;&lt;/p&gt;
-        &lt;blockquote&gt;
-          &lt;p&gt;개인키&lt;br /&gt;&lt;/p&gt;
-          &lt;blockquote&gt;
-            &lt;p&gt;Stream 방식&lt;br /&gt;
-Block 방식&lt;br /&gt;&lt;/p&gt;
-          &lt;/blockquote&gt;
-        &lt;/blockquote&gt;
+        &lt;p&gt;Stream 방식 : LFSR, RC4&lt;br /&gt;
+Block 방식 : DES, SEED, AES, ARIA&lt;br /&gt;&lt;/p&gt;
       &lt;/blockquote&gt;
     &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -359,7 +360,47 @@ Block 방식&lt;br /&gt;&lt;/p&gt;
       &lt;p&gt;HASH&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/blockquote&gt;
-&lt;/blockquote&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 5과목 3장</summary></entry><entry><title type="html">[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp19/" rel="alternate" type="text/html" title="[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리" /><published>2021-08-03T23:00:00+09:00</published><updated>2021-08-04T08:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp19</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp19/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;--개인키-암호화-기법&quot;&gt;- 개인키 암호화 기법&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;동일한 키로 데이터를 암호화하고 복호화&lt;/li&gt;
+  &lt;li&gt;대칭 암호 기법, 단일키 암호화 기법&lt;/li&gt;
+  &lt;li&gt;한 번에 하나의 데이터 블록을 암호화. 블록 암호화 방식&lt;/li&gt;
+  &lt;li&gt;평문과 동일한 길이의 스트림을 생성하여 비트 단위로 암호화. 스트림 암호화 방식&lt;/li&gt;
+  &lt;li&gt;장점 : 암호화/복호화 속도 빠름. 알고리즘 단순. 파일 크기가 작음&lt;/li&gt;
+  &lt;li&gt;단점 : 사용자의 증가에 따라 관리해야 할 키의 수가 상대적으로 많아짐&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--공개키-암호화-기법&quot;&gt;- 공개키 암호화 기법&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;암호화할 때 공개키는 DB 사용자에게 공개&lt;/li&gt;
+  &lt;li&gt;복호화할 때 비밀키는 관리자가 비밀리에 관리&lt;/li&gt;
+  &lt;li&gt;비대칭 암호 기법. 대표적으로 RSA&lt;/li&gt;
+  &lt;li&gt;장점 : 키의 분배가 용이, 관리해야 할 키의 개수가 적음&lt;/li&gt;
+  &lt;li&gt;단점 : 암호화/복호화 속도 느림. 알고리즘 복잡. 파일의 크기가 큼&lt;/li&gt;
+  &lt;li&gt;X.509 방식, 비X.509 방식&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--양방향-알고리즘-종류&quot;&gt;- 양방향 알고리즘 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SEED : 블록 크기 128비트, 키 길이에 따라 128, 256&lt;/li&gt;
+  &lt;li&gt;ARIA : 블록 크기 128비트, 키 길이에 따라 128, 192, 256&lt;/li&gt;
+  &lt;li&gt;DES : 블록 크기 64비트, 키 길이는 56비트&lt;/li&gt;
+  &lt;li&gt;AES : 블록 크기는 128비트, 키 길에 따라 128, 192, 256&lt;/li&gt;
+  &lt;li&gt;RSA : 공개키 암호화 알고리. 큰 숫자를 소인수분해 하기 어렵다는 것에 기반&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--해시&quot;&gt;- 해시&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;임의의 길이의 입력 데이터나 메시지를 고정된 길이의 값이나 키로 변환하는 것&lt;/li&gt;
+  &lt;li&gt;데이터의 암호화, 무결성 검증. 정보보호의 다양한 분야에서 활용&lt;/li&gt;
+  &lt;li&gt;SHA 시리즈, MD5, N-NASH, SNEFRU 등&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="JCKP" /><category term="JCKP" /><summary type="html">정보처리기사 필기 5과목 3장</summary></entry><entry><title type="html">[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리</title><link href="https://leewonwoo1.github.io/jckp/etc-jckp19/" rel="alternate" type="text/html" title="[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리" /><published>2021-08-03T23:00:00+09:00</published><updated>2021-08-04T08:00:00+09:00</updated><id>https://leewonwoo1.github.io/jckp/etc-jckp19</id><content type="html" xml:base="https://leewonwoo1.github.io/jckp/etc-jckp19/">&lt;p class=&quot;notice--primary&quot;&gt;2020 시나공 정보처리기사 필기책 참고&lt;/p&gt;
 
 &lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;주의!&lt;/strong&gt; 중요도가 낮은 항목(C)은 일부 제외&lt;/p&gt;
 

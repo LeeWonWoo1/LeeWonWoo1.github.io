@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[CSS] CSS 속성 - 배경, 배치 | LWW’s Tech Blog</title>
-<meta name="description" content="CSS 속성인 배경, 배치 정리">
+<!-- begin _includes/seo.html --><title>[Node.js] NVM, Node.js, NPM | LWW’s Tech Blog</title>
+<meta name="description" content="NVM -&gt; Node.js -&gt; NPM">
 
 
   <meta name="author" content="LWW">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[CSS] CSS 속성 - 배경, 배치">
-<meta property="og:url" content="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/">
+<meta property="og:title" content="[Node.js] NVM, Node.js, NPM">
+<meta property="og:url" content="https://leewonwoo1.github.io/javascript/frontend-javascript-nvmnpm/">
 
 
-  <meta property="og:description" content="CSS 속성인 배경, 배치 정리">
-
-
-
+  <meta property="og:description" content="NVM -&gt; Node.js -&gt; NPM">
 
 
 
 
-  <meta property="article:published_time" content="2021-07-31T11:30:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-07-31T20:30:00+09:00">
+  <meta property="article:published_time" content="2021-08-05T20:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-08-06T05:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/">
+
+<link rel="canonical" href="https://leewonwoo1.github.io/javascript/frontend-javascript-nvmnpm/">
 
 
 
@@ -199,7 +199,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#css" itemprop="item"><span itemprop="name">Css</span></a>
+          <a href="/categories/#javascript" itemprop="item"><span itemprop="name">Javascript</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[CSS] CSS 속성 - 배경, 배치</li>
+        <li class="current">[Node.js] NVM, Node.js, NPM</li>
       
     
   </ol>
@@ -519,16 +519,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[CSS] CSS 속성 - 배경, 배치">
-    <meta itemprop="description" content="CSS 속성인 배경, 배치 정리">
-    <meta itemprop="datePublished" content="2021-07-31T11:30:00+09:00">
-    <meta itemprop="dateModified" content="2021-07-31T20:30:00+09:00">
+    <meta itemprop="headline" content="[Node.js] NVM, Node.js, NPM">
+    <meta itemprop="description" content="NVM -&gt; Node.js -&gt; NPM">
+    <meta itemprop="datePublished" content="2021-08-05T20:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-06T05:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/" class="u-url" itemprop="url">[CSS] CSS 속성 - 배경, 배치
+            <a href="https://leewonwoo1.github.io/javascript/frontend-javascript-nvmnpm/" class="u-url" itemprop="url">[Node.js] NVM, Node.js, NPM
 </a>
           </h1>
           
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
@@ -560,146 +560,74 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#배경">배경</a><ul><li><a href="#--background-color">- background-color</a></li><li><a href="#--background-image">- background-image</a></li><li><a href="#--background-repeat">- background-repeat</a></li><li><a href="#--background-position">- background-position</a></li><li><a href="#--background-size">- background-size</a></li><li><a href="#--background-attachment">- background-attachment</a></li></ul></li><li><a href="#배치">배치</a><ul><li><a href="#--position">- position</a></li><li><a href="#--요소-쌓임-순서">- 요소 쌓임 순서</a></li><li><a href="#--z-index">- z-index</a></li><li><a href="#--요소의-display가-변경">- 요소의 display가 변경</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-nodejs">1. Node.js</a><ul><li><a href="#--nodejs-사용-이유">- Node.js 사용 이유</a></li></ul></li><li><a href="#2-단일-버전의-nodejs-설치-방법">2. 단일 버전의 Node.js 설치 방법</a></li><li><a href="#3-nvm-설치">3. NVM 설치</a></li><li><a href="#4-원하는-버전의-nodejs-설치">4. 원하는 버전의 Node.js 설치</a></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="배경">배경</h2>
-
-<h3 id="--background-color">- background-color</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 색상 */</span>
-<span class="nt">background-color</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span> <span class="err">투명함</span>
-  <span class="py">색상</span><span class="p">:</span> <span class="n">지정</span> <span class="n">가능한</span> <span class="n">색상</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="--background-image">- background-image</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 삽입 */</span>
-<span class="nt">background-image</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="err">이미지</span> <span class="err">없음</span>
-  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("경로")</span><span class="p">;</span> <span class="err">이미지</span> <span class="err">경로</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="--background-repeat">- background-repeat</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 반복 */</span>
-<span class="nt">background-repeat</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">repeat</span><span class="p">;</span> <span class="err">이미지를</span> <span class="err">수직,</span> <span class="err">수평</span> <span class="err">반복</span>
-  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-x</span><span class="p">;</span> <span class="err">이미지를</span> <span class="err">수평</span> <span class="err">반복</span>
-  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat-y</span><span class="p">;</span> <span class="err">이미지를</span> <span class="err">수직</span> <span class="err">반복</span>
-  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">no-repeat</span><span class="p">;</span> <span class="err">반복</span> <span class="err">없음</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="--background-position">- background-position</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 위치 */</span>
-<span class="nt">background-position</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="m">0%</span> <span class="m">0%</span><span class="p">;</span> <span class="err">0%</span> <span class="err">~</span> <span class="err">100%</span> <span class="err">사이</span> <span class="err">값</span>
-  <span class="py">방향</span><span class="p">:</span> <span class="nb">top</span><span class="p">,</span> <span class="nb">bottom</span><span class="p">,</span> <span class="nb">left</span><span class="p">,</span> <span class="nb">right</span><span class="p">,</span> <span class="nb">center</span><span class="p">;</span>
-  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span> 
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="--background-size">- background-size</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 크기 */</span>
-<span class="nt">background-size</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">이미지의</span> <span class="err">실제</span> <span class="err">크기</span>
-  <span class="py">단위</span><span class="p">:</span> <span class="nb">px</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">rem</span><span class="p">;</span>
-  <span class="py">cover</span><span class="p">:</span> <span class="n">비율을</span> <span class="n">유지</span><span class="p">,</span> <span class="n">요소의</span> <span class="n">더</span> <span class="n">넓은</span> <span class="n">너비에</span> <span class="n">맞춤</span><span class="p">;</span>
-  <span class="py">contain</span><span class="p">:</span> <span class="n">비율을</span> <span class="n">유지</span><span class="p">,</span> <span class="n">요소의</span> <span class="n">더</span> <span class="n">짧은</span> <span class="n">너비에</span> <span class="n">맞춤</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="--background-attachment">- background-attachment</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 배경 이미지 스크롤 특성 */</span>
-<span class="nt">background-attachment</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">scroll</span><span class="p">;</span> <span class="err">이미지가</span> <span class="err">요소를</span> <span class="err">따라서</span> <span class="err">같이</span> <span class="err">스크롤</span>
-  <span class="nl">background-attachment</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span> <span class="err">이미지가</span> <span class="err">뷰포트에</span> <span class="err">고정,</span> <span class="err">스크롤X</span>
-  <span class="nl">background-attachment</span><span class="p">:</span> <span class="n">local</span><span class="p">;</span> <span class="err">요소</span> <span class="err">내</span> <span class="err">스크롤</span> <span class="err">시</span> <span class="err">이미지가</span> <span class="err">같이</span> <span class="err">스크롤</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h2 id="배치">배치</h2>
-
-<h3 id="--position">- position</h3>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소의 위치 지정 기준 */</span>
-<span class="nt">position</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">static</span><span class="p">;</span> <span class="err">기준</span> <span class="err">없음</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span> <span class="err">요소</span> <span class="err">자신을</span> <span class="err">기준</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span> <span class="err">위치</span> <span class="err">상</span> <span class="err">부모</span> <span class="err">요소를</span> <span class="err">기준,</span> <span class="err">부모</span> <span class="err">꼭</span> <span class="err">확인해야</span> <span class="err">함</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span> <span class="err">뷰포트를</span> <span class="err">기준</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="n">sticky</span><span class="p">;</span> <span class="err">스크롤</span> <span class="err">영역</span> <span class="err">기준</span>
-  <span class="err">position과</span> <span class="err">같이</span> <span class="err">사용하는</span> <span class="err">CSS속성들은</span> <span class="err">모두</span> <span class="err">음수</span> <span class="err">사용</span> <span class="err">가능</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><br /></p>
-
-<h3 id="--요소-쌓임-순서">- 요소 쌓임 순서</h3>
+        <h2 id="1-nodejs">1. Node.js</h2>
 
 <ul>
-  <li>어떤 요소가 사용자와 더 가깝게 있는지 결정
-    <ol>
-      <li>요소에 position 속성의 값이 있는 경우 위에 쌓임(static제외)</li>
-      <li>1번 조건이 같은 경우, z-index 속성의 숫자 값이 높을 수록 위에 쌓임</li>
-      <li>1, 2번 조건이 같은 경우, HTML의 다음 구조일 수록 위에 쌓임</li>
-    </ol>
+  <li>Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임</li>
+  <li>JavaScript가 동작할 수 있는 컴퓨터 환경</li>
+</ul>
+
+<h3 id="--nodejs-사용-이유">- Node.js 사용 이유</h3>
+
+<ol>
+  <li>웹 페이지에서는 html, css, js만 동작</li>
+  <li>순수하게 html, css, js만 가지고 개발하면 그 과정이 비효율적</li>
+  <li>따라서 개발을 도와주는 모듈의 도움을 받아야 함</li>
+  <li>모듈들은 브라우저에서 직접적으로 동작할 수 없음</li>
+  <li>따라서 모듈의 도움을 받은 내용들을 html, css, js로 변환해야 함</li>
+  <li>변환을 위해 컴퓨터에게 변환작업에 대한 명령을 내려주어야 함</li>
+  <li>Node.js가 명령이 돌아가는 환경을 제공</li>
+  <li>Node.js 환경에서 js 프로그래밍 언어로 변환을 만들어 줄 수 있음</li>
+  <li>변환된 결과는 html, cs, js로 결과를 만들어 브라우저로 동작시킴</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="2-단일-버전의-nodejs-설치-방법">2. 단일 버전의 Node.js 설치 방법</h2>
+
+<p>아래의 링크를 통해 설치할 수 있음</p>
+
+<p class="notice--info"><a href="https://nodejs.org/ko/" target="_blank">https://nodejs.org/ko/</a></p>
+
+<ul>
+  <li>LTS(짝수 Version)
+    <ul>
+      <li>장기적으로 안정되고 신뢰도가 높은 지원이 보장</li>
+      <li>유지/보수와 보안(서버 운영 등)에 초점을 맞춤</li>
+      <li>대부분의 사용자에게 추천되는 버전</li>
+    </ul>
   </li>
+  <li>현재 버전(홀수 Version)
+    <ul>
+      <li>가장 최신의 버전</li>
+    </ul>
+  </li>
+  <li>다른 Node.js 버전에서도 개발을 진행해야 할 수 있음</li>
+  <li><strong><em>NVM 우선 설치 권장!</em></strong></li>
 </ul>
 
-<h3 id="--z-index">- z-index</h3>
+<p><br /></p>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 요소 쌓임 정도를 지정 */</span>
-<span class="nt">z-index</span> <span class="p">{</span>
-  <span class="py">기본값</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span> <span class="err">부모</span> <span class="err">요소와</span> <span class="err">동일한</span> <span class="err">쌓임</span> <span class="err">정도</span>
-  <span class="py">숫자</span><span class="p">:</span> <span class="n">숫자가</span> <span class="n">높을</span> <span class="n">수록</span> <span class="n">위에</span> <span class="n">쌓임</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<h2 id="3-nvm-설치">3. NVM 설치</h2>
 
-<h3 id="--요소의-display가-변경">- 요소의 display가 변경</h3>
+<p>구글에 nvm-window를 검색하고 해당 Github 페이지에 접속한 뒤 nvm-setup.zip 파일을 설치</p>
 
-<ul>
-  <li>position 속성의 값으로 absolute, fixed가 지정된 요소는 display 속성이 block로 변경</li>
-</ul>
+<p><br /></p>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">태그</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
-<span class="p">}</span>
+<p>혹은 아래의 링크를 통해 설치</p>
 
-<span class="c">/* 위와 아래는 동일 */</span>
+<p class="notice--info"><a href="https://github.com/coreybutler/nvm-windows" target="_blank">https://github.com/coreybutler/nvm-windows</a></p>
 
-<span class="nt">태그</span> <span class="p">{</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>  
-<span class="p">}</span>
-</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="4-원하는-버전의-nodejs-설치">4. 원하는 버전의 Node.js 설치</h2>
+
+<p class="notice--warning"><strong>VS Code 환경</strong></p>
 
         
       </section>
@@ -716,7 +644,13 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a><span class="sep">, </span>
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#node-js" class="page__taxonomy-item p-category" rel="tag">Node.js</a><span class="sep">, </span>
+    
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
+    
+      <a href="/tags/#nvm" class="page__taxonomy-item p-category" rel="tag">NVM</a><span class="sep">, </span>
     
       <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
     
@@ -735,7 +669,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a>
+      <a href="/categories/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
     
     </span>
   </p>
@@ -743,7 +677,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-31">July 31, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-05">August 5, 2021</time></p>
 
       </footer>
 
@@ -752,11 +686,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BCSS%5D+CSS+%EC%86%8D%EC%84%B1+-+%EB%B0%B0%EA%B2%BD%2C+%EB%B0%B0%EC%B9%98%20https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-bgpo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BNode.js%5D+NVM%2C+Node.js%2C+NPM%20https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-nvmnpm%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-bgpo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-nvmnpm%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fcss%2Ffrontend-css-properties-bgpo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-nvmnpm%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -771,14 +705,12 @@
 
 
 
-
-
 <nav class="pagination_prev_next">
   
-  <a href="/css/frontend-css-properties-font/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[CSS] CSS 속성 - 글꼴, 문자</a>
+  <a href="/javascript/frontend-javascript-ifdomchain/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Javascript] 조건문, DOM API, 메소드 체이닝</a>
   
   
-  <a href="/css/frontend-css-properties-fltrtr/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[CSS] CSS 속성 - 정렬, 전환, 변환</a>
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
   
 </nav>
 
@@ -792,60 +724,6 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/javascript/frontend-javascript-nvmnpm/" rel="permalink">[Node.js] NVM, Node.js, NPM
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.05
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#javascript"
-      class="page__taxonomy-item-category" rel="tag">Javascript</a>
-    
-    
-    <a href="/tags/#javascript"
-      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#node-js"
-      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#npm"
-      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#nvm"
-      class="page__taxonomy-item-tag" rel="tag">NVM</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#web"
-      class="page__taxonomy-item-tag" rel="tag">Web</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">NVM -&gt; Node.js -&gt; NPM
-</p>
-  </article>
-</div>
         
           
 
@@ -954,6 +832,40 @@
   </article>
 </div>
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp19/" rel="permalink">[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.03
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 2장
+</p>
+  </article>
+</div>
+        
       </div>
     </div>
   
@@ -1038,8 +950,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://leewonwoo1.github.io/css/frontend-css-properties-bgpo/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/css/frontend-css-properties-bgpo"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://leewonwoo1.github.io/javascript/frontend-javascript-nvmnpm/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/javascript/frontend-javascript-nvmnpm"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 4-1. 서버 프로그램 구현 | LWW’s Tech Blog</title>
-<meta name="description" content="정보처리기사 필기 4과목 1장">
+<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 5-4. 시스템 보안 구축 | LWW’s Tech Blog</title>
+<meta name="description" content="정보처리기사 필기 5과목 4장">
 
 
   <meta name="author" content="LWW">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[정보처리기사 필기] 4-1. 서버 프로그램 구현">
-<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp15/">
+<meta property="og:title" content="[정보처리기사 필기] 5-4. 시스템 보안 구축">
+<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp21/">
 
 
-  <meta property="og:description" content="정보처리기사 필기 4과목 1장">
-
-
-
+  <meta property="og:description" content="정보처리기사 필기 5과목 4장">
 
 
 
 
-  <meta property="article:published_time" content="2021-08-01T09:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-08-01T18:00:00+09:00">
+  <meta property="article:published_time" content="2021-08-04T19:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-08-05T04:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp15/">
+
+<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp21/">
 
 
 
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[정보처리기사 필기] 4-1. 서버 프로그램 구현</li>
+        <li class="current">[정보처리기사 필기] 5-4. 시스템 보안 구축</li>
       
     
   </ol>
@@ -519,16 +519,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[정보처리기사 필기] 4-1. 서버 프로그램 구현">
-    <meta itemprop="description" content="정보처리기사 필기 4과목 1장">
-    <meta itemprop="datePublished" content="2021-08-01T09:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-08-01T18:00:00+09:00">
+    <meta itemprop="headline" content="[정보처리기사 필기] 5-4. 시스템 보안 구축">
+    <meta itemprop="description" content="정보처리기사 필기 5과목 4장">
+    <meta itemprop="datePublished" content="2021-08-04T19:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-05T04:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/jckp/etc-jckp15/" class="u-url" itemprop="url">[정보처리기사 필기] 4-1. 서버 프로그램 구현
+            <a href="https://leewonwoo1.github.io/jckp/etc-jckp21/" class="u-url" itemprop="url">[정보처리기사 필기] 5-4. 시스템 보안 구축
 </a>
           </h1>
           
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          4 분 소요
+          5 분 소요
         
       </span>
     
@@ -560,7 +560,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-개발-환경-구축--b">1. 개발 환경 구축 – B</a><ul><li><a href="#--개발-환경-구축의-개요">- 개발 환경 구축의 개요</a></li><li><a href="#--하드웨어-환경">- 하드웨어 환경</a></li><li><a href="#--web-server의-기능">- Web Server의 기능</a></li><li><a href="#--소프트웨어-환경">- 소프트웨어 환경</a></li><li><a href="#--개발-언어의-선정-기준">- 개발 언어의 선정 기준</a></li></ul></li><li><a href="#2-보안-및-api--b">2. 보안 및 API – B</a><ul><li><a href="#--소프트웨어-개발-보안의-개요">- 소프트웨어 개발 보안의 개요</a></li><li><a href="#--소프트웨어-개발-보안-점검-항목">- 소프트웨어 개발 보안 점검 항목</a></li><li><a href="#--apiapplication-programming-interface">- API(Application Programming Interface)</a></li></ul></li><li><a href="#3-배치-프로그램--b">3. 배치 프로그램 – B</a><ul><li><a href="#--배치-프로그램의-개요">- 배치 프로그램의 개요</a></li><li><a href="#--배치-스케줄러">- 배치 스케줄러</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-서비스-공격-유형--a">1. 서비스 공격 유형 – A</a><ul><li><a href="#--서비스-거부dos-공격의-개념">- 서비스 거부(DoS) 공격의 개념</a></li><li><a href="#--ping-of-death">- Ping of Death</a></li><li><a href="#--smurfing스머핑">- SMURFING(스머핑)</a></li><li><a href="#--syn-flooding">- SYN Flooding</a></li><li><a href="#--teardrop">- TearDrop</a></li><li><a href="#--land">- Land</a></li><li><a href="#--ddos분산-서비스-거부-공격">- DDoS(분산 서비스 거부) 공격</a></li><li><a href="#--네트워크-침해-공격-관련-용어">- 네트워크 침해 공격 관련 용어</a></li><li><a href="#--정보-보안-침해-공격-관련-용어">- 정보 보안 침해 공격 관련 용어</a></li></ul></li><li><a href="#2-서버-인증--b">2. 서버 인증 – B</a><ul><li><a href="#--보안-서버의-개념">- 보안 서버의 개념</a></li><li><a href="#--인증의-개념">- 인증의 개념</a></li><li><a href="#--지식-기반-인증">- 지식 기반 인증</a></li><li><a href="#--소유-기반-인증">- 소유 기반 인증</a></li><li><a href="#--생체-기반-인증">- 생체 기반 인증</a></li><li><a href="#--기타-인증-기법">- 기타 인증 기법</a></li></ul></li><li><a href="#3-보안-솔루션--a">3. 보안 솔루션 – A</a><ul><li><a href="#--보안-솔루션의-개념">- 보안 솔루션의 개념</a></li><li><a href="#--방화벽firewall">- 방화벽(Firewall)</a></li><li><a href="#--침입-탐지-시스템ids-intrusion-detection-system">- 침입 탐지 시스템(IDS; Intrusion Detection System)</a></li><li><a href="#--침입-방지-시스템ips-intrusion-prevention-system">- 침입 방지 시스템(IPS; Intrusion Prevention System)</a></li><li><a href="#--데이터-유출-방지dlp-data-leakageloss-prevention">- 데이터 유출 방지(DLP; Data Leakage/Loss Prevention)</a></li><li><a href="#--웹-방화벽web-firewall">- 웹 방화벽(Web Firewall)</a></li><li><a href="#--vpn가상-사설-통신망">- VPN(가상 사설 통신망)</a></li><li><a href="#--nacnetwork-access-control">- NAC(Network Access Control)</a></li><li><a href="#--esmenterprise-security-management">- ESM(Enterprise Security Management)</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -569,237 +569,332 @@
 
 <p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 일부 제외</p>
 
-<h2 id="1-개발-환경-구축--b">1. 개발 환경 구축 – B</h2>
+<h2 id="1-서비스-공격-유형--a">1. 서비스 공격 유형 – A</h2>
 
-<h3 id="--개발-환경-구축의-개요">- 개발 환경 구축의 개요</h3>
+<h3 id="--서비스-거부dos-공격의-개념">- 서비스 거부(DoS) 공격의 개념</h3>
 
 <ul>
-  <li>개발 프로젝트를 이해하고 소프트웨어 및 하드웨어 장비를 구축하는 것</li>
-  <li>응용 소프트웨어가 운영될 환경과 유사한 구조로 구축</li>
-  <li>개발 프로젝트의 분석 단계의 산출물을 바탕으로 개발에 필요한 하드웨어와 소프트웨어를 선정</li>
-  <li>비즈니스 환경에 적합한 제품들을 최종적으로 결정하여 구축</li>
+  <li>서버의 자원을 고갈시킬 목적으로 다수의 공격자 또는 시스템에서 대량의 데이터를 한 곳의 서버에 집중적으로 전송하여, 표적이 되는 서버의 정상적인 기능을 방해</li>
 </ul>
 
-<h3 id="--하드웨어-환경">- 하드웨어 환경</h3>
+<h3 id="--ping-of-death">- Ping of Death</h3>
 
 <ul>
-  <li>인터페이스 역할을 하는 클라이언트, 클라이언트와 통신하여 서비스를 제공하는 서버로 구성</li>
-  <li>클라이언트에는 PC, 스마트폰 등이 있음</li>
-  <li>서버는 사용 목적에 따라 웹 서버, 웹 애플리케이션 서버, DB 서버, 파일 서버 등이 있음</li>
-  <li>웹 서버(Web Server)
-    <ul>
-      <li>클라이언트로부터 직접 요청을 받아 처리하는 서버. 정적 파일들을 제공</li>
-      <li>Apache HTTP Server, Microsoft Internet Information Service, Google Web Server 등</li>
-    </ul>
-  </li>
-  <li>웹 애플리케이션 서버(WAS; Web Application Server)
-    <ul>
-      <li>동적 서비스를 제공하기 위해 웹 서버로부터 요청을 받아 데이터 가공 작업을 수행</li>
-      <li>웹 서버와 DB서버 또는 웹 서버와 파일 서버 사이에서 인터페이스 역할 수행</li>
-      <li>Apache Tomcat, IBM WebSphere, Oracle WebLogic 등</li>
-    </ul>
-  </li>
-  <li>DB Server
-    <ul>
-      <li>DB와 이를 관리하는 DBMS를 운영하는 서버</li>
-      <li>MySQL Server, Oracle Server, Microsoft SQL Server 등</li>
-    </ul>
-  </li>
-  <li>파일 서버(File Server)
-    <ul>
-      <li>DB에 저장하기에는 비효율적이거나, 서비스 제공을 목적으로 유지하는 파일들을 저장하는 서버</li>
-      <li>AWS S3 등</li>
-    </ul>
-  </li>
+  <li>Ping 명령을 전송할 때 패킷의 크기를 인터넷 프로토콜 허용 범위 이상으로 전송하여 고역 대상의 네트워크를 마비시킴</li>
+  <li>분할되어 전송된 패킷을 재조립해야 하는 부담과 분할되어 전송된 각각의 패킷들의 CIMP Ping 메시지에 대한 응답을 처리하느라 시스템이 다운되게 됨</li>
+  <li>jolt, sPING, ICMP bug, IceNewk 등의 변종 공격에 대비하여 ICMP Ping 메시지가 전송되지 못하도록 방화벽에서 차단하는 기술 개발</li>
 </ul>
 
-<h3 id="--web-server의-기능">- Web Server의 기능</h3>
+<h3 id="--smurfing스머핑">- SMURFING(스머핑)</h3>
 
 <ul>
-  <li>HTTP/HTTPS 지원 : 브라우저로부터 요청을 받아 응답할 때 사용되는 프로토콜</li>
-  <li>통신 기록 : 처리한 요청들을 로그 파일로 기록하는 기능</li>
-  <li>정적 파일 관리 : HTML, CSS, 이미지 등의 정적 파일들을 저장하고 관리하는 기능</li>
-  <li>대역폭 제한 : 네트워크 트래픽의 포화를 방지하기 위해 응답 속도를 제한하는 기능</li>
-  <li>가상 호스팅 : 하나의 서버로 여러 개의 도메인 이름을 연결하는 기능</li>
-  <li>인증 : 사용자가 합법적인 사용자인지를 확인하는 기능</li>
+  <li>대량의 데이터를 한 사이트에 집중적으로 보내 네트워크를 불능 상태로 만드는 공격</li>
+  <li>송신 주소를 공격 대상지의 IP 주소로 위장하고 해당 네트워크 라우터의 브로드캐스트 주소를 수신지로 하여 패킷을 전송하면, 라우터의 브로드캐스트 주소로 수신된 패킷은 해당 네트워크 내의 모든 컴퓨터로 전송</li>
+  <li>각 네트워크 라우터에서 브로드캐스트 주소를 사용할 수 없게 미리 설정</li>
 </ul>
 
-<h3 id="--소프트웨어-환경">- 소프트웨어 환경</h3>
+<h3 id="--syn-flooding">- SYN Flooding</h3>
 
 <ul>
-  <li>클라이언트 + 서버 운영을 위한 시스템 S/W + 개발에 사용되는 개발 S/W</li>
-  <li>시스템 S/W : 운영체제, 웹 서버 및 WAS 운용을 위한 서버 프로그램, DBMS 등</li>
-  <li>개발 S/W : 요구사항 관리 도구, 설계/모델링 도구, 구현 도구, 빌드 도구, 테스트 도구, 형상관리 도구
+  <li>가상의 클라이언트로 위장하여 3-way-handshake 과정을 의도적으로 중단시킴으로써 공격 대상지인 서버가 대기 상태에 놓여 정상적인 서비스를 수행하지 못하게 하는 공격 방법</li>
+  <li>SYN 수신 대기 시간을 줄이거나 침입 차단 시스템을 활용</li>
+</ul>
+
+<h3 id="--teardrop">- TearDrop</h3>
+
+<ul>
+  <li>패킷의 크기가 커 여러 개로 분할되어 전송될 때 분할 순서를 알 수 있도록 Fragment Offset 값을 함께 전송하는데, 이 Offset 값을 변경시켜 수신 측에서 패킷을 재조립할 때 오류로 인한 과부하를 발생시킴으로써 시스템이 다운되도록 하는 공격 방법</li>
+  <li>Fragment Offset이 잘못된 경우 해당 패킷을 폐기하도록 설정</li>
+</ul>
+
+<h3 id="--land">- Land</h3>
+
+<ul>
+  <li>패킷을 전송할 때 송신 IP 주소와 수신 IP 주소를 모두 공격 대상의 IP 주소로 하여 공격 대상에게 전송하는 것으로, 패킷을 받은 공격 대상은 송신 IP 주소가 자신이므로 자신에게 응답을 수행하는데, 이러한 패킷이 계속해서 전송될 경우 자신에 대해 무한히 응답</li>
+  <li>송신 IP 주소와 수신 IP 주소의 적절성을 검사</li>
+</ul>
+
+<h3 id="--ddos분산-서비스-거부-공격">- DDoS(분산 서비스 거부) 공격</h3>
+
+<ul>
+  <li>분산된 공격 지점에서 한 곳의 서버에 대해 분산 서비스 공격을 수행</li>
+  <li>분산 서비스 공격용 툴을 설치하여 에이전트로 만든 후 공격에 이용</li>
+  <li>다수의 에이전트를 관리할 수 있는 핸들러 프로그램을 설치하여 마스터로 지정</li>
+  <li>분산 서비스 공격용 툴
     <ul>
-      <li>요구사항 관리 도구
-        <ul>
-          <li>요구사항의 수집과 분석, 추적 등을 편리하게 도와주는 S/W</li>
-          <li>JIRA, IBM DOORS, inteGREAT, Reqtify, Trello 등</li>
-        </ul>
-      </li>
-      <li>설계/모델링 도구
-        <ul>
-          <li>UML을 지원하며, 개발의 전 과정에서 설계 및 모델링을 도와주는 S/W</li>
-          <li>DB Designer, PlantUML, ArgoUML</li>
-        </ul>
-      </li>
-      <li>구현 도구
-        <ul>
-          <li>개발 언어를 통해 애플리케이션의 실제 구현을 지원하는 S/W</li>
-          <li>Eclipse, IntelliJ IDEA, Visual Studio, Netbeans, Node.js 등</li>
-        </ul>
-      </li>
-      <li>빌드 도구
-        <ul>
-          <li>구현 도구를 통해 작성된 소스의 빌드 및 배포, 라이브러리 관리를 지원하는 S/W</li>
-          <li>Ant, Graddle, Maven, Jenkins 등</li>
-        </ul>
-      </li>
-      <li>테스트 도구
-        <ul>
-          <li>모듈들이 요구사항에 적합하게 구현되었는지 테스트하는 S/W</li>
-          <li>CppUnit, JUnit, HttpUnit, NUnit, SpringTest 등</li>
-        </ul>
-      </li>
-      <li>형상 관리 도구
-        <ul>
-          <li>산출물들을 버전별로 관리하여 품질 향상을 지원하는 S/W</li>
-          <li>GIT, CVS, Subversion, Mercurial</li>
-        </ul>
-      </li>
+      <li>Trin00 : 초기형태, UDP Flooding</li>
+      <li>TFN : UDP Flooding, TCP SYN Flood 공격, ICMP 응답 요청, 스머핑</li>
+      <li>TFN2K : TFN의 확장판</li>
+      <li>Stacheldraht : 공격자가 노출되지 않도록 암호화된 통신 수행, 툴 자동 업데이트</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="--개발-언어의-선정-기준">- 개발 언어의 선정 기준</h3>
+<h3 id="--네트워크-침해-공격-관련-용어">- 네트워크 침해 공격 관련 용어</h3>
 
 <ul>
-  <li>적정성, 효율성, 이식성, 친밀성, 범용성</li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="2-보안-및-api--b">2. 보안 및 API – B</h2>
-
-<h3 id="--소프트웨어-개발-보안의-개요">- 소프트웨어 개발 보안의 개요</h3>
-
-<ul>
-  <li>보안 취약점을 최소화하여 보안 위협으로부터 안전한 S/W를 개발하기 위한 일련의 보안 활동</li>
-  <li>S/W 개발 보안은 데이터의 기밀성, 무결성, 가용성을 유지하는 것을 목표로 함</li>
-  <li>S/W 개발 보안 가이드를 참고하여 점검해야 할 보안 항목들을 점검</li>
-</ul>
-
-<h3 id="--소프트웨어-개발-보안-점검-항목">- 소프트웨어 개발 보안 점검 항목</h3>
-
-<ul>
-  <li>세션 통제
+  <li>스미싱(Smishing)
     <ul>
-      <li>세션의 연결과 연결로 인해 발생하는 정보를 관리하는 것</li>
-      <li>보안 약점에는 불충분한 세션 관리, 잘못된 세션에 의한 정보 노출 등</li>
+      <li>문자 메시지를 이용해 사용자의 개인 신용 정보를 빼내는 수법</li>
+      <li>개인 비밀정보나 소액 결제를 유도하는 형태</li>
+      <li>행사, 경품 등의 문자 메시지에 링크를 걸어 apk 파일을 설치하도록 유도</li>
     </ul>
   </li>
-  <li>입력 데이터 검증 및 표현
+  <li>스피어 피싱(Spear Phishing)
     <ul>
-      <li>입력 데이터에 대한 유효검 검증체계를 갖추고, 검증 실패 시 이를 처리할 수 있도록 코딩</li>
-      <li>보안 약점에는 SQL 삽입, 경로 조작 및 자원 삽입, 크로스사이트 스크립팅(XSS) 등</li>
+      <li>특정 대상을 선정한 후 일반적인 이메일을 가장하여 메일 지속적으로 발송</li>
+      <li>발송 메일의 본문 링크나 첨부된 파일을 클릭하도록 유도해 개인정보 탈취</li>
     </ul>
   </li>
-  <li>보안 기능
+  <li>APT(지능형 지속 위협)
     <ul>
-      <li>인증, 접근제어, 기밀성, 암호화 등의 기능을 의미</li>
-      <li>보안 약점에는 적절한 인증 없는 중요기능 허용, 부적절한 인가 등</li>
+      <li>조직적으로 침투해 거점을 마련하고 보안을 무력화시키고 정보를 수집해 외부로 빼돌림</li>
+      <li>악성코드가 포함된 이메일을 꾸준히 발송해 한번이라도 클릭되길 기다림</li>
+      <li>악성코드가 담긴 이동식 디스크 등으로 전파</li>
+      <li>악성코드에 감염된 P2P 사이트에 접속하면 악성코드에 감염되는 형태</li>
     </ul>
   </li>
-  <li>시간 및 상태
+  <li>무작위 대입 공격
     <ul>
-      <li>다수의 프로세스가 동작하는 환경에서 시간과 실행 상태를 관리하여 시스템이 원활히 동작되도록 코딩</li>
-      <li>보안 약점에는 검사 시점과 사용 시점(TOCTOU) 경쟁조건, 종료되지 않는 반복문 또는 재귀함수 등</li>
+      <li>암호화된 문서의 암호키를 찾아내기 위해 적용 가능한 모든 값을 대입하여 공격</li>
     </ul>
   </li>
-  <li>에러처리
+  <li>큐싱(Qshing)
     <ul>
-      <li>오류들을 사전에 정의하여 에러로 인해 발생할 수 있는 문제들을 예방</li>
-      <li>오류 메시지를 통한 정보 노출, 오류 상황 대응 부재 등</li>
+      <li>QR코드를 통해 악성 앱의 다운로드를 유도하는 금융사기 기법의 하나</li>
     </ul>
   </li>
-  <li>코드 오류
+  <li>SQL 삽입
     <ul>
-      <li>코딩 중 실수하기 쉬운 Type 변환, 자원의 반환 등을 고려하며 코딩</li>
-      <li>보안 약점에는 널 포인터 역참조, 부적절한 자원 해제 등</li>
+      <li>DB 등의 데이터를 조작하는 공격방식</li>
     </ul>
   </li>
-  <li>캡슐화
+  <li>크로스 사이트 스크립팅(XSS)
     <ul>
-      <li>데이터와 데이터를 처리하는 함수를 하나의 객체로 묶어 코딩하는 것</li>
-      <li>보안 약점에는 잘못된 세션에 의한 데이터 정보 노출, 제거되지 않고 남은 디버그 코드 등</li>
-    </ul>
-  </li>
-  <li>API 오용
-    <ul>
-      <li>API를 잘못 사용하거나 보안에 취약한 API를 사용하지 않도록 고려하여 코딩</li>
-      <li>보안 약점에는 DNS lookup에 의존한 보안결정, 취약한 API 사용</li>
+      <li>스크립트 취약점을 악용한 해킹 기법</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="--apiapplication-programming-interface">- API(Application Programming Interface)</h3>
+<h3 id="--정보-보안-침해-공격-관련-용어">- 정보 보안 침해 공격 관련 용어</h3>
 
 <ul>
-  <li>운영체제나 프로그래밍 언어 등에 있는 라이브러리를 이용할 수 있도록 규칙 등을 정의해 놓은 인터페이스</li>
-  <li>프로그래밍 언어에서 특정한 작업을 수행하기 위해 사용</li>
-  <li>운영체제의 파일 제어, 화상 처리, 문자 제어 등의 기능을 활용하기 위해 사용</li>
-  <li>개발에 필요한 여러 도구를 제공. 원하는 기능을 쉽고 효율적으로 구현 가능</li>
-  <li>공개된 API를 Open API라고 함</li>
+  <li>좀비PC
+    <ul>
+      <li>악성코드에 감염된 컴퓨터</li>
+      <li>C&amp;C 서버의 제어를 받아 주로 DDoS 공격 등에 이용</li>
+    </ul>
+  </li>
+  <li>C&amp;C 서버
+    <ul>
+      <li>감염된 좀비 PC에 명령을 내리고 악성코드를 제어하기 위한 용도로 사용되는 서버</li>
+    </ul>
+  </li>
+  <li>봇넷
+    <ul>
+      <li>악성 프로그램에 감염된 컴퓨터들이 네트워크로 연결된 형태</li>
+    </ul>
+  </li>
+  <li>웜
+    <ul>
+      <li>네트워크를 통해 자신을 복제하여 시스템의 부하를 높임</li>
+      <li>버퍼 오버플로 공격, 슬래퍼 등</li>
+    </ul>
+  </li>
+  <li>제로 데이 공격
+    <ul>
+      <li>공격의 신속성</li>
+    </ul>
+  </li>
+  <li>키로거 공격
+    <ul>
+      <li>키보드 움직임을 탐지해 중요한 정보를 몰래 빼가는 해킹 공격</li>
+    </ul>
+  </li>
+  <li>랜섬웨어
+    <ul>
+      <li>내부 문서나 파일 등을 암호화해 사용자가 열지 못하게 하는 프로그램. 금전 요구</li>
+    </ul>
+  </li>
+  <li>백도어
+    <ul>
+      <li>시스템 보안을 제거하여 만들어놓은 비밀 통로. 범죄에 악용</li>
+    </ul>
+  </li>
+  <li>트로이 목마
+    <ul>
+      <li>정상적인 기능을 하는 프로그램으로 위장하여 프로그램이 동작할 때 부작용 발생</li>
+      <li>자기복제 능력은 없음</li>
+    </ul>
+  </li>
 </ul>
 
 <p><br /></p>
 
-<h2 id="3-배치-프로그램--b">3. 배치 프로그램 – B</h2>
+<h2 id="2-서버-인증--b">2. 서버 인증 – B</h2>
 
-<h3 id="--배치-프로그램의-개요">- 배치 프로그램의 개요</h3>
+<h3 id="--보안-서버의-개념">- 보안 서버의 개념</h3>
 
 <ul>
-  <li>사용자와의 상호 작용 없이 여러 작업들을 미리 정해진 일련의 순서에 따라 일괄적으로 처리</li>
-  <li>정기 배치 : 정해진 기간에 정기적으로 수행</li>
-  <li>이벤트성 배치 : 조건이 충족될 때만 수행</li>
-  <li>On-Demand 배치 : 사용자 요청 시 수행</li>
-  <li>필수요소 : 대용량 데이터, 자동화, 견고성, 안정성/신뢰성, 성능</li>
+  <li>인터넷을 통해 개인정보를 암호화하여 송수신할 수 있는 기능을 갖춘 서버</li>
+  <li>서버에 SSL 인증서를 설치하여 전송 정보를 암호화하여 송수신하는 기능</li>
+  <li>암호화 응용 프로그램을 설치하고 전송 정보를 암호화하여 송수시하는 기능</li>
+  <li>스니핑 이용한 정보 유출, 피싱을 이용한 위조 사이트에 대비 위해 보안 서버 구축 필요</li>
 </ul>
 
-<h3 id="--배치-스케줄러">- 배치 스케줄러</h3>
+<h3 id="--인증의-개념">- 인증의 개념</h3>
 
 <ul>
-  <li>일괄 처리 작업이 설정된 주기에 맞춰 자동으로 수행되도록 지원해주는 도구</li>
-  <li>특정 업무를 원하는 시간에 처리할 수 있도록 지원. 잡스케줄러라고도 함</li>
-  <li>스프링 배치
+  <li>로그인을 요청한 사용자의 정보를 확인하고 접근 권한을 검증하는 보안 절차</li>
+  <li>인증의 주요 유형
     <ul>
-      <li>스프링이 가지고 있는 다양한 기능들을 모두 사용할 수 있음</li>
-      <li>DB나 파일의 데이터를 교환하는데 필요한 컴포넌트들을 제공</li>
-      <li>로그 관리, 추적, 트랜잭션 관리, 작업 처리 통계, 작업 재시작 등</li>
-      <li>구성 요소와 역할
-        <ul>
-          <li>Job : 수행할 작업 정의</li>
-          <li>Job Launcher : 실행을 위한 인터페이스</li>
-          <li>Step : Job 처리를 위한 제어 정보</li>
-          <li>Job Repository : Step의 제어 정보를 포함하여 작업 실행을 위한 모든 정보 저장</li>
-        </ul>
-      </li>
+      <li>지식 기반 인증</li>
+      <li>소유 기반 인증</li>
+      <li>생체 기반 인증</li>
+      <li>위치 기반 인증</li>
     </ul>
   </li>
-  <li>Quartz
+</ul>
+
+<h3 id="--지식-기반-인증">- 지식 기반 인증</h3>
+
+<ul>
+  <li>사용자가 기억하고 있는 정보를 기반으로 인증을 수행</li>
+  <li>사용자의 기억을 기반으로 하므로 관리 비용이 저렴</li>
+  <li>사용자가 인증 저오를 기억하지 못하면 본인이라도 인증 받지 못함</li>
+  <li>고정된 패스워드, 패스 프레이즈, 아이핀</li>
+</ul>
+
+<h3 id="--소유-기반-인증">- 소유 기반 인증</h3>
+
+<ul>
+  <li>사용자가 소유하고 있는 것을 기반으로 인증을 수행</li>
+  <li>소유물이 쉽게 도용될 수 있어 지식 기반 인증이나 생체 기반 인증과 함께 사용됨</li>
+  <li>신분증, 메모리 카드, 스마트 카드, OTP</li>
+</ul>
+
+<h3 id="--생체-기반-인증">- 생체 기반 인증</h3>
+
+<ul>
+  <li>사용자의 고유한 생체 정보를 기반으로 인증</li>
+  <li>사용이 쉽고 도난의 위험도 적으며 위조가 어려움</li>
+  <li>지문, 홍채/망막, 얼굴, 음성, 정맥 등</li>
+</ul>
+
+<h3 id="--기타-인증-기법">- 기타 인증 기법</h3>
+
+<ul>
+  <li>행위 기반 인증
     <ul>
-      <li>응용 프로그램들의 일괄 처리를 위한 다양한 기능 제공. 오픈 소스 라이브러리</li>
-      <li>요소들을 분리하여 일괄 처리 작업에 유연성 제공</li>
-      <li>구성 요소와 역할
-        <ul>
-          <li>Scheduler : 실행 환경 관리</li>
-          <li>Job : 수행할 작업 정의</li>
-          <li>JobDetail : Job의 상세 정보</li>
-          <li>Trigger : Job의 실행 스케줄 정의</li>
-        </ul>
-      </li>
+      <li>사용자의 행동 정보를 이용해 인증 수행</li>
+      <li>서명, 동작</li>
     </ul>
   </li>
+  <li>위치 기반 인증
+    <ul>
+      <li>인증을 시도하는 위치의 적절성 확인</li>
+      <li>콜백, GPS, IP주소</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-보안-솔루션--a">3. 보안 솔루션 – A</h2>
+
+<h3 id="--보안-솔루션의-개념">- 보안 솔루션의 개념</h3>
+
+<ul>
+  <li>접근 통제, 침입 차단 등을 수행하여 불법적인 침입을 막는 기술 및 시스템</li>
+</ul>
+
+<h3 id="--방화벽firewall">- 방화벽(Firewall)</h3>
+
+<ul>
+  <li>네트워크와 인터넷 간에 전송되는 정보를 선별하여 수용, 거부, 수정하는 기능을 가진 침입 차단 시스템</li>
+  <li>내부에서 외부 네트워크로 나가는 패킷은 그대로 통과</li>
+  <li>외부에서 내부 네트워크로 들어오는 패킷은 엄밀히 체크하여 인증된 패킷만 통과</li>
+  <li>외부로의 정보 유출을 막기 위해 사용</li>
+</ul>
+
+<h3 id="--침입-탐지-시스템ids-intrusion-detection-system">- 침입 탐지 시스템(IDS; Intrusion Detection System)</h3>
+
+<ul>
+  <li>컴퓨터 시스템의 비정상적인 사용 등을 실시간으로 탐지</li>
+  <li>내부 사용자의 불법적인 행동과 외부 해킹에 완벽하게 대처할 수 없음</li>
+  <li>해커 침입 패턴에 대한 추적과 유해 정보 감시 필요</li>
+  <li>오용 탐지
+    <ul>
+      <li>미리 입력해 둔 공격 패턴이 감지되면 이를 알려줌</li>
+    </ul>
+  </li>
+  <li>이상 탐지
+    <ul>
+      <li>평소를 기준으로 비정상적인 행위나 자원의 사용이 감지되면 알려줌</li>
+    </ul>
+  </li>
+  <li>침입 탐지 시스템의 위치
+    <ul>
+      <li>패킷이 라우터로 들어오기 전 : 네트워크에 시도되는 모든 공격 탐지</li>
+      <li>라우터 뒤 : 라우터에 의해 패킷 필터링을 통과한 공격을 탐지</li>
+      <li>방화벽 뒤 : 내부에서 외부로 향하는 공격을 탐지할 수 있음</li>
+    </ul>
+  </li>
+  <li>내부 네트워크
+    <ul>
+      <li>내부에서 내부 네트워크의 해킹 공격을 탐지할 수 있음</li>
+    </ul>
+  </li>
+  <li>DMZ
+    <ul>
+      <li>외부 공격이나 내부 공격으로부터 중요 데이터를 보호하거나 서버의 서비스르 중단을 방지 할 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--침입-방지-시스템ips-intrusion-prevention-system">- 침입 방지 시스템(IPS; Intrusion Prevention System)</h3>
+
+<ul>
+  <li>방화벽 + IDS</li>
+  <li>비정상적인 트래픽을 능동적으로 차단하고 격리</li>
+  <li>비정상적인 패킷이 탐지되면 방화벽 기능으로 해당 패킷을 차단</li>
+</ul>
+
+<h3 id="--데이터-유출-방지dlp-data-leakageloss-prevention">- 데이터 유출 방지(DLP; Data Leakage/Loss Prevention)</h3>
+
+<ul>
+  <li>내부 정보의 외부 유출을 방지하는 보안 솔루션</li>
+  <li>사용자 행위를 탐지, 통제해 외부로의 유출을 사전에 막음</li>
+</ul>
+
+<h3 id="--웹-방화벽web-firewall">- 웹 방화벽(Web Firewall)</h3>
+
+<ul>
+  <li>일반 방화벽이 탐지하지 못하는 SQL 삽입 공격, XSS 등의 웹 기반 공격을 방어</li>
+</ul>
+
+<h3 id="--vpn가상-사설-통신망">- VPN(가상 사설 통신망)</h3>
+
+<ul>
+  <li>사용자가 마치 자신의 전용 회선을 사용하는 것처럼 해주는 보안 솔루션</li>
+  <li>비용 부담을 줄일 뿐만 아니라 지역적인 제한 없이 업무 수행 가능</li>
+</ul>
+
+<h3 id="--nacnetwork-access-control">- NAC(Network Access Control)</h3>
+
+<ul>
+  <li>네트워크에 접속하는 내부 PC의 MAC 주소를 IP 관리 시스템에 등록한 후 일괄된 보안 관리 기능을 제공하는 보안 솔루션</li>
+  <li>내부 PC의 S/W 사용 현황을 관리하여 불법적인 S/W 설치 방지</li>
+  <li>일괄적인 배포 관리 기능을 이용해 백신이나 보안 패치 등의 설치 및 업그레이드 수행</li>
+  <li>비인가된 시스템을 자동으로 검출하여 자산을 관리</li>
+</ul>
+
+<h3 id="--esmenterprise-security-management">- ESM(Enterprise Security Management)</h3>
+
+<ul>
+  <li>다양한 장비에서 발생하는 로그 및 보안 이벤트를 통합하여 관리하는 보안 솔루션</li>
+  <li>비용 및 자원 절약</li>
+  <li>종합적인 보안 관리 체계 수립</li>
 </ul>
 
         
@@ -842,7 +937,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-01">August 1, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-04">August 4, 2021</time></p>
 
       </footer>
 
@@ -851,11 +946,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+4-1.+%EC%84%9C%EB%B2%84+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8+%EA%B5%AC%ED%98%84%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp15%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+5-4.+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EB%B3%B4%EC%95%88+%EA%B5%AC%EC%B6%95%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp21%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp15%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp21%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp15%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp21%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -870,24 +965,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <nav class="pagination_prev_next">
   
-  <a href="/jckp/etc-jckp14/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 3-5. 데이터 전환</a>
+  <a href="/jckp/etc-jckp20/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축</a>
   
   
-  <a href="/jckp/etc-jckp16/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[정보처리기사 필기] 4-2. 프로그래밍 언어 활용</a>
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
   
 </nav>
 
@@ -1004,40 +1087,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp21/" rel="permalink">[정보처리기사 필기] 5-4. 시스템 보안 구축
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.04
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
-    
-    
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 4장
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
       <a href="/jckp/etc-jckp20/" rel="permalink">[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축
 </a>
       
@@ -1059,6 +1108,40 @@
 </span>
     </small>
     <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 3장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jckp/etc-jckp19/" rel="permalink">[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.03
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jckp"
+      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+    
+    
+    <a href="/tags/#jckp"
+      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 2장
 </p>
   </article>
 </div>
@@ -1147,8 +1230,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp15/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/jckp/etc-jckp15"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp21/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/jckp/etc-jckp21"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

@@ -31,7 +31,7 @@
                         <li><a href="/categories/javascript" class="">Javascript ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>
+            </ul>          
 
       <!--Programming-->  
         <span class="nav__sub-title">Programming</span>

@@ -6,8 +6,9 @@ categories:
 tags:
 - - Javascript
   - Node.js
-  - NVM
   - NPM
+  - Parcel
+  - Lodash
   - Web
 toc: true
 toc_sticky: true

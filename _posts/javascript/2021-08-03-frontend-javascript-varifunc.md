@@ -278,6 +278,38 @@ double();  // 10
 
 <br>
 
+### - 호이스팅(Hoisting)
+
+```javascript
+// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+
+const a = 5;
+
+double();  // TypeError: double is not a function
+
+const double = function () {
+  console.log(a * 2);
+}
+```
+
+
+<br>
+
+```javascript
+// 호이스팅 발생
+
+const a = 5;
+
+double();  // 10
+
+function double() {
+  console.log(a * 2);
+}
+```
+
+
+<br>
+
 ## 3. 예약어
 
 - 특별한 의미를 가지고 있어, 변수나 함수 이름 등으로 사용할 수 없는 단어

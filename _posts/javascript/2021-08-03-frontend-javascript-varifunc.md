@@ -229,6 +229,55 @@ console.log(lww.getName());  // LWW
 
 <br>
 
+### - 화살표 함수
+
+```javascript
+// () => {}  vs  function () {}
+
+//기존 함수
+const double = function (x) {
+  return x * 2;
+}
+console.log('double: ', double(7));  // double: 14
+
+// 화살표 함수
+const doubleArrow = x => x * 2;  // 축약 가능
+console.log('doubleArrow', doubleArrow(7));  // doubleArrow 14
+
+// 화살표 함수가 객체 데이터를 return 할 때
+const doubleArrow = x => ({ name: 'LWW' })
+console.log('doubleArrow', doubleArrow(7))  // {name: "LWW"}
+```
+
+
+<br>
+
+### - 즉시 실행 함수(IIFE)
+
+```javascript
+// 한번 사용하고 쓸일이 없는 함수의 경우 이름을 지정해 줄 필요가 없음
+// 함수를 만들자마자 바로 동작 실행
+
+const a = 5;
+function double() {
+  console.log(a * 2);
+}
+double();  // 10
+
+// IIFE
+(function () {
+  console.log(a * 2)
+})();  // 10
+
+// IIFE(더 권장되는 방법)
+(function () {
+  console.log(a * 2)
+}());  // 10
+```
+
+
+<br>
+
 ## 3. 예약어
 
 - 특별한 의미를 가지고 있어, 변수나 함수 이름 등으로 사용할 수 없는 단어

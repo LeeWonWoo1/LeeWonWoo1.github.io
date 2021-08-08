@@ -310,6 +310,63 @@ function double() {
 
 <br>
 
+### - 타이머 함수
+
+- setTimeout(함수, 시간) : 일정 시간 후 함수 실행
+- setInterval(함수, 시간) : 시간 간격마다 함수 실행
+- clearTimeout() : 설정된 Timeout 함수를 종료
+- clearInterval() : 설정된 Interval 함수를 종료
+
+```javascript
+// setTimeout
+
+setTimeout(function () {
+  console.log('LWW!');  // 2초 뒤 LWW!
+}, 2000);
+
+// 화살표 함수
+setTimeout(() => {
+  console.log('LWW!'); // 2초 뒤 LWW!
+}, 2000);
+```
+
+
+<br>
+
+```javascript
+// clearTimeout
+
+// h1 태그를 클릭하면 timer함수를 종료
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+  clearTimeout(timer);
+});
+```
+
+
+<br>
+
+```javascript
+// setInterval
+
+const timer = setInterval(() => {
+  console.log('LWW!');  // 2초에 한번 LWW!
+}, 2000);
+```
+
+
+<br>
+
+```javascript
+// clearInterval
+
+// h1 태그를 클릭하면 interval함수를 종료
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+  clearTimeout(timer);
+});
+```
+
 ## 3. 예약어
 
 - 특별한 의미를 가지고 있어, 변수나 함수 이름 등으로 사용할 수 없는 단어

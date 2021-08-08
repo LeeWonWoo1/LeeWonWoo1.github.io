@@ -17,11 +17,11 @@ last_modified_at: 2021-08-08T21:00:00
 ## 1. 산술 연산자
 
 ```javascript
-console.log(1 + 2)  // 3
-console.log(5 - 7)  // -2
-console.log(3 * 4)  // 12
-console.log(10 / 2)  // 5
-console.log(7 % 5)  // 2
+console.log(1 + 2);  // 3
+console.log(5 - 7);  // -2
+console.log(3 * 4);  // 12
+console.log(10 / 2);  // 5
+console.log(7 % 5);  // 2
 ```
 
 
@@ -30,9 +30,9 @@ console.log(7 % 5)  // 2
 ## 2. 할당 연산자
 
 ```javascript
-let a = 2
-a += 1  // a = a + 1
-console.log(a)  // 3
+let a = 2;
+a += 1;  // a = a + 1
+console.log(a);  // 3
 ```
 
 
@@ -66,5 +66,19 @@ a || b  // a or b
 ## 5. 삼항 연산자
 
 ```javascript
-console.log(a ? '참' : '거짓')  // true면 앞, false면 뒤
+console.log(a ? '참' : '거짓');  // true면 앞, false면 뒤
+```
+
+
+<br>
+
+## 6. 동등 연산자
+
+- 대부분의 경우 비교 연산자 '===' 을 사용
+
+```javascript
+const a = 1;
+const b = '1';
+
+console.log(a == b);  // true
 ```

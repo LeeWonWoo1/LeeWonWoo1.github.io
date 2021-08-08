@@ -18,6 +18,9 @@ last_modified_at: 2021-08-03T01:00:00
 
 - 조건의 결과에 따라 다른 코드를 실행하는 구문
 
+
+### - if문
+
 ```javascript
 let isShow = true;
 let checked = false;
@@ -33,6 +36,9 @@ if (checked) {
 
 <br>
 
+
+### - if else 문
+
 ```javascript
 let isShow = true;
 
@@ -40,6 +46,39 @@ if (isShow) {
   console.log('Show');  // Show
 } else {
   console.log('Hide');
+}
+```
+
+
+<br>
+
+### - else if 문
+
+```javascript
+if (a === 0) {
+  console.log('a is 0');
+} else if (a === 2) {
+  console.log('a is 2');
+} else {
+  console.log('rest . . . ')
+}
+```
+
+
+<br>
+
+### - switch 문
+
+```javascript
+switch (a) {
+  case 0 :
+    console.log('a is 0');
+    break;
+  case 2 :
+    console.log('a is 2');
+    break;
+  default :
+    console.log('rest . . . ')
 }
 ```
 

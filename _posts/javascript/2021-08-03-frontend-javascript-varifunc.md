@@ -363,9 +363,45 @@ const timer = setInterval(() => {
 // h1 태그를 클릭하면 interval함수를 종료
 const h1El = document.querySelector('h1')
 h1El.addEventListener('click', () => {
-  clearTimeout(timer);
+  clearInterval(timer);
 });
 ```
+
+
+<br>
+
+### - 콜백(Callback)
+
+```javascript
+// 콜백 : 함수의 인수로 사용되는 함수
+// 특정한 실행 위치를 보장해주기 위한 방법
+
+function timeout() {
+  setTimeout(() => {
+    console.log('LWW!'); // LWW! 2초뒤에 출력
+  }, 2000);
+}
+timeout();
+console.log('Done!'); // Done!이 먼저 출력
+```
+
+
+<br>
+
+```javascript
+function timeout(cb) {
+  setTimeout(() => {
+    console.log('LWW!');  // LWW! 먼저 출력
+    cb();  // 내가 실행을 보장하고 싶은 장소
+  }, 2000);
+}
+timeout(() => {
+  console.log('Done!');  // LWW!가 실행되고 Done! 출력
+});
+```
+
+
+<br>
 
 ## 3. 예약어
 

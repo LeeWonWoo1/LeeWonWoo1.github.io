@@ -59,6 +59,97 @@ console.log(a);  // TypeError: Assignment to constant variable
 
 <br>
 
+### - 변수 유효범위
+
+let, const : 블록 레벨의 유효범위
+var : 함수 레벨의 유효범위
+
+```javascript
+// const, let
+function scope() {
+  if (true) {
+    const a = 123;
+    console.log(a);  // 블록 내부
+  }
+}
+scope();  // 123;
+
+// const, let
+function scope() {
+  if (true) {
+    console.log(a);  // 블록 내부
+    const a = 123;
+  }
+}
+scope();  // undefined
+
+// const, let
+function scope() {
+  if (true) {
+    const a = 123;
+  }
+  console.log(a);  // 함수 내부
+}
+scope();  // ReferenceError: a is not defined
+
+// const, let
+function scope() {
+  console.log(a);  // 함수 내부
+  if (true) {
+    const a = 123;
+  }
+}
+scope();  // ReferenceError: a is not defined
+```
+
+
+<br>
+
+```javascript
+// var
+function scope() {
+  if (true) {
+    const a = 123;
+    console.log(a);  // 블록 내부
+  }
+}
+scope();  // 123
+
+// var
+function scope() {
+  if (true) {
+    console.log(a);  // 블록 내부
+    const a = 123;
+  }
+}
+scope();  // undefined
+
+// var
+function scope() {
+  if (true) {
+    const a = 123;
+  }
+  console.log(a);  // 함수 내부
+}
+scope();  // 123
+
+// var
+function scope() {
+  console.log(a);  // 함수 내부
+  if (true) {
+    const a = 123;
+  }
+}
+scope();  // undefined
+```
+
+- var은 의도하지 않은 범위에서 변수가 사용될 수 있음
+- 그만큼 메모리를 차지하고, 결국 개발자가 확인하지 못하는 메모리 누수로 발전할 수 있음
+- 즉 let과 const를 사용해 블록레벨의 유효범위를 만들어 주는 것이 관리하기 효과적
+
+
+<br>
+
 ## 2. 함수
 
 - 특정 동작을 수행하는 일부 코드의 집합

@@ -75,10 +75,12 @@ console.log(a ? '참' : '거짓');  // true면 앞, false면 뒤
 ## 6. 동등 연산자
 
 - 대부분의 경우 비교 연산자 '===' 을 사용
+- 서로 다른 값이 의도하지 않게 '같다'라고 출력되는 것을 방지
 
 ```javascript
 const a = 1;
 const b = '1';
 
+console.log(a === b);  // false
 console.log(a == b);  // true
 ```

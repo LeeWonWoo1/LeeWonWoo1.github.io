@@ -26,6 +26,7 @@ function User(first, last) {
 }
 
 // 객체가 여러개 생기더라도 getFullName 함수는 메모리에 1번만 만들어짐
+// constructor와 __proto__ 속성을 가짐
 User.prototype.getFullName = function () {
   return `${this.firstName} ${this.lastName}`
 }

@@ -61,8 +61,8 @@ console.log(a);  // TypeError: Assignment to constant variable
 
 ### - 변수 유효범위
 
-let, const : 블록 레벨의 유효범위
-var : 함수 레벨의 유효범위
+- let, const : 블록 레벨의 유효범위
+- var : 함수 레벨의 유효범위
 
 ```javascript
 // const, let

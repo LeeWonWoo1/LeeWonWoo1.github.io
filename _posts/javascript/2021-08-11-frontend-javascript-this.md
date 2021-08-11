@@ -36,7 +36,6 @@ ww.normal()  // WW
 ww.arrow()  // Undefined
 ```
 
-
 <br>
 
 ```javascript
@@ -49,7 +48,6 @@ const kim = {
 kim.normal()  // Kim
 kim.arrow()  // Undefined
 ```
-
 
 <br>
 
@@ -70,7 +68,6 @@ ww.normal()  // WW
 ww.arrow()  // undefined
 ```
 
-
 <br>
 
 - setTimeout나 setInterval 함수를 사용할 때는 콜백으로 일반함수보다 화살표 함수를 쓰는 것이 활용도가 높음
@@ -86,7 +83,6 @@ const timer = {
 }
 timer.timeout()  // 2초 뒤 undefined
 ```
-
 
 <br>
 

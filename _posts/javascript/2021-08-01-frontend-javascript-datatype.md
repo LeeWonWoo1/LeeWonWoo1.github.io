@@ -27,7 +27,6 @@ console.log(email);  // plmplmdnjsdn@naver.com
 console.log(hello);  // Hello LWW!
 ```
 
-
 <br>
 
 ### - String 메서드
@@ -48,29 +47,29 @@ console.log(result2)  // -1
 const str = 'Hello world!!'
 console.log(str.indexOf('king') !== -1)  // false
 
-// length -> 문자열의 길이 반환
+// .length -> 문자열의 길이 반환
 const str = '0123'
 console.log(str.length)  // 4
 console.log('0123'length)  // 4
 
-// slice(x, y) -> 문자열을 인덱스 x부터 y-1까지 추출
+// .slice(x, y) -> 문자열을 인덱스 x부터 y-1까지 추출
 const str = 'Hello world!'
 console.log(str.slice(0, 3))  // Hel
 console.log(str.slice(6, 11))  // world
 
-// replace() -> 문자열 치환
+// .replace() -> 문자열 치환
 const str = 'Hello world!'
 console.log(str.replace('world', 'LWW'))  // Hell LWW!
 
 const str = 'Hello world!'
 console.log(str.replace(' world!', ''))  // Hello
 
-// match() -> 정규표현식을 통해 특정한 문자를 match. 배열데이터로 반환
+// .match() -> 정규표현식을 통해 특정한 문자를 match. 배열데이터로 반환
 const str = 'emailaddress@gmail.com'
 // 정규표현식
 console.log(str.match(/.+(?=@)/)[0])  // emailaddress
 
-// trim() -> 문자데이터의 앞뒤의 모든 공백문자 제거
+// .trim() -> 문자데이터의 앞뒤의 모든 공백문자 제거
 const str = '      Hello world     '
 console.log(str.trim())  // Hello world
 ```
@@ -88,7 +87,6 @@ let opacity = 1.57;
 console.log(number);  // 123
 console.log(opacity);  // 1.57
 ```
-
 
 <br>
 
@@ -209,4 +207,87 @@ let animals = ['Cat', 'Dog', 'Tiger'];
 console.log(animals[0]);  // 'Cat'
 console.log(animals[1]);  // 'Dog'
 console.log(animals[2]);  // 'Tiger'
+```
+
+<br>
+
+### - Array indexing
+
+자세한 내용은 array mdn 검색
+{: .notice--info}
+
+```javascript
+// 각각의 요소는 element(요소), item이라고 부름
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+console.log(numbers[1])  // 2
+console.log(fruits[2])  // 'Tiger'
+```
+
+<br>
+
+### - Array 메서드
+
+```javascript
+// .length -> 배열의 길이 반환
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+console.log(numbers.length)  // 4
+console.log(animals.length)  // 3
+console.log([1, 2].length)  // 2
+console.log([].length)  // 0
+
+// .concat() -> 두 개의 배열 데이터를 병합해서 새로운 배열 데이터 반환
+// 원본 데이터는 변하지 않음
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+console.log(numbers.concat(animals))  // 0: 1
+                                      // 1: 2
+                                      // 2: 3
+                                      // ....
+                                      // 5: "Dog"
+                                      // 6: "Tiger"
+console.log(numbers)  // (4) [1, 2, 3, 4]
+console.log(animals)  // (3) ["Cat", "Dog", "Tiger"]
+
+// .forEach() -> 배열의 item 개수만큼 인수로 사용된 콜백함수가 반복적으로 실행
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+animals.forEach(function (animal, i) {
+  console.log(animal, i)  // Cat 0 (3) ["Cat", "Dog", "Tiger"]
+})                        // Dog 1 (3) ["Cat", "Dog", "Tiger"]
+                          // Tiger 2 (3) ["Cat", "Dog", "Tiger"]
+
+// .map() -> 콜백에서 반환된 특정한 데이터를 기준으로 해서 새로운 배열 반환
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+const a = animals.forEach(function (animal, index) {
+  console.log(`${animal}-${i}`) // Cat-0
+})                              // Dog-1
+                                // Tiger-2
+console.log(a)  // Undefined, 반환값 없음
+
+const b = animals.map(function (animal, index) {
+  return `${animal}-${i}`
+})
+console.log(b) // (3) ["Cat-0", "Dog-1", "Tiger-2"]
+
+const c = animals.map(function (animal, index) {
+  return {
+    id: index,
+    name: animal
+  }
+})
+console.log(c)  // (3) [{...}, {...}, {...}]
+
+const d = animals.map((animal, index) => ({
+  id: index,
+  name: animal
+}))
+console.log(d)  // (3) [{...}, {...}, {...}]
 ```

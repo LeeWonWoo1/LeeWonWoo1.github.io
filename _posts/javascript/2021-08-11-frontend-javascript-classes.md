@@ -1,6 +1,6 @@
 ---
 title: "[Javascript] ES6 Classes"
-excerpt: ES6 Classes
+excerpt: ES6 Classes, 클래스 상속
 categories:
 - Javascript
 tags:
@@ -73,4 +73,44 @@ class User {
     return `${this.firstName} ${this.lastName}`
   }
 }
+```
+
+
+<br>
+
+## 3. 상속(확장)
+
+```javascript
+class Vehicle {
+  constructor(name, wheel) {
+    this.name = name
+    this.wheel = wheel
+  }
+}
+
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
+
+// 상속(확장)
+class Bicycle extends Vehicle {
+  constructor(name, wheel) {
+    // super : 부모 클래스의 인스턴스를 참조
+    super(name, wheel)
+  }
+}
+
+const myBicycle = new Bicycle('삼천리', 2)
+const sonsBicycle = new Bicycle('세발', 3)
+console.log(myBicycle)
+console.log(sonsBicycle)
+
+class Car extends Vehicle {
+  constructor(name, wheel, license) {
+    super(name, wheel)
+    this.license = license
+  }
+}
+
+const myCar = new Car('벤츠', 4, true)
+console.log(myCar)
 ```

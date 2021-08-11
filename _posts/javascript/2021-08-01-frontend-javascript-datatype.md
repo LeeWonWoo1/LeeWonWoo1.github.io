@@ -92,6 +92,55 @@ console.log(opacity);  // 1.57
 
 <br>
 
+### - 숫자와 수학
+
+자세한 내용은 math mdn 검색
+{: .notice--info}
+
+```javascript
+const pi = 3.14159265358979
+console.log(pi)  // 3.14159265358979
+
+const str = pi.toFixed(2)
+console.log(str)  // 3.14
+console.log(typeof str)  // string
+
+const integer = parseInt(str)
+const float = parseFloat(str)
+console.log(integer)  // 3
+console.log(float)  // 3.14
+console.log(typeof integer, typeof float)  // number number
+```
+
+
+<br>
+
+```javascript
+// Math.abs() -> 절대값 반환
+console.log('abs: ', Math.abs(-12))  // abs: 12
+
+// Math.min() -> 최소값 반환
+console.log('min: ', Math.min(2, 8))  // min: 2
+
+// Math.max() -> 최대값 반환
+console.log('max: ', Math.max(2, 8))  // max: 8
+
+// Math.ceil() -> 올림
+console.log('ceil: ', Math.ceil(3.14))  // ceil: 4
+
+// Math.floor() -> 내림
+console.log('floor: ', Math.floor(3.14))  // floor: 3
+
+// Math.round() -> 반올림
+console.log('round: ', Math.round(3.5))  // round: 4
+
+// Math.random() -> 난수
+console.log('random: ',Math.random())  // random: 0~1사이의 난수
+```
+
+
+<br>
+
 ## 3. Boolean
 
 ```javascript

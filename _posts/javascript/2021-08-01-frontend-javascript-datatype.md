@@ -206,6 +206,51 @@ console.log(user.age);  // 50
 console.log(user.isValid);  // true
 ```
 
+<br>
+
+### - Object 메서드
+
+자세한 내용은 object mdn 검색
+{: .notice--info}
+
+```javascript
+// .assign(x, y) -> x 객체 데이터에 y 객체 데이터를 합침
+// static 메서드
+const userAge = {
+  // key: value
+  name: 'LWW',
+  age: 45
+}
+const userEmail = {
+  name: 'LWW',
+  email: 'abcdefg@gmail.com'
+}
+
+// 프로토타입으로 만들어진 메서드가 아니기 때문에 객체 데이터 자체에는 사용 불가
+// ex) userAge.assign와 같은 식으로 사용불가
+const target = Object.assign(userAge, userEmail)
+console.log(target)  // {name: "LWW", age: 45, email: "abcdefg@gmail.com"}
+console.log(userAge)  // {name: "LWW", age: 45, email: "abcdefg@gmail.com"}
+console.log(target === userAge)  // true
+
+// 서로 다른 메모리 주소를 가리키고 있음
+const a = {k: 123}
+const b = {k: 123}
+console.log(a === b)  // false
+
+// 원본 데이터 손상 안주는 방법
+const target = Object.assign({}, userAge, userEmail)
+console.log(target)  // {name: "LWW", age: 45, email: "abcdefg@gmail.com"}
+console.log(userAge)  // {name: "LWW", age: 45}
+console.log(target === userAge)  // false
+
+// 복사본 만들기
+const target = Object.assign({}, userAge)
+console.log(target)  // {name: "LWW", age: 45}
+console.log(userAge)  // {name: "LWW", age: 45}
+console.log(target === userAge)  // false
+```
+
 
 <br>
 
@@ -308,7 +353,6 @@ console.log(d)  // (3) [{...}, {...}, {...}]
 
 // .filter() -> 콜백 함수에서 반환된 값이 true인 경우에만 새로운 배열로 반환
 const numbers = [1, 2, 3, 4]
-const animals = ['Cat', 'Dog', 'Tiger']
 
 const a = numbers.map(number => number < 3)
 console.log(a)  // (4) [true, true, false, false]
@@ -320,7 +364,6 @@ console.log(numbers)  // (4) [1, 2, 3, 4]
 
 // .find() -> 내가 원하는 특정한 데이터를 찾음
 // 아이템을 찾으면 반복 종료
-const numbers = [1, 2, 3, 4]
 const animals = ['Cat', 'Dog', 'Tiger']
 
 const a = animals.find(animal => /^D/.test(animal))
@@ -330,7 +373,6 @@ console.log(b)  // Tiger
 
 
 // .findIndex() -> 내가 원하는 특정한 데이터의 인덱스를 찾음
-const numbers = [1, 2, 3, 4]
 const animals = ['Cat', 'Dog', 'Tiger']
 
 const a = animals.findIndex(animal => /^D/.test(animal))
@@ -344,7 +386,7 @@ const animals = ['Cat', 'Dog', 'Tiger']
 const a = numbers.includes(3)
 console.log(a)  // true
 
-const b = numbers.includes('LWW')
+const b = animals.includes('LWW')
 console.log(b)  // false
 
 
@@ -352,10 +394,40 @@ console.log(b)  // false
 // .unshift() -> 배열의 가장 앞쪽에 새로운 데이터 삽입
 // 원본 수정됨 주의!
 const numbers = [1, 2, 3, 4]
-const animals = ['Cat', 'Dog', 'Tiger']
 
 numbers.push(5)
 console.log(numbers)  // (5) [1, 2, 3, 4, 5]
 numbers.unshift(0)
 console.log(numbers)  // (6) [0, 1, 2, 3, 4, 5]
+
+
+// .reverse() -> 배열의 요소 순서를 뒤집음
+// 원본 수정됨 주의!
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+numbers.reverse()
+animals.reverse()
+
+console.log(numbers)  // (4) [4, 3, 2, 1]
+console.log(animals)  // (3) ["tiger", "Dog", "Cat"]
+
+
+// .splice(x, y) -> 인덱스 x에서 y개의 배열 요소를 삭제
+// 원본 수정됨 주의!
+// 어떤 자리에 새로운 요소를 끼워 넣는 용도로도 사용
+const numbers = [1, 2, 3, 4]
+
+numbers.splice(2, 2)
+console.log(numbers)  // (3) [1, 2]
+
+const numbers = [1, 2, 3, 4]
+
+numbers.splice(2, 0, 999)
+console.log(numbers)  // (5) [1, 2, 999, 3, 4]
+
+const animals = ['Cat', 'Dog', 'Tiger']
+
+animals.splice(2, 1, 'Lion')
+console.log(animals)  // (3) ["Cat", "Lion", "Tiger"]
 ```

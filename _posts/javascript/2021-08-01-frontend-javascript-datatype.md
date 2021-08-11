@@ -47,15 +47,18 @@ console.log(result2)  // -1
 const str = 'Hello world!!'
 console.log(str.indexOf('king') !== -1)  // false
 
+
 // .length -> 문자열의 길이 반환
 const str = '0123'
 console.log(str.length)  // 4
 console.log('0123'length)  // 4
 
+
 // .slice(x, y) -> 문자열을 인덱스 x부터 y-1까지 추출
 const str = 'Hello world!'
 console.log(str.slice(0, 3))  // Hel
 console.log(str.slice(6, 11))  // world
+
 
 // .replace() -> 문자열 치환
 const str = 'Hello world!'
@@ -64,10 +67,12 @@ console.log(str.replace('world', 'LWW'))  // Hell LWW!
 const str = 'Hello world!'
 console.log(str.replace(' world!', ''))  // Hello
 
+
 // .match() -> 정규표현식을 통해 특정한 문자를 match. 배열데이터로 반환
 const str = 'emailaddress@gmail.com'
 // 정규표현식
 console.log(str.match(/.+(?=@)/)[0])  // emailaddress
+
 
 // .trim() -> 문자데이터의 앞뒤의 모든 공백문자 제거
 const str = '      Hello world     '
@@ -117,20 +122,26 @@ console.log(typeof integer, typeof float)  // number number
 // Math.abs() -> 절대값 반환
 console.log('abs: ', Math.abs(-12))  // abs: 12
 
+
 // Math.min() -> 최소값 반환
 console.log('min: ', Math.min(2, 8))  // min: 2
+
 
 // Math.max() -> 최대값 반환
 console.log('max: ', Math.max(2, 8))  // max: 8
 
+
 // Math.ceil() -> 올림
 console.log('ceil: ', Math.ceil(3.14))  // ceil: 4
+
 
 // Math.floor() -> 내림
 console.log('floor: ', Math.floor(3.14))  // floor: 3
 
+
 // Math.round() -> 반올림
 console.log('round: ', Math.round(3.5))  // round: 4
+
 
 // Math.random() -> 난수
 console.log('random: ',Math.random())  // random: 0~1사이의 난수
@@ -239,6 +250,7 @@ console.log(animals.length)  // 3
 console.log([1, 2].length)  // 2
 console.log([].length)  // 0
 
+
 // .concat() -> 두 개의 배열 데이터를 병합해서 새로운 배열 데이터 반환
 // 원본 데이터는 변하지 않음
 const numbers = [1, 2, 3, 4]
@@ -253,6 +265,7 @@ console.log(numbers.concat(animals))  // 0: 1
 console.log(numbers)  // (4) [1, 2, 3, 4]
 console.log(animals)  // (3) ["Cat", "Dog", "Tiger"]
 
+
 // .forEach() -> 배열의 item 개수만큼 인수로 사용된 콜백함수가 반복적으로 실행
 const numbers = [1, 2, 3, 4]
 const animals = ['Cat', 'Dog', 'Tiger']
@@ -261,6 +274,7 @@ animals.forEach(function (animal, i) {
   console.log(animal, i)  // Cat 0 (3) ["Cat", "Dog", "Tiger"]
 })                        // Dog 1 (3) ["Cat", "Dog", "Tiger"]
                           // Tiger 2 (3) ["Cat", "Dog", "Tiger"]
+
 
 // .map() -> 콜백에서 반환된 특정한 데이터를 기준으로 해서 새로운 배열 반환
 const numbers = [1, 2, 3, 4]
@@ -290,4 +304,58 @@ const d = animals.map((animal, index) => ({
   name: animal
 }))
 console.log(d)  // (3) [{...}, {...}, {...}]
+
+
+// .filter() -> 콜백 함수에서 반환된 값이 true인 경우에만 새로운 배열로 반환
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+const a = numbers.map(number => number < 3)
+console.log(a)  // (4) [true, true, false, false]
+
+const b = numbers.filter(number => number < 3)
+console.log(b)  // (2) [1, 2]
+console.log(numbers)  // (4) [1, 2, 3, 4]
+
+
+// .find() -> 내가 원하는 특정한 데이터를 찾음
+// 아이템을 찾으면 반복 종료
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+const a = animals.find(animal => /^D/.test(animal))
+const b = animals.find(animal => /^T/.test(animal))
+console.log(a)  // Dog
+console.log(b)  // Tiger
+
+
+// .findIndex() -> 내가 원하는 특정한 데이터의 인덱스를 찾음
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+const a = animals.findIndex(animal => /^D/.test(animal))
+console.log(a)  // 1
+
+
+// .includes() -> 배열의 인수로 사용된 특정한 데이터가 포함되어 있는지 확인
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+const a = numbers.includes(3)
+console.log(a)  // true
+
+const b = numbers.includes('LWW')
+console.log(b)  // false
+
+
+// .push() -> 배열의 가장 뒤쪽에 새로운 데이터 삽입
+// .unshift() -> 배열의 가장 앞쪽에 새로운 데이터 삽입
+// 원본 수정됨 주의!
+const numbers = [1, 2, 3, 4]
+const animals = ['Cat', 'Dog', 'Tiger']
+
+numbers.push(5)
+console.log(numbers)  // (5) [1, 2, 3, 4, 5]
+numbers.unshift(0)
+console.log(numbers)  // (6) [0, 1, 2, 3, 4, 5]
 ```

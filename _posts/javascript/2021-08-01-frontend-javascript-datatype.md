@@ -214,7 +214,7 @@ console.log(user.isValid);  // true
 {: .notice--info}
 
 ```javascript
-// .assign(x, y) -> x 객체 데이터에 y 객체 데이터를 합침
+// Object.assign(x, y) -> x 객체 데이터에 y 객체 데이터를 합침
 // static 메서드
 const userAge = {
   // key: value
@@ -249,6 +249,22 @@ const target = Object.assign({}, userAge)
 console.log(target)  // {name: "LWW", age: 45}
 console.log(userAge)  // {name: "LWW", age: 45}
 console.log(target === userAge)  // false
+
+
+// Object.keys() -> 객체 데이터의 key를 추출하여 새로운 배열로 만듬
+const user = {
+  name: 'LWW',
+  age: 45,
+  email: 'abcdefg@gmail.com'
+}
+
+const keys = Object.keys(user)
+console.log(keys)  // (3) ["name", "age", "email"]
+
+console.log(user['emails'])  // abcdefg@gmail.com
+
+const values = keys.map(key => user[key])
+console.log(values)  // (3) ["LWW", 45, "abcdefg@gmail.com"]
 ```
 
 

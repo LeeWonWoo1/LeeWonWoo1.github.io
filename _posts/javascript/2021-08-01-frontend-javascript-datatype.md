@@ -30,6 +30,54 @@ console.log(hello);  // Hello LWW!
 
 <br>
 
+### - String 메서드
+
+자세한 내용은 string mdn 검색
+{: .notice--info}
+
+- 기호를 통해서 데이터를 손쉽게 선언하는 방식을 **_리터럴 방식_**이라고 함
+- 리터럴 방식이 아니면 new라는 키워드를 사용해야 함
+
+```javascript
+// String.prototype.indexOf() -> 찾으려는 문자의 첫 번째 등장 index, 없으면 -1
+const result1 = 'Hello world!!'.indexOf('world')
+const result2 = 'Hello world!!'.indexOf('king')
+console.log(result1)  // 6
+console.log(result2)  // -1
+
+const str = 'Hello world!!'
+console.log(str.indexOf('king') !== -1)  // false
+
+// length -> 문자열의 길이 반환
+const str = '0123'
+console.log(str.length)  // 4
+console.log('0123'length)  // 4
+
+// slice(x, y) -> 문자열을 인덱스 x부터 y-1까지 추출
+const str = 'Hello world!'
+console.log(str.slice(0, 3))  // Hel
+console.log(str.slice(6, 11))  // world
+
+// replace() -> 문자열 치환
+const str = 'Hello world!'
+console.log(str.replace('world', 'LWW'))  // Hell LWW!
+
+const str = 'Hello world!'
+console.log(str.replace(' world!', ''))  // Hello
+
+// match() -> 정규표현식을 통해 특정한 문자를 match. 배열데이터로 반환
+const str = 'emailaddress@gmail.com'
+// 정규표현식
+console.log(str.match(/.+(?=@)/)[0])  // emailaddress
+
+// trim() -> 문자데이터의 앞뒤의 모든 공백문자 제거
+const str = '      Hello world     '
+console.log(str.trim())  // Hello world
+```
+
+
+<br>
+
 ## 2. Number
 
 ```javascript

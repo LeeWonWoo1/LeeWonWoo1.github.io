@@ -91,7 +91,7 @@ console.log(a == b);  // true
 ## 7. 전개 연산자
 
 ```javascript
-// 쉼표로 구분된 각각의 아이템으로 배열 데이터가 전개되어 만들어짐
+// Spread. 쉼표로 구분된 각각의 아이템으로 배열 데이터가 전개되어 만들어짐
 
 const animals = ['Cat', 'Dog', 'Tiger']
 console.log(animals)  // (3) ['Cat', 'Dog', 'Tiger']

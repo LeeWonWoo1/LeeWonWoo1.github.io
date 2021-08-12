@@ -85,7 +85,70 @@ import _ from 'lodash'
 - 즉 lodash라는 패키지의 package.json 파일에 main 옵션에 명시되어있는 lodash.js 파일을 실제로 가져와서 프로젝트의 js 파일에서 활용됨
 - "_" 라는 변수에 할당해서 사용
 
+
+### - lodash 메서드
+
 ```javascript
-// hello world를 CamelCase 방식으로 출력
+import _ from 'lodash'
+
+// _.camelCase() -> 문자열을 CamelCase 방식으로 출력
 console.log(_.camelCase('hello world'));  // helloWorld
+
+
+// _.uniqBy(배열, 속성) -> 합쳐진 배열의 중복값을 제거한 배열 반환
+const usersA = {
+  { userId: '1', name: 'LWW' },
+  { userId: '2', name: 'Kim' }
+}
+
+const userB = {
+  { userId: '1', name: 'LWW'},
+  { userId: '3', name: 'Park'},
+}
+
+// .concat()은 중복 발생!
+const usersC = usersA.concat(usersB)
+console.log('concat', usersC) // concat
+                              // 0: {userId: "1", name: "LWW"}
+                              // 1: {userId: "2", name: "Kim"}
+                              // 2: {userId: "1", name: "LWW"}
+                              // 3: {userId: "3", name: "Park"}
+console.log('uniqBy', _.uniqBy(usersC, 'userId')) // uniqBy
+                                                  // 0: {userId: "1", name: "LWW"}
+                                                  // 1: {userId: "2", name: "Kim"}
+                                                  // 2: {userId: "3", name: "Park"}
+
+
+// _.unionBy(배열1, 배열2, 속성) -> 합치기 전 배열을 합쳐 중복값을 제거한 배열 반환
+const usersD = _.unionBy(usersA, usersB, 'userId')
+console.log('unionBy', usersD)  // unionBy
+                                // 0: {userId: "1", name: "LWW"}
+                                // 1: {userId: "2", name: "Kim"}
+                                // 2: {userId: "3", name: "Park"}
+
+
+// _.find() -> 해당 객체를 찾음
+const users = {
+  { userId: '1', name: 'LWW' },
+  { userId: '2', name: 'Kim' },
+  { userId: '3', name: 'Park' },
+  { userId: '4', name: 'Choi' },
+  { userId: '5', name: 'Jang' }
+}
+
+const foundUser = _.find(users, { name: 'Park' })
+console.log(foundUser)  // {userId: "3", name: "Park"}
+
+
+// _.findIndex() -> 해당 객체의 index 번호 반환
+const foundUserIndex = _.findIndex(users, { name: 'Park' })
+console.log(foundUserIndex)  // 2
+
+
+// _.remove() -> 해당 객체를 삭제
+_.remove(users, { name: 'LWW' })
+console.log(users)  // 0: { userId: "2", name: "Kim" }
+                    // 1: { userId: "3", name: "Park" }
+                    // 2: { userId: "4", name: "Choi" }
+                    // 3: { userId: "5", name: "Jang" }
 ```

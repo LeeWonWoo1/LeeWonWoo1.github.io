@@ -84,3 +84,52 @@ const b = '1';
 console.log(a === b);  // false
 console.log(a == b);  // true
 ```
+
+
+<br>
+
+## 7. 전개 연산자
+
+```javascript
+// 쉼표로 구분된 각각의 아이템으로 배열 데이터가 전개되어 만들어짐
+
+const animals = ['Cat', 'Dog', 'Tiger']
+console.log(animals)  // (3) ['Cat', 'Dog', 'Tiger']
+console.log(...animals)  // Cat Dog Tiger
+// console.log('Cat', 'Dog', 'Tiger')
+
+function toObject(a, b, c) {
+  return {
+    a: a,
+    b: b,
+    c: c
+  }
+}
+console.log(toObject(...animals))  // {a: "Cat", b: "Dog", c: "Tiger"}
+// console.log(toObject(animals[0], animals[1], animals[2]))
+```
+
+<br>
+
+```javascript
+// 매개변수에서도 전개 연산자를 사용할 수 있음
+
+const animals = ['Cat', 'Dog', 'Tiger', 'Lion']
+
+// rest parameter ...c가 나머지의 모든 인수들을 다 받아냄
+function toObject(a, b, ...c) {
+  return {
+    // 속성의 이름과 변수의 이름이 같으면 하나만 남겨둘 수 있음
+    a,  // a: a,
+    b,  // b: b,
+    c   // c: c
+  }
+}
+console.log(toObject(...animals))  // {a: "Cat", b: "Dog", c: Array(2)}
+
+
+// function toObject 축약형
+const animals = ['Cat', 'Dog', 'Tiger', 'Lion']
+const toObject = (a, b, ...c) => ({a, b, c})
+console.log(toObject(...animals))  // {a: "Cat", b: "Dog", c: Array(2)}
+```

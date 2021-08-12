@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">38</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">48</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -399,7 +399,7 @@
                     
                 
                     
-                        <li><a href="/categories/javascript" class="">Javascript (4)</a></li>
+                        <li><a href="/categories/javascript" class="">Javascript (14)</a></li>
                     
                 
                     
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -560,7 +560,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-nodejs">1. Node.js</a><ul><li><a href="#--nodejs-사용-이유">- Node.js 사용 이유</a></li></ul></li><li><a href="#2-단일-버전의-nodejs-설치-방법">2. 단일 버전의 Node.js 설치 방법</a></li><li><a href="#3-nvm-설치">3. NVM 설치</a></li><li><a href="#4-원하는-버전의-nodejs-설치">4. 원하는 버전의 Node.js 설치</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-nodejs">1. Node.js</a><ul><li><a href="#--nodejs-사용-이유">- Node.js 사용 이유</a></li></ul></li><li><a href="#2-단일-버전의-nodejs-설치-방법">2. 단일 버전의 Node.js 설치 방법</a></li><li><a href="#3-nvm-설치">3. NVM 설치</a></li><li><a href="#4-원하는-버전의-nodejs-설치">4. 원하는 버전의 Node.js 설치</a></li><li><a href="#5-npm-설치">5. NPM 설치</a></li><li><a href="#6-npm을-통한-package-설치">6. NPM을 통한 Package 설치</a><ul><li><a href="#--packagejson">- package.json</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -608,7 +608,7 @@
     </ul>
   </li>
   <li>다른 Node.js 버전에서도 개발을 진행해야 할 수 있음</li>
-  <li><strong><em>NVM 우선 설치 권장!</em></strong></li>
+  <li>단일 버전의 Node.js 설치보다 <strong><em>NVM 우선 설치 권장!</em></strong></li>
 </ul>
 
 <p><br /></p>
@@ -628,6 +628,85 @@
 <h2 id="4-원하는-버전의-nodejs-설치">4. 원하는 버전의 Node.js 설치</h2>
 
 <p class="notice--warning"><strong>VS Code 환경</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># nvm을 통해 설치되어 있는 node.js 버전 리스트</span>
+<span class="nv">$ </span>nvm <span class="nb">ls</span>
+
+<span class="c"># 설치하고자 하는 node.js 버전</span>
+<span class="nv">$ </span>nvm <span class="nb">install </span>14.17.3
+<span class="nv">$ </span>nvm <span class="nb">install </span>12.22.3
+
+<span class="c"># 사용하고자 하는 node.js 버전</span>
+<span class="nv">$ </span>nvm use 14.17.3
+
+<span class="c"># 현재 사용되고 있는 node.js 버전</span>
+<span class="nv">$ </span>node <span class="nt">--version</span>
+
+<span class="c"># 삭제하고자 하는 node.js 버전</span>
+<span class="nv">$ </span>nvm uninstall 12.22.3
+
+<span class="c"># nvm 명령어 모음, 설명</span>
+<span class="nv">$ </span>nvm <span class="nt">--help</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="5-npm-설치">5. NPM 설치</h2>
+
+<ul>
+  <li>NPM은 전 세계의 개발자들이 만든 다양한 패키지와 모듈들을 관리</li>
+  <li>최신의 웹 프론트앤드 개발에서는 기능들을 프로젝트에 직접적으로 설치해서 별도의 가공처리를 거치고, 가공된 결과물을 웹 사이트로 동작시킴</li>
+  <li>Node.js를 설치하면 NPM이 자동으로 설치됨</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="6-npm을-통한-package-설치">6. NPM을 통한 Package 설치</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># package.json 파일 생성</span>
+<span class="nv">$ </span>npm init <span class="nt">-y</span>
+
+<span class="c"># parcel-bundler 패키지 설치(-D : 개발 의존성 패키지 설치)</span>
+<span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-D</span> parcel-bundler
+<span class="c"># or</span>
+<span class="nv">$ </span>npm <span class="nb">install </span>parcel-bundler <span class="nt">-D</span>
+
+<span class="c"># lodash 패키지 설치(일반 의존성 설치)</span>
+<span class="nv">$ </span>npm <span class="nb">install </span>lodash
+
+<span class="c"># lodash 패키지 정보 확인</span>
+<span class="nv">$ </span>npm info lodash
+
+<span class="c"># lodash 원하는 버전으로 설치</span>
+<span class="nv">$ </span>npm <span class="nb">install </span>lodash@4.17.20
+
+<span class="c"># lodash 패키지 업데이트</span>
+<span class="nv">$ </span>npm update lodash
+
+<span class="c"># 패키지를 삭제하더라도 내역에 있는 패키지 설치 가능</span>
+<span class="nv">$ </span>npm <span class="nb">install</span>
+<span class="c"># or</span>
+<span class="nv">$ </span>npm i
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--packagejson">- package.json</h3>
+
+<ul>
+  <li>name : 프로젝트 이름</li>
+  <li>version : 프로젝트 버전</li>
+  <li>description : 프로젝트 설명</li>
+  <li>main : npm 생태계에 업로드 할 때 필요한 옵션</li>
+  <li>scripts : 프로젝트 내부에서 사용할 수 있는 script 명령들을 명시</li>
+  <li>keywords : 프로젝트와 관련된 키워드</li>
+  <li>author : 프로젝트 소유주</li>
+  <li>license : 프로젝트 라이선스</li>
+</ul>
+
 
         
       </section>
@@ -705,12 +784,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="pagination_prev_next">
   
   <a href="/javascript/frontend-javascript-ifdomchain/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Javascript] 조건문, DOM API, 메소드 체이닝</a>
   
   
-  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  <a href="/javascript/frontend-javascript-parcelodash/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Node.js] Parcel-Bundler, lodash</a>
   
 </nav>
 
@@ -734,32 +833,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/git/etc-git-mergeconflict/" rel="permalink">[Git &amp; Github] Merge &amp; Conflict
+      <a href="/javascript/frontend-javascript-immutability/" rel="permalink">[Javascript] 데이터 불변성
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.05
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#git"
-      class="page__taxonomy-item-category" rel="tag">Git</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#github"
-      class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
     
     
     
-    <a href="/tags/#git"
-      class="page__taxonomy-item-tag" rel="tag">Git</a>
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">병합과 충돌
+    <p class="archive__item-excerpt" itemprop="description">Immutability
 </p>
   </article>
 </div>
@@ -773,27 +877,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp21/" rel="permalink">[정보처리기사 필기] 5-4. 시스템 보안 구축
+      <a href="/javascript/frontend-javascript-desass/" rel="permalink">[Javascript] 구조 분해 할당
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.04
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 4장
+    <p class="archive__item-excerpt" itemprop="description">Destructuring assignment 비구조화 할당
 </p>
   </article>
 </div>
@@ -807,27 +921,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp20/" rel="permalink">[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축
+      <a href="/javascript/frontend-javascript-classes/" rel="permalink">[Javascript] ES6 Classes
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.04
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 3장
+    <p class="archive__item-excerpt" itemprop="description">ES6 Classes, 클래스 상속
 </p>
   </article>
 </div>
@@ -841,27 +965,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp19/" rel="permalink">[정보처리기사 필기] 5-2. IT프로젝트 정보시스템 구축 관리
+      <a href="/javascript/frontend-javascript-this/" rel="permalink">[Javascript] this
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.03
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 2장
+    <p class="archive__item-excerpt" itemprop="description">this
 </p>
   </article>
 </div>

@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">38</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">48</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -399,7 +399,7 @@
                     
                 
                     
-                        <li><a href="/categories/javascript" class="">Javascript (4)</a></li>
+                        <li><a href="/categories/javascript" class="">Javascript (14)</a></li>
                     
                 
                     
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          6 분 소요
         
       </span>
     
@@ -560,7 +560,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-string">1. String</a></li><li><a href="#2-number">2. Number</a></li><li><a href="#3-boolean">3. Boolean</a></li><li><a href="#4-undefined">4. Undefined</a></li><li><a href="#5-null">5. Null</a></li><li><a href="#6-object">6. Object</a></li><li><a href="#7-array">7. Array</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-string">1. String</a><ul><li><a href="#--string-메서드">- String 메서드</a></li></ul></li><li><a href="#2-number">2. Number</a><ul><li><a href="#--숫자와-수학">- 숫자와 수학</a></li></ul></li><li><a href="#3-boolean">3. Boolean</a></li><li><a href="#4-undefined">4. Undefined</a></li><li><a href="#5-null">5. Null</a></li><li><a href="#6-object">6. Object</a><ul><li><a href="#--object-메서드">- Object 메서드</a></li></ul></li><li><a href="#7-array">7. Array</a><ul><li><a href="#--array-indexing">- Array indexing</a></li><li><a href="#--array-메서드">- Array 메서드</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -579,6 +579,58 @@
 
 <p><br /></p>
 
+<h3 id="--string-메서드">- String 메서드</h3>
+
+<p class="notice--info">자세한 내용은 string mdn 검색</p>
+
+<ul>
+  <li>기호를 통해서 데이터를 손쉽게 선언하는 방식을 <strong><em>리터럴 방식</em></strong>이라고 함</li>
+  <li>리터럴 방식이 아니면 new라는 키워드를 사용해야 함</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// String.prototype.indexOf() -&gt; 찾으려는 문자의 첫 번째 등장 index, 없으면 -1</span>
+<span class="kd">const</span> <span class="nx">result1</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello world!!</span><span class="dl">'</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">result2</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello world!!</span><span class="dl">'</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">king</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result1</span><span class="p">)</span>  <span class="c1">// 6</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result2</span><span class="p">)</span>  <span class="c1">// -1</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello world!!</span><span class="dl">'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">king</span><span class="dl">'</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">// false</span>
+
+
+<span class="c1">// .length -&gt; 문자열의 길이 반환</span>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">0123</span><span class="dl">'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>  <span class="c1">// 4</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">0123</span><span class="dl">'</span><span class="nx">length</span><span class="p">)</span>  <span class="c1">// 4</span>
+
+
+<span class="c1">// .slice(x, y) -&gt; 문자열을 인덱스 x부터 y-1까지 추출</span>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello world!</span><span class="dl">'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1">// Hel</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>  <span class="c1">// world</span>
+
+
+<span class="c1">// .replace() -&gt; 문자열 치환</span>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello world!</span><span class="dl">'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">))</span>  <span class="c1">// Hell LWW!</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello world!</span><span class="dl">'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1"> world!</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">))</span>  <span class="c1">// Hello</span>
+
+
+<span class="c1">// .match() -&gt; 정규표현식을 통해 특정한 문자를 match. 배열데이터로 반환</span>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">emailaddress@gmail.com</span><span class="dl">'</span>
+<span class="c1">// 정규표현식</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/.+</span><span class="se">(?=</span><span class="sr">@</span><span class="se">)</span><span class="sr">/</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1">// emailaddress</span>
+
+
+<span class="c1">// .trim() -&gt; 문자데이터의 앞뒤의 모든 공백문자 제거</span>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">      Hello world     </span><span class="dl">'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>  <span class="c1">// Hello world</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
 <h2 id="2-number">2. Number</h2>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 정수 및 부동소수점 숫자를 나타냄</span>
@@ -587,6 +639,56 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span>  <span class="c1">// 123</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">opacity</span><span class="p">);</span>  <span class="c1">// 1.57</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--숫자와-수학">- 숫자와 수학</h3>
+
+<p class="notice--info">자세한 내용은 math mdn 검색</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">pi</span> <span class="o">=</span> <span class="mf">3.14159265358979</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pi</span><span class="p">)</span>  <span class="c1">// 3.14159265358979</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">pi</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>  <span class="c1">// 3.14</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">str</span><span class="p">)</span>  <span class="c1">// string</span>
+
+<span class="kd">const</span> <span class="nx">integer</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">float</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">integer</span><span class="p">)</span>  <span class="c1">// 3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">float</span><span class="p">)</span>  <span class="c1">// 3.14</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">integer</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">float</span><span class="p">)</span>  <span class="c1">// number number</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Math.abs() -&gt; 절대값 반환</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">abs: </span><span class="dl">'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">))</span>  <span class="c1">// abs: 12</span>
+
+
+<span class="c1">// Math.min() -&gt; 최소값 반환</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">min: </span><span class="dl">'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1">// min: 2</span>
+
+
+<span class="c1">// Math.max() -&gt; 최대값 반환</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">max: </span><span class="dl">'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1">// max: 8</span>
+
+
+<span class="c1">// Math.ceil() -&gt; 올림</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ceil: </span><span class="dl">'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>  <span class="c1">// ceil: 4</span>
+
+
+<span class="c1">// Math.floor() -&gt; 내림</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">floor: </span><span class="dl">'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>  <span class="c1">// floor: 3</span>
+
+
+<span class="c1">// Math.round() -&gt; 반올림</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">round: </span><span class="dl">'</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">3.5</span><span class="p">))</span>  <span class="c1">// round: 4</span>
+
+
+<span class="c1">// Math.random() -&gt; 난수</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">random: </span><span class="dl">'</span><span class="p">,</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span>  <span class="c1">// random: 0~1사이의 난수</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -642,6 +744,65 @@
 
 <p><br /></p>
 
+<h3 id="--object-메서드">- Object 메서드</h3>
+
+<p class="notice--info">자세한 내용은 object mdn 검색</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Object.assign(x, y) -&gt; x 객체 데이터에 y 객체 데이터를 합침</span>
+<span class="c1">// static 메서드</span>
+<span class="kd">const</span> <span class="nx">userAge</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// key: value</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">45</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">userEmail</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abcdefg@gmail.com</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="c1">// 프로토타입으로 만들어진 메서드가 아니기 때문에 객체 데이터 자체에는 사용 불가</span>
+<span class="c1">// ex) userAge.assign와 같은 식으로 사용불가</span>
+<span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">userAge</span><span class="p">,</span> <span class="nx">userEmail</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span>  <span class="c1">// {name: "LWW", age: 45, email: "abcdefg@gmail.com"}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">userAge</span><span class="p">)</span>  <span class="c1">// {name: "LWW", age: 45, email: "abcdefg@gmail.com"}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span> <span class="o">===</span> <span class="nx">userAge</span><span class="p">)</span>  <span class="c1">// true</span>
+
+<span class="c1">// 서로 다른 메모리 주소를 가리키고 있음</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="na">k</span><span class="p">:</span> <span class="mi">123</span><span class="p">}</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="na">k</span><span class="p">:</span> <span class="mi">123</span><span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">)</span>  <span class="c1">// false</span>
+
+<span class="c1">// 원본 데이터 손상 안주는 방법</span>
+<span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">userAge</span><span class="p">,</span> <span class="nx">userEmail</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span>  <span class="c1">// {name: "LWW", age: 45, email: "abcdefg@gmail.com"}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">userAge</span><span class="p">)</span>  <span class="c1">// {name: "LWW", age: 45}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span> <span class="o">===</span> <span class="nx">userAge</span><span class="p">)</span>  <span class="c1">// false</span>
+
+<span class="c1">// 복사본 만들기</span>
+<span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">userAge</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span>  <span class="c1">// {name: "LWW", age: 45}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">userAge</span><span class="p">)</span>  <span class="c1">// {name: "LWW", age: 45}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span> <span class="o">===</span> <span class="nx">userAge</span><span class="p">)</span>  <span class="c1">// false</span>
+
+
+<span class="c1">// Object.keys() -&gt; 객체 데이터의 key를 추출하여 새로운 배열로 만듬</span>
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+  <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">abcdefg@gmail.com</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">keys</span><span class="p">)</span>  <span class="c1">// (3) ["name", "age", "email"]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="dl">'</span><span class="s1">emails</span><span class="dl">'</span><span class="p">])</span>  <span class="c1">// abcdefg@gmail.com</span>
+
+<span class="kd">const</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">key</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">)</span>  <span class="c1">// (3) ["LWW", 45, "abcdefg@gmail.com"]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
 <h2 id="7-array">7. Array</h2>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 여러 데이터를 순차적으로 저장 [ ]</span>
@@ -650,6 +811,170 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="c1">// 'Cat'</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">// 'Dog'</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>  <span class="c1">// 'Tiger'</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--array-indexing">- Array indexing</h3>
+
+<p class="notice--info">자세한 내용은 array mdn 검색</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 각각의 요소는 element(요소), item이라고 부름</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1">// 'Tiger'</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--array-메서드">- Array 메서드</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .length -&gt; 배열의 길이 반환</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>  <span class="c1">// 4</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>  <span class="c1">// 3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nx">length</span><span class="p">)</span>  <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([].</span><span class="nx">length</span><span class="p">)</span>  <span class="c1">// 0</span>
+
+
+<span class="c1">// .concat() -&gt; 두 개의 배열 데이터를 병합해서 새로운 배열 데이터 반환</span>
+<span class="c1">// 원본 데이터는 변하지 않음</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">animals</span><span class="p">))</span>  <span class="c1">// 0: 1</span>
+                                      <span class="c1">// 1: 2</span>
+                                      <span class="c1">// 2: 3</span>
+                                      <span class="c1">// ....</span>
+                                      <span class="c1">// 5: "Dog"</span>
+                                      <span class="c1">// 6: "Tiger"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (4) [1, 2, 3, 4]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">)</span>  <span class="c1">// (3) ["Cat", "Dog", "Tiger"]</span>
+
+
+<span class="c1">// .forEach() -&gt; 배열의 item 개수만큼 인수로 사용된 콜백함수가 반복적으로 실행</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="nx">animals</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">animal</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animal</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>  <span class="c1">// Cat 0 (3) ["Cat", "Dog", "Tiger"]</span>
+<span class="p">})</span>                        <span class="c1">// Dog 1 (3) ["Cat", "Dog", "Tiger"]</span>
+                          <span class="c1">// Tiger 2 (3) ["Cat", "Dog", "Tiger"]</span>
+
+
+<span class="c1">// .map() -&gt; 콜백에서 반환된 특정한 데이터를 기준으로 해서 새로운 배열 반환</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">animal</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">animal</span><span class="p">}</span><span class="s2">-</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span> <span class="c1">// Cat-0</span>
+<span class="p">})</span>                              <span class="c1">// Dog-1</span>
+                                <span class="c1">// Tiger-2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>  <span class="c1">// Undefined, 반환값 없음</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">animal</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">animal</span><span class="p">}</span><span class="s2">-</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">`</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// (3) ["Cat-0", "Dog-1", "Tiger-2"]</span>
+
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">animal</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">index</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">animal</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>  <span class="c1">// (3) [{...}, {...}, {...}]</span>
+
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">animal</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+  <span class="na">id</span><span class="p">:</span> <span class="nx">index</span><span class="p">,</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">animal</span>
+<span class="p">}))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>  <span class="c1">// (3) [{...}, {...}, {...}]</span>
+
+
+<span class="c1">// .filter() -&gt; 콜백 함수에서 반환된 값이 true인 경우에만 새로운 배열로 반환</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">number</span> <span class="o">=&gt;</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>  <span class="c1">// (4) [true, true, false, false]</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">number</span> <span class="o">=&gt;</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>  <span class="c1">// (2) [1, 2]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (4) [1, 2, 3, 4]</span>
+
+
+<span class="c1">// .find() -&gt; 내가 원하는 특정한 데이터를 찾음</span>
+<span class="c1">// 아이템을 찾으면 반복 종료</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">animal</span> <span class="o">=&gt;</span> <span class="sr">/^D/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">animal</span><span class="p">))</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">animal</span> <span class="o">=&gt;</span> <span class="sr">/^T/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">animal</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>  <span class="c1">// Dog</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>  <span class="c1">// Tiger</span>
+
+
+<span class="c1">// .findIndex() -&gt; 내가 원하는 특정한 데이터의 인덱스를 찾음</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">(</span><span class="nx">animal</span> <span class="o">=&gt;</span> <span class="sr">/^D/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">animal</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>  <span class="c1">// 1</span>
+
+
+<span class="c1">// .includes() -&gt; 배열의 인수로 사용된 특정한 데이터가 포함되어 있는지 확인</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>  <span class="c1">// true</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>  <span class="c1">// false</span>
+
+
+<span class="c1">// .push() -&gt; 배열의 가장 뒤쪽에 새로운 데이터 삽입</span>
+<span class="c1">// .unshift() -&gt; 배열의 가장 앞쪽에 새로운 데이터 삽입</span>
+<span class="c1">// 원본 수정됨 주의!</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="nx">numbers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (5) [1, 2, 3, 4, 5]</span>
+<span class="nx">numbers</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (6) [0, 1, 2, 3, 4, 5]</span>
+
+
+<span class="c1">// .reverse() -&gt; 배열의 요소 순서를 뒤집음</span>
+<span class="c1">// 원본 수정됨 주의!</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="nx">numbers</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
+<span class="nx">animals</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (4) [4, 3, 2, 1]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">)</span>  <span class="c1">// (3) ["tiger", "Dog", "Cat"]</span>
+
+
+<span class="c1">// .splice(x, y) -&gt; 인덱스 x에서 y개의 배열 요소를 삭제</span>
+<span class="c1">// 원본 수정됨 주의!</span>
+<span class="c1">// 어떤 자리에 새로운 요소를 끼워 넣는 용도로도 사용</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="nx">numbers</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (3) [1, 2]</span>
+
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="nx">numbers</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>  <span class="c1">// (5) [1, 2, 999, 3, 4]</span>
+
+<span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Cat</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tiger</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="nx">animals</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Lion</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">)</span>  <span class="c1">// (3) ["Cat", "Lion", "Tiger"]</span>
 </code></pre></div></div>
 
         
@@ -730,6 +1055,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="pagination_prev_next">
   
   <a href="#" class="pagination_prev_next--pager disabled">첫 번째 글입니다</a>
@@ -759,12 +1104,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-nvmnpm/" rel="permalink">[Node.js] NVM, Node.js, NPM
+      <a href="/javascript/frontend-javascript-immutability/" rel="permalink">[Javascript] 데이터 불변성
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.05
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -778,18 +1123,8 @@
     
     
     
-    <a href="/tags/#node-js"
-      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#npm"
-      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#nvm"
-      class="page__taxonomy-item-tag" rel="tag">NVM</a><span class="sep"> </span>
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
     
     
     
@@ -799,7 +1134,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">NVM -&gt; Node.js -&gt; NPM
+    <p class="archive__item-excerpt" itemprop="description">Immutability
 </p>
   </article>
 </div>
@@ -813,32 +1148,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/git/etc-git-mergeconflict/" rel="permalink">[Git &amp; Github] Merge &amp; Conflict
+      <a href="/javascript/frontend-javascript-desass/" rel="permalink">[Javascript] 구조 분해 할당
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.05
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#git"
-      class="page__taxonomy-item-category" rel="tag">Git</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#github"
-      class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
     
     
     
-    <a href="/tags/#git"
-      class="page__taxonomy-item-tag" rel="tag">Git</a>
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">병합과 충돌
+    <p class="archive__item-excerpt" itemprop="description">Destructuring assignment 비구조화 할당
 </p>
   </article>
 </div>
@@ -852,27 +1192,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp21/" rel="permalink">[정보처리기사 필기] 5-4. 시스템 보안 구축
+      <a href="/javascript/frontend-javascript-classes/" rel="permalink">[Javascript] ES6 Classes
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.04
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 4장
+    <p class="archive__item-excerpt" itemprop="description">ES6 Classes, 클래스 상속
 </p>
   </article>
 </div>
@@ -886,27 +1236,37 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/jckp/etc-jckp20/" rel="permalink">[정보처리기사 필기] 5-3. 소프트웨어 개발 보안 구축
+      <a href="/javascript/frontend-javascript-this/" rel="permalink">[Javascript] this
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.04
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#jckp"
-      class="page__taxonomy-item-category" rel="tag">JCKP</a>
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
     
     
-    <a href="/tags/#jckp"
-      class="page__taxonomy-item-tag" rel="tag">JCKP</a>
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">정보처리기사 필기 5과목 3장
+    <p class="archive__item-excerpt" itemprop="description">this
 </p>
   </article>
 </div>

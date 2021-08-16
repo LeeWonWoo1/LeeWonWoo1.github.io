@@ -16,7 +16,7 @@ date: '2021-08-15T22:00:00'
 last_modified_at: 2021-08-15T22:00:00
 ---
 
-## 1. Local Storage
+## Local Storage
 
 자세한 내용은 **local storage mdn** 검색
 {: .notice--notice}
@@ -62,5 +62,6 @@ localStorage.setItem('user', JSON.stringify(obj))  // Key: user, Value: {"name":
 ```
 
 
-
-- 페이지 세션이 끝날 때, 데이터가 사라짐
+- 위의 방법은 매우 원시적
+- 따라서 **Lowdb** 사용
+- lodash 패키지의 기능을 사용해서 Local Storage를 하나의 DB처럼 쉽게 관리해 줄 수 있음

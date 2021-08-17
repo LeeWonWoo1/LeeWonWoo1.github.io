@@ -1,8 +1,437 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-12T21:09:49+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[Javascript] 데이터 불변성</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-immutability/" rel="alternate" type="text/html" title="[Javascript] 데이터 불변성" /><published>2021-08-12T20:00:00+09:00</published><updated>2021-08-13T05:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-immutability</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-immutability/">&lt;h2 id=&quot;데이터-불변성immutability&quot;&gt;데이터 불변성(Immutability)&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-17T18:12:34+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[Javascript] OMDb API</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi/" rel="alternate" type="text/html" title="[Javascript] OMDb API" /><published>2021-08-16T21:00:00+09:00</published><updated>2021-08-17T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi/">&lt;h2 id=&quot;omdb-api&quot;&gt;OMDb API&lt;/h2&gt;
+
+&lt;p class=&quot;notice--notice&quot;&gt;자세한 내용은 &lt;strong&gt;omdb api&lt;/strong&gt; 검색&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Usage 부분의 주소를 복사해 검색창에 붙여넣기&lt;/li&gt;
+  &lt;li&gt;api key를 입력&lt;/li&gt;
+  &lt;li&gt;https://www.omdbapi.com/?apikey=5f6c9466&amp;amp;s=frozen&lt;/li&gt;
+  &lt;li&gt;JSON 포맷의 정보가 출력됨&lt;/li&gt;
+  &lt;li&gt;axios 패키지 설치&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i axios
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// main.js&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;axios&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetchMovies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 해당하는 정보를 가져옴&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// http's'로 요청&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;axios&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://www.omdbapi.com/?apikey=5f6c9466&amp;amp;s=frozen&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;h1El&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imgEl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;h1El&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Title&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 제목 출력&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;imgEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Poster&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 포스터 출력&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;fetchMovies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {data: {...}, status: 200, statusText: &quot;&quot;, headers: {..} ..}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 영화 제목과 포스터 사진 출력 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello world!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--query-string&quot;&gt;- Query String&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문자를 사용해 어떤 내용을 검색&lt;/li&gt;
+  &lt;li&gt;주소?속성=값&amp;amp;속성=값&amp;amp;속성=값&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><category term="Json" /><category term="OMDb" /><summary type="html">영화 DB를 요청해 프로젝트에 적용</summary></entry><entry><title type="html">[Javascript] 정규표현식-1</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-regexp/" rel="alternate" type="text/html" title="[Javascript] 정규표현식-1" /><published>2021-08-16T21:00:00+09:00</published><updated>2021-08-17T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-regexp</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-regexp/">&lt;h2 id=&quot;1-프로젝트-시작&quot;&gt;1. 프로젝트 시작&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# terminal&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i parcel-bundler &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;index.html 파일 생성&lt;/li&gt;
+  &lt;li&gt;main.js 파일 생성&lt;/li&gt;
+  &lt;li&gt;README.md 파일 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;package.json&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parcel index.html&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parcel build index.html&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 개발서버 열기&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run dev
+
+&lt;span class=&quot;c&quot;&gt;# 개발서버가 버전문제로 실행되지 않는다면 다른버전 설치&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i parcel-bundler@버전 &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- index.html --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X-UA-Compatible&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IE=edge&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Document&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./main.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello RegExp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// main.js&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-정규표현식&quot;&gt;2. 정규표현식&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;문자열을 검색하고 대체하는 데 사용 가능한 형식 언어(패턴)&lt;/li&gt;
+  &lt;li&gt;간단한 문자 검색부터 이메일, 패스워드 검사 등의 문자 일치 기능등을 수행&lt;/li&gt;
+  &lt;li&gt;정규표현식 역할
+    &lt;ul&gt;
+      &lt;li&gt;문자 검색(Search)&lt;/li&gt;
+      &lt;li&gt;문자 대체(replace)&lt;/li&gt;
+      &lt;li&gt;문자 추출(extract)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정규표현식 테스트 사이트
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://regex101.com/&quot;&gt;https://regex101.com/&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><category term="Reg" /><summary type="html">정규표현식 개요 및 생성</summary></entry><entry><title type="html">[Javascript] Storage</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-storage/" rel="alternate" type="text/html" title="[Javascript] Storage" /><published>2021-08-15T22:00:00+09:00</published><updated>2021-08-16T07:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-storage</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-storage/">&lt;h2 id=&quot;local-storage&quot;&gt;Local Storage&lt;/h2&gt;
+
+&lt;p class=&quot;notice--notice&quot;&gt;자세한 내용은 &lt;strong&gt;local storage mdn&lt;/strong&gt; 검색&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개발자 도구 Application 탭을 통해 확인&lt;/li&gt;
+  &lt;li&gt;데이터가 만료되지 않음 (반영구적)&lt;/li&gt;
+  &lt;li&gt;데이터를 문자 데이터로 저장하는 것을 권고&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 문자 데이터로 변환해서 저장해야 함&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Key: user, Value: [object Object]&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 문자 데이터로 변환&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Key: user, Value: {&quot;name&quot;:&quot;LWW&quot;,&quot;age&quot;:...}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {&quot;name&quot;:&quot;LWW&quot;,&quot;age&quot;:45,&quot;emails&quot;:[&quot;abc...]}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 객체 데이터로 변환&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {name: &quot;LWW&quot;, age: 45, emails: Array(2)}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 데이터 삭제&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// 데이터 가져옴&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 데이터 수정&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {name: &quot;LWW&quot;, age: 29, emails: Array(2)}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 데이터 저장&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;localStorage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Key: user, Value: {&quot;name&quot;:&quot;LWW&quot;,&quot;age&quot;:29,...}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;위의 방법은 매우 원시적&lt;/li&gt;
+  &lt;li&gt;따라서 &lt;strong&gt;Lowdb&lt;/strong&gt; 사용&lt;/li&gt;
+  &lt;li&gt;lodash 패키지의 기능을 사용해서 Local Storage를 하나의 DB처럼 쉽게 관리해 줄 수 있음&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><category term="Json" /><category term="Storage" /><summary type="html">Local Storage, Session Storage</summary></entry><entry><title type="html">[Javascript] Json</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-json/" rel="alternate" type="text/html" title="[Javascript] Json" /><published>2021-08-14T18:00:00+09:00</published><updated>2021-08-15T03:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-json</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-json/">&lt;h2 id=&quot;json&quot;&gt;Json&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Javascript의 데이터를 표현하는 하나의 포맷&lt;/li&gt;
+  &lt;li&gt;속성-값 쌍&lt;/li&gt;
+  &lt;li&gt;AJAX 통신을 위해, XML을 대체하는 주요 데이터 포맷&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--자료형&quot;&gt;- 자료형&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Number&lt;/li&gt;
+  &lt;li&gt;String(큰따옴표만 허용)&lt;/li&gt;
+  &lt;li&gt;Boolean&lt;/li&gt;
+  &lt;li&gt;Array&lt;/li&gt;
+  &lt;li&gt;Object&lt;/li&gt;
+  &lt;li&gt;null&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;--문법&quot;&gt;- 문법&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;//myData.json&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LWW&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;boolean&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;null&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;object&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;array&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;undefined&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;에러&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// main.js&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myData&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./myData.json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {string: &quot;LWW&quot;, number: 123, boolean: true, ...}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// javascript에서 속성 이름을 따옴표로 묶어줄 수 있음&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// javascript에서 속성 이름에 특수기호가 들어가는 경우 따옴표로 묶어줌&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 'companyName@#^@#*$': {}&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// json 문법은 속성을 큰따옴표로 묶어주어야 함&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 45, emails: Array(2)}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// json 파일은 하나의 문자 데이터&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// stringify -&amp;gt; 데이터를 문자 데이터화 시킴&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// str {&quot;name&quot;:&quot;LWW&quot;,&quot;age&quot;:45,&quot;emails&quot;:[abcdefg@...]}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// string&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 실제 javascript 데이터처럼 출력&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// parse -&amp;gt; 문자 데이터를 javascript 데이터처럼 변경&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// obj {string: &quot;LWW&quot;, number: 123, boolean: true, ...}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><category term="Json" /><summary type="html">JavaScript Object Notation</summary></entry><entry><title type="html">[Javascript] 가져오기, 내보내기</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-importexport/" rel="alternate" type="text/html" title="[Javascript] 가져오기, 내보내기" /><published>2021-08-13T02:00:00+09:00</published><updated>2021-08-13T11:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-importexport</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-importexport/">&lt;h2 id=&quot;import-export&quot;&gt;import, export&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;외부에 있는 다른 javascript 파일을 가지고 올 수 있는 하나의 통로를 가짐&lt;/li&gt;
+  &lt;li&gt;특정 내용을 밖으로 내보낼 수 있는 2가지 통로를 가짐(Default export, Named export)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// getType.js  (default)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// default는 함수의 이름을 지정하지 않아도 됨&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// default는 하나의 파일에서 하나의 데이터만 내보낼 수 있음&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Only one default export allowed per module.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// getRandom.js  (이름 지정)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 이름만 지정되어 있으면 여러개의 데이터를 내보낼 수 있음&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Named export와 Default export 같이 사용 가능&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// main.js&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;lodash&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// From `node_modules`&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkType&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./getType&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// getType.js&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 이름이 지정된 통로로 나오는 데이터는 데이터를 {}로 묶어서 사용!&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lww&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./getRandom&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// getRandom.js&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;camelCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;the hello world&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// theHelloWorld&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;checkType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Array&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 0~9 랜덤값 0~9 랜덤값&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lww&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {name: &quot;LWW&quot;, age: 45}&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// 한번에 가져오기 (와일드카드 * 사용)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./getRandom&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {user: {...}, default: 123, __esModule: true, random: f}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">import, export</summary></entry><entry><title type="html">[Javascript] 얕은 복사, 깊은 복사</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-copy/" rel="alternate" type="text/html" title="[Javascript] 얕은 복사, 깊은 복사" /><published>2021-08-12T21:00:00+09:00</published><updated>2021-08-13T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-copy</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-copy/">&lt;h2 id=&quot;1-얕은-복사shallow-copy&quot;&gt;1. 얕은 복사(Shallow copy)&lt;/h2&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// user 데이터를 수정했는데, copyUser 데이터도 같이 변경됨&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(1)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 29, emails: Array(1)}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Object.assign(대상객체, 출처객체) 활용&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(1)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 45, emails: Array(1)}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 전개 연산자 활용&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(1)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 45, emails: Array(1)}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-깊은-복사deep-copy&quot;&gt;2. 깊은 복사(Deep copy)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;참조 데이터 내부에 또 다른 참조 데이터가 있는 경우 &lt;strong&gt;&lt;em&gt;깊은 복사&lt;/em&gt;&lt;/strong&gt; 고려&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(1)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 45, emails: Array(1)}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 얕은 복사로는 속의 내용까지 복사되지 않음&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(2)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 45, emails: Array(2)}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;깊은 복사는 javascript로 직접 구현하기 복잡하기 때문에 lodash 패키지 활용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i lodash
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// lodash 패키지 import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;lodash&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;LWW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abcdefg@gmail.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// lodash 패키지의 깊은 복사 cloneDeep 메서드 사용&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cloneDeep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(1)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 45, emails: Array(1)}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;opqrstu@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// user {name: &quot;LWW&quot;, age: 29, emails: Array(2)}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;copyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// copyUser {name: &quot;LWW&quot;, age: 45, emails: Array(1)}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;참고&lt;/li&gt;
+  &lt;li&gt;lodash 검색&lt;/li&gt;
+  &lt;li&gt;documentation 버튼 누름&lt;/li&gt;
+  &lt;li&gt;clone 검색&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;결론!&lt;/strong&gt;  얕은복사 : Object.assign, 전개 연산자 사용 // 깊은복사 : lodash 패키지 사용&lt;/p&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">Shallow copy, Deep copy</summary></entry><entry><title type="html">[Javascript] 데이터 불변성</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-immutability/" rel="alternate" type="text/html" title="[Javascript] 데이터 불변성" /><published>2021-08-12T20:00:00+09:00</published><updated>2021-08-13T05:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-immutability</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-immutability/">&lt;h2 id=&quot;데이터-불변성immutability&quot;&gt;데이터 불변성(Immutability)&lt;/h2&gt;
+
+&lt;h3 id=&quot;--원시-데이터&quot;&gt;- 원시 데이터&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;원시 데이터 : String, Number, Boolean, undefined, null&lt;/li&gt;
-  &lt;li&gt;참조형 데이터 : Object, Array, Function&lt;/li&gt;
   &lt;li&gt;새로운 원시 데이터를 사용했을 때, 그 데이터가 기존의 메모리 주소에 들어있다면 새로운 메모리에 만드는 것이 아니라 기존에 존재하는 메모리 주소를 바라보도록 만들어 줌&lt;/li&gt;
   &lt;li&gt;즉 원시 데이터는 새롭게 만들어지지 않고 불변함&lt;/li&gt;
 &lt;/ul&gt;
@@ -31,7 +460,10 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;h3 id=&quot;--참조형-데이터&quot;&gt;- 참조형 데이터&lt;/h3&gt;
+
 &lt;ul&gt;
+  &lt;li&gt;참조형 데이터 : Object, Array, Function&lt;/li&gt;
   &lt;li&gt;참조형 데이터는 모양이 같아도 같은 데이터가 아닐수도 있음&lt;/li&gt;
   &lt;li&gt;참조형 데이터는 새로운 값을 만들 때마다 새로운 메모리 주소에 할당&lt;/li&gt;
   &lt;li&gt;즉 참조형 데이터는 불변하는 개념이 아님(가변)&lt;/li&gt;
@@ -80,7 +512,7 @@
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {k: 9} {k: 9} {k: 9} true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;결론&lt;/strong&gt; 참조형 데이터를 관리할 때, 할당 연산자를 사용하면 의도치 않은 문제를 발생시킬 수 있기 때문에, 의도한 것이 아니라면 &lt;strong&gt;&lt;em&gt;복사&lt;/em&gt;&lt;/strong&gt;라는 개념을 통해서 두 변수를 실제 메모리 상에서 분리해 주어야 함&lt;/p&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">Immutability</summary></entry><entry><title type="html">[Javascript] 구조 분해 할당</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-desass/" rel="alternate" type="text/html" title="[Javascript] 구조 분해 할당" /><published>2021-08-12T02:00:00+09:00</published><updated>2021-08-12T11:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-desass</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-desass/">&lt;h2 id=&quot;구조-분해-할당&quot;&gt;구조 분해 할당&lt;/h2&gt;
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;strong&gt;결론!&lt;/strong&gt;  참조형 데이터를 관리할 때, 할당 연산자를 사용하면 의도치 않은 문제를 발생시킬 수 있기 때문에, 의도한 것이 아니라면 &lt;strong&gt;&lt;em&gt;복사&lt;/em&gt;&lt;/strong&gt;라는 개념을 통해서 두 변수를 실제 메모리 상에서 분리해 주어야 함&lt;/p&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">Immutability</summary></entry><entry><title type="html">[Javascript] 구조 분해 할당</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-desass/" rel="alternate" type="text/html" title="[Javascript] 구조 분해 할당" /><published>2021-08-12T02:00:00+09:00</published><updated>2021-08-12T11:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-desass</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-desass/">&lt;h2 id=&quot;구조-분해-할당&quot;&gt;구조 분해 할당&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;객체 데이터에서 내용을 구조 분해 해서 원하는 속성들만 꺼내서 사용&lt;/li&gt;
@@ -287,334 +719,4 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 2초 뒤 LWW!!&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">this</summary></entry><entry><title type="html">[Javascript] Prototype</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-prototype/" rel="alternate" type="text/html" title="[Javascript] Prototype" /><published>2021-08-10T17:00:00+09:00</published><updated>2021-08-11T02:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-prototype</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-prototype/">&lt;h2 id=&quot;prototype&quot;&gt;Prototype&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체가 만들어지기 위해 그 객체의 모태가 되는 것&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 생성자로 new라는 키워드와 같이 사용되는 함수를 Parcal case로 작성&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;first&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lastName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;last&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 객체가 여러개 생기더라도 getFullName 함수는 메모리에 1번만 만들어짐&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// constructor와 __proto__ 속성을 가짐&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getFullName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lastName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// user : 생성자 함수&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// ww, kim, park : 인스턴스&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ww&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;WW&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ChulSoo&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Kim&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;park&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Younghee&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Park&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ww&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getFullName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// WW L&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getFullName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// ChulSoo Kim&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;park&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getFullName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Younghee Park&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">생성자 함수 Prototype</summary></entry><entry><title type="html">[Javascript] 형 변환</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-typeconversion/" rel="alternate" type="text/html" title="[Javascript] 형 변환" /><published>2021-08-09T01:00:00+09:00</published><updated>2021-08-09T10:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-typeconversion</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-typeconversion/">&lt;h2 id=&quot;형-변환&quot;&gt;형 변환&lt;/h2&gt;
-
-&lt;h3 id=&quot;--truthy&quot;&gt;- Truthy&lt;/h3&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Truthy(참 같은 값)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// true, 1, 2, {}, [], 'false', -17 '4.14' ...&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 123&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 123&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--falsy&quot;&gt;- Falsy&lt;/h3&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Falsy(거짓 같은 값)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// false, null, undefined, 0, '', -0, NaN&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 출력되지 않음&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 출력되지 않음&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 출력되지 않음&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">참 같은 값 Truthy, 거짓 같은 값 Falsy</summary></entry><entry><title type="html">[Javascript] 반복문</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-for/" rel="alternate" type="text/html" title="[Javascript] 반복문" /><published>2021-08-09T00:00:00+09:00</published><updated>2021-08-09T09:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-for</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-for/">&lt;h2 id=&quot;반복문-for&quot;&gt;반복문 for&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// for (시작조건; 종료조건; 변화조건) {}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// ul태그 내부에 li태그 10개 생성하는 예제&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ulEl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;   
-  &lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`list-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;// 짝수 번호의 li태그를 클릭하면 문자 출력하는 부분&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
-      &lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;ulEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">for문</summary></entry><entry><title type="html">[Javascript] 연산자</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-operator/" rel="alternate" type="text/html" title="[Javascript] 연산자" /><published>2021-08-08T21:00:00+09:00</published><updated>2021-08-09T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-operator</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-operator/">&lt;h2 id=&quot;1-산술-연산자&quot;&gt;1. 산술 연산자&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 3&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// -2&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 12&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 5&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;2-할당-연산자&quot;&gt;2. 할당 연산자&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a = a + 1&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 3&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-비교-연산자&quot;&gt;3. 비교 연산자&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 서로 같음&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 서로 다름&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a &amp;lt; b&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a &amp;lt;= b&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a &amp;gt; b&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a &amp;gt;= b&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;4-논리-연산자&quot;&gt;4. 논리 연산자&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a and b&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a or b&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// not a&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;5-삼항-연산자&quot;&gt;5. 삼항 연산자&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;참&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;거짓&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true면 앞, false면 뒤&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;6-동등-연산자&quot;&gt;6. 동등 연산자&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;대부분의 경우 비교 연산자 ‘===’ 을 사용&lt;/li&gt;
-  &lt;li&gt;서로 다른 값이 의도하지 않게 ‘같다’라고 출력되는 것을 방지&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;7-전개-연산자&quot;&gt;7. 전개 연산자&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Spread. 쉼표로 구분된 각각의 아이템으로 배열 데이터가 전개되어 만들어짐&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Cat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// (3) ['Cat', 'Dog', 'Tiger']&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Cat Dog Tiger&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// console.log('Cat', 'Dog', 'Tiger')&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;toObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {a: &quot;Cat&quot;, b: &quot;Dog&quot;, c: &quot;Tiger&quot;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// console.log(toObject(animals[0], animals[1], animals[2]))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 매개변수에서도 전개 연산자를 사용할 수 있음&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Cat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lion&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// rest parameter ...c가 나머지의 모든 인수들을 다 받아냄&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;toObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 속성의 이름과 변수의 이름이 같으면 하나만 남겨둘 수 있음&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// a: a,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// b: b,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// c: c&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {a: &quot;Cat&quot;, b: &quot;Dog&quot;, c: Array(2)}&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;// function toObject 축약형&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Cat&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Tiger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Lion&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;toObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// {a: &quot;Cat&quot;, b: &quot;Dog&quot;, c: Array(2)}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">산술, 할당, 비교, 논리, 삼항 연산자</summary></entry><entry><title type="html">[Javascript] ECMA, Data type 확인</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-ecma/" rel="alternate" type="text/html" title="[Javascript] ECMA, Data type 확인" /><published>2021-08-07T20:00:00+09:00</published><updated>2021-08-08T05:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-ecma</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-ecma/">&lt;h2 id=&quot;1-ecma&quot;&gt;1. ECMA&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Javascript를 표준화 해주는 국제 표준화 기구&lt;/li&gt;
-  &lt;li&gt;ES2015(ES6) 때 Javascript의 전성기가 시작됨&lt;/li&gt;
-  &lt;li&gt;Internet explorer 같은 구버전의 브라우저는 ES5버전 이하만 지원&lt;/li&gt;
-  &lt;li&gt;바벨같은 플러그인의 도움을 받으면 ES6버전 이후의 최신 버전 기술들을 구형 브라우저에서도 동작할 수 있는 ES5버전대의 Javascript 문법으로 변환시켜 줄 수 있음&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;2-연습용-프로젝트-초기화&quot;&gt;2. 연습용 프로젝트 초기화&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-npm i parcel-bundler &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# scripts에 &quot;dev&quot;: &quot;parcel index.html&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# scripts에 &quot;build&quot;: &quot;parcel build index.html&quot;&lt;/span&gt;
-npm run dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-data-type-확인&quot;&gt;3. Data Type 확인&lt;/h2&gt;
-
-&lt;p&gt;typeof : 특정한 데이터의 타입을 알아낼 수 있음&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hello World!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// string&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// number&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// boolean&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// undefined&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// object&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{});&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// object&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// object&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;데이터 타입을 확인할 때 typeof 키워드로는 객체데이터, 배열데이터를 확인할 수 없음&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// [object Number]&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// [object Boolean]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getType2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Number&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Boolean&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Null&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{});&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Object&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Array&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;사용한 함수를 다른 Javascript 파일에서도 사용하기 위해 함수를 사용할 파일에서 import&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 내보내기 할 함수&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getType2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// 함수를 사용할 파일&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getType2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./getType&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Node.js" /><category term="NPM" /><category term="Parcel" /><category term="Web" /><summary type="html">Parcel-Bundler와 lodash</summary></entry><entry><title type="html">[Node.js] Parcel-Bundler, lodash</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-parcelodash/" rel="alternate" type="text/html" title="[Node.js] Parcel-Bundler, lodash" /><published>2021-08-06T18:00:00+09:00</published><updated>2021-08-07T03:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-parcelodash</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-parcelodash/">&lt;h2 id=&quot;1-parcel-bundler&quot;&gt;1. Parcel-Bundler&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;open with live server는 원시적인 방법으로 동작&lt;/li&gt;
-  &lt;li&gt;최신의 웹 frontend 개발에서는 잘 쓰이지 않음&lt;/li&gt;
-  &lt;li&gt;dependencies : 사용하는 여러가지 패키지들이 명시&lt;/li&gt;
-  &lt;li&gt;devDependencies : 우리가 설치한 패키지들이 명시&lt;/li&gt;
-  &lt;li&gt;개발, 관리, 제품화 목적&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--parcel-명령어-등록&quot;&gt;- parcel 명령어 등록&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;터미널에서 parcel 명령어가 동작하지 않음&lt;/li&gt;
-  &lt;li&gt;package.json 파일의 scripts 부분에서 “dev”: “parcel index.html” 작성&lt;/li&gt;
-  &lt;li&gt;터미널에서 parcel이라는 명령어가 현재 프로젝트에서만 동작할 수 있음&lt;/li&gt;
-  &lt;li&gt;로컬 환경에서 개발용으로 서버를 열기 위함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;parcel index.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;--개발서버-열기&quot;&gt;- 개발서버 열기&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;npm 명령어를 통해 scripts 부분을 실행&lt;/li&gt;
-  &lt;li&gt;dev는 development의 약어로, 로컬 환경에서 개발서버를 열겠다는 뜻&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--build-명령어-등록&quot;&gt;- build 명령어 등록&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;package.json 파일의 scripts 부분에서 “build”: “parcel build index.html” 작성&lt;/li&gt;
-  &lt;li&gt;실제로 사용자들이 보는 용도의 결과물이 출력&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;--빌드서버-열기&quot;&gt;- 빌드서버 열기&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;프로젝트 구조에서 dist 폴더 생성&lt;/li&gt;
-  &lt;li&gt;들여쓰기 같은 띄어쓰기도 다 용량이기 때문에, 전부 제거해서 압축된 형식으로 만들어 줌&lt;/li&gt;
-  &lt;li&gt;코드 난독화
-    &lt;ul&gt;
-      &lt;li&gt;작성된 코드를 읽기 어렵게 만드는 작업&lt;/li&gt;
-      &lt;li&gt;빌드된 결과(제품)는 브라우저에서 해석되는 용도로, 용량을 축소하기 읽기 어렵게 만드는 등의 최적화를 거치는 것이 좋음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bundle : 프로젝트 개발에 사용한 여러 모듈(패키지)을 하나로 묶어내는 작업&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;2-lodash&quot;&gt;2. lodash&lt;/h2&gt;
-
-&lt;h3 id=&quot;--lodash-패키기-가져오기&quot;&gt;- lodash 패키기 가져오기&lt;/h3&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;lodash&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;lodash를 node_modules 디렉토리에서 import&lt;/li&gt;
-  &lt;li&gt;즉 lodash라는 패키지의 package.json 파일에 main 옵션에 명시되어있는 lodash.js 파일을 실제로 가져와서 프로젝트의 js 파일에서 활용됨&lt;/li&gt;
-  &lt;li&gt;“_” 라는 변수에 할당해서 사용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// hello world를 CamelCase 방식으로 출력&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;camelCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello world&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// helloWorld&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Node.js" /><category term="NPM" /><category term="Parcel" /><category term="Lodash" /><category term="Web" /><summary type="html">Parcel-Bundler와 lodash</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><summary type="html">this</summary></entry></feed>

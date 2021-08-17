@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">48</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">54</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -399,7 +399,7 @@
                     
                 
                     
-                        <li><a href="/categories/javascript" class="">Javascript (14)</a></li>
+                        <li><a href="/categories/javascript" class="">Javascript (20)</a></li>
                     
                 
                     
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          2 분 소요
         
       </span>
     
@@ -560,7 +560,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-parcel-bundler">1. Parcel-Bundler</a><ul><li><a href="#--parcel-명령어-등록">- parcel 명령어 등록</a></li><li><a href="#--개발서버-열기">- 개발서버 열기</a></li><li><a href="#--build-명령어-등록">- build 명령어 등록</a></li><li><a href="#--빌드서버-열기">- 빌드서버 열기</a></li></ul></li><li><a href="#2-lodash">2. lodash</a><ul><li><a href="#--lodash-패키기-가져오기">- lodash 패키기 가져오기</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-parcel-bundler">1. Parcel-Bundler</a><ul><li><a href="#--parcel-명령어-등록">- parcel 명령어 등록</a></li><li><a href="#--개발서버-열기">- 개발서버 열기</a></li><li><a href="#--build-명령어-등록">- build 명령어 등록</a></li><li><a href="#--빌드서버-열기">- 빌드서버 열기</a></li></ul></li><li><a href="#2-lodash">2. lodash</a><ul><li><a href="#--lodash-패키기-가져오기">- lodash 패키기 가져오기</a></li><li><a href="#--lodash-메서드">- lodash 메서드</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -638,8 +638,70 @@
   <li>“_” 라는 변수에 할당해서 사용</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// hello world를 CamelCase 방식으로 출력</span>
+<h3 id="--lodash-메서드">- lodash 메서드</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">_</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lodash</span><span class="dl">'</span>
+
+<span class="c1">// _.camelCase() -&gt; 문자열을 CamelCase 방식으로 출력</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">camelCase</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">));</span>  <span class="c1">// helloWorld</span>
+
+
+<span class="c1">// _.uniqBy(배열, 속성) -&gt; 합쳐진 배열의 중복값을 제거한 배열 반환</span>
+<span class="kd">const</span> <span class="nx">usersA</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">userB</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">},</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Park</span><span class="dl">'</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">// .concat()은 중복 발생!</span>
+<span class="kd">const</span> <span class="nx">usersC</span> <span class="o">=</span> <span class="nx">usersA</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">usersB</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">concat</span><span class="dl">'</span><span class="p">,</span> <span class="nx">usersC</span><span class="p">)</span> <span class="c1">// concat</span>
+                              <span class="c1">// 0: {userId: "1", name: "LWW"}</span>
+                              <span class="c1">// 1: {userId: "2", name: "Kim"}</span>
+                              <span class="c1">// 2: {userId: "1", name: "LWW"}</span>
+                              <span class="c1">// 3: {userId: "3", name: "Park"}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">uniqBy</span><span class="dl">'</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">uniqBy</span><span class="p">(</span><span class="nx">usersC</span><span class="p">,</span> <span class="dl">'</span><span class="s1">userId</span><span class="dl">'</span><span class="p">))</span> <span class="c1">// uniqBy</span>
+                                                  <span class="c1">// 0: {userId: "1", name: "LWW"}</span>
+                                                  <span class="c1">// 1: {userId: "2", name: "Kim"}</span>
+                                                  <span class="c1">// 2: {userId: "3", name: "Park"}</span>
+
+
+<span class="c1">// _.unionBy(배열1, 배열2, 속성) -&gt; 합치기 전 배열을 합쳐 중복값을 제거한 배열 반환</span>
+<span class="kd">const</span> <span class="nx">usersD</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">unionBy</span><span class="p">(</span><span class="nx">usersA</span><span class="p">,</span> <span class="nx">usersB</span><span class="p">,</span> <span class="dl">'</span><span class="s1">userId</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">unionBy</span><span class="dl">'</span><span class="p">,</span> <span class="nx">usersD</span><span class="p">)</span>  <span class="c1">// unionBy</span>
+                                <span class="c1">// 0: {userId: "1", name: "LWW"}</span>
+                                <span class="c1">// 1: {userId: "2", name: "Kim"}</span>
+                                <span class="c1">// 2: {userId: "3", name: "Park"}</span>
+
+
+<span class="c1">// _.find() -&gt; 해당 객체를 찾음</span>
+<span class="kd">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Kim</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Park</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Choi</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Jang</span><span class="dl">'</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">foundUser</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">users</span><span class="p">,</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Park</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foundUser</span><span class="p">)</span>  <span class="c1">// {userId: "3", name: "Park"}</span>
+
+
+<span class="c1">// _.findIndex() -&gt; 해당 객체의 index 번호 반환</span>
+<span class="kd">const</span> <span class="nx">foundUserIndex</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">(</span><span class="nx">users</span><span class="p">,</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Park</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foundUserIndex</span><span class="p">)</span>  <span class="c1">// 2</span>
+
+
+<span class="c1">// _.remove() -&gt; 해당 객체를 삭제</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">users</span><span class="p">,</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span> <span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">users</span><span class="p">)</span>  <span class="c1">// 0: { userId: "2", name: "Kim" }</span>
+                    <span class="c1">// 1: { userId: "3", name: "Park" }</span>
+                    <span class="c1">// 2: { userId: "4", name: "Choi" }</span>
+                    <span class="c1">// 3: { userId: "5", name: "Jang" }</span>
 </code></pre></div></div>
 
         
@@ -738,6 +800,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="pagination_prev_next">
   
   <a href="/javascript/frontend-javascript-nvmnpm/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Node.js] NVM, Node.js, NPM</a>
@@ -767,12 +841,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-immutability/" rel="permalink">[Javascript] 데이터 불변성
+      <a href="/javascript/frontend-javascript-regexp/" rel="permalink">[Javascript] 정규표현식-1
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.16
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -791,13 +865,18 @@
     
     
     
+    <a href="/tags/#reg"
+      class="page__taxonomy-item-tag" rel="tag">Reg</a><span class="sep"> </span>
+    
+    
+    
     <a href="/tags/#web"
       class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">Immutability
+    <p class="archive__item-excerpt" itemprop="description">정규표현식 개요 및 생성
 </p>
   </article>
 </div>
@@ -811,12 +890,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-desass/" rel="permalink">[Javascript] 구조 분해 할당
+      <a href="/javascript/frontend-javascript-omdbapi/" rel="permalink">[Javascript] OMDb API
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.16
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -827,6 +906,16 @@
     
     <a href="/tags/#javascript"
       class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#omdb"
+      class="page__taxonomy-item-tag" rel="tag">OMDb</a><span class="sep"> </span>
     
     
     
@@ -841,7 +930,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">Destructuring assignment 비구조화 할당
+    <p class="archive__item-excerpt" itemprop="description">영화 DB를 요청해 프로젝트에 적용
 </p>
   </article>
 </div>
@@ -855,12 +944,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-classes/" rel="permalink">[Javascript] ES6 Classes
+      <a href="/javascript/frontend-javascript-storage/" rel="permalink">[Javascript] Storage
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.15
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -874,8 +963,18 @@
     
     
     
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
+    
+    
+    
     <a href="/tags/#programming"
       class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#storage"
+      class="page__taxonomy-item-tag" rel="tag">Storage</a><span class="sep"> </span>
     
     
     
@@ -885,7 +984,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">ES6 Classes, 클래스 상속
+    <p class="archive__item-excerpt" itemprop="description">Local Storage, Session Storage
 </p>
   </article>
 </div>
@@ -899,12 +998,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-this/" rel="permalink">[Javascript] this
+      <a href="/javascript/frontend-javascript-json/" rel="permalink">[Javascript] Json
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.14
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -915,6 +1014,11 @@
     
     <a href="/tags/#javascript"
       class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
     
     
     
@@ -929,7 +1033,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">this
+    <p class="archive__item-excerpt" itemprop="description">JavaScript Object Notation
 </p>
   </article>
 </div>

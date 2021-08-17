@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">48</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">54</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -399,7 +399,7 @@
                     
                 
                     
-                        <li><a href="/categories/javascript" class="">Javascript (14)</a></li>
+                        <li><a href="/categories/javascript" class="">Javascript (20)</a></li>
                     
                 
                     
@@ -560,16 +560,17 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#데이터-불변성immutability">데이터 불변성(Immutability)</a></li></ul>
+              <ul class="toc__menu"><li><a href="#데이터-불변성immutability">데이터 불변성(Immutability)</a><ul><li><a href="#--원시-데이터">- 원시 데이터</a></li><li><a href="#--참조형-데이터">- 참조형 데이터</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <h2 id="데이터-불변성immutability">데이터 불변성(Immutability)</h2>
 
+<h3 id="--원시-데이터">- 원시 데이터</h3>
+
 <ul>
   <li>원시 데이터 : String, Number, Boolean, undefined, null</li>
-  <li>참조형 데이터 : Object, Array, Function</li>
   <li>새로운 원시 데이터를 사용했을 때, 그 데이터가 기존의 메모리 주소에 들어있다면 새로운 메모리에 만드는 것이 아니라 기존에 존재하는 메모리 주소를 바라보도록 만들어 줌</li>
   <li>즉 원시 데이터는 새롭게 만들어지지 않고 불변함</li>
 </ul>
@@ -598,7 +599,10 @@
 
 <p><br /></p>
 
+<h3 id="--참조형-데이터">- 참조형 데이터</h3>
+
 <ul>
+  <li>참조형 데이터 : Object, Array, Function</li>
   <li>참조형 데이터는 모양이 같아도 같은 데이터가 아닐수도 있음</li>
   <li>참조형 데이터는 새로운 값을 만들 때마다 새로운 메모리 주소에 할당</li>
   <li>즉 참조형 데이터는 불변하는 개념이 아님(가변)</li>
@@ -647,7 +651,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">a</span> <span class="o">===</span> <span class="nx">c</span><span class="p">)</span>  <span class="c1">// {k: 9} {k: 9} {k: 9} true</span>
 </code></pre></div></div>
 
-<p class="notice--danger"><strong>결론</strong> 참조형 데이터를 관리할 때, 할당 연산자를 사용하면 의도치 않은 문제를 발생시킬 수 있기 때문에, 의도한 것이 아니라면 <strong><em>복사</em></strong>라는 개념을 통해서 두 변수를 실제 메모리 상에서 분리해 주어야 함</p>
+<p class="notice--danger"><strong>결론!</strong>  참조형 데이터를 관리할 때, 할당 연산자를 사용하면 의도치 않은 문제를 발생시킬 수 있기 때문에, 의도한 것이 아니라면 <strong><em>복사</em></strong>라는 개념을 통해서 두 변수를 실제 메모리 상에서 분리해 주어야 함</p>
 
         
       </section>
@@ -721,12 +725,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="pagination_prev_next">
   
   <a href="/javascript/frontend-javascript-desass/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Javascript] 구조 분해 할당</a>
   
   
-  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  <a href="/javascript/frontend-javascript-copy/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Javascript] 얕은 복사, 깊은 복사</a>
   
 </nav>
 
@@ -750,12 +766,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-desass/" rel="permalink">[Javascript] 구조 분해 할당
+      <a href="/javascript/frontend-javascript-regexp/" rel="permalink">[Javascript] 정규표현식-1
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.12
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.16
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -774,13 +790,18 @@
     
     
     
+    <a href="/tags/#reg"
+      class="page__taxonomy-item-tag" rel="tag">Reg</a><span class="sep"> </span>
+    
+    
+    
     <a href="/tags/#web"
       class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">Destructuring assignment 비구조화 할당
+    <p class="archive__item-excerpt" itemprop="description">정규표현식 개요 및 생성
 </p>
   </article>
 </div>
@@ -794,12 +815,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-classes/" rel="permalink">[Javascript] ES6 Classes
+      <a href="/javascript/frontend-javascript-omdbapi/" rel="permalink">[Javascript] OMDb API
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.16
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -810,6 +831,16 @@
     
     <a href="/tags/#javascript"
       class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#omdb"
+      class="page__taxonomy-item-tag" rel="tag">OMDb</a><span class="sep"> </span>
     
     
     
@@ -824,7 +855,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">ES6 Classes, 클래스 상속
+    <p class="archive__item-excerpt" itemprop="description">영화 DB를 요청해 프로젝트에 적용
 </p>
   </article>
 </div>
@@ -838,12 +869,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-this/" rel="permalink">[Javascript] this
+      <a href="/javascript/frontend-javascript-storage/" rel="permalink">[Javascript] Storage
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.11
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.15
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -857,8 +888,18 @@
     
     
     
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
+    
+    
+    
     <a href="/tags/#programming"
       class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#storage"
+      class="page__taxonomy-item-tag" rel="tag">Storage</a><span class="sep"> </span>
     
     
     
@@ -868,7 +909,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">this
+    <p class="archive__item-excerpt" itemprop="description">Local Storage, Session Storage
 </p>
   </article>
 </div>
@@ -882,12 +923,12 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/javascript/frontend-javascript-prototype/" rel="permalink">[Javascript] Prototype
+      <a href="/javascript/frontend-javascript-json/" rel="permalink">[Javascript] Json
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.10
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.14
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
@@ -898,6 +939,11 @@
     
     <a href="/tags/#javascript"
       class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
     
     
     
@@ -912,7 +958,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">생성자 함수 Prototype
+    <p class="archive__item-excerpt" itemprop="description">JavaScript Object Notation
 </p>
   </article>
 </div>

@@ -8,6 +8,7 @@ tags:
   - Programming
   - Web
   - Json
+  - OMDb
 toc: true
 toc_sticky: true
 popular: true
@@ -63,6 +64,9 @@ fetchMovies()  // {data: {...}, status: 200, statusText: "", headers: {..} ..}
   <img src="" alt="" width="200" />
 </body>
 ```
+
+
+<br>
 
 ### - Query String
 

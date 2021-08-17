@@ -1,6 +1,6 @@
 ---
-title: "[Javascript] 정규표현식 메서드"
-excerpt: 정규표현식 메서드
+title: "[Javascript] 정규표현식 메서드, 플래그"
+excerpt: 정규표현식 메서드, 플래그
 categories:
 - Javascript
 tags:
@@ -56,4 +56,47 @@ The quick brown fox jumps over the lazy dog.
 const regexp = /fox/gi
 str = str.replace(regexp, 'AAA')
 console.log(str)  // The quick brown AAA ...
+```
+
+
+<br>
+
+## 2. 정규표현식 플래그(옵션)
+
+플래그 | 설명
+--|--
+g | 모든 문자 일치(global)
+i | 영어 대소문자를 구분 않고 일치(ignore case)
+m | 여러 줄 일치(multi line)
+
+```js
+const str = `
+010-1234-5678
+theabc@gmail.com
+https://www.omdbapi.com/?apikey=5f6c9466&s=frozen
+The quick brown fox jumps over the lazy dog.
+abbcccdddd
+`
+// 플래그 없음
+const regexp = /the/
+console.log(str.match(regexp))  // ["the", index: 15, input: "\n010-1234-5678\ntheabc@...]
+
+// g
+const regexp = /the/g
+console.log(str.match(regexp))  // (2) ["the", "the"]
+
+// gi
+const regexp = /the/gi
+console.log(str.match(regexp))  // (3) ["the", "The", "the"]
+
+console.log(str.match(/the/gi))  // (3) ["the", "The", "the"]
+
+// Escape Character
+console.log(str.match(/\./gi))  // (4) [".", ".", ".", "."]
+
+// 끝나는 부분 찾아서 일치시킴
+console.log(str.match(/\.$/gi))  // null
+
+// m
+console.log(str.match(/\.$/gim))  // ["."]
 ```

@@ -578,41 +578,71 @@
   <tbody>
     <tr>
       <td>exec</td>
-      <td>정규식.exec(문자열)</td>
+      <td><code class="language-plaintext highlighter-rouge">정규식.exec(문자열)</code></td>
       <td>일치하는 하나의 정보(Array) 반환</td>
     </tr>
     <tr>
       <td>test</td>
-      <td>정규식.test(문자열)</td>
+      <td><code class="language-plaintext highlighter-rouge">정규식.test(문자열)</code></td>
       <td>일치 여부(Boolean) 반환</td>
     </tr>
     <tr>
       <td>match</td>
-      <td>문자열.match(정규식)</td>
+      <td><code class="language-plaintext highlighter-rouge">문자열.match(정규식)</code></td>
       <td>일치하는 문자열의 배열(Array) 반환</td>
     </tr>
     <tr>
       <td>search</td>
-      <td>문자열.search(정규식)</td>
+      <td><code class="language-plaintext highlighter-rouge">문자열.search(정규식)</code></td>
       <td>일치하는 문자열의 인덱스(Number) 반환</td>
     </tr>
     <tr>
       <td>replace</td>
-      <td>문자열.replace(정규식, 대체문자)</td>
+      <td><code class="language-plaintext highlighter-rouge">문자열.replace(정규식, 대체문자)</code></td>
       <td>일치하는 문자열을 대체하고 문자열(String) 반환</td>
     </tr>
     <tr>
       <td>split</td>
-      <td>문자열.split(정규식)</td>
+      <td><code class="language-plaintext highlighter-rouge">문자열.split(정규식)</code></td>
       <td>일치하는 문자열을 분할하여 배열(Array)로 반환</td>
     </tr>
     <tr>
       <td>toString</td>
-      <td>생성자_정규식.toString()</td>
+      <td><code class="language-plaintext highlighter-rouge">생성자_정규식.toString()</code></td>
       <td>생성자 함수 방식의 정규식을 리터럴 방식의 문자열(String)로 반환</td>
     </tr>
   </tbody>
 </table>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">`
+010-1234-5678
+theabc@gmail.com
+https://www.omdbapi.com/?apikey=5f6c9466&amp;s=frozen
+The quick brown fox jumps over the lazy dog.
+abbcccdddd
+`</span>
+
+<span class="c1">// test</span>
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/fox/gi</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regexp</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">str</span><span class="p">))</span>  <span class="c1">// true</span>
+
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/LWW/gi</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regexp</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">str</span><span class="p">))</span>  <span class="c1">// false</span>
+
+<span class="c1">// replace</span>
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/fox/gi</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regexp</span><span class="p">,</span> <span class="dl">'</span><span class="s1">AAA</span><span class="dl">'</span><span class="p">))</span>  <span class="c1">// The quick bronw AAA ...</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>  <span class="c1">// The quick brown fox ...</span>
+
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">`
+The quick brown fox jumps over the lazy dog.
+`</span>
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/fox/gi</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regexp</span><span class="p">,</span> <span class="dl">'</span><span class="s1">AAA</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>  <span class="c1">// The quick brown AAA ...</span>
+</code></pre></div></div>
 
         
       </section>

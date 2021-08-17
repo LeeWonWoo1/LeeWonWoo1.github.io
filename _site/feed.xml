@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-17T19:16:47+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[Javascript] 정규표현식 메서드</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/" rel="alternate" type="text/html" title="[Javascript] 정규표현식 메서드" /><published>2021-08-17T19:00:00+09:00</published><updated>2021-08-18T04:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/">&lt;h2 id=&quot;1-정규표현식-메서드&quot;&gt;1. 정규표현식 메서드&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://leewonwoo1.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://leewonwoo1.github.io/" rel="alternate" type="text/html" /><updated>2021-08-17T19:41:14+09:00</updated><id>https://leewonwoo1.github.io/feed.xml</id><title type="html">LWW’s Tech Blog</title><subtitle>꾸준히 기록하는 블로그</subtitle><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><entry><title type="html">[Javascript] 정규표현식 메서드</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/" rel="alternate" type="text/html" title="[Javascript] 정규표현식 메서드" /><published>2021-08-17T19:00:00+09:00</published><updated>2021-08-18T04:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/">&lt;h2 id=&quot;1-정규표현식-메서드&quot;&gt;1. 정규표현식 메서드&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -11,41 +11,71 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;exec&lt;/td&gt;
-      &lt;td&gt;정규식.exec(문자열)&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;정규식.exec(문자열)&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;일치하는 하나의 정보(Array) 반환&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;test&lt;/td&gt;
-      &lt;td&gt;정규식.test(문자열)&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;정규식.test(문자열)&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;일치 여부(Boolean) 반환&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;match&lt;/td&gt;
-      &lt;td&gt;문자열.match(정규식)&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.match(정규식)&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;일치하는 문자열의 배열(Array) 반환&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;search&lt;/td&gt;
-      &lt;td&gt;문자열.search(정규식)&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.search(정규식)&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;일치하는 문자열의 인덱스(Number) 반환&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;replace&lt;/td&gt;
-      &lt;td&gt;문자열.replace(정규식, 대체문자)&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.replace(정규식, 대체문자)&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;일치하는 문자열을 대체하고 문자열(String) 반환&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;split&lt;/td&gt;
-      &lt;td&gt;문자열.split(정규식)&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;문자열.split(정규식)&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;일치하는 문자열을 분할하여 배열(Array)로 반환&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;toString&lt;/td&gt;
-      &lt;td&gt;생성자_정규식.toString()&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;생성자_정규식.toString()&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;생성자 함수 방식의 정규식을 리터럴 방식의 문자열(String)로 반환&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><category term="Reg" /><summary type="html">정규표현식 메서드</summary></entry><entry><title type="html">[Javascript] OMDb API</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi/" rel="alternate" type="text/html" title="[Javascript] OMDb API" /><published>2021-08-16T21:00:00+09:00</published><updated>2021-08-17T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi/">&lt;h2 id=&quot;omdb-api&quot;&gt;OMDb API&lt;/h2&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`
+010-1234-5678
+theabc@gmail.com
+https://www.omdbapi.com/?apikey=5f6c9466&amp;amp;s=frozen
+The quick brown fox jumps over the lazy dog.
+abbcccdddd
+`&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// test&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/fox/gi&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/LWW/gi&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// replace&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/fox/gi&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;AAA&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// The quick bronw AAA ...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// The quick brown fox ...&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`
+The quick brown fox jumps over the lazy dog.
+`&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/fox/gi&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;AAA&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// The quick brown AAA ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>LWW</name><email>plmplmdnjsdn@naver.com</email></author><category term="Javascript" /><category term="Javascript" /><category term="Programming" /><category term="Web" /><category term="Reg" /><summary type="html">정규표현식 메서드</summary></entry><entry><title type="html">[Javascript] OMDb API</title><link href="https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi/" rel="alternate" type="text/html" title="[Javascript] OMDb API" /><published>2021-08-16T21:00:00+09:00</published><updated>2021-08-17T06:00:00+09:00</updated><id>https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi</id><content type="html" xml:base="https://leewonwoo1.github.io/javascript/frontend-javascript-omdbapi/">&lt;h2 id=&quot;omdb-api&quot;&gt;OMDb API&lt;/h2&gt;
 
 &lt;p class=&quot;notice--notice&quot;&gt;자세한 내용은 &lt;strong&gt;omdb api&lt;/strong&gt; 검색&lt;/p&gt;
 

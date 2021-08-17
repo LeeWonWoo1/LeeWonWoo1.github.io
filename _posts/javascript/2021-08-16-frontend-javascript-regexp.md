@@ -1,5 +1,5 @@
 ---
-title: "[Javascript] 정규표현식-1"
+title: "[Javascript] 정규표현식 생성"
 excerpt: 정규표현식 개요 및 생성
 categories:
 - Javascript

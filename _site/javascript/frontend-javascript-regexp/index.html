@@ -10,7 +10,7 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Javascript] 정규표현식-1 | LWW’s Tech Blog</title>
+<!-- begin _includes/seo.html --><title>[Javascript] 정규표현식 생성 | LWW’s Tech Blog</title>
 <meta name="description" content="정규표현식 개요 및 생성">
 
 
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[Javascript] 정규표현식-1">
+<meta property="og:title" content="[Javascript] 정규표현식 생성">
 <meta property="og:url" content="https://leewonwoo1.github.io/javascript/frontend-javascript-regexp/">
 
 
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[Javascript] 정규표현식-1</li>
+        <li class="current">[Javascript] 정규표현식 생성</li>
       
     
   </ol>
@@ -348,7 +348,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">54</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">55</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -399,7 +399,7 @@
                     
                 
                     
-                        <li><a href="/categories/javascript" class="">Javascript (20)</a></li>
+                        <li><a href="/categories/javascript" class="">Javascript (21)</a></li>
                     
                 
                     
@@ -519,7 +519,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Javascript] 정규표현식-1">
+    <meta itemprop="headline" content="[Javascript] 정규표현식 생성">
     <meta itemprop="description" content="정규표현식 개요 및 생성">
     <meta itemprop="datePublished" content="2021-08-16T21:00:00+09:00">
     <meta itemprop="dateModified" content="2021-08-17T06:00:00+09:00">
@@ -528,7 +528,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/javascript/frontend-javascript-regexp/" class="u-url" itemprop="url">[Javascript] 정규표현식-1
+            <a href="https://leewonwoo1.github.io/javascript/frontend-javascript-regexp/" class="u-url" itemprop="url">[Javascript] 정규표현식 생성
 </a>
           </h1>
           
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -560,7 +560,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-프로젝트-시작">1. 프로젝트 시작</a></li><li><a href="#2-정규표현식">2. 정규표현식</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-프로젝트-시작">1. 프로젝트 시작</a></li><li><a href="#2-정규표현식">2. 정규표현식</a><ul><li><a href="#--javascript-정규식-생성">- Javascript 정규식 생성</a><ul><li><a href="#-생성자-함수-방식">@ 생성자 함수 방식</a></li><li><a href="#-literal-방식">@ Literal 방식</a></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -638,9 +638,73 @@
   <li>정규표현식 테스트 사이트
     <ul>
       <li><a href="https://regex101.com/">https://regex101.com/</a></li>
+      <li><a href="https://regexr.com/">https://regexr.com/</a></li>
+      <li><a href="https://regexper.com/">https://regexper.com/</a></li>
     </ul>
   </li>
 </ul>
+
+<h3 id="--javascript-정규식-생성">- Javascript 정규식 생성</h3>
+
+<h4 id="-생성자-함수-방식">@ 생성자 함수 방식</h4>
+
+<ul>
+  <li>RegExp 생성자 함수를 호출하여 사용할 수 있음</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// new RegExg(표현식)</span>
+<span class="kd">const</span> <span class="nx">regexp1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">"</span><span class="s2">^abc</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// new RegExg(표현식, 플래그)</span>
+<span class="kd">const</span> <span class="nx">regexp2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">"</span><span class="s2">^abc</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">gi</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">표현</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">옵션</span><span class="dl">'</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">[a-z]</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">gi</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// main.js</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">`
+010-1234-5678
+theabc@gmail.com
+https://www.omdbapi.com/?apikey=5f6c9466&amp;s=frozen
+The quick brown fox jumps over the lazy dog.
+abbcccdddd
+`</span>
+
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">the</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regexp</span><span class="p">))</span>  <span class="c1">// ["the", index: 15, input: "\n010-1234-5678\ntheabc@..."]</span>
+
+<span class="c1">// 대소문자 구분 -&gt; g 옵션</span>
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">the</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">g</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regexp</span><span class="p">)</span>  <span class="c1">// (2) ["the", "the"]</span>
+
+<span class="c1">// 대소문자 구분X -&gt; gi 옵션</span>
+<span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">the</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">gi</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regexp</span><span class="p">)</span>  <span class="c1">// (3) ["the", "The", "the"]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="-literal-방식">@ Literal 방식</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// /표현식/</span>
+<span class="kd">const</span> <span class="nx">regexp1</span> <span class="o">=</span> <span class="sr">/^abc/</span><span class="p">;</span>
+
+<span class="c1">// /표현식/플래그</span>
+<span class="kd">const</span> <span class="nx">regexp2</span> <span class="o">=</span> <span class="sr">/^abc/gi</span><span class="p">;</span>
+
+<span class="sr">/표현/</span><span class="nx">옵션</span>
+<span class="o">/</span><span class="p">[</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">/</span><span class="nx">gi</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="sr">/the/gi</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regexp</span><span class="p">)</span>  <span class="c1">// (3) ["the", "The", "the"]</span>
+</code></pre></div></div>
 
         
       </section>
@@ -697,7 +761,7 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BJavascript%5D+%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-1%20https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-regexp%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BJavascript%5D+%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D+%EC%83%9D%EC%84%B1%20https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-regexp%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-regexp%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -716,12 +780,14 @@
 
 
 
+
+
 <nav class="pagination_prev_next">
   
   <a href="/javascript/frontend-javascript-omdbapi/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Javascript] OMDb API</a>
   
   
-  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  <a href="/javascript/frontend-javascript-regmethod/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Javascript] 정규표현식 메서드</a>
   
 </nav>
 
@@ -735,6 +801,55 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/javascript/frontend-javascript-regmethod/" rel="permalink">[Javascript] 정규표현식 메서드
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.17
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
+    
+    
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#reg"
+      class="page__taxonomy-item-tag" rel="tag">Reg</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정규표현식 메서드
+</p>
+  </article>
+</div>
         
           
 
@@ -889,50 +1004,6 @@
 </span>
     </small>
     <p class="archive__item-excerpt" itemprop="description">JavaScript Object Notation
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/javascript/frontend-javascript-importexport/" rel="permalink">[Javascript] 가져오기, 내보내기
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.13
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#javascript"
-      class="page__taxonomy-item-category" rel="tag">Javascript</a>
-    
-    
-    <a href="/tags/#javascript"
-      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#programming"
-      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#web"
-      class="page__taxonomy-item-tag" rel="tag">Web</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">import, export
 </p>
   </article>
 </div>

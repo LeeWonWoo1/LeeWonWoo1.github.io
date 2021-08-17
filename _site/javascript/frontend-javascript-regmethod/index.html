@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[정보처리기사 필기] 2-5. 인터페이스 구현 | LWW’s Tech Blog</title>
-<meta name="description" content="정보처리기사 필기 2과목 5장">
+<!-- begin _includes/seo.html --><title>[Javascript] 정규표현식 메서드 | LWW’s Tech Blog</title>
+<meta name="description" content="정규표현식 메서드">
 
 
   <meta name="author" content="LWW">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="LWW's Tech Blog">
-<meta property="og:title" content="[정보처리기사 필기] 2-5. 인터페이스 구현">
-<meta property="og:url" content="https://leewonwoo1.github.io/jckp/etc-jckp9/">
+<meta property="og:title" content="[Javascript] 정규표현식 메서드">
+<meta property="og:url" content="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/">
 
 
-  <meta property="og:description" content="정보처리기사 필기 2과목 5장">
-
-
-
+  <meta property="og:description" content="정규표현식 메서드">
 
 
 
 
-  <meta property="article:published_time" content="2021-07-30T22:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-07-31T07:00:00+09:00">
+  <meta property="article:published_time" content="2021-08-17T19:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-08-18T04:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://leewonwoo1.github.io/jckp/etc-jckp9/">
+
+<link rel="canonical" href="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/">
 
 
 
@@ -199,7 +199,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#jckp" itemprop="item"><span itemprop="name">Jckp</span></a>
+          <a href="/categories/#javascript" itemprop="item"><span itemprop="name">Javascript</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -207,7 +207,7 @@
     
       
       
-        <li class="current">[정보처리기사 필기] 2-5. 인터페이스 구현</li>
+        <li class="current">[Javascript] 정규표현식 메서드</li>
       
     
   </ol>
@@ -519,16 +519,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[정보처리기사 필기] 2-5. 인터페이스 구현">
-    <meta itemprop="description" content="정보처리기사 필기 2과목 5장">
-    <meta itemprop="datePublished" content="2021-07-30T22:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-07-31T07:00:00+09:00">
+    <meta itemprop="headline" content="[Javascript] 정규표현식 메서드">
+    <meta itemprop="description" content="정규표현식 메서드">
+    <meta itemprop="datePublished" content="2021-08-17T19:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-18T04:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://leewonwoo1.github.io/jckp/etc-jckp9/" class="u-url" itemprop="url">[정보처리기사 필기] 2-5. 인터페이스 구현
+            <a href="https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/" class="u-url" itemprop="url">[Javascript] 정규표현식 메서드
 </a>
           </h1>
           
@@ -545,7 +545,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 분 소요
+          최대 1 분 소요
         
       </span>
     
@@ -560,219 +560,59 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#1-모듈-연계를-위한-인터페이스-기능-식별--a">1. 모듈 연계를 위한 인터페이스 기능 식별 – A</a><ul><li><a href="#--모듈-연계의-개요">- 모듈 연계의 개요</a><ul><li><a href="#-eaienterprise-application-integration">@ EAI(Enterprise Application Integration)</a></li><li><a href="#-esbenterprise-service-bus">@ ESB(Enterprise Service Bus)</a></li></ul></li></ul></li><li><a href="#2-인터페이스-기능-구현-정의--b">2. 인터페이스 기능 구현 정의 – B</a><ul><li><a href="#--인터페이스-기능-구현-정의에-대한-개요">- 인터페이스 기능 구현 정의에 대한 개요</a></li><li><a href="#--모듈-세부-설계서">- 모듈 세부 설계서</a></li></ul></li><li><a href="#3-인터페이스-예외-처리--b">3. 인터페이스 예외 처리 – B</a><ul><li><a href="#--인터페이스-예외-처리의-개요">- 인터페이스 예외 처리의 개요</a></li><li><a href="#--데이터-통신을-이용한-인터페이스-예외-처리">- 데이터 통신을 이용한 인터페이스 예외 처리</a></li><li><a href="#--인터페이스-엔티티를-이용한-인터페이스-예외-처리">- 인터페이스 엔티티를 이용한 인터페이스 예외 처리</a></li></ul></li><li><a href="#4-인터페이스-보안--b">4. 인터페이스 보안 – B</a><ul><li><a href="#--인터페이스-보안의-개요">- 인터페이스 보안의 개요</a></li><li><a href="#--인터페이스-보안-기능-적용">- 인터페이스 보안 기능 적용</a></li></ul></li><li><a href="#5-연계-테스트--b">5. 연계 테스트 – B</a><ul><li><a href="#--연계-테스트의-개요">- 연계 테스트의 개요</a></li></ul></li><li><a href="#6-인터페이스-구현-검증--a">6. 인터페이스 구현 검증 – A</a><ul><li><a href="#--인터페이스-구현-검증의-개요">- 인터페이스 구현 검증의 개요</a></li><li><a href="#--인터페이스-구현-검증-도구">- 인터페이스 구현 검증 도구</a></li><li><a href="#--인터페이스-구현-감시-도구">- 인터페이스 구현 감시 도구</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#1-정규표현식-메서드">1. 정규표현식 메서드</a></li></ul>
 
             </nav>
           </aside>
         
-        <p class="notice--primary">2020 시나공 정보처리기사 필기책 참고</p>
+        <h2 id="1-정규표현식-메서드">1. 정규표현식 메서드</h2>
 
-<p class="notice--danger"><strong>주의!</strong> 중요도가 낮은 항목(C)은 제외</p>
-
-<h2 id="1-모듈-연계를-위한-인터페이스-기능-식별--a">1. 모듈 연계를 위한 인터페이스 기능 식별 – A</h2>
-
-<h3 id="--모듈-연계의-개요">- 모듈 연계의 개요</h3>
-
-<ul>
-  <li>모듈 또는 내부 모듈 간 데이터의 교환을 위해 관계를 설정하는 것</li>
-</ul>
-
-<h4 id="-eaienterprise-application-integration">@ EAI(Enterprise Application Integration)</h4>
-
-<ul>
-  <li>기업 내 각종 애플리케이션 및 플랫폼 간의 정보 전달, 연계, 통합 등 상호 연동이 가능하게 해주는 솔루션</li>
-  <li>비즈니스 간 통합 및 연계성을 증대시켜 효율성 및 각 시스템 간의 확장성을 높임</li>
-  <li>Point-to-Point
-    <ul>
-      <li>1 : 1 연결</li>
-      <li>변경 및 재사용이 어려움</li>
-    </ul>
-  </li>
-  <li>Hub &amp; Spoke
-    <ul>
-      <li>허브 시스템을 통해 데이터를 전송하는 중앙 집중형 방식</li>
-      <li>확장 및 유지 보수가 용이</li>
-      <li>허브 장애 발생 시 시스템 전체에 영향을 미침</li>
-    </ul>
-  </li>
-  <li>Message Bus(ESB 방식)
-    <ul>
-      <li>미들웨어를 두어 처리하는 방식</li>
-      <li>확장성이 뛰어나며 대용량 처리가 가능</li>
-    </ul>
-  </li>
-  <li>Hybrid
-    <ul>
-      <li>Hub &amp; Spoke와 Message Bus의 혼합 방식</li>
-      <li>그룹 내에서는 Hub &amp; Spoke, 그룹 간에는 Message Bus 방식 사용</li>
-      <li>한 가지 방식으로 EAI 구현 가능</li>
-      <li>데이터 병목 현상을 최소화</li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="-esbenterprise-service-bus">@ ESB(Enterprise Service Bus)</h4>
-
-<ul>
-  <li>애플리케이션 간 연계, 데이터 변환, 웹 서비스 지원 등 표준 기반의 인터페이스를 제공하는 솔루션</li>
-  <li>통합 측면에서 EAI와 유사하지만, 애플리케이션 보다는 서비스 중심의 통합을 지향</li>
-  <li>특정 서비스에 국한되지 않고 범용적으로 사용하기 위해 결합도를 약하게 유지</li>
-  <li>관리 및 보안 유지가 쉽고, 높은 수준의 품질 지원 가능</li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="2-인터페이스-기능-구현-정의--b">2. 인터페이스 기능 구현 정의 – B</h2>
-
-<h3 id="--인터페이스-기능-구현-정의에-대한-개요">- 인터페이스 기능 구현 정의에 대한 개요</h3>
-
-<ul>
-  <li>인터페이스를 실제로 구현하기 위해 인터페이스 기능에 대한 구현 방법을 기능별로 기술</li>
-  <li>컴포넌트 명세서 확인 -&gt; 인터페이스 명세서 확인 -&gt; 일관된 인터페이스 기능 구현 정의 -&gt; 정의된 인터페이스 기능 구현 정형화</li>
-</ul>
-
-<h3 id="--모듈-세부-설계서">- 모듈 세부 설계서</h3>
-
-<ul>
-  <li>모듈의 구성 요소와 세부적인 동작 등을 정의한 설계서</li>
-  <li>컴포넌트 명세서
-    <ul>
-      <li>컴포넌트의 개요 및 내부 클래스의 동작, 인터페이스를 통해 외부와 통신하는 명세 등을 정의</li>
-    </ul>
-  </li>
-  <li>인터페이스 명세서
-    <ul>
-      <li>컴포넌트 명세서의 항목 중 인터페이스 클래스의 세부 조건 및 기능 등을 정의</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="3-인터페이스-예외-처리--b">3. 인터페이스 예외 처리 – B</h2>
-
-<h3 id="--인터페이스-예외-처리의-개요">- 인터페이스 예외 처리의 개요</h3>
-
-<ul>
-  <li>구현된 인터페이스가 동작하는 과정에서 기능상 예외 상황이 발생 했을 때 이를 처리하는 절차</li>
-</ul>
-
-<h3 id="--데이터-통신을-이용한-인터페이스-예외-처리">- 데이터 통신을 이용한 인터페이스 예외 처리</h3>
-
-<ul>
-  <li>JSON, XML 등 인터페이스 객체를 이용해 구현한 인터페이스 동작이 실패한 경우를 대비</li>
-  <li>예외 케이스를 정의하고 각 예외 케이스마다 예외 처리 방법을 기술</li>
-</ul>
-
-<h3 id="--인터페이스-엔티티를-이용한-인터페이스-예외-처리">- 인터페이스 엔티티를 이용한 인터페이스 예외 처리</h3>
-
-<ul>
-  <li>동작이 실패할 경우를 대비해 해당 엔티티에 인터페이스의 실패 상황과 원인 등을 기록하고 사용자 및 관리자에서 알려주는 방식</li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="4-인터페이스-보안--b">4. 인터페이스 보안 – B</h2>
-
-<h3 id="--인터페이스-보안의-개요">- 인터페이스 보안의 개요</h3>
-
-<ul>
-  <li>보안 취약점을 분석한 후 적절한 보안 기능을 적용</li>
-</ul>
-
-<h3 id="--인터페이스-보안-기능-적용">- 인터페이스 보안 기능 적용</h3>
-
-<ul>
-  <li>네트워크 영역
-    <ul>
-      <li>스니핑 등을 이용한 데이터 탈취 및 변조 위협을 방지하기 위해 네트워크 트래픽에 대한 암호화 설정</li>
-      <li>IPSec, SSL, S-HTTP 등의 방식으로 적용</li>
-    </ul>
-  </li>
-  <li>애플리케이션 영역
-    <ul>
-      <li>애플리케이션 코드 상의 보안 취약점을 보완하는 방향</li>
-    </ul>
-  </li>
-  <li>데이터베이스 영역
-    <ul>
-      <li>접근 권한과 프로시저, 트리거 등 DB 동작 객체의 보안 취약점에 보안 기능을 적용</li>
-      <li>암호화나 익명화 등 데이터 자체의 보안 방안도 고려</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="5-연계-테스트--b">5. 연계 테스트 – B</h2>
-
-<h3 id="--연계-테스트의-개요">- 연계 테스트의 개요</h3>
-
-<ul>
-  <li>연계 시스템과 구성 요소가 정상적으로 동작하는지 확인하는 활동</li>
-  <li>연계 테스트 케이스 작성 -&gt; 연계 테스트 환경 구축 -&gt; 수행 -&gt; 검증</li>
-</ul>
-
-<p><br /></p>
-
-<h2 id="6-인터페이스-구현-검증--a">6. 인터페이스 구현 검증 – A</h2>
-
-<h3 id="--인터페이스-구현-검증의-개요">- 인터페이스 구현 검증의 개요</h3>
-
-<ul>
-  <li>인터페이스가 정상적으로 문제없이 작동하는지 확인하는 것</li>
-</ul>
-
-<h3 id="--인터페이스-구현-검증-도구">- 인터페이스 구현 검증 도구</h3>
-
-<ul>
-  <li>검증하기 위해서 인터페이스 단위 기능과 시나리오 등을 기반으로 하는 통합 테스트 필요</li>
-  <li>테스트 자동화 도구를 이용하면 효율적으로 수행 가능</li>
-  <li>xUnit
-    <ul>
-      <li>Java, C++ 등 다양한 언어를 지원하는 단위 테스트 프레임워크</li>
-    </ul>
-  </li>
-  <li>STAF
-    <ul>
-      <li>서비스 호출 및 컴포넌트 재사용 등 다양한 환경을 지원</li>
-    </ul>
-  </li>
-  <li>FItNesse
-    <ul>
-      <li>웹 기반 테스트케이스 설계, 실행, 결과 확인 등을 지원</li>
-    </ul>
-  </li>
-  <li>NTAF
-    <ul>
-      <li>협업 기능과 재사용 및 확장성을 통합한 NHN의 테스트 자동화 프레임워크</li>
-    </ul>
-  </li>
-  <li>Selenium
-    <ul>
-      <li>다양한 브라우저 및 개발 언어를 지원하는 웹 애플리케이션 테스트 프레임워크</li>
-    </ul>
-  </li>
-  <li>watir
-    <ul>
-      <li>Ruby를 사용하는 애플리케이션 테스트 프레임워크</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="--인터페이스-구현-감시-도구">- 인터페이스 구현 감시 도구</h3>
-
-<ul>
-  <li>인터페이스 동작 상태를 APM을 사용하여 모니터링 할 수 있음</li>
-  <li>종합적인 정보를 조회하고 분석할 수 있음</li>
-  <li>Scouter, Jennifer 등</li>
-  <li>APM
-    <ul>
-      <li>리소스 방식 : Nagios, Zabbix, Cacti 등</li>
-      <li>End-to-End 방식 : VisualVM, Jennifer, Scouter 등</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>메서드</th>
+      <th>문법</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>exec</td>
+      <td>정규식.exec(문자열)</td>
+      <td>일치하는 하나의 정보(Array) 반환</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>정규식.test(문자열)</td>
+      <td>일치 여부(Boolean) 반환</td>
+    </tr>
+    <tr>
+      <td>match</td>
+      <td>문자열.match(정규식)</td>
+      <td>일치하는 문자열의 배열(Array) 반환</td>
+    </tr>
+    <tr>
+      <td>search</td>
+      <td>문자열.search(정규식)</td>
+      <td>일치하는 문자열의 인덱스(Number) 반환</td>
+    </tr>
+    <tr>
+      <td>replace</td>
+      <td>문자열.replace(정규식, 대체문자)</td>
+      <td>일치하는 문자열을 대체하고 문자열(String) 반환</td>
+    </tr>
+    <tr>
+      <td>split</td>
+      <td>문자열.split(정규식)</td>
+      <td>일치하는 문자열을 분할하여 배열(Array)로 반환</td>
+    </tr>
+    <tr>
+      <td>toString</td>
+      <td>생성자_정규식.toString()</td>
+      <td>생성자 함수 방식의 정규식을 리터럴 방식의 문자열(String)로 반환</td>
+    </tr>
+  </tbody>
+</table>
 
         
       </section>
@@ -789,7 +629,13 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a><span class="sep">, </span>
+    
+      <a href="/tags/#reg" class="page__taxonomy-item p-category" rel="tag">Reg</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
     
     </span>
   </p>
@@ -806,7 +652,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#jckp" class="page__taxonomy-item p-category" rel="tag">JCKP</a>
+      <a href="/categories/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a>
     
     </span>
   </p>
@@ -814,7 +660,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-07-30">July 30, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-17">August 17, 2021</time></p>
 
       </footer>
 
@@ -823,11 +669,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC+%ED%95%84%EA%B8%B0%5D+2-5.+%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4+%EA%B5%AC%ED%98%84%20https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp9%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BJavascript%5D+%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D+%EB%A9%94%EC%84%9C%EB%93%9C%20https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-regmethod%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp9%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-regmethod%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjckp%2Fetc-jckp9%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fjavascript%2Ffrontend-javascript-regmethod%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -842,36 +688,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <nav class="pagination_prev_next">
   
-  <a href="/jckp/etc-jckp8/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[정보처리기사 필기] 2-4. 애플리케이션 테스트 관리</a>
+  <a href="/javascript/frontend-javascript-regexp/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Javascript] 정규표현식 생성</a>
   
   
-  <a href="/jckp/etc-jckp10/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[정보처리기사 필기] 3-1. 논리 데이터베이스 설계</a>
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
   
 </nav>
 
@@ -885,55 +707,6 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-      <a href="/javascript/frontend-javascript-regmethod/" rel="permalink">[Javascript] 정규표현식 메서드
-</a>
-      
-    </h2>
-    <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.17
-      <!--Archive page 용-: (post -> page)-->
-<!--page__taxonomy.html에서 가져 옴-->
-
-<span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#javascript"
-      class="page__taxonomy-item-category" rel="tag">Javascript</a>
-    
-    
-    <a href="/tags/#javascript"
-      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#programming"
-      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#reg"
-      class="page__taxonomy-item-tag" rel="tag">Reg</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#web"
-      class="page__taxonomy-item-tag" rel="tag">Web</a>
-    
-  </span>
-</span>
-    </small>
-    <p class="archive__item-excerpt" itemprop="description">정규표현식 메서드
-</p>
-  </article>
-</div>
         
           
 
@@ -1092,6 +865,55 @@
   </article>
 </div>
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/javascript/frontend-javascript-json/" rel="permalink">[Javascript] Json
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.14
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
+    
+    
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#json"
+      class="page__taxonomy-item-tag" rel="tag">Json</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">JavaScript Object Notation
+</p>
+  </article>
+</div>
+        
       </div>
     </div>
   
@@ -1176,8 +998,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://leewonwoo1.github.io/jckp/etc-jckp9/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/jckp/etc-jckp9"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://leewonwoo1.github.io/javascript/frontend-javascript-regmethod/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/javascript/frontend-javascript-regmethod"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

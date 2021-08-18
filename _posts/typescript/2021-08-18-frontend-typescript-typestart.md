@@ -154,3 +154,12 @@ $ nano package.json  # scripts: {"build": "tsc", "build:watch": "tsc -w"}
 $ npm run build
 $ npm run build:watch
 ```
+
+<br>
+
+### - VS Code에서 설치
+
+```bash
+$ npm init -y
+$ npm i typescript -D
+```

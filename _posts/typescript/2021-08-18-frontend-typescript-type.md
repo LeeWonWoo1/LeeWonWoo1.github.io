@@ -207,7 +207,7 @@ myName = "LWW";
 
 - 행에 걸쳐 있거나, 표현식을 넣을 수 있는 문자열
 - 이 문자열은 backtick 기호에 둘러쌓여 있음
-- 포함된 표현식은 '${expr}' 와 같은 형태로 사용
+- 포함된 표현식은 &#96;${expr}&#96; 와 같은 형태로 사용
 
 ```ts
 // template string 사용
@@ -237,3 +237,40 @@ $ node string.js
 <br>
 
 ## 7. Symbol
+
+- ECMAScript 2015에 추가
+- new Symbol로 사용할 수 없음
+- Symbol을 함수로 사용해서 symbol 타입을 만들 수 있음
+- Primitive type의 값을 담아서 사용
+- 고유하고 수정 불가능한 값으로 만들어 줌
+- 주로 접근을 제어하는데 쓰는 경우가 많음
+
+```json
+// tsconfig.json
+
+"lib": [
+  "ES2015",
+  "DOM"
+]
+```
+
+<br>
+
+```ts
+console.log(Symbol('foo') === Symbol('foo'))  // false
+
+const sym = Symbol();
+const obj = {
+  [sym]: "value",
+};
+
+obj["sym"];  // 접근 불가
+obj[sym];
+```
+
+<br>
+
+```bash
+$ nxp tsc
+$ node symbol.js
+```

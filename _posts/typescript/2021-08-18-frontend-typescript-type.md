@@ -133,7 +133,7 @@ new Number(29);  // typeof new Number(29) : 'object'
 
 <br>
 
-## 4. Boolean / boolean
+## 4. Boolean
 
 ```ts
 // boolean.ts
@@ -161,7 +161,7 @@ $ node boolean.js  # boolean
 
 <br>
 
-## 5. Number / number
+## 5. Number
 
 - Javascript와 같이 Typescript의 모든 숫자는 부동 소수점 값
 - 10진수 및 16진수 외에도, ECMAScript 2015에 도입된 2진수 및 8진수 지원
@@ -187,3 +187,53 @@ let notANumber: number = NaN;
 // 밑줄 표기
 let underscoreNum: number = 1_000_000;
 ```
+
+
+<br>
+
+## 6. String
+
+- 텍스트 형식을 참조하기 위해 `string` 형식을 사용
+- 문자열 데이터를 둘러싸기 위해 큰 따옴표나 작은 따옴표를 사용
+
+```ts
+let myName: string = 'Lee';
+myName = "LWW";
+```
+
+<br>
+
+### - Template String
+
+- 행에 걸쳐 있거나, 표현식을 넣을 수 있는 문자열
+- 이 문자열은 backtick 기호에 둘러쌓여 있음
+- 포함된 표현식은 '${expr}' 와 같은 형태로 사용
+
+```ts
+// template string 사용
+let fullName: string = 'WW Lee';
+let age: number = 29;
+let sentence: string = `Hello, My name is ${fullName}.
+
+I'll be ${age + 1} years old next month.`;
+
+console.log(sentence);  // Hello, My name is WW Lee.
+
+                        // I'll be 30 years old next month.
+
+// template string을 사용하지 않을 경우
+let sentence: string = "Hello, My name is " + fullName + ".\n\n" +
+  "I'll be " + (age + 1) + " years old next month.";
+```
+
+<br>
+
+```bash
+$ nxp tsc
+$ node string.js
+```
+
+
+<br>
+
+## 7. Symbol

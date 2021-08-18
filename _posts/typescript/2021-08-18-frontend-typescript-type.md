@@ -133,7 +133,7 @@ new Number(29);  // typeof new Number(29) : 'object'
 
 <br>
 
-## 4. boolean
+## 4. Boolean / boolean
 
 ```ts
 // boolean.ts
@@ -161,4 +161,29 @@ $ node boolean.js  # boolean
 
 <br>
 
-## 5. 
+## 5. Number / number
+
+- Javascript와 같이 Typescript의 모든 숫자는 부동 소수점 값
+- 10진수 및 16진수 외에도, ECMAScript 2015에 도입된 2진수 및 8진수 지원
+- NaN
+- 1_000_000과 같은 표기 가능
+
+```ts
+// 10진수 리터럴
+let decimal: number = 7;
+
+// 16진수 리터럴
+let hex: number = 0xf00e;
+
+// 2진수 리터럴
+let binary: number = 0b1100;
+
+// 8진수 리터럴
+let octal: number = 0o732;
+
+// NaN
+let notANumber: number = NaN;
+
+// 밑줄 표기
+let underscoreNum: number = 1_000_000;
+```

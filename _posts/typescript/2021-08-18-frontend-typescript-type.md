@@ -169,6 +169,8 @@ $ node boolean.js  # boolean
 - 1_000_000과 같은 표기 가능
 
 ```ts
+// number.ts
+
 // 10진수 리터럴
 let decimal: number = 7;
 
@@ -197,6 +199,8 @@ let underscoreNum: number = 1_000_000;
 - 문자열 데이터를 둘러싸기 위해 큰 따옴표나 작은 따옴표를 사용
 
 ```ts
+// string.ts
+
 let myName: string = 'Lee';
 myName = "LWW";
 ```
@@ -257,6 +261,8 @@ $ node string.js
 <br>
 
 ```ts
+// symbol.ts
+
 console.log(Symbol('foo') === Symbol('foo'))  // false
 
 const sym = Symbol();
@@ -274,3 +280,42 @@ obj[sym];
 $ nxp tsc
 $ node symbol.js
 ```
+
+
+<br>
+
+## 8. null & undefined
+
+- Typescript에서 null과 undefined는 실제로 각각 null과 undefined 타입을 가짐
+- void와 마찬가지로, 그 자체로는 그다지 유용하지 않음
+- 둘 다 소문자만 존재
+- 다른 모든 타입의 서브타입으로 존재
+- 컴파일 옵션에서 &#96;--strictNullChecks&#96; 사용하면, void나 자기 자신에만 할당 가능
+    - 이 경우, null과 undefined를 할당할 수 있게 하려면, union type을 이용해야 함
+
+```ts
+// null.ts
+
+let MyName: string = null;  // Error
+let u: undefined = null;  // Error
+
+let v: void = undefined;
+let union: string | null = null;
+union = "LWW";
+```
+
+<br>
+
+### - null in Javascript
+
+- null이라는 값으로 할당된 것
+- 무언가 있는데, 사용할 준비가 덜 된 상태
+- null 타입은 null 값만 가질 수 있음
+- 런타임에서 typeof 연산자를 이용해 알아내면, object
+
+### - undefined in Javascript
+
+- 값을 할당하지 않은 변수는 undefined 값을 가짐
+- 무언가가 아예 준비가 안된 상태
+- object의 property가 없을 때도 undefined
+- 런타임에서 typeof 연산자를 이용해 알아내면, undefined

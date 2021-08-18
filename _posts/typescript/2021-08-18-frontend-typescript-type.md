@@ -448,3 +448,35 @@ function leakingAny(obj: any) {
 const c = leakingAny({ num: 0 });  // const c: number
 c.indexOf("0");
 ```
+
+
+<br>
+
+## 13. unknown
+
+- 응용 프로그램을 작성할 때 모르는 변수의 타입을 묘사해야 할 수 있음
+- 이러한 값은 동적 콘텐츠의 모든 값을 의도적으로 수락하기를 원할 수 있음
+- 컴파일러와 사람에게 이 변수가 무엇이든 될 수 있음을 알려주는 unknwon 타입을 제공
+- any와 짝으로 any보다 Type-safe한 타입
+    - any와 같이 아무거나 할당 가능
+    - 컴파일러가 타입을 추론할 수 있게끔 타입의 유형을 좁힘
+    - 타입을 확정해주지 않으면 다른 곳에 할당할 수 없고, 사용 불가
+- unknown 타입을 사용하면, runtime error를 줄일 수 있음
+- 사용 전에 데이터의 일부 유형의 검사를 수행하야 함을 알리는 API에 사용 가능
+
+```ts
+// unknown.ts
+
+declare const maybe: unknown;
+const aNumber: number = maybe;  // Error
+
+if (maybe === true) {
+  const aBoolean: boolean = maybe;  // const maybe: true
+  const aString: string = maybe;  // Error
+}
+
+if (typeof maybe === 'string') {
+  const aString: string = maybe;  // const maybe: string
+  const aBoolean: boolean = maybe;  // Error
+}
+```

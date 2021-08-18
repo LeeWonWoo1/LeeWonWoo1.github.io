@@ -480,3 +480,39 @@ if (typeof maybe === 'string') {
   const aBoolean: boolean = maybe;  // Error
 }
 ```
+
+
+<br>
+
+## 14. never
+
+- never 타입은 모든 타입의 서브타입이며, 모든 타입에 할당 할 수 있음
+- never에는 어떤 것도 할당할 수 없음
+- any조차도 never에 할당할 수 없음
+- 잘못된 타입을 넣는 실수를 막고자 할 때 사용
+
+```ts
+// never.ts
+
+function error(message: string): never {
+  throw new Error(message);
+}
+
+function fail() {
+  return error('failed');
+}
+
+function infiniteLoop(): never {
+  while (true) { }
+}
+
+let a: string = 'hello';
+if (typeof a !== 'string') {
+  a;  // let a: never
+}
+
+declare const b: string | number;
+if (typeof b !== "string") {
+  b;  // const b: number
+}
+```

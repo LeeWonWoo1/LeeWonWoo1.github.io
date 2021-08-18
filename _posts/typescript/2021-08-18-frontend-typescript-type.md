@@ -133,4 +133,32 @@ new Number(29);  // typeof new Number(29) : 'object'
 
 <br>
 
-## 4. 
+## 4. boolean
+
+```ts
+// boolean.ts
+
+let isDone: boolean = false;
+isDone = true;
+console.log(typeof isDone)  // boolean
+console.log(isDone);  // true
+
+let isOk: Boolean = true;
+isOk = false;
+console.log(typeof isOk);  // boolean
+console.log(isOk);  // false
+
+let isNotOk: boolean = new Boolean(true);  // Error
+```
+
+<br>
+
+```bash
+$ nxp tsc
+$ node boolean.js  # boolean
+```
+
+
+<br>
+
+## 5. 

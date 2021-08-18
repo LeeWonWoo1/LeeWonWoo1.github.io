@@ -107,7 +107,7 @@ $ npm init -y
 
 
 # typescript 설치
-$ npm i typescript
+$ npm i typescript -D
 
 
 # typescript 설치 확인

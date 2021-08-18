@@ -389,3 +389,14 @@ let list2: Array<number> = [4, 5, 6];
 // 여러 타입
 let list3: (number | string)[] = [7, 8, 9, "0"];
 ```
+
+
+<br>
+
+## 11. Tuple
+
+```ts
+// tuple.ts
+
+
+```

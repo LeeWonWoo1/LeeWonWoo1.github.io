@@ -133,7 +133,7 @@ new Number(29);  // typeof new Number(29) : 'object'
 
 <br>
 
-## 4. Boolean
+## 4. boolean
 
 ```ts
 // boolean.ts
@@ -161,7 +161,7 @@ $ node boolean.js  # boolean
 
 <br>
 
-## 5. Number
+## 5. number
 
 - Javascript와 같이 Typescript의 모든 숫자는 부동 소수점 값
 - 10진수 및 16진수 외에도, ECMAScript 2015에 도입된 2진수 및 8진수 지원
@@ -193,7 +193,7 @@ let underscoreNum: number = 1_000_000;
 
 <br>
 
-## 6. String
+## 6. string
 
 - 텍스트 형식을 참조하기 위해 `string` 형식을 사용
 - 문자열 데이터를 둘러싸기 위해 큰 따옴표나 작은 따옴표를 사용
@@ -398,5 +398,53 @@ let list3: (number | string)[] = [7, 8, 9, "0"];
 ```ts
 // tuple.ts
 
+let x: [string, number];
 
+x = ['hello', 29];
+x = [10, 'world']  // Error
+x[3] = 'item';  // Error
+
+const person: [string, number] = ["LWW", 29];
+
+// const first: string, const second: number
+const [first, second] = person;
+```
+
+
+<br>
+
+## 12. any
+
+- 어떤 타입이어도 상관없는 타입
+- any를 써야하는데 쓰지 않으면 오류를 뱉는 컴파일 옵션 nolmplicitAny가 있음
+- any는 계속해서 개체를 통해 전파됨
+- 모든 편의는 타입 안전성을 잃는 대가로 오는 것
+- 타입 안전성은 Typescript를 사용하는 주요 동기
+- 최대한 쓰지 않는 것을 권장
+- 컴파일 타임에 타입 체크가 정상적으로 이루어지지 않을 수 있음
+
+```ts
+// any.ts
+
+function returnAny(message: any): any {
+  console.log(message);
+}
+
+const any1 = returnAny('리턴은 아무거나');
+any1.toString();
+
+// 전파를 통해 안전성을 잃음
+let losselyTyped: any = {};
+const d = losselyTyped.a.b.c.d;
+
+// any 누수 막는 법
+function leakingAny(obj: any) {
+  // 타입을 지정
+  const a: number = obj.num;  // const a: number
+  const b = a + 1;  // const b: number
+  return b;
+}
+
+const c = leakingAny({ num: 0 });  // const c: number
+c.indexOf("0");
 ```

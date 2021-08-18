@@ -319,3 +319,55 @@ union = "LWW";
 - 무언가가 아예 준비가 안된 상태
 - object의 property가 없을 때도 undefined
 - 런타임에서 typeof 연산자를 이용해 알아내면, undefined
+
+
+<br>
+
+## 9. object
+
+- Primitive type이 아닌 것을 나타내고 싶을 때 사용하는 타입
+- Primitive type이 아닌것
+    - number, string, boolean, bigint, symbol, null, undefined가 아닌 것
+
+```ts
+// object.ts
+
+// person1은 object 타입이 아님
+// person1은 {name: string, age: number} 타입
+const person1 = {
+  name: 'LWW',
+  age: 29
+};
+
+// object 타입
+const person2 = Object.create({
+  name: 'LWW',
+  age: 29
+});
+
+let obj: object = {};
+obj = {name: 'LWW'};
+obj = [{name: 'LWW'}];
+obj = 29;  // Error
+obj = 'LWW';  // Error
+obj = true;  // Error
+obj = 100n;  // Error
+obj = Symbol();  // Error
+obj = null;  // Error
+obj = undefined  // Error
+
+declare function create(o: object | null): void;
+create({prop: 0});
+create(null);
+create(42);  // Error
+create("string");  // Error
+create(false);  // Error
+create(undefined);  // Error
+
+Object.create(0);  // Error
+```
+
+
+<br>
+
+## 10. Array

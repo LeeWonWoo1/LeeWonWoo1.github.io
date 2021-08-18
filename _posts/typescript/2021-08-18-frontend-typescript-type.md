@@ -515,4 +515,25 @@ declare const b: string | number;
 if (typeof b !== "string") {
   b;  // const b: number
 }
+
+type Indexable<T> = T extends string ? T & { [index: string]: any } : never;
+type ObjectIndexable = Indexable<{}>;
+
+const b: Indexable<{}> = '';  // Error
+```
+
+
+<br>
+
+## 15. void
+
+- 리턴값으로 무엇도 하지 않음을 명시적으로 표현
+
+```ts
+function returnVoid(message: string): void {
+  console.log(message);
+  return undefined;
+}
+
+const r = returnVoid('리턴이 없음.');  // const r: void
 ```

@@ -31,7 +31,14 @@
                         <li><a href="/categories/javascript" class="">Javascript ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>          
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Typescript" %}
+                        <li><a href="/categories/typescript" class="">Typescript ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>           
 
       <!--Programming-->  
         <span class="nav__sub-title">Programming</span>

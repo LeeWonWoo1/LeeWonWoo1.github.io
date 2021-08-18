@@ -371,3 +371,21 @@ Object.create(0);  // Error
 <br>
 
 ## 10. Array
+
+- 원래 Javascript에서 array는 객체
+- 사용방법
+    - Array<타입>
+    - 타입[]
+
+```ts
+// array.ts
+
+// 방법 1(선호)
+let list1: number[] = [1, 2, 3];
+
+// 방법 2
+let list2: Array<number> = [4, 5, 6];
+
+// 여러 타입
+let list3: (number | string)[] = [7, 8, 9, "0"];
+```

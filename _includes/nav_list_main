@@ -54,8 +54,8 @@
         <span class="nav__sub-title">CS</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "asd" %}
-                        <li><a href="/categories/asd" class="">asd ({{category[1].size}})</a></li>
+                    {% if category[0] == "DS" %}
+                        <li><a href="/categories/ds" class="">Data Structure ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

@@ -23,6 +23,8 @@ last_modified_at: 2021-08-18T19:00:00
     - Transpile
     - Javascript는 Interpreted Language
 - Typescript -> (Typescript Compiler) -> Javascript
+- 타입을 명시적으로 지정할 수 있음
+- 타입을 지정하지 않으면, Typescript 컴파일러가 자동으로 타입을 추론
 
 Compiled | Interpreted
 --|--

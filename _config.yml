@@ -8,7 +8,7 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 locale                   : "ko-KR"
 title                    : "LWW's Tech Blog" # Meta 태그에 들어가는 영역
 title_separator          : "&#124;" # 타이틀 사이 구분자
-subtitle                 : "Version 1.0" # 타이틀 아래에 나올 작은 글씨
+subtitle                 : "꾸준히 기록하는 블로그" # 타이틀 아래에 나올 작은 글씨
 name                     : "LWW" # 맨 하단 이름 찍히는 영역
 description              : "꾸준히 기록하는 블로그" # Meta 태그에 들어가는 영역
 url                      : "https://LeeWonWoo1.github.io" # 호스트 주소

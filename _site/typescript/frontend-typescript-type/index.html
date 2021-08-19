@@ -1,0 +1,1548 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Typescript] Typescript Types | LWW’s Tech Blog</title>
+<meta name="description" content="Typescript types">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Typescript] Typescript Types">
+<meta property="og:url" content="https://leewonwoo1.github.io/typescript/frontend-typescript-type/">
+
+
+  <meta property="og:description" content="Typescript types">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-18T21:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-19T06:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/typescript/frontend-typescript-type/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">Version 1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#typescript" itemprop="item"><span itemprop="name">Typescript</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Typescript] Typescript Types</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">59</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (2)</a></li>
+                    
+                
+            </ul>           
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Typescript] Typescript Types">
+    <meta itemprop="description" content="Typescript types">
+    <meta itemprop="datePublished" content="2021-08-18T21:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-19T06:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/typescript/frontend-typescript-type/" class="u-url" itemprop="url">[Typescript] Typescript Types
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-type-annotation">1. Type Annotation</a></li><li><a href="#2-typescript-types-vs-javascript-types">2. Typescript Types vs Javascript Types</a></li><li><a href="#3-primitive-types">3. Primitive Types</a></li><li><a href="#4-boolean">4. boolean</a></li><li><a href="#5-number">5. number</a></li><li><a href="#6-string">6. string</a><ul><li><a href="#--template-string">- Template String</a></li></ul></li><li><a href="#7-symbol">7. Symbol</a></li><li><a href="#8-null--undefined">8. null &amp; undefined</a><ul><li><a href="#--null-in-javascript">- null in Javascript</a></li><li><a href="#--undefined-in-javascript">- undefined in Javascript</a></li></ul></li><li><a href="#9-object">9. object</a></li><li><a href="#10-array">10. Array</a></li><li><a href="#11-tuple">11. Tuple</a></li><li><a href="#12-any">12. any</a></li><li><a href="#13-unknown">13. unknown</a></li><li><a href="#14-never">14. never</a></li><li><a href="#15-void">15. void</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-type-annotation">1. Type Annotation</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 타입 에러</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Amy</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>  <span class="c1">// Error</span>
+
+<span class="c1">// a의 타입을 string로 지정</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Amy</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>  <span class="c1">// Error</span>
+
+<span class="c1">// a의 타입을 number로 지정</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Amy</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+
+<span class="c1">// 함수 내의 type annotation</span>
+<span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  
+<span class="p">}</span>
+<span class="nx">hello</span><span class="p">(</span><span class="mi">39</span><span class="p">);</span>
+<span class="nx">hello</span><span class="p">(</span><span class="dl">'</span><span class="s1">Amy</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="2-typescript-types-vs-javascript-types">2. Typescript Types vs Javascript Types</h2>
+
+<ul>
+  <li>Typescript : Static Types(개발 중간에 타입 체크)</li>
+  <li>Javascript : Dynamic Types(runtime에 들어가야 체크)</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Javascript</span>
+
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">n1</span><span class="p">,</span> <span class="nx">n2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// runtime에서 에러 체크</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">n1</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">n2</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Incorrect input!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">n1</span> <span class="o">+</span> <span class="nx">n2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Typescript</span>
+
+<span class="c1">// 개발중에 체크</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">n1</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">n2</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">n1</span> <span class="o">+</span> <span class="nx">n2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Typescript에서 제공하는 데이터 타입</li>
+  <li>Javascript 기본 자료형 포함(superset)
+    <ul>
+      <li>ECMAScript 표준에 따른 기본 자료형(6가지)</li>
+      <li>Boolean</li>
+      <li>Number</li>
+      <li>String</li>
+      <li>Null</li>
+      <li>Undefined</li>
+      <li>Symbol(ECMAScript 6에 추가)</li>
+      <li>Array: object형</li>
+    </ul>
+  </li>
+  <li>프로그래밍을 도울 몇가지 타입 추가 제공
+    <ul>
+      <li>Any, Void, Never, Unknown</li>
+      <li>Enum</li>
+      <li>Tuple: object형</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-primitive-types">3. Primitive Types</h2>
+
+<ul>
+  <li>오브젝트와 레퍼런스 형태가 아닌 실제 값을 저장하는 자료형</li>
+  <li>Primitive 형의 내장 함수를 사용 가능한 것은 Javascript 처리 방식 덕분</li>
+  <li>Primitive types은 모두 <strong><em>소문자</em></strong></li>
+  <li>ES2015 기준 6가지
+    <ul>
+      <li>boolean</li>
+      <li>number</li>
+      <li>string</li>
+      <li>symbol</li>
+      <li>null</li>
+      <li>undefined</li>
+    </ul>
+  </li>
+  <li>literal 값으로 Primitive 타입의 서브 타입을 나타낼 수 있음</li>
+  <li>wrapper 객체로 만들 수 있음</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 내장함수 사용 가능</span>
+<span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Amy</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">name</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+
+<span class="c1">// literal 값으로 Primitive 타입의 서브 타입 표시</span>
+<span class="kc">true</span><span class="p">;</span>
+<span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="mf">3.14</span><span class="p">;</span>
+<span class="kc">null</span><span class="p">;</span>
+<span class="kc">undefined</span><span class="p">;</span>
+
+<span class="c1">// wrapper 객체(Typescript에서는 권장하지 않음)</span>
+<span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>  <span class="c1">// typeof new Boolean(false) : 'object'</span>
+<span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// typeof new String('world') : 'object'</span>
+<span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">29</span><span class="p">);</span>  <span class="c1">// typeof new Number(29) : 'object'</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="4-boolean">4. boolean</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// boolean.ts</span>
+
+<span class="kd">let</span> <span class="nx">isDone</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">isDone</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">isDone</span><span class="p">)</span>  <span class="c1">// boolean</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isDone</span><span class="p">);</span>  <span class="c1">// true</span>
+
+<span class="kd">let</span> <span class="nx">isOk</span><span class="p">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">isOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">isOk</span><span class="p">);</span>  <span class="c1">// boolean</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isOk</span><span class="p">);</span>  <span class="c1">// false</span>
+
+<span class="kd">let</span> <span class="nx">isNotOk</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nxp tsc
+<span class="nv">$ </span>node boolean.js  <span class="c"># boolean</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="5-number">5. number</h2>
+
+<ul>
+  <li>Javascript와 같이 Typescript의 모든 숫자는 부동 소수점 값</li>
+  <li>10진수 및 16진수 외에도, ECMAScript 2015에 도입된 2진수 및 8진수 지원</li>
+  <li>NaN</li>
+  <li>1_000_000과 같은 표기 가능</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// number.ts</span>
+
+<span class="c1">// 10진수 리터럴</span>
+<span class="kd">let</span> <span class="nx">decimal</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+
+<span class="c1">// 16진수 리터럴</span>
+<span class="kd">let</span> <span class="nx">hex</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mh">0xf00e</span><span class="p">;</span>
+
+<span class="c1">// 2진수 리터럴</span>
+<span class="kd">let</span> <span class="nx">binary</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mb">0b1100</span><span class="p">;</span>
+
+<span class="c1">// 8진수 리터럴</span>
+<span class="kd">let</span> <span class="nx">octal</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mo">0o732</span><span class="p">;</span>
+
+<span class="c1">// NaN</span>
+<span class="kd">let</span> <span class="nx">notANumber</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="kc">NaN</span><span class="p">;</span>
+
+<span class="c1">// 밑줄 표기</span>
+<span class="kd">let</span> <span class="nx">underscoreNum</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="nx">_000_000</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="6-string">6. string</h2>
+
+<ul>
+  <li>텍스트 형식을 참조하기 위해 <code class="language-plaintext highlighter-rouge">string</code> 형식을 사용</li>
+  <li>문자열 데이터를 둘러싸기 위해 큰 따옴표나 작은 따옴표를 사용</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// string.ts</span>
+
+<span class="kd">let</span> <span class="nx">myName</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Lee</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--template-string">- Template String</h3>
+
+<ul>
+  <li>행에 걸쳐 있거나, 표현식을 넣을 수 있는 문자열</li>
+  <li>이 문자열은 backtick 기호에 둘러쌓여 있음</li>
+  <li>포함된 표현식은 `${expr}` 와 같은 형태로 사용</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// template string 사용</span>
+<span class="kd">let</span> <span class="nx">fullName</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">WW Lee</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sentence</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="s2">`Hello, My name is </span><span class="p">${</span><span class="nx">fullName</span><span class="p">}</span><span class="s2">.
+
+I'll be </span><span class="p">${</span><span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="s2"> years old next month.`</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sentence</span><span class="p">);</span>  <span class="c1">// Hello, My name is WW Lee.</span>
+
+                        <span class="c1">// I'll be 30 years old next month.</span>
+
+<span class="c1">// template string을 사용하지 않을 경우</span>
+<span class="kd">let</span> <span class="nx">sentence</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello, My name is </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">fullName</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">.</span><span class="se">\n\n</span><span class="dl">"</span> <span class="o">+</span>
+  <span class="dl">"</span><span class="s2">I'll be </span><span class="dl">"</span> <span class="o">+</span> <span class="p">(</span><span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> years old next month.</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nxp tsc
+<span class="nv">$ </span>node string.js
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="7-symbol">7. Symbol</h2>
+
+<ul>
+  <li>ECMAScript 2015에 추가</li>
+  <li>new Symbol로 사용할 수 없음</li>
+  <li>Symbol을 함수로 사용해서 symbol 타입을 만들 수 있음</li>
+  <li>Primitive type의 값을 담아서 사용</li>
+  <li>고유하고 수정 불가능한 값으로 만들어 줌</li>
+  <li>주로 접근을 제어하는데 쓰는 경우가 많음</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+
+</span><span class="nl">"lib"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"ES2015"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"DOM"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// symbol.ts</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">)</span> <span class="o">===</span> <span class="nb">Symbol</span><span class="p">(</span><span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">))</span>  <span class="c1">// false</span>
+
+<span class="kd">const</span> <span class="nx">sym</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">sym</span><span class="p">]:</span> <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span><span class="p">[</span><span class="dl">"</span><span class="s2">sym</span><span class="dl">"</span><span class="p">];</span>  <span class="c1">// 접근 불가</span>
+<span class="nx">obj</span><span class="p">[</span><span class="nx">sym</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nxp tsc
+<span class="nv">$ </span>node symbol.js
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="8-null--undefined">8. null &amp; undefined</h2>
+
+<ul>
+  <li>Typescript에서 null과 undefined는 실제로 각각 null과 undefined 타입을 가짐</li>
+  <li>void와 마찬가지로, 그 자체로는 그다지 유용하지 않음</li>
+  <li>둘 다 소문자만 존재</li>
+  <li>다른 모든 타입의 서브타입으로 존재</li>
+  <li>컴파일 옵션에서 `–strictNullChecks` 사용하면, void나 자기 자신에만 할당 가능
+    <ul>
+      <li>이 경우, null과 undefined를 할당할 수 있게 하려면, union type을 이용해야 함</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// null.ts</span>
+
+<span class="kd">let</span> <span class="nx">MyName</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="kd">let</span> <span class="nx">u</span><span class="p">:</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// Error</span>
+
+<span class="kd">let</span> <span class="nx">v</span><span class="p">:</span> <span class="k">void</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">union</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nx">union</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--null-in-javascript">- null in Javascript</h3>
+
+<ul>
+  <li>null이라는 값으로 할당된 것</li>
+  <li>무언가 있는데, 사용할 준비가 덜 된 상태</li>
+  <li>null 타입은 null 값만 가질 수 있음</li>
+  <li>런타임에서 typeof 연산자를 이용해 알아내면, object</li>
+</ul>
+
+<h3 id="--undefined-in-javascript">- undefined in Javascript</h3>
+
+<ul>
+  <li>값을 할당하지 않은 변수는 undefined 값을 가짐</li>
+  <li>무언가가 아예 준비가 안된 상태</li>
+  <li>object의 property가 없을 때도 undefined</li>
+  <li>런타임에서 typeof 연산자를 이용해 알아내면, undefined</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="9-object">9. object</h2>
+
+<ul>
+  <li>Primitive type이 아닌 것을 나타내고 싶을 때 사용하는 타입</li>
+  <li>Primitive type이 아닌것
+    <ul>
+      <li>number, string, boolean, bigint, symbol, null, undefined가 아닌 것</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// object.ts</span>
+
+<span class="c1">// person1은 object 타입이 아님</span>
+<span class="c1">// person1은 {name: string, age: number} 타입</span>
+<span class="kd">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">29</span>
+<span class="p">};</span>
+
+<span class="c1">// object 타입</span>
+<span class="kd">const</span> <span class="nx">person2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">29</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">obj</span><span class="p">:</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">};</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="p">[{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">}];</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="mi">100</span><span class="nx">n</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">();</span>  <span class="c1">// Error</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="kc">undefined</span>  <span class="c1">// Error</span>
+
+<span class="kr">declare</span> <span class="kd">function</span> <span class="nx">create</span><span class="p">(</span><span class="nx">o</span><span class="p">:</span> <span class="nx">object</span> <span class="o">|</span> <span class="kc">null</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="nx">create</span><span class="p">({</span><span class="na">prop</span><span class="p">:</span> <span class="mi">0</span><span class="p">});</span>
+<span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="nx">create</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>  <span class="c1">// Error</span>
+<span class="nx">create</span><span class="p">(</span><span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">);</span>  <span class="c1">// Error</span>
+<span class="nx">create</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>  <span class="c1">// Error</span>
+<span class="nx">create</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>  <span class="c1">// Error</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="10-array">10. Array</h2>
+
+<ul>
+  <li>원래 Javascript에서 array는 객체</li>
+  <li>사용방법
+    <ul>
+      <li>Array<타입></타입></li>
+      <li>타입[]</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// array.ts</span>
+
+<span class="c1">// 방법 1(선호)</span>
+<span class="kd">let</span> <span class="nx">list1</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="c1">// 방법 2</span>
+<span class="kd">let</span> <span class="nx">list2</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+
+<span class="c1">// 여러 타입</span>
+<span class="kd">let</span> <span class="nx">list3</span><span class="p">:</span> <span class="p">(</span><span class="kr">number</span> <span class="o">|</span> <span class="kr">string</span><span class="p">)[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="11-tuple">11. Tuple</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tuple.ts</span>
+
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">];</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="mi">29</span><span class="p">];</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">]</span>  <span class="c1">// Error</span>
+<span class="nx">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">item</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Error</span>
+
+<span class="kd">const</span> <span class="nx">person</span><span class="p">:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">,</span> <span class="mi">29</span><span class="p">];</span>
+
+<span class="c1">// const first: string, const second: number</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">]</span> <span class="o">=</span> <span class="nx">person</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="12-any">12. any</h2>
+
+<ul>
+  <li>어떤 타입이어도 상관없는 타입</li>
+  <li>any를 써야하는데 쓰지 않으면 오류를 뱉는 컴파일 옵션 nolmplicitAny가 있음</li>
+  <li>any는 계속해서 개체를 통해 전파됨</li>
+  <li>모든 편의는 타입 안전성을 잃는 대가로 오는 것</li>
+  <li>타입 안전성은 Typescript를 사용하는 주요 동기</li>
+  <li>최대한 쓰지 않는 것을 권장</li>
+  <li>컴파일 타임에 타입 체크가 정상적으로 이루어지지 않을 수 있음</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// any.ts</span>
+
+<span class="kd">function</span> <span class="nx">returnAny</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="kr">any</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">any1</span> <span class="o">=</span> <span class="nx">returnAny</span><span class="p">(</span><span class="dl">'</span><span class="s1">리턴은 아무거나</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">any1</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+
+<span class="c1">// 전파를 통해 안전성을 잃음</span>
+<span class="kd">let</span> <span class="nx">losselyTyped</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">losselyTyped</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">b</span><span class="p">.</span><span class="nx">c</span><span class="p">.</span><span class="nx">d</span><span class="p">;</span>
+
+<span class="c1">// any 누수 막는 법</span>
+<span class="kd">function</span> <span class="nx">leakingAny</span><span class="p">(</span><span class="nx">obj</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 타입을 지정</span>
+  <span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">num</span><span class="p">;</span>  <span class="c1">// const a: number</span>
+  <span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// const b: number</span>
+  <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">leakingAny</span><span class="p">({</span> <span class="na">num</span><span class="p">:</span> <span class="mi">0</span> <span class="p">});</span>  <span class="c1">// const c: number</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="13-unknown">13. unknown</h2>
+
+<ul>
+  <li>응용 프로그램을 작성할 때 모르는 변수의 타입을 묘사해야 할 수 있음</li>
+  <li>이러한 값은 동적 콘텐츠의 모든 값을 의도적으로 수락하기를 원할 수 있음</li>
+  <li>컴파일러와 사람에게 이 변수가 무엇이든 될 수 있음을 알려주는 unknwon 타입을 제공</li>
+  <li>any와 짝으로 any보다 Type-safe한 타입
+    <ul>
+      <li>any와 같이 아무거나 할당 가능</li>
+      <li>컴파일러가 타입을 추론할 수 있게끔 타입의 유형을 좁힘</li>
+      <li>타입을 확정해주지 않으면 다른 곳에 할당할 수 없고, 사용 불가</li>
+    </ul>
+  </li>
+  <li>unknown 타입을 사용하면, runtime error를 줄일 수 있음</li>
+  <li>사용 전에 데이터의 일부 유형의 검사를 수행하야 함을 알리는 API에 사용 가능</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// unknown.ts</span>
+
+<span class="kr">declare</span> <span class="kd">const</span> <span class="nx">maybe</span><span class="p">:</span> <span class="nx">unknown</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">aNumber</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">maybe</span><span class="p">;</span>  <span class="c1">// Error</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">maybe</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">aBoolean</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="nx">maybe</span><span class="p">;</span>  <span class="c1">// const maybe: true</span>
+  <span class="kd">const</span> <span class="nx">aString</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">maybe</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">maybe</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">aString</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">maybe</span><span class="p">;</span>  <span class="c1">// const maybe: string</span>
+  <span class="kd">const</span> <span class="nx">aBoolean</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="nx">maybe</span><span class="p">;</span>  <span class="c1">// Error</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="14-never">14. never</h2>
+
+<ul>
+  <li>never 타입은 모든 타입의 서브타입이며, 모든 타입에 할당 할 수 있음</li>
+  <li>never에는 어떤 것도 할당할 수 없음</li>
+  <li>any조차도 never에 할당할 수 없음</li>
+  <li>잘못된 타입을 넣는 실수를 막고자 할 때 사용</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// never.ts</span>
+
+<span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">never</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fail</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">failed</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">infiniteLoop</span><span class="p">():</span> <span class="nx">never</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">a</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">a</span><span class="p">;</span>  <span class="c1">// let a: never</span>
+<span class="p">}</span>
+
+<span class="kr">declare</span> <span class="kd">const</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">b</span><span class="p">;</span>  <span class="c1">// const b: number</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Indexable</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">T</span> <span class="kd">extends</span> <span class="kr">string</span> <span class="p">?</span> <span class="nx">T</span> <span class="o">&amp;</span> <span class="p">{</span> <span class="p">[</span><span class="na">index</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">any</span> <span class="p">}</span> <span class="p">:</span> <span class="nx">never</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">ObjectIndexable</span> <span class="o">=</span> <span class="nx">Indexable</span><span class="o">&lt;</span><span class="p">{}</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">Indexable</span><span class="o">&lt;</span><span class="p">{}</span><span class="o">&gt;</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>  <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="15-void">15. void</h2>
+
+<ul>
+  <li>리턴값으로 무엇도 하지 않음을 명시적으로 표현</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">returnVoid</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+  <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">returnVoid</span><span class="p">(</span><span class="dl">'</span><span class="s1">리턴이 없음.</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// const r: void</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a><span class="sep">, </span>
+    
+      <a href="/tags/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-18">August 18, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BTypescript%5D+Typescript+Types%20https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-type%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-type%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-type%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/typescript/frontend-typescript-typestart/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Typescript] Typescript란?</a>
+  
+  
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-typestart/" rel="permalink">[Typescript] Typescript란?
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.18
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript 정보, 설치
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/jcks/etc-jcks1/" rel="permalink">[정보처리기사 실기] 1. 요구사항 확인
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.18
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#jcks"
+      class="page__taxonomy-item-category" rel="tag">JCKS</a>
+    
+    
+    <a href="/tags/#jcks"
+      class="page__taxonomy-item-tag" rel="tag">JCKS</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정보처리기사 실기 1장
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/javascript/frontend-javascript-regpattern/" rel="permalink">[Javascript] 정규표현식 패턴
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.18
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
+    
+    
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#reg"
+      class="page__taxonomy-item-tag" rel="tag">Reg</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정규표현식 패턴(표현)
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/javascript/frontend-javascript-regmethod/" rel="permalink">[Javascript] 정규표현식 메서드, 플래그
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.17
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#javascript"
+      class="page__taxonomy-item-category" rel="tag">Javascript</a>
+    
+    
+    <a href="/tags/#javascript"
+      class="page__taxonomy-item-tag" rel="tag">Javascript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#reg"
+      class="page__taxonomy-item-tag" rel="tag">Reg</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">정규표현식 메서드, 플래그
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/typescript/frontend-typescript-type/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/typescript/frontend-typescript-type"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

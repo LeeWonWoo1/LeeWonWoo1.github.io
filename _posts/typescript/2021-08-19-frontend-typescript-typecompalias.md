@@ -123,3 +123,50 @@ tellme(function sToD(d: StartupDeveloper): Developer {
   return new Developer();
 });
 ```
+
+
+<br>
+
+## 2. 타입 별칭(Type Alias)
+
+- Interface랑 비슷
+- Primitive, Union Type, Tuple, Function
+- 기타 직접 작성해야하는 타입을 다른 이름을 지정할 수 있음
+- 만들어진 타입의 refer로 사용하는 것
+- 타입을 만드는 것은 아님
+- 타입이 타입으로서의 목적이 명확하면 Interface, 그렇지 않다면 Type Alias 사용
+
+```ts
+// Aliasing Primitive
+// 별 의미가 없음
+type MyStringType = string;
+const str = 'world';
+let myStr: MyStringType = 'hello';
+
+myStr = str;
+
+
+// ------------------------------------------
+// Aliasing Union Type
+// Union Type은 A도 가능하고 B도 가능한 타입
+// 길게 쓰는걸 짧게해주고, 반복을 줄여줌
+let person: string | number = 0;
+person = 'LWW';
+
+type StringOrNumber = string | number;
+let another: StringOrNumber = 0;
+another = 'Tom';
+
+
+// ------------------------------------------
+// Aliasing Tuple
+// 튜플 타입에 별칭을 줘서 여러군데서 사용할 수 있게 함
+let person: [string, number] = ['LWW', 29];
+type PersonTuple = [string, number];
+let another: PersonTuple = ['Tom', 24];
+
+
+// ------------------------------------------
+// Aliasing Function
+type EatType = (food: string) => void;
+```

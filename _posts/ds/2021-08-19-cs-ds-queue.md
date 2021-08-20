@@ -136,7 +136,7 @@ def enqueue(data) :
 
 def dequeue() :
   data = queue_list[0]
-  del quele_list[0]
+  del queue_list[0]
   return data
 
 for index in range(10) :

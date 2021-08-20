@@ -286,6 +286,7 @@ defaults:
       related: true
       popular: false
       sidebar_main: true
+      mathjax: true
 
   # _pages
   - scope:

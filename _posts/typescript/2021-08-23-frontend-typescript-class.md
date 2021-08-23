@@ -27,7 +27,7 @@ last_modified_at: 2021-08-23T19:00:00
 # 프로젝트 생성
 
 $ mkdir ts-class
-$ cd type-interface
+$ cd ts-class
 $ npm init -y
 $ npm i typescript -D
 $ npx tsc --init

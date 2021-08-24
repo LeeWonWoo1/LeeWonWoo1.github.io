@@ -1,0 +1,1551 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Data Structure] 힙(Heap) | LWW’s Tech Blog</title>
+<meta name="description" content="자료구조 힙">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Data Structure] 힙(Heap)">
+<meta property="og:url" content="https://leewonwoo1.github.io/ds/cs-ds-heap/">
+
+
+  <meta property="og:description" content="자료구조 힙">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-23T23:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-24T08:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/ds/cs-ds-heap/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#ds" itemprop="item"><span itemprop="name">Ds</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Data Structure] 힙(Heap)</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">75</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (2)</a></li>
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>           
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Data Structure] 힙(Heap)">
+    <meta itemprop="description" content="자료구조 힙">
+    <meta itemprop="datePublished" content="2021-08-23T23:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-24T08:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/ds/cs-ds-heap/" class="u-url" itemprop="url">[Data Structure] 힙(Heap)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-힙">1. 힙</a><ul><li><a href="#--힙-heap-이란">- 힙 (Heap) 이란?</a></li><li><a href="#--힙-heap-구조">- 힙 (Heap) 구조</a><ul><li><a href="#-힙과-이진-탐색-트리의-공통점과-차이점">@ 힙과 이진 탐색 트리의 공통점과 차이점</a></li></ul></li><li><a href="#--힙-heap-동작">- 힙 (Heap) 동작</a><ul><li><a href="#1-힙에-데이터-삽입하기---기본-동작">@1. 힙에 데이터 삽입하기 - 기본 동작</a></li><li><a href="#2-힙에-데이터-삽입하기---삽입할-데이터가-힙의-데이터보다-클-경우">@2. 힙에 데이터 삽입하기 - 삽입할 데이터가 힙의 데이터보다 클 경우</a></li><li><a href="#3-힙의-데이터-삭제하기-max-heap-의-예">@3. 힙의 데이터 삭제하기 (Max Heap 의 예)</a></li></ul></li><li><a href="#8-4-힙-구현">8-4. 힙 구현</a><ul><li><a href="#1-힙과-배열">@1. 힙과 배열</a></li><li><a href="#2-힙에-데이터-삽입-구현-max-heap-예">@2. 힙에 데이터 삽입 구현 (Max Heap 예)</a></li><li><a href="#3-힙에-데이터-삭제-구현-max-heap-예">@3. 힙에 데이터 삭제 구현 (Max Heap 예)</a></li><li><a href="#4-파이썬-전체-코드">@4. 파이썬 전체 코드</a></li></ul></li><li><a href="#--힙-heap-시간-복잡도">- 힙 (Heap) 시간 복잡도</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-힙">1. 힙</h2>
+
+<h3 id="--힙-heap-이란">- 힙 (Heap) 이란?</h3>
+
+<ul>
+  <li>데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리(Complete Binary Tree)
+    <ul>
+      <li>완전 이진 트리: 노드를 삽입할 때 최하단 왼쪽 노드부터 차례대로 삽입하는 트리</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/completebinarytree.png" width="300" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>힙을 사용하는 이유
+    <ul>
+      <li>배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림</li>
+      <li>이에 반해, 힙에 데이터를 넣고, 최대값과 최소값을 찾으면, $ O(log n) $ 이 걸림</li>
+      <li>우선순위 큐와 같이 최대값 또는 최소값을 빠르게 찾아야 하는 자료구조 및 알고리즘 구현 등에 활용</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="--힙-heap-구조">- 힙 (Heap) 구조</h3>
+
+<ul>
+  <li>힙은 최대값을 구하기 위한 구조 (최대 힙, Max Heap)와, 최소값을 구하기 위한 구조 (최소 힙, Min Heap)로 분류</li>
+  <li>힙은 두 가지 조건을 가지고 있는 자료구조
+    <ol>
+      <li>각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 같음 (최대 힙의 경우)
+        <ul>
+          <li>최소 힙의 경우는 각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 작음</li>
+        </ul>
+      </li>
+      <li>완전 이진 트리 형태를 가짐</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="-힙과-이진-탐색-트리의-공통점과-차이점">@ 힙과 이진 탐색 트리의 공통점과 차이점</h4>
+
+<ul>
+  <li>공통점 : 힙과 이진 탐색 트리는 모두 이진 트리</li>
+  <li>차이점 :
+    <ul>
+      <li>힙은 각 노드의 값이 자식 노드보다 크거나 같음(Max Heap의 경우)</li>
+      <li>이진 탐색 트리는 왼쪽 자식 노드의 값이 가장 작고, 그 다음 부모 노드, 그 다음 오른쪽 자식 노드 값이 가장 큼</li>
+      <li>힙은 이진 탐색 트리의 조건인 자식 노드에서 작은 값은 왼쪽, 큰 값은 오른쪽이라는 조건은 없음
+        <ul>
+          <li>힙의 왼쪽 및 오른쪽 자식 노드의 값은 오른쪽이 클 수도 있고, 왼쪽이 클 수도 있음</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>이진 탐색 트리는 탐색을 위한 구조, 힙은 최대/최소값 검색을 위한 구조</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/completebinarytree_bst.png" width="800" /></p>
+
+<p><br /></p>
+
+<h3 id="--힙-heap-동작">- 힙 (Heap) 동작</h3>
+
+<ul>
+  <li>데이터를 힙 구조에 삽입, 삭제하는 과정을 그림을 통해 이해</li>
+</ul>
+
+<h4 id="1-힙에-데이터-삽입하기---기본-동작">@1. 힙에 데이터 삽입하기 - 기본 동작</h4>
+
+<ul>
+  <li>힙은 완전 이진 트리이므로, 삽입할 노드는 기본적으로 왼쪽 최하단부 노드부터 채워지는 형태로 삽입</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_ordinary.png" /></p>
+
+<p><br /></p>
+
+<h4 id="2-힙에-데이터-삽입하기---삽입할-데이터가-힙의-데이터보다-클-경우">@2. 힙에 데이터 삽입하기 - 삽입할 데이터가 힙의 데이터보다 클 경우</h4>
+
+<ul>
+  <li>먼저 삽입된 데이터는 완전 이진 트리 구조에 맞추어, 최하단부 왼쪽 노드부터 채워짐</li>
+  <li>채워진 노드 위치에서, 부모 노드보다 값이 클 경우, 부모 노드와 위치를 바꿔주는 작업을 반복 (swap)</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_insert.png" /></p>
+
+<p><br /></p>
+
+<h4 id="3-힙의-데이터-삭제하기-max-heap-의-예">@3. 힙의 데이터 삭제하기 (Max Heap 의 예)</h4>
+
+<ul>
+  <li>보통 삭제는 최상단 노드 (root 노드)를 삭제하는 것이 일반적
+    <ul>
+      <li>힙의 용도는 최대값 또는 최소값을 root 노드에 놓아서, 최대값과 최소값을 바로 꺼내 쓸 수 있도록 하는 것</li>
+    </ul>
+  </li>
+  <li>상단의 데이터 삭제시, 가장 최하단부 왼쪽에 위치한 노드 (일반적으로 가장 마지막에 추가한 노드)를 root 노드로 이동</li>
+  <li>root 노드의 값이 child node 보다 작을 경우, root 노드의 child node 중 가장 큰 값을 가진 노드와 root 노드 위치를 바꿔주는 작업을 반복 (swap)</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_remove.png" /></p>
+
+<p><br /></p>
+
+<h3 id="8-4-힙-구현">8-4. 힙 구현</h3>
+
+<h4 id="1-힙과-배열">@1. 힙과 배열</h4>
+
+<ul>
+  <li>일반적으로 힙 구현시 배열 자료구조를 활용</li>
+  <li>배열은 인덱스가 0번부터 시작하지만, 힙 구현의 편의를 위해 root 노드 인덱스 번호를 1로 지정하면, 구현이 좀더 수월</li>
+  <li>부모 노드 인덱스 번호 (parent node’s index) = 자식 노드 인덱스 번호 (child node’s index) // 2</li>
+  <li>왼쪽 자식 노드 인덱스 번호 (left child node’s index) = 부모 노드 인덱스 번호 (parent node’s index) * 2</li>
+  <li>오른쪽 자식 노드 인덱스 번호 (right child node’s index) = 부모 노드 인덱스 번호 (parent node’s index) * 2 + 1</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_array.png" width="400" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 예1 - 10 노드의 부모 노드 인덱스
+</span><span class="mi">2</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 1
+</span>
+<span class="c1"># 예1 - 15 노드의 왼쪽 자식 노드 인덱스 번호
+</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span>  <span class="c1"># 2
+</span>
+<span class="c1"># 예1 - 15 노드의 오른쪽 자식 노드 인덱스 번호
+</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 5
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="2-힙에-데이터-삽입-구현-max-heap-예">@2. 힙에 데이터 삽입 구현 (Max Heap 예)</h4>
+
+<ul>
+  <li>힙 클래스 구현1</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Heap</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 테스트
+</span><span class="n">heap</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">heap_array</span>  <span class="c1"># [None, 1]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>힙 클래스 구현2 - insert1
+    <ul>
+      <li>인덱스 번호는 1번부터 시작하도록 변경</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_ordinary.png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Heap</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>힙 클래스 구현3 - insert2
+    <ul>
+      <li>삽입한 노드가 부모 노드의 값보다 클 경우, 부모 노드와 삽입한 노드 위치를 바꿈</li>
+      <li>삽입한 노드가 루트 노드가 되거나, 부모 노드보다 값이 작거나 같을 경우까지 반복</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_insert.png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Heap</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">move_up</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inserted_idx</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">inserted_idx</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">parent_idx</span> <span class="o">=</span> <span class="n">inserted_idx</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">inserted_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">parent_idx</span><span class="p">]</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">inserted_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">move_up</span><span class="p">(</span><span class="n">inserted_idx</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">parent_idx</span> <span class="o">=</span> <span class="n">inserted_idx</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">inserted_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">parent_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">parent_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">inserted_idx</span><span class="p">]</span>
+            <span class="n">inserted_idx</span> <span class="o">=</span> <span class="n">parent_idx</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+
+<span class="c1"># 테스트
+</span><span class="n">heap</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">heap_array</span>  <span class="c1"># [None, 20, 10, 15, 5, 4, 8]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="3-힙에-데이터-삭제-구현-max-heap-예">@3. 힙에 데이터 삭제 구현 (Max Heap 예)</h4>
+
+<ul>
+  <li>힙 클래스 구현4 - delete1</li>
+  <li>보통 삭제는 최상단 노드 (root 노드)를 삭제하는 것이 일반적
+    <ul>
+      <li>힙의 용도는 최대값 또는 최소값을 root 노드에 놓아서, 최대값과 최소값을 바로 꺼내 쓸 수 있도록 하는 것</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Heap</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">returned_data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">returned_data</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>힙 클래스 구현4 - delete2
+    <ul>
+      <li>상단의 데이터 삭제시, 가장 최하단부 왼쪽에 위치한 노드 (일반적으로 가장 마지막에 추가한 노드) 를 root 노드로 이동</li>
+      <li>root 노드의 값이 child node 보다 작을 경우, root 노드의 child node 중 가장 큰 값을 가진 노드와 root 노드 위치를 바꿔주는 작업을 반복 (swap)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/heap_remove.png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Heap</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">move_down</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">popped_idx</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">left_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">right_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="c1"># case 1 : 자식 노드가 없을 때
+</span>        <span class="k">if</span> <span class="n">left_child_popped_idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># case 2 : 왼쪽 자식 노드만 있을 때
+</span>        <span class="k">elif</span> <span class="n">right_child_popped_idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># case 3 : 왼쪽, 오른쪽 자식 노드가 모두 있을 때
+</span>        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+            
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">returned_data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">popped_idx</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">move_down</span><span class="p">(</span><span class="n">popped_idx</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">left_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="n">right_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="c1"># case 2 : 왼쪽 자식 노드만 있을 때
+</span>            <span class="k">if</span> <span class="n">right_child_popped_idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span>
+                    <span class="n">popped_idx</span> <span class="o">=</span> <span class="n">left_child_popped_idx</span>
+            <span class="c1"># case 3 : 왼쪽, 오른쪽 자식 노드가 모두 있을 때
+</span>            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span>
+                        <span class="n">popped_idx</span> <span class="o">=</span> <span class="n">left_child_popped_idx</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span>
+                        <span class="n">popped_idx</span> <span class="o">=</span> <span class="n">right_child_popped_idx</span>
+        <span class="k">return</span> <span class="n">returned_data</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="4-파이썬-전체-코드">@4. 파이썬 전체 코드</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Heap</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">move_up</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inserted_idx</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">inserted_idx</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">parent_idx</span> <span class="o">=</span> <span class="n">inserted_idx</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">inserted_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">parent_idx</span><span class="p">]</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        
+    <span class="k">def</span> <span class="nf">move_down</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">popped_idx</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">left_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">right_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="c1"># case 1 : 자식 노드가 없을 때
+</span>        <span class="k">if</span> <span class="n">left_child_popped_idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># case 2 : 왼쪽 자식 노드만 있을 때
+</span>        <span class="k">elif</span> <span class="n">right_child_popped_idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># case 3 : 왼쪽, 오른쪽 자식 노드가 모두 있을 때
+</span>        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+        
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">inserted_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">move_up</span><span class="p">(</span><span class="n">inserted_idx</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">parent_idx</span> <span class="o">=</span> <span class="n">inserted_idx</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">inserted_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">parent_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">parent_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">inserted_idx</span><span class="p">]</span>
+            <span class="n">inserted_idx</span> <span class="o">=</span> <span class="n">parent_idx</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">returned_data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">popped_idx</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">move_down</span><span class="p">(</span><span class="n">popped_idx</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">left_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="n">right_child_popped_idx</span> <span class="o">=</span> <span class="n">popped_idx</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="c1"># case 2 : 왼쪽 자식 노드만 있을 때
+</span>            <span class="k">if</span> <span class="n">right_child_popped_idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span>
+                    <span class="n">popped_idx</span> <span class="o">=</span> <span class="n">left_child_popped_idx</span>
+            <span class="c1"># case 3 : 왼쪽, 오른쪽 자식 노드가 모두 있을 때
+</span>            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">left_child_popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span>
+                        <span class="n">popped_idx</span> <span class="o">=</span> <span class="n">left_child_popped_idx</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="p">:</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">right_child_popped_idx</span><span class="p">],</span> <span class="bp">self</span><span class="p">.</span><span class="n">heap_array</span><span class="p">[</span><span class="n">popped_idx</span><span class="p">]</span>
+                        <span class="n">popped_idx</span> <span class="o">=</span> <span class="n">right_child_popped_idx</span>
+        <span class="k">return</span> <span class="n">returned_data</span>
+
+
+<span class="c1"># 테스트
+</span><span class="n">heap</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">heap</span><span class="p">.</span><span class="n">heap_array</span>  <span class="c1"># [None, 20, 10, 15, 5, 4, 8]
+</span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># 20
+</span><span class="n">heap</span><span class="p">.</span><span class="n">heap_array</span>  <span class="c1"># [None, 15, 10, 8, 5, 4]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--힙-heap-시간-복잡도">- 힙 (Heap) 시간 복잡도</h3>
+
+<ul>
+  <li>depth (트리의 높이) 를 h라고 표기한다면,</li>
+  <li>n개의 노드를 가지는 heap 에 데이터 삽입 또는 삭제시, 최악의 경우 root 노드에서 leaf 노드까지 비교해야 하므로 $h = log_2{n} $ 에 가까우므로, 시간 복잡도는 $ O(log{n}) $
+    <ul>
+      <li>참고: 빅오 표기법에서 $log{n}$ 에서의 log의 밑은 10이 아니라, 2.</li>
+      <li>한번 실행시마다, 50%의 실행할 수도 있는 명령을 제거한다는 의미. 즉 50%의 실행시간을 단축시킬 수 있다는 것을 의미</li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cs" class="page__taxonomy-item p-category" rel="tag">CS</a><span class="sep">, </span>
+    
+      <a href="/tags/#ds" class="page__taxonomy-item p-category" rel="tag">DS</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ds" class="page__taxonomy-item p-category" rel="tag">DS</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-23">August 23, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BData+Structure%5D+%ED%9E%99%28Heap%29%20https%3A%2F%2Fleewonwoo1.github.io%2Fds%2Fcs-ds-heap%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fds%2Fcs-ds-heap%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fds%2Fcs-ds-heap%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/ds/cs-ds-tree/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Data Structure] 트리(Tree)</a>
+  
+  
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-variopermixins/" rel="permalink">[SCSS] SCSS 변수, 연산, 재활용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Variable, Opeation, Mixins
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-start/" rel="permalink">[SCSS] SCSS 개요, 참조, 중첩
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Overview, Meister, Nesting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-generics/" rel="permalink">[Typescript] Generics
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript Generics
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-class/" rel="permalink">[Typescript] Class
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript Class
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/ds/cs-ds-heap/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/ds/cs-ds-heap"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

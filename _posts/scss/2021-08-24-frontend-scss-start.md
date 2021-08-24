@@ -1,6 +1,6 @@
 ---
 title: "[SCSS] SCSS 개요, 참조, 중첩"
-excerpt: SCSS 
+excerpt: SCSS Overview, Meister, Nesting
 categories:
 - SCSS
 tags:

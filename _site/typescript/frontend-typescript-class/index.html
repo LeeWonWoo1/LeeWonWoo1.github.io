@@ -1,0 +1,1486 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Typescript] Class | LWW’s Tech Blog</title>
+<meta name="description" content="Typescript Class">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Typescript] Class">
+<meta property="og:url" content="https://leewonwoo1.github.io/typescript/frontend-typescript-class/">
+
+
+  <meta property="og:description" content="Typescript Class">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-23T19:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-24T04:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/typescript/frontend-typescript-class/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#typescript" itemprop="item"><span itemprop="name">Typescript</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Typescript] Class</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">75</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (2)</a></li>
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>           
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Typescript] Class">
+    <meta itemprop="description" content="Typescript Class">
+    <meta itemprop="datePublished" content="2021-08-23T19:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-24T04:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/typescript/frontend-typescript-class/" class="u-url" itemprop="url">[Typescript] Class
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-클래스란">1. 클래스란?</a></li><li><a href="#2-constructor--initialize">2. Constructor &amp; Initialize</a></li><li><a href="#3-접근-제어자">3. 접근 제어자</a></li><li><a href="#4-initialization-in-constructor-parameters">4. Initialization in Constructor Parameters</a></li><li><a href="#4-getters-setters">4. Getters, Setters</a></li><li><a href="#5-readonly-property">5. Readonly Property</a></li><li><a href="#6-index-signatures-in-class">6. Index Signatures in Class</a></li><li><a href="#7-static-properties--methods">7. Static Properties &amp; Methods</a></li><li><a href="#8-singletons">8. Singletons</a></li><li><a href="#9-상속">9. 상속</a></li><li><a href="#10-abstract-classes">10. Abstract Classes</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-클래스란">1. 클래스란?</h2>
+
+<ul>
+  <li>Object를 만드는 설계도</li>
+  <li>클래스 이전에 object를 만드는 기본적인 방법은 function</li>
+  <li>Javascript에도 class는 ES6부터 사용 가능</li>
+  <li>OOP을 위한 초석</li>
+  <li>Typescript에서는 class도 사용자가 만드는 타입의 하나</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 프로젝트 생성</span>
+
+<span class="nv">$ </span><span class="nb">mkdir </span>ts-class
+<span class="nv">$ </span><span class="nb">cd </span>ts-class
+<span class="nv">$ </span>npm init <span class="nt">-y</span>
+<span class="nv">$ </span>npm i typescript <span class="nt">-D</span>
+<span class="nv">$ </span>npx tsc <span class="nt">--init</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="c1">// 간단한 Class 만들기 1</span>
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>  <span class="c1">// Person {}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 컴파일</span>
+
+<span class="nv">$ </span>npx tsc
+<span class="nv">$ </span>node example.ts
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.js</span>
+
+<span class="c1">// es5</span>
+<span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Person</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
+<span class="p">}());</span>
+<span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">es</span><span class="mi">6</span><span class="err">로</span><span class="w"> </span><span class="err">변경</span><span class="w">
+</span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"es6"</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.js</span>
+
+<span class="c1">// es6</span>
+<span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>  <span class="c1">// Person { name: 'LWW' }</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>class 키워드를 이용하여 class를 만들 수 있음</li>
+  <li>class 이름은 보통 대문자를 이용</li>
+  <li>new를 이용하여 class를 통해 object를 만들 수 있음</li>
+  <li>constructor를 이용하여 object를 생성하면서 값을 전달할 수 있음</li>
+  <li>this를 이용해서 만들어진 object를 가리킬 수 있음</li>
+  <li>Javascript로 컴파일되면 ES5의 경우 function으로 변경됨</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-constructor--initialize">2. Constructor &amp; Initialize</h2>
+
+<ul>
+  <li>생성자 함수가 없으면, 디폴트 생성자가 불림</li>
+  <li>개발자가 만든 생성자가 하나라도 있으면, 디폴트 생성자는 사라짐</li>
+  <li>strict 모드에서 property를 선언하는 곳 또는 생성자에서 값을 할당해야 함</li>
+  <li>peoperty를 선언하느 곳 또는 생성자에서 값을 할당하지 않는 경우에는 !를 붙여서 위험을 표현</li>
+  <li>class의 property가 정의되어 있지만, 값을 대입하지 않으면 undefined</li>
+  <li>생성자에는 async를 설정할 수 없음</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nx">age</span><span class="o">!</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p3</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="mi">29</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">p4</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p3</span><span class="p">);</span>  <span class="c1">// Person { name: 'LWW', age: 29 }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p3</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>  <span class="c1">// 29</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p4</span><span class="p">);</span>  <span class="c1">// Person { name: 'LWW', age: -1 }</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="3-접근-제어자">3. 접근 제어자</h2>
+
+<ul>
+  <li>접근 제어자에는 public, private, protected가 있음</li>
+  <li>설정하지 않으면 public</li>
+  <li>클래스 내부의 모든 곳(생성자, 프로퍼티, 메서드)에 설정 가능</li>
+  <li>private으로 설정하면 클래스 외부에서 접근할 수 없음</li>
+  <li>Javascript에서는 private를 지원하지 않아 이름 앞에 _를 붙여서 표현했음</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="4-initialization-in-constructor-parameters">4. Initialization in Constructor Parameters</h2>
+
+<ul>
+  <li>생성자의 Parameter를 받아 그 클래스에 Property로 초기화 하는 방법</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">private</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p5</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">,</span> <span class="mi">29</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p5</span><span class="p">);</span>  <span class="c1">// Person { name: 'LWW', age: 29 }</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="4-getters-setters">4. Getters, Setters</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">private</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="kd">get</span> <span class="nx">name</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> 입니다.</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">set</span> <span class="nx">name</span><span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">set</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p6</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">,</span> <span class="mi">29</span><span class="p">);</span>
+
+<span class="c1">// get을 하는 함수 getter</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p6</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>  <span class="c1">// get</span>
+                       <span class="c1">// LWW 입니다.</span>
+
+<span class="c1">// set을 하는 함수 setter</span>
+<span class="nx">p6</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Tom</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// set</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p6</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>  <span class="c1">// get</span>
+                       <span class="c1">// Tom 입니다.</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="5-readonly-property">5. Readonly Property</h2>
+
+<ul>
+  <li>Set은 불가, Get만 가능</li>
+  <li>Initialization 부분과 Constructor 안에서만 readonly property를 지정해 줄 수 있음</li>
+  <li>다른 메서드 등에서는 Set할 수 없음</li>
+  <li>Property를 초기값으로 고정하고 다른 값으로 변경하고 싶지 않을 때, readonly를 붙여서 다른 개발자가 Set할 때 에러를 발생시킴</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">;</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">country</span><span class="p">:</span> <span class="kr">string</span>
+
+  <span class="k">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="k">private</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">private</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">country</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Korea</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">country</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Japan</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// Error! 읽기 전용 속성이므로 ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p6</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">,</span> <span class="mi">29</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p7</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="nx">p7</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Tom</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Error! 읽기 전용 속성이므로 ...</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p7</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="6-index-signatures-in-class">6. Index Signatures in Class</h2>
+
+<ul>
+  <li>Class 안에서 Index Signatures를 선언하고 사용하는 방법</li>
+  <li>Property가 고정된 형태가 아닐 때, 즉 동적으로 들어올 때 사용</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Students</span> <span class="p">{</span>
+  <span class="c1">// [index: string]: string;</span>
+  <span class="p">[</span><span class="nx">index</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nl">LWW</span><span class="p">:</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Students</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">LWW</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">Tom</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>  <span class="c1">// Students { LWW: 'male', Tom: 'male' }</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Students</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">Amy</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">James</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">Anna</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>  <span class="c1">// Students { Amy: 'female', James: 'male', Anna: 'female' }</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="7-static-properties--methods">7. Static Properties &amp; Methods</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">static</span> <span class="nx">CITY</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Seoul</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">public</span> <span class="k">static</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">안녕하세요.</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">public</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hi.</span><span class="dl">"</span><span class="p">,</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">CITY</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">public</span> <span class="nx">change</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Person</span><span class="p">.</span><span class="nx">CITY</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Busan</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p8</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">();</span>  <span class="c1">// 안녕하세요.</span>
+<span class="nx">p8</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">();</span>  <span class="c1">// Error!</span>
+<span class="nx">p8</span><span class="p">.</span><span class="nx">hello</span><span class="p">();</span>  <span class="c1">// Hi. Seoul</span>
+
+<span class="kd">const</span> <span class="nx">p9</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">p9</span><span class="p">.</span><span class="nx">hello</span><span class="p">();</span>  <span class="c1">// Hi. Seoul</span>
+<span class="nx">p8</span><span class="p">.</span><span class="nx">change</span><span class="p">();</span>
+<span class="nx">p9</span><span class="p">.</span><span class="nx">hello</span><span class="p">();</span>  <span class="c1">// Hi. Busan</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="8-singletons">8. Singletons</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">class</span> <span class="nx">ClassName</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">static</span> <span class="nx">instance</span><span class="p">:</span> <span class="nx">ClassName</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+  <span class="k">public</span> <span class="k">static</span> <span class="nx">getInstance</span><span class="p">():</span> <span class="nx">ClassName</span> <span class="p">{</span>
+    <span class="c1">// ClassName으로부터 만든 object가 있으면 그걸 return</span>
+    <span class="c1">// ClassName으로부터 만든 object가 없으면 만들어서 return</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">ClassName</span><span class="p">.</span><span class="nx">instance</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">ClassName</span><span class="p">.</span><span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassName</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">ClassName</span><span class="p">.</span><span class="nx">instance</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">private</span> <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">ClassName</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">ClassName</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassName</span><span class="p">();</span>  <span class="c1">// Error!</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span>  <span class="c1">// true</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="9-상속">9. 상속</h2>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="c1">// Parent 클래스</span>
+<span class="kd">class</span> <span class="nx">Parent</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">private</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="k">public</span> <span class="nx">print</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`이름은 </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">}</span><span class="s2"> 이고, 나이는 </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">}</span><span class="s2"> 입니다.`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">protected</span> <span class="nx">printName</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parent</span><span class="p">(</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span><span class="p">,</span> <span class="mi">29</span><span class="p">);</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">_age</span>  <span class="c1">// Error!</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">_name</span>  <span class="c1">// Error!</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>  <span class="c1">// 이름은 LWW 이고, 나이는 29 입니다.</span>
+
+<span class="c1">// Child 클래스</span>
+<span class="kd">class</span> <span class="nx">Child</span> <span class="kd">extends</span> <span class="nx">Parent</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="nx">gender</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">female</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="dl">'</span><span class="s1">LWW Jr.</span><span class="dl">'</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">printName</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Child</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>  <span class="c1">// LWW Jr. 5</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">_age</span>  <span class="c1">// Error!</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">_name</span>  <span class="c1">// Error!</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">gender</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>  <span class="c1">// 이름은 LWW Jr. 이고, 나이는 5 입니다.</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="10-abstract-classes">10. Abstract Classes</h2>
+
+<ul>
+  <li>상속을 이용해 class를 구조적으로 작성하는데 도움을 줌</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// example.ts</span>
+
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nx">AbstractPerson</span> <span class="p">{</span>
+  <span class="k">protected</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="kd">abstract</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AbstractPerson</span><span class="p">()</span>  <span class="c1">// Error!</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="kd">extends</span> <span class="nx">AbstractPerson</span> <span class="p">{</span>
+  <span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>  <span class="c1">// Person { _name: 'LWW' }</span>
+<span class="nx">p2</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="dl">'</span><span class="s1">Tom</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>  <span class="c1">// Person { _name: 'Tom'}</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a><span class="sep">, </span>
+    
+      <a href="/tags/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-23">August 23, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BTypescript%5D+Class%20https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-class%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-class%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-class%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/typescript/frontend-typescript-interface/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Typescript] Interface</a>
+  
+  
+  <a href="/typescript/frontend-typescript-generics/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Typescript] Generics</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-variopermixins/" rel="permalink">[SCSS] SCSS 변수, 연산, 재활용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Variable, Opeation, Mixins
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-start/" rel="permalink">[SCSS] SCSS 개요, 참조, 중첩
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Overview, Meister, Nesting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-generics/" rel="permalink">[Typescript] Generics
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript Generics
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/ds/cs-ds-heap/" rel="permalink">[Data Structure] 힙(Heap)
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#ds"
+      class="page__taxonomy-item-category" rel="tag">DS</a>
+    
+    
+    <a href="/tags/#cs"
+      class="page__taxonomy-item-tag" rel="tag">CS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#ds"
+      class="page__taxonomy-item-tag" rel="tag">DS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">자료구조 힙
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/typescript/frontend-typescript-class/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/typescript/frontend-typescript-class"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

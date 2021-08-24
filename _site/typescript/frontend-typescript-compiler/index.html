@@ -1,0 +1,1850 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Typescript] 컴파일러 | LWW’s Tech Blog</title>
+<meta name="description" content="Typescript Compiler">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Typescript] 컴파일러">
+<meta property="og:url" content="https://leewonwoo1.github.io/typescript/frontend-typescript-compiler/">
+
+
+  <meta property="og:description" content="Typescript Compiler">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-20T20:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-21T05:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/typescript/frontend-typescript-compiler/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#typescript" itemprop="item"><span itemprop="name">Typescript</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Typescript] 컴파일러</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">75</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (2)</a></li>
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>           
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Typescript] 컴파일러">
+    <meta itemprop="description" content="Typescript Compiler">
+    <meta itemprop="datePublished" content="2021-08-20T20:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-21T05:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/typescript/frontend-typescript-compiler/" class="u-url" itemprop="url">[Typescript] 컴파일러
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-compilation-context">1. Compilation Context</a></li><li><a href="#2-tsconfig-schema">2. tsconfig schema</a></li><li><a href="#3-compileonsave">3. compileOnSave</a></li><li><a href="#4-extends">4. extends</a></li><li><a href="#5-files-include-exclude">5. files, include, exclude</a></li><li><a href="#6-compileoptions---typeroots-types">6. compileOptions - typeRoots, types</a></li><li><a href="#7-compileoptions---target-lib">7. compileOptions - target, lib</a></li><li><a href="#8-compileoptions---outdir-outfile-rootdir">8. compileOptions - outDir, outFile, rootDir</a></li><li><a href="#9-compileoptions---strict">9. compileOptions - strict</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-compilation-context">1. Compilation Context</h2>
+
+<p class="notice--info"><a href="https://radlohead.gitbook.io/typescript-deep-dive/" target="_blank">https://radlohead.gitbook.io/typescript-deep-dive/</a></p>
+
+<ul>
+  <li>Typescript를 Javascript로 변환하는데 사용하는 Typescript Compiler가 어떤 파일과 어떤 방식으로 컴파일 할 것인지를 규명한 것이 Compilation Context</li>
+  <li>tsconfig.json 파일에 선언되어 있음</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-tsconfig-schema">2. tsconfig schema</h2>
+
+<p class="notice--info"><a href="http://json.schemastore.org/tsconfig" target="_blank">http://json.schemastore.org/tsconfig</a></p>
+
+<ul>
+  <li>최상위 프로퍼티
+    <ul>
+      <li>compileOnSave</li>
+      <li>extends</li>
+      <li>conpileOptions</li>
+      <li>files</li>
+      <li>include</li>
+      <li>exclude</li>
+      <li>references</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 새 프로젝트 생성</span>
+
+<span class="nv">$ </span><span class="nb">mkdir </span>compilation-context
+
+<span class="nv">$ </span><span class="nb">cd </span>compilation-context
+
+<span class="nv">$ </span>npm init <span class="nt">-y</span>
+
+<span class="nv">$ </span>npm i typescript <span class="nt">-D</span>
+
+<span class="nv">$ </span>npx tsc <span class="nt">--init</span>
+
+<span class="nv">$ </span><span class="nb">cat </span>tsconfig.json
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="3-compileonsave">3. compileOnSave</h2>
+
+<ul>
+  <li>Save 하면 컴파일</li>
+  <li>true / false (default false)</li>
+  <li>Visual Studio 2015 with Typescript 1.8.4 이상</li>
+  <li>atom-typescript 플러그인</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">형태</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"compileOnSaveDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"compileOnSave"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable Compile-on-Save for this project."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"compileOnSave"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="4-extends">4. extends</h2>
+
+<ul>
+  <li>파일 (상대) 경로명: string</li>
+  <li>Typescript 2.1 New Spec</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">형태</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extendsDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Path to base configuration file to inherit from. Requires TypeScript version 2.1 or later."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./base.json"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="nl">"strict"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">옵션</span><span class="w"> </span><span class="err">주석처리</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">base.json</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"strict"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.ts</span>
+
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>  <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 설정 다운로드</span>
+<span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">--save-dev</span> @tsconfig/deno
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">설정</span><span class="w"> </span><span class="err">적용</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@tsconfig/deno/tsconfig.json"</span><span class="p">,</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="5-files-include-exclude">5. files, include, exclude</h2>
+
+<ul>
+  <li>셋다 설정이 없으면, 전부다 컴파일 하려고 함</li>
+  <li>files
+    <ul>
+      <li>상대 혹은 절대 경로의 리스트 배열</li>
+      <li>exclude 보다 강함</li>
+    </ul>
+  </li>
+  <li>include
+    <ul>
+      <li>glob 패턴 (마치 .gitignore)</li>
+      <li>exclude 보다 약함</li>
+      <li>*같은 것을 사용하면, .ts / .tsx / .d.ts 만 include(allowJS)</li>
+    </ul>
+  </li>
+  <li>exclude
+    <ul>
+      <li>glob 패턴 (마치 .gitignore)</li>
+      <li>설정 안하면 4가지(node_modules, bower_components, jspm_packages, &#60;outDir&#62;)를 default로 제외함</li>
+      <li>&#60;outDir&#62;은 include에 있어도 항상 제외</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">files</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"filesDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"If no 'files' or 'include' property is present in a tsconfig.json, the compiler defaults to including all files in the containing directory and subdirectories except those specified by 'exclude'. When a 'files' property is specified, only those files and those specified by 'include' are included."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">exclude</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"excludeDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"exclude"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specifies a list of files to be excluded from compilation. The 'exclude' property only affects the files included via the 'include' property and not the 'files' property. Glob patterns require TypeScript version 2.0 or later."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">include</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"includeDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"include"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specifies a list of glob patterns that match files to be included in compilation. If no 'files' or 'include' property is present in a tsconfig.json, the compiler defaults to including all files in the containing directory and subdirectories except those specified by 'exclude'. Requires TypeScript version 2.0 or later."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"uniqueItems"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="6-compileoptions---typeroots-types">6. compileOptions - typeRoots, types</h2>
+
+<ul>
+  <li>@types는 Typescript 2.0부터 사용 가능한 내장 type definition 시스템</li>
+  <li>아무 설정도 하지 않으면, node_modules/@types라는 모든 경로를 찾아서 사용</li>
+  <li>typeRoots를 사용하면, 배열 안에 들어있는 경로들 아래서만 가져옴</li>
+  <li>types를 사용하면, 배열 안의 모듈 혹은 ./node_modules/@types/ 안의 모듈 이름에서 찾아옴, [] 빈 배열을 넣으면 이 시스템을 이용하지 않겠다는 뜻</li>
+  <li>typeRoots와 types를 같이 사용하지 않음</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">typeRoots</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"typeRoots"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify multiple folders that act like `./node_modules/@types`."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify multiple folders th ... "</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">types</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify type package names to be included without being referenced in a source file."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify type package names to be ... "</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span>npm i react
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.ts</span>
+
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// Error</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span>npm i <span class="nt">--save-dev</span> @types/react
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.ts</span>
+
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="7-compileoptions---target-lib">7. compileOptions - target, lib</h2>
+
+<ul>
+  <li>target
+    <ul>
+      <li>빌드의 결과물을 어떤 버전으로 할 것인지 결정</li>
+      <li>지정을 하지 않으면 es3</li>
+    </ul>
+  </li>
+  <li>lib
+    <ul>
+      <li>기본 type definition 라이브러리를 어떤 것을 사용할 것인지 결정</li>
+      <li>lib를 지정하지 않을 때,
+        <ul>
+          <li>target이 ‘es3’이고, 디폴트로 lib.d.ts를 사용</li>
+          <li>target이 ‘es5’이면, 디폴트로 dom, es5, scripthost를 사용</li>
+          <li>target이 ‘es6’이면, 디폴트로 dom, es6, dom.iterable, scripthost를 사용</li>
+        </ul>
+      </li>
+      <li>lib를 지정하면 그 lib 배열로만 라이브러리를 사용
+        <ul>
+          <li>빈 [] : Error. ‘no definition found … ‘</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">target</span><span class="w"> </span><span class="err">형태</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set the JavaScript language version for emitted Javascript and include compatible library declarations."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"anyOf"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"ES3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ES5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ES6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ES2015"</span><span class="p">,</span><span class="w">
+          </span><span class="err">...</span><span class="w">
+          </span><span class="s2">"ES2020"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ESNext"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^([Ee][Ss]([356]|(20(1[56789]|20))|[Nn][Ee][Xx][Tt]))$"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set the JavaScript language version ..."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+</span><span class="err">//</span><span class="w"> </span><span class="err">target은</span><span class="w"> </span><span class="err">es</span><span class="mi">5</span><span class="w">
+
+</span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"es5"</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.ts</span>
+
+<span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+npx tsc
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.js</span>
+<span class="c1">// es5 에서는 arrow function이 변경되서 컴파일 됨</span>
+
+<span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+</span><span class="err">//</span><span class="w"> </span><span class="err">target을</span><span class="w"> </span><span class="err">es</span><span class="mi">6</span><span class="err">로</span><span class="w"> </span><span class="err">변경</span><span class="w">
+
+</span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"es6"</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.ts</span>
+
+<span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+npx tsc
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test.js</span>
+<span class="c1">// es6 에서는 arrow function이 그대로 컴파일 됨</span>
+
+<span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">lib</span><span class="w"> </span><span class="err">형태</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"lib"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify a set of bundled library declaration files that describe the target runtime environment."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"anyOf"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"ES5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ES6"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[Ee][Ss]5|[Ee][Ss]6|[Ee][Ss]7$"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="8-compileoptions---outdir-outfile-rootdir">8. compileOptions - outDir, outFile, rootDir</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">outFile</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"outFile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify a file that bundles all outputs into one JavaScript file. If `declaration` is true, also designates a file that bundles all .d.ts output."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify a file that bundles all outputs ..."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">outDir</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"outDir"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify an output folder for all emitted files."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify an output folder for all emitted files. ..."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">rootDir</span><span class="w"> </span><span class="err">형태</span><span class="w">
+  </span><span class="nl">"rootDir"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify the root folder within your source files."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specify the root folder within your source files. ..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">tsconfig.json</span><span class="w">
+
+</span><span class="nl">"outDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./dist"</span><span class="w">
+</span><span class="nl">"rootDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./src"</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// src/test.ts</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span>npx tsc
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// dist/test.js</span>
+<span class="c1">// dist 폴더가 생성되고 컴파일 됨</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="9-compileoptions---strict">9. compileOptions - strict</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">strict</span><span class="w"> </span><span class="err">형태</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"strict"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable all strict type checking options."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"markdownDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable all strict type checking options. ..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>–noImplicitAny
+    <ul>
+      <li>명시적이지 않게 any 타입을 사용, 표현식과 선언제 사용하면 에러 발생</li>
+      <li>Typescript가 추론을 실패한 경우, any가 맞으면 any라고 지정</li>
+      <li>아무것도 쓰지 않으면, 에러 발생</li>
+      <li>이 오류를 해결하면, any라고 지정되어 있지 않은 경우는 any가 아닌 것</li>
+      <li>suppressImplicitAnyIndexErrors
+        <ul>
+          <li>인덱스 객체에 인덱스 signature가 없는 경우 오류 발생. 이를 예외처리</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//noImplicitAny</span>
+<span class="kd">function</span> <span class="nx">noImplicitAnyTestFunc</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span>  <span class="c1">// Error! Parameter 'arg' implicitly has an 'any' type.</span>
+<span class="p">}</span>
+
+
+<span class="c1">// suppressImplicitAnyIndexErrors</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">bar</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">};</span>
+
+<span class="c1">// obj['foo']로 사용할 때, 인덱스 객체라 판단하여, 타입에 인덱스 시그니처가 없는 경우, 에러 발생</span>
+<span class="nx">obj</span><span class="p">[</span><span class="dl">'</span><span class="s1">foo</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Error: Index signature of object type implicitly has an 'any' type</span>
+<span class="nx">obj</span><span class="p">[</span><span class="dl">'</span><span class="s1">bar</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// Okay</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// 이때 suppressImplicitAnyIndexErrors 옵션을 사용하면 예외로 간주하여 에러발생 x</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>–noImplicitThis
+    <ul>
+      <li>명시적이지 않게 any 타입을 사용하여, this 표현식에 사용하면 에러 발생</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// noImplicitThis</span>
+<span class="kd">function</span> <span class="nx">noImplicitThisTestFunc</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>  <span class="c1">// Error! 'this' implicitly has type 'any' ...</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 첫 번째 매개변수 자리에 this를 놓고, this 타입을 표현하지 않으면 에러</span>
+<span class="c1">// Javascript에서는 매개변수에 this를 넣으면, 예약어라 SyntaxError 발생</span>
+<span class="c1">// call / apply / bind와 같이 this를 대체하여 함수 콜을 하는 용도로도 쓰임</span>
+<span class="c1">// this를 any로 명시적으로 지정하는 것은 합리적</span>
+<span class="c1">// 물론 구체적인 사용처가 있는 경우 타입을 표현하기도 함</span>
+<span class="kd">function</span> <span class="nx">noImplicitThisTestFunc</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>  <span class="c1">// Error! Parameter 'this' implicitly has an 'any' type</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Class에서는 this를 사용하면서, noImplicitThis와 관련한 에러가 나지 않음</span>
+<span class="c1">// CLass에서 constructor를 제외한 멤버 함수의 첫 번째 매개변수도 일반 함수와 마찬가지로 this를 사용할 수 있음</span>
+<span class="c1">// noImplicitTHis 2</span>
+<span class="kd">class</span> <span class="nx">NoImplicitThisTestClass</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">public</span> <span class="nx">print</span><span class="p">(</span><span class="k">this</span><span class="p">:</span> <span class="nx">NoImplicitThisTestClass</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">NoImplicitThisTestClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span> <span class="mi">29</span><span class="p">).</span><span class="nx">print</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>–strictNullChecks
+    <ul>
+      <li>null및 undefined 값이 모든 유형의 도메인에 속하지 않으며, 그 자신을 타입으로 가지거나, any일 경우에만 할당이 가능</li>
+      <li>한 가지 예외는 undefined에 void 할당 가능</li>
+      <li>strictNullChecks 옵션을 적용하지 않으면
+        <ul>
+          <li>모든 타입은 null, undefined 값을 가질 수 있음</li>
+          <li>string으로 타입을 지정해도, null 혹은 undefined 값을 할당할 수 있음</li>
+        </ul>
+      </li>
+      <li>strictNullChecks를 적용하면
+        <ul>
+          <li>모든 타입은 null, undefined 값을 가질 수 있음</li>
+          <li>null, undefined 값을 가지려면 union type을 이용하여 직접 명시해야 함</li>
+          <li>any 타입은 null과 undefined를 가짐</li>
+          <li>예외적으로 void 타입은 undefined를 가짐</li>
+        </ul>
+      </li>
+      <li>strictNullChecks를 적용하지 않고 사용하면, 정확히 어떤 타입이 오는지 개발자 스스로 간과할 수 있음</li>
+      <li>정말로 null과 undefined를 가질 수 있는 경우, 해당 값을 조건부로 제외하고 사용하는 것이 좋음</li>
+      <li>strictNullChecks를 적용하는 경우, 사용하려는 함수를 선언할 때부터 매개변수와 리턴 값에 정확한 타입을 지정하려는 노력을 기울여야 함</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// strictNullChecks</span>
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">c</span><span class="p">:</span> <span class="kr">number</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">d</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">e</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">f</span><span class="p">:</span> <span class="k">void</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>–strictFunctionTypes
+    <ul>
+      <li>함수 타입에 대한 bivariant 매개변수 검사를 비활성화 함</li>
+      <li>반환 타입은 공변적, 인자 타입은 반공변적</li>
+      <li>Typescript에서 인자 타입은 공변적이면서, 반공변적임</li>
+      <li>이 문제를 해결하는 옵션이 strictFunctionTypes</li>
+      <li>옵션을 켜면 에러가 나지 않던 것을 에러가 발생하게 함</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// strictFunctionTypes</span>
+<span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#id</span><span class="dl">'</span><span class="p">)</span> <span class="k">as</span> <span class="nx">HTMLButtonElement</span><span class="p">;</span>
+
+<span class="nx">buttom</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span> <span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{});</span>
+
+<span class="c1">// 이전에는 위와 같은 코드도 에러를 발생시키지 않았지만, 이제는 에러 발생</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>–strictPropertyInitialization
+    <ul>
+      <li>정의되지 않은 클래스의 속성이 생성자에서 초기화되었는지 확인</li>
+      <li>이 옵션을 사용하려면 –strictNullChecks를 사용하도록 설정해야 함</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// strictPropertyInitialization</span>
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>  <span class="c1">// Error! Property '_age' has no initializer and is ..</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{}</span>
+
+  <span class="k">public</span> <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+
+<span class="c1">// constructor에서 초기 값을 할당한 경우는 정상 동작</span>
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">public</span> <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// constructor에서 안하는 경우</span>
+<span class="c1">// - 보통 다른 함수로 이니셜라이즈 하는 경우 (async 함수)</span>
+<span class="c1">// - constructor에는 async를 사용할 수 없음</span>
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">_name</span><span class="o">!</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">_age</span><span class="o">!</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="k">public</span> <span class="k">async</span> <span class="nx">initialize</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">public</span> <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_age</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>–strictBindCallApply
+    <ul>
+      <li>Function의 내장 함수인 bind, call, apply에 대한 더 엄격한 체크 수행</li>
+      <li>bind는 해당 함수 안에서 사용할 this와 인자를 설정해주는 역할</li>
+      <li>call과 apply는 this와 인자를 설정한 후, 실행까지 함</li>
+      <li>call과 apply는 인자를 설정하는 방식에서 차이점이 있음
+        <ul>
+          <li>call은 함수의 인자를 여러 인자의 나열로 넣어서 사용</li>
+          <li>apply는 모든 인자를 배열 하나로 넣어서 사용</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>–alwaysStrict
+    <ul>
+      <li>각 소스 파일에 대해 Javascript의 strict mode로 코드를 분석</li>
+      <li>“엄격하게 사용”을 해제</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// alwaysStrict</span>
+<span class="kd">var</span> <span class="nx">e1</span> <span class="o">=</span> <span class="mi">015</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">e2</span> <span class="o">=</span> <span class="p">{</span> <span class="na">p</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">p</span><span class="p">:</span> <span class="mi">2</span> <span class="p">};</span>  <span class="c1">// Error! An object literal cannot have multiple ...</span>
+<span class="kd">var</span> <span class="nx">e3</span><span class="p">;</span>
+<span class="k">delete</span> <span class="nx">e3</span><span class="p">;</span>
+
+<span class="c1">// syntex 에러가 ts error로 나옴</span>
+<span class="c1">// 컴파일된 Javascript 파일에 "use strict"가 추가 됨</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a><span class="sep">, </span>
+    
+      <a href="/tags/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-20">August 20, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BTypescript%5D+%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%20https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-compiler%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-compiler%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-compiler%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/typescript/frontend-typescript-typecompalias/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Typescript] 타입 호환성, 별칭</a>
+  
+  
+  <a href="/typescript/frontend-typescript-interface/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Typescript] Interface</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-variopermixins/" rel="permalink">[SCSS] SCSS 변수, 연산, 재활용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Variable, Opeation, Mixins
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-start/" rel="permalink">[SCSS] SCSS 개요, 참조, 중첩
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Overview, Meister, Nesting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-generics/" rel="permalink">[Typescript] Generics
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript Generics
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/ds/cs-ds-heap/" rel="permalink">[Data Structure] 힙(Heap)
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#ds"
+      class="page__taxonomy-item-category" rel="tag">DS</a>
+    
+    
+    <a href="/tags/#cs"
+      class="page__taxonomy-item-tag" rel="tag">CS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#ds"
+      class="page__taxonomy-item-tag" rel="tag">DS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">자료구조 힙
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/typescript/frontend-typescript-compiler/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/typescript/frontend-typescript-compiler"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1657 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Data Structure] 트리(Tree) | LWW’s Tech Blog</title>
+<meta name="description" content="자료구조 트리">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Data Structure] 트리(Tree)">
+<meta property="og:url" content="https://leewonwoo1.github.io/ds/cs-ds-tree/">
+
+
+  <meta property="og:description" content="자료구조 트리">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-22T01:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-22T10:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/ds/cs-ds-tree/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#ds" itemprop="item"><span itemprop="name">Ds</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Data Structure] 트리(Tree)</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">75</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (2)</a></li>
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>           
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Data Structure] 트리(Tree)">
+    <meta itemprop="description" content="자료구조 트리">
+    <meta itemprop="datePublished" content="2021-08-22T01:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-22T10:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/ds/cs-ds-tree/" class="u-url" itemprop="url">[Data Structure] 트리(Tree)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-트리">1. 트리</a><ul><li><a href="#--트리-tree-구조">- 트리 (Tree) 구조</a></li><li><a href="#--알아둘-용어">- 알아둘 용어</a></li><li><a href="#--이진-트리와-이진-탐색-트리">- 이진 트리와 이진 탐색 트리</a></li><li><a href="#--자료-구조-이진-탐색-트리의-장점과-주요-용도">- 자료 구조 이진 탐색 트리의 장점과 주요 용도</a></li><li><a href="#--이진트리와-정렬된-배열간의-탐색-비교">- 이진트리와 정렬된 배열간의 탐색 비교</a></li><li><a href="#--파이썬으로-이진-탐색-트리-구현하기">- 파이썬으로 이진 탐색 트리 구현하기</a><ul><li><a href="#1-노드-클래스-만들기">@1. 노드 클래스 만들기</a></li><li><a href="#2-이진-탐색-트리에-데이터-넣기">@2. 이진 탐색 트리에 데이터 넣기</a></li><li><a href="#3-이진-탐색-트리-탐색">@3. 이진 탐색 트리 탐색</a></li><li><a href="#4-이진-탐색-트리-삭제">@4. 이진 탐색 트리 삭제</a></li><li><a href="#5-이진-탐색-트리-삭제-코드-구현과-분석">@5. 이진 탐색 트리 삭제 코드 구현과 분석</a></li></ul></li><li><a href="#--이진-탐색-트리의-시간-복잡도와-단점">- 이진 탐색 트리의 시간 복잡도와 단점</a><ul><li><a href="#1-시간-복잡도-탐색시">@1. 시간 복잡도 (탐색시)</a></li><li><a href="#2-이진-탐색-트리-단점">@2. 이진 탐색 트리 단점</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-트리">1. 트리</h2>
+
+<h3 id="--트리-tree-구조">- 트리 (Tree) 구조</h3>
+
+<ul>
+  <li>Node와 Branch를 이용해서, 사이클을 이루지 않도록 구성한 데이터 구조</li>
+  <li>트리 중 Binary Tree 형태의 구조로, 탐색(검색) 알고리즘 구현을 위해 많이 사용</li>
+</ul>
+
+<h3 id="--알아둘-용어">- 알아둘 용어</h3>
+
+<ul>
+  <li>Node : 트리에서 데이터를 저장하는 기본 요소 (데이터와 다른 연결된 노드에 대한 Branch 정보 포함)</li>
+  <li>Root Node : 트리 맨 위에 있는 노드</li>
+  <li>Level : 최상위 노드를 Level 0으로 하였을 때, 하위 Branch로 연결된 노드의 깊이</li>
+  <li>Parent Node : 어떤 노드의 다음 레벨에 연결된 노드</li>
+  <li>Child Node : 어떤 노드의 상위 레벨에 연결된 노드</li>
+  <li>Leaf Node (Terminal Node) : Child Node가 하나도 없는 노드</li>
+  <li>Sibling (Brother Node) : 동일한 Parent Node를 가진 노드</li>
+  <li>Depth : 트리에서 Node가 가질 수 있는 최대 Level</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree.png" width="600" /></p>
+
+<p><br /></p>
+
+<h3 id="--이진-트리와-이진-탐색-트리">- 이진 트리와 이진 탐색 트리</h3>
+
+<ul>
+  <li>이진 트리 : 노드의 최대 Branch가 2인 트리</li>
+  <li>이진 탐색 트리 (Binary Search Tree, BST) : 이진 트리에 다음과 같은 추가적인 조건이 있는 트리
+    <ul>
+      <li>왼쪽 노드는 해당 노드보다 작은 값, 오른쪽 노드는 해당 노드보다 큰 값을 가짐</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.mathwarehouse.com/programming/images/binary-search-tree/binary-search-tree-insertion-animation.gif" /></p>
+
+<p><br /></p>
+
+<p>(출처: https://www.mathwarehouse.com/programming/gifs/binary-search-tree.php#binary-search-tree-insertion-node)</p>
+
+<h3 id="--자료-구조-이진-탐색-트리의-장점과-주요-용도">- 자료 구조 이진 탐색 트리의 장점과 주요 용도</h3>
+
+<ul>
+  <li>주요 용도 : 데이터 검색(탐색)</li>
+  <li>장점 : 탐색 속도를 개선할 수 있음</li>
+</ul>
+
+<h3 id="--이진트리와-정렬된-배열간의-탐색-비교">- 이진트리와 정렬된 배열간의 탐색 비교</h3>
+
+<p><br /></p>
+
+<p><img src="https://www.mathwarehouse.com/programming/images/binary-search-tree/binary-search-tree-sorted-array-animation.gif" /></p>
+
+<p><br /></p>
+
+<p>(출처: https://www.mathwarehouse.com/programming/gifs/binary-search-tree.php#binary-search-tree-insertion-node)</p>
+
+<h3 id="--파이썬으로-이진-탐색-트리-구현하기">- 파이썬으로 이진 탐색 트리 구현하기</h3>
+
+<h4 id="1-노드-클래스-만들기">@1. 노드 클래스 만들기</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Node</span> <span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="2-이진-탐색-트리에-데이터-넣기">@2. 이진 탐색 트리에 데이터 넣기</h4>
+
+<ul>
+  <li>이진 탐색 트리 조건에 부합하게 데이터를 넣어야 함</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NodeMgmt</span> <span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">head</span>
+
+  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="bp">True</span> <span class="p">:</span>
+      <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+        <span class="k">else</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+          <span class="k">break</span>
+      <span class="k">else</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="k">else</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+          <span class="k">break</span>
+
+
+<span class="c1"># 데이터 넣기
+</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">BST</span> <span class="o">=</span> <span class="n">NodeMgmt</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+<span class="n">BST</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="3-이진-탐색-트리-탐색">@3. 이진 탐색 트리 탐색</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NodeMgmt</span> <span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">head</span>
+  
+  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="bp">True</span> <span class="p">:</span>
+      <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+        <span class="k">else</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+          <span class="k">break</span>
+      <span class="k">else</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="k">else</span> <span class="p">:</span>
+          <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+          <span class="k">break</span>
+
+  <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="p">:</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+      <span class="k">elif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+      <span class="k">else</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="c1"># 데이터 삽입
+</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">BST</span> <span class="o">=</span> <span class="n">NodeMgmt</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+<span class="n">BST</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">BST</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">BST</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">BST</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">BST</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># 데이터 검색
+</span><span class="n">BST</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># True
+</span><span class="n">BST</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># False
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="4-이진-탐색-트리-삭제">@4. 이진 탐색 트리 삭제</h4>
+
+<ul>
+  <li>
+    <p><strong>경우를 나누어서 이해</strong></p>
+  </li>
+  <li>
+    <p>Leaf Node 삭제</p>
+    <ul>
+      <li>Leaf Node: Child Node 가 없는 Node</li>
+      <li>삭제할 Node의 Parent Node가 삭제할 Node를 가리키지 않도록 함</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_leaf.png" width="800" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Child Node 가 하나인 Node 삭제
+    <ul>
+      <li>삭제할 Node의 Parent Node가 삭제할 Node의 Child Node를 가리키도록 함</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_1child.png" width="800" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Child Node 가 두 개인 Node 삭제
+    <ol>
+      <li><strong>삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 삭제할 Node의 Parent Node가 가리키도록 함</strong>
+        <ul>
+          <li>삭제할 Node의 오른쪽 자식 선택</li>
+          <li>오른쪽 자식의 가장 왼쪽에 있는 Node를 선택</li>
+          <li>해당 Node를 삭제할 Node의 Parent Node의 왼쪽 Branch가 가리키게 함</li>
+          <li>해당 Node의 왼쪽 Branch가 삭제할 Node의 왼쪽 Child Node를 가리키게 함</li>
+          <li>해당 Node의 오른쪽 Branch가 삭제할 Node의 오른쪽 Child Node를 가리키게 함</li>
+          <li>만약 해당 Node가 오른쪽 Child Node를 가지고 있었을 경우에는, 해당 Node의 본래 Parent Node의 왼쪽 Branch가 해당 오른쪽 Child Node를 가리키게 함</li>
+        </ul>
+      </li>
+      <li>삭제할 Node의 왼쪽 자식 중, 가장 큰 값을 삭제할 Node의 Parent Node가 가리키도록 함</li>
+    </ol>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_2child.png" width="800" /></p>
+
+<p><br /></p>
+
+<h4 id="5-이진-탐색-트리-삭제-코드-구현과-분석">@5. 이진 탐색 트리 삭제 코드 구현과 분석</h4>
+
+<ul>
+  <li>삭제할 Node 탐색</li>
+  <li>삭제할 Node가 없는 경우도 처리해야 함</li>
+  <li>이를 위해 삭제할 Node가 없는 경우는 False를 리턴하고, 함수를 종료 시킴</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">searched</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span> <span class="p">:</span>
+            <span class="n">searched</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">break</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+    <span class="k">if</span> <span class="n">searched</span> <span class="o">==</span> <span class="bp">False</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Case 1 : 삭제할 Node가 Leaf Node인 경우</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_leaf_code.png" width="600" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># self.current_node가 삭제할 Node, self.parent는 삭제할 Node의 Parent Node인 상태
+</span><span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">==</span> <span class="bp">None</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">==</span> <span class="bp">None</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">==</span> <span class="bp">None</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Case 2 : 삭제할 Node가 Child Node를 한 개 가지고 있을 경우</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_1child_code.png" width="400" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">==</span> <span class="bp">None</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+<span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Case 3-1 : 삭제할 Node가 Child Node를 두 개 가지고 있을 경우 (삭제할 Node가 Parent Node 왼쪽에 있을 때)</li>
+  <li>기본 사용 가능 전략
+    <ol>
+      <li><strong>삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 삭제할 Node의 Parent Node가 가리키도록 함</strong></li>
+      <li>삭제할 Node의 왼쪽 자식 중, 가장 큰 값을 삭제할 Node의 Parent Node가 가리키도록 함</li>
+    </ol>
+  </li>
+  <li>기본 사용 가능 전략 중, 1번 전략을 사용하여 코드를 구현
+    <ul>
+      <li><strong>Case3-1-1:</strong> 삭제할 Node가 Parent Node의 왼쪽에 있고, 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node의 Child Node가 없을 때</li>
+      <li><strong>Case3-1-2:</strong> 삭제할 Node가 Parent Node의 왼쪽에 있고, 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node의 오른쪽에 Child Node가 있을 때
+        <ul>
+          <li>가장 작은 값을 가진 Node의 Child Node가 왼쪽에 있을 경우는 없음, 왜냐하면 왼쪽 Node가 있다는 것은 해당 Node보다 더 작은 값을 가진 Node가 있다는 뜻이기 때문</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_2child_code_left.png" width="600" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># case 3
+</span><span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+    <span class="c1"># case 3-1
+</span>    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Case 3-2 : 삭제할 Node가 Child Node를 두 개 가지고 있을 경우 (삭제할 Node가 Parent Node 오른쪽에 있을 때)</li>
+  <li>기본 사용 가능 전략
+    <ol>
+      <li><strong>삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 삭제할 Node의 Parent Node가 가리키도록 함</strong></li>
+      <li>삭제할 Node의 왼쪽 자식 중, 가장 큰 값을 삭제할 Node의 Parent Node가 가리키도록 함</li>
+    </ol>
+  </li>
+  <li>기본 사용 가능 전략 중, 1번 전략을 사용하여 코드를 구현
+    <ul>
+      <li><strong>Case3-2-1:</strong> 삭제할 Node가 Parent Node의 오른쪽에 있고, 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node의 Child Node가 없을 때</li>
+      <li><strong>Case3-2-2:</strong> 삭제할 Node가 Parent Node의 오른쪽에 있고, 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node의 오른쪽에 Child Node가 있을 때
+        <ul>
+          <li>가장 작은 값을 가진 Node의 Child Node가 왼쪽에 있을 경우는 없음, 왜냐하면 왼쪽 Node가 있다는 것은 해당 Node보다 더 작은 값을 가진 Node가 있다는 뜻이기 때문</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/tree_remove_2child_code_right.png" width="600" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># case 3-2
+</span><span class="k">else</span> <span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+    <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>파이썬 전체 코드 구현</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Node</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
+        
+<span class="k">class</span> <span class="nc">NodeMgmt</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">head</span>
+
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+        <span class="k">while</span> <span class="bp">True</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="k">break</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="k">break</span>
+                    
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">elif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># 삭제할 노드 탐색
+</span>        <span class="n">searched</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span> <span class="p">:</span>
+                <span class="n">searched</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">break</span>
+            <span class="k">elif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="k">if</span> <span class="n">searched</span> <span class="o">==</span> <span class="bp">False</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># case 1
+</span>        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">==</span> <span class="bp">None</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c1"># case 2
+</span>        <span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">==</span> <span class="bp">None</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+        <span class="c1"># case 3
+</span>        <span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+            <span class="c1"># case 3-1
+</span>            <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">value</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span>
+            <span class="c1"># case 3-2
+</span>            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">chagne_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="k">while</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">change_node_parent</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">right</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">change_node</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">current_node</span><span class="p">.</span><span class="n">left</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>참고 : http://ejklike.github.io/2018/01/09/traversing-a-binary-tree-1.html</li>
+  <li>파이썬 전체 코드 테스트
+    <ul>
+      <li>random 라이브러리 활용</li>
+      <li>random.randint(첫번째 숫자, 마지막 숫자): 첫번째 숫자부터 마지막 숫자 사이에 있는 숫자를 랜덤하게 선택해서 리턴</li>
+      <li>예: random.randint(0, 99): 0에서 99까지 숫자중 특정 숫자를 랜덤하게 선택해서 리턴해줌</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 0 ~ 999 숫자 중에서 임의로 100개를 추출해서, 이진 탐색 트리에 입력, 검색, 삭제
+</span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># 0 ~ 999 중, 100 개의 숫자 랜덤 선택
+</span><span class="n">bst_nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">bst_nums</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">100</span> <span class="p">:</span>
+    <span class="n">bst_nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">))</span>
+    
+<span class="c1"># print(bst_nums)
+</span>
+<span class="c1"># 선택된 100개의 숫자를 이진 탐색 트리에 입력, 임의로 루트노드는 500을 넣기로 함
+</span><span class="n">head</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">binary_tree</span> <span class="o">=</span> <span class="n">NodeMgmt</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">bst_nums</span> <span class="p">:</span>
+    <span class="n">binary_tree</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    
+<span class="c1"># 입력한 100개의 숫자 검색 (검색 기능 확인)
+</span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">bst_nums</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">binary_tree</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">==</span> <span class="bp">False</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"search failed"</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+
+<span class="c1"># 입력한 100개의 숫자 중 10개의 숫자를 랜덤 선택
+</span><span class="n">delete_nums</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">bst_nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bst_nums</span><span class="p">)</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">delete_nums</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span> <span class="p">:</span>
+    <span class="n">delete_nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">bst_nums</span><span class="p">[</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">)])</span>
+
+<span class="c1"># 선택한 10개의 숫자를 삭제 (삭제 기능 확인)
+</span><span class="k">for</span> <span class="n">del_num</span> <span class="ow">in</span> <span class="n">delete_nums</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">binary_tree</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">del_num</span><span class="p">)</span> <span class="o">==</span> <span class="bp">False</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"delete failed"</span><span class="p">,</span> <span class="n">del_num</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--이진-탐색-트리의-시간-복잡도와-단점">- 이진 탐색 트리의 시간 복잡도와 단점</h3>
+
+<h4 id="1-시간-복잡도-탐색시">@1. 시간 복잡도 (탐색시)</h4>
+
+<ul>
+  <li>depth (트리의 높이) 를 h라고 표기한다면, O(h)</li>
+  <li>n개의 노드를 가진다면, $h = log_2{n} $ 에 가까우므로, 시간 복잡도는 $ O(log{n}) $
+    <ul>
+      <li>참고: 빅오 표기법에서 $log{n}$ 에서의 log의 밑은 10이 아니라, 2</li>
+      <li>한번 실행시마다, 50%의 실행할 수도 있는 명령을 제거한다는 의미. 즉 50%의 실행시간을 단축시킬 수 있다는 것을 의미</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.mathwarehouse.com/programming/images/binary-search-tree/binary-search-tree-sorted-array-animation.gif" /></p>
+
+<p><br /></p>
+
+<p>(출처: https://www.mathwarehouse.com/programming/gifs/binary-search-tree.php#binary-search-tree-insertion-node)</p>
+
+<p><br /></p>
+
+<h4 id="2-이진-탐색-트리-단점">@2. 이진 탐색 트리 단점</h4>
+
+<ul>
+  <li>평균 시간 복잡도는 $ O(log{n}) $ 이지만, 이는 트리가 균형잡혀 있을 때의 평균 시간복잡도</li>
+  <li>최악의 경우는 링크드 리스트등과 동일한 성능을 보여줌 ( $O(n)$ )</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="http://www.fun-coding.org/00_Images/worstcase_bst.png" width="300" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cs" class="page__taxonomy-item p-category" rel="tag">CS</a><span class="sep">, </span>
+    
+      <a href="/tags/#ds" class="page__taxonomy-item p-category" rel="tag">DS</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ds" class="page__taxonomy-item p-category" rel="tag">DS</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-22">August 22, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BData+Structure%5D+%ED%8A%B8%EB%A6%AC%28Tree%29%20https%3A%2F%2Fleewonwoo1.github.io%2Fds%2Fcs-ds-tree%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fds%2Fcs-ds-tree%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fds%2Fcs-ds-tree%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/ds/cs-ds-hashtable/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Data Structure] 해시 테이블(Hash Table)</a>
+  
+  
+  <a href="/ds/cs-ds-heap/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Data Structure] 힙(Heap)</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-variopermixins/" rel="permalink">[SCSS] SCSS 변수, 연산, 재활용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Variable, Opeation, Mixins
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-start/" rel="permalink">[SCSS] SCSS 개요, 참조, 중첩
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Overview, Meister, Nesting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-generics/" rel="permalink">[Typescript] Generics
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript Generics
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/ds/cs-ds-heap/" rel="permalink">[Data Structure] 힙(Heap)
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#ds"
+      class="page__taxonomy-item-category" rel="tag">DS</a>
+    
+    
+    <a href="/tags/#cs"
+      class="page__taxonomy-item-tag" rel="tag">CS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#ds"
+      class="page__taxonomy-item-tag" rel="tag">DS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">자료구조 힙
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/ds/cs-ds-tree/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/ds/cs-ds-tree"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

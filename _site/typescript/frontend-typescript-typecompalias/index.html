@@ -1,0 +1,1253 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Typescript] 타입 호환성, 별칭 | LWW’s Tech Blog</title>
+<meta name="description" content="Type Compatibility, Type Alias">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Typescript] 타입 호환성, 별칭">
+<meta property="og:url" content="https://leewonwoo1.github.io/typescript/frontend-typescript-typecompalias/">
+
+
+  <meta property="og:description" content="Type Compatibility, Type Alias">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-19T19:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-20T04:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/typescript/frontend-typescript-typecompalias/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#typescript" itemprop="item"><span itemprop="name">Typescript</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Typescript] 타입 호환성, 별칭</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">75</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (2)</a></li>
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>           
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Typescript] 타입 호환성, 별칭">
+    <meta itemprop="description" content="Type Compatibility, Type Alias">
+    <meta itemprop="datePublished" content="2021-08-19T19:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-20T04:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/typescript/frontend-typescript-typecompalias/" class="u-url" itemprop="url">[Typescript] 타입 호환성, 별칭
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-타입-호환성type-compatibility">1. 타입 호환성(Type Compatibility)</a></li><li><a href="#2-타입-별칭type-alias">2. 타입 별칭(Type Alias)</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-타입-호환성type-compatibility">1. 타입 호환성(Type Compatibility)</h2>
+
+<ul>
+  <li>공변 : 같거나 서브 타입인 경우, 할당이 가능</li>
+  <li>반병 : 함수의 매개변수 타입만 같거나 슈퍼타입인 경우, 할당이 가능</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 서브 타입</span>
+
+<span class="c1">// sub1 타입은 sup1 타입의 서브 타입</span>
+<span class="kd">let</span> <span class="nx">sub1</span><span class="p">:</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sup1</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">sub1</span><span class="p">;</span>
+<span class="nx">sub1</span> <span class="o">=</span> <span class="nx">sup1</span><span class="p">;</span>  <span class="c1">// error! Type 'number' is not assignable to type '1'</span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// sub2 타입은 sup2 타입의 서브 타입</span>
+<span class="kd">let</span> <span class="nx">sub2</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">sup2</span><span class="p">:</span> <span class="nx">object</span> <span class="o">=</span> <span class="nx">sub2</span><span class="p">;</span>
+<span class="nx">sub2</span> <span class="o">=</span> <span class="nx">sup2</span><span class="p">;</span>  <span class="c1">// error! Type '{}' is missing the following properties from ... </span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// sub3 타입은 sup3 타입의 서브 타입</span>
+<span class="kd">let</span> <span class="nx">sub3</span><span class="p">:</span> <span class="p">[</span><span class="kr">number</span><span class="p">,</span> <span class="kr">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">sup3</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">sub3</span><span class="p">;</span>
+<span class="nx">sub3</span> <span class="o">=</span> <span class="nx">sup3</span><span class="p">;</span>  <span class="c1">// error! Type 'number[]' is not assignable to type '[number, number]'</span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// sub4 타입은 sup4 타입의 서브 타입</span>
+<span class="kd">let</span> <span class="nx">sub4</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sup4</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="nx">sub4</span><span class="p">;</span>
+<span class="nx">sub4</span> <span class="o">=</span> <span class="nx">sup4</span><span class="p">;</span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// sub5 타입은 sup5 타입의 서브 타입</span>
+<span class="kd">let</span> <span class="nx">sub5</span><span class="p">:</span> <span class="nx">never</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">as</span> <span class="nx">never</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sup5</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">sub5</span><span class="p">;</span>
+<span class="nx">sub5</span> <span class="o">=</span> <span class="nx">sup5</span><span class="p">;</span>  <span class="c1">// error! Type 'number' is not assignable to type 'never'</span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// sub6 타입은 sup6 타입의 서브 타입</span>
+<span class="kd">class</span> <span class="nx">Animal</span> <span class="p">{}</span>
+<span class="kd">class</span> <span class="nx">Dog</span> <span class="kd">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
+  <span class="nx">eat</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">sub6</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">sup6</span><span class="p">:</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">sub6</span><span class="p">;</span>
+<span class="nx">sub6</span> <span class="o">=</span> <span class="nx">sup6</span><span class="p">;</span>  <span class="c1">// error! Property 'eat' is missing in type 'SubAnimal' but ...</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 공변</span>
+
+<span class="c1">// primitive type</span>
+<span class="kd">let</span> <span class="nx">sub7</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sup7</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">sub7</span><span class="p">;</span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// object -&gt; 각각의 프로퍼티가 대응하는 프로퍼티와 같거나 서브타입이어야 함</span>
+<span class="kd">let</span> <span class="nx">sub8</span><span class="p">:</span> <span class="p">{</span> <span class="nl">a</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span> <span class="nl">b</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="nx">sup8</span><span class="p">:</span> <span class="p">{</span> <span class="nl">a</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">;</span> <span class="nl">b</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">sub8</span><span class="p">;</span>
+
+
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// array -&gt; object와 마찬가지</span>
+<span class="kd">let</span> <span class="nx">sub9</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span> <span class="nl">b</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[{</span> <span class="na">a</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}];</span>
+<span class="kd">let</span> <span class="nx">sup9</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">;</span> <span class="nl">b</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">sub9</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 반병</span>
+
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{}</span>
+<span class="kd">class</span> <span class="nx">Developer</span> <span class="kd">extends</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="nx">coding</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nx">StartupDeveloper</span> <span class="kd">extends</span> <span class="nx">Developer</span> <span class="p">{</span>
+  <span class="nx">burning</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">tellme</span><span class="p">(</span><span class="nx">f</span><span class="p">:</span> <span class="p">(</span><span class="nx">d</span><span class="p">:</span> <span class="nx">Developer</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Developer</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="c1">// Developer =&gt; Developer에 Developer =&gt; Developer를 할당하는 경우</span>
+<span class="nx">tellme</span><span class="p">(</span><span class="kd">function</span> <span class="nx">dToD</span><span class="p">(</span><span class="nx">d</span><span class="p">:</span> <span class="nx">Developer</span><span class="p">):</span> <span class="nx">Developer</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Developer</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// Developer =&gt; Developer에 Person =&gt; Developer를 할당하는 경우</span>
+<span class="nx">tellme</span><span class="p">(</span><span class="kd">function</span> <span class="nx">pToD</span><span class="p">(</span><span class="nx">d</span><span class="p">:</span> <span class="nx">Person</span><span class="p">):</span> <span class="nx">Developer</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Developer</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// Developer =&gt; Developer에 StartupDeveloper =&gt; Developer를 할당하는 경우</span>
+<span class="c1">// strictFunctionTypes 옵션을 켜면 함수 할당 시 매개변수 타입이 같거나</span>
+<span class="c1">// 슈퍼타입인 경우가 아닌 경우, 에러를 통해 경고</span>
+<span class="nx">tellme</span><span class="p">(</span><span class="kd">function</span> <span class="nx">sToD</span><span class="p">(</span><span class="nx">d</span><span class="p">:</span> <span class="nx">StartupDeveloper</span><span class="p">):</span> <span class="nx">Developer</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Developer</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="2-타입-별칭type-alias">2. 타입 별칭(Type Alias)</h2>
+
+<ul>
+  <li>Interface랑 비슷</li>
+  <li>Primitive, Union Type, Tuple, Function</li>
+  <li>기타 직접 작성해야하는 타입을 다른 이름을 지정할 수 있음</li>
+  <li>만들어진 타입의 refer로 사용하는 것</li>
+  <li>타입을 만드는 것은 아님</li>
+  <li>타입이 타입으로서의 목적이 명확하면 Interface, 그렇지 않다면 Type Alias 사용</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Aliasing Primitive</span>
+<span class="c1">// 별 의미가 없음</span>
+<span class="kd">type</span> <span class="nx">MyStringType</span> <span class="o">=</span> <span class="kr">string</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">myStr</span><span class="p">:</span> <span class="nx">MyStringType</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">myStr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">;</span>
+
+
+<span class="c1">// ------------------------------------------</span>
+<span class="c1">// Aliasing Union Type</span>
+<span class="c1">// Union Type은 A도 가능하고 B도 가능한 타입</span>
+<span class="c1">// 길게 쓰는걸 짧게해주고, 반복을 줄여줌</span>
+<span class="kd">let</span> <span class="nx">person</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">person</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">type</span> <span class="nx">StringOrNumber</span> <span class="o">=</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">another</span><span class="p">:</span> <span class="nx">StringOrNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">another</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Tom</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="c1">// ------------------------------------------</span>
+<span class="c1">// Aliasing Tuple</span>
+<span class="c1">// 튜플 타입에 별칭을 줘서 여러군데서 사용할 수 있게 함</span>
+<span class="kd">let</span> <span class="nx">person</span><span class="p">:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">LWW</span><span class="dl">'</span><span class="p">,</span> <span class="mi">29</span><span class="p">];</span>
+<span class="kd">type</span> <span class="nx">PersonTuple</span> <span class="o">=</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">another</span><span class="p">:</span> <span class="nx">PersonTuple</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Tom</span><span class="dl">'</span><span class="p">,</span> <span class="mi">24</span><span class="p">];</span>
+
+
+<span class="c1">// ------------------------------------------</span>
+<span class="c1">// Aliasing Function</span>
+<span class="kd">type</span> <span class="nx">EatType</span> <span class="o">=</span> <span class="p">(</span><span class="nx">food</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a><span class="sep">, </span>
+    
+      <a href="/tags/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#typescript" class="page__taxonomy-item p-category" rel="tag">Typescript</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-19">August 19, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BTypescript%5D+%ED%83%80%EC%9E%85+%ED%98%B8%ED%99%98%EC%84%B1%2C+%EB%B3%84%EC%B9%AD%20https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-typecompalias%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-typecompalias%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Ftypescript%2Ffrontend-typescript-typecompalias%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/typescript/frontend-typescript-codelook/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Typescript] 코드 바라보기</a>
+  
+  
+  <a href="/typescript/frontend-typescript-compiler/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Typescript] 컴파일러</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-variopermixins/" rel="permalink">[SCSS] SCSS 변수, 연산, 재활용
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Variable, Opeation, Mixins
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/scss/frontend-scss-start/" rel="permalink">[SCSS] SCSS 개요, 참조, 중첩
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#scss"
+      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#scss"
+      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">SCSS Overview, Meister, Nesting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/typescript/frontend-typescript-generics/" rel="permalink">[Typescript] Generics
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#typescript"
+      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#typescript"
+      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Typescript Generics
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/ds/cs-ds-heap/" rel="permalink">[Data Structure] 힙(Heap)
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#ds"
+      class="page__taxonomy-item-category" rel="tag">DS</a>
+    
+    
+    <a href="/tags/#cs"
+      class="page__taxonomy-item-tag" rel="tag">CS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#ds"
+      class="page__taxonomy-item-tag" rel="tag">DS</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#programming"
+      class="page__taxonomy-item-tag" rel="tag">Programming</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">자료구조 힙
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/typescript/frontend-typescript-typecompalias/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/typescript/frontend-typescript-typecompalias"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

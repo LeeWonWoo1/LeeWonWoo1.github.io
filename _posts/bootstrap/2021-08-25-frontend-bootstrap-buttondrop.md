@@ -57,8 +57,6 @@ last_modified_at: 2021-08-25T03:30:00
 [Bootstrap 드롭다운](https://getbootstrap.com/docs/5.1/components/dropdowns/){:target="_blank"}
 {: .notice--info}
 
-<br>
-
 [Bootstrap 리스트 그룹](https://getbootstrap.com/docs/5.1/components/list-group/){:target="_blank"}
 {: .notice--info}
 

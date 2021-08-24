@@ -16,8 +16,8 @@ last_modified_at: 2021-08-24T02:00:00
 
 ## 1. SCSS
 
-**SCSS 테스트 페이지** [https://sassmeister.com](https://sassmeister.com)
-{: .notice--notice}
+**SCSS 테스트 페이지** [https://sassmeister.com](https://sassmeister.com){:target="_blank"}
+{: .notice--info}
 
 - css를 쉽게 사용하기 위해 강력한 기능을 제공하는 도구
 - css 전처리 도구

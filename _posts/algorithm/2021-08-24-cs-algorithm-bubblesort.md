@@ -60,7 +60,9 @@ last_modified_at: 2021-08-24T23:30:00
         - 3 과 9 비교, 자리바꿈없음 [1, 2, 3, 9]
 
 
-### - 알고리즘 구현
+<br>
+
+## 2. 알고리즘 구현
 
 * **특이점 찾아보기**
     - n개의 리스트가 있는 경우 최대 n-1번의 로직을 적용
@@ -82,7 +84,7 @@ last_modified_at: 2021-08-24T23:30:00
 6. 반복문 안에서, if swap == 0 이면, break 끝
 
 ```python
-def bubblesort(data) :
+def bubble_sort(data) :
   swap = False
   for i in range(len(data) - 1) :
     for j in range(len(data) - i - 1) :
@@ -98,13 +100,13 @@ def bubblesort(data) :
 import random
 
 data_list = random.sample(range(100), 10)
-print(bubblesort(data_list))  # [8, 24, 39, 40, 63, 68, 69, 77, 86, 91]
+print(bubble_sort(data_list))  # [8, 24, 39, 40, 63, 68, 69, 77, 86, 91]
 ```
 
 
 <br>
 
-### - 알고리즘 분석
+## 3. 알고리즘 분석
 
 * 반복문이 두 개 O($n^2$)
 * 최악의 경우, $\frac { n * (n - 1)}{ 2 }$

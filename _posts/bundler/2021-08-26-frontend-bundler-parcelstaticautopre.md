@@ -1,6 +1,6 @@
 ---
-title: "[Bundler] Parcel static, autoprefixer"
-excerpt: Parcel static, autoprefixer
+title: "[Bundler] Parcel Static, Autoprefixer"
+excerpt: Parcel Static, Autoprefixer
 categories:
 - Bundler
 tags:

@@ -156,6 +156,17 @@ module.exports = {
 
 <br>
 
+```json
+// package.json
+
+"browserslist": [
+  "> 1%",  // 점유율이 1% 이상인 모든 브라우저
+  "last 2 versions"  // 해당하는 브라우저의 마지막 2개 버전
+]
+```
+
+<br>
+
 ```js
 // webpack.config.js
 

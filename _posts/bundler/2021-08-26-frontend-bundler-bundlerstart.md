@@ -1,11 +1,12 @@
 ---
-title: "[Bundler] 개요"
-excerpt: Bundler 개요
+title: "[Bundler] Parcel"
+excerpt: Bundler Parcel
 categories:
 - Bundler
 tags:
 - - Bundler
   - Web
+  - Parcel
 toc: true
 toc_sticky: true
 popular: true
@@ -17,10 +18,9 @@ last_modified_at: 2021-08-26T20:00:00
 
 - 웹에서는 HTML, CSS, Javascript가 동작
 - 순수하게 HTML, CSS, Javascript로 코딩하는 것은 비효율적
-- 다양한 기능들을 기용해 웹 개발을 함
-- 다양한 기능들을은 웹에서는 직접적으로 동작하지 않음
+- 따라서 다양한 기능들을 이용해 웹 개발을 하는데, 그것들은 웹에서 직접적으로 동작하지 않음
 - 그것을 변환하는 과정을 거져 HTML, CSS, Javascript로 바꿔서 웹에서 동작시킴
-- Vue.js, React, Sass 등의 기능을 Bundler를 통해 웹에서 동작시킬 수 있는 형태로 바꿀 수 있음
+- 즉, Vue.js, React, Sass 등을 Bundler를 통해 웹에서 동작시킬 수 있는 형태로 바꿀 수 있음
 - Bundler 자체가 이해해서 변환해주는 것이 아니라 외부의 패키지의 도움을 받아 변환
 - 수동의 작업을 Bundler에게 위임
 - parcel : 구성 없는 단순한 자동 번들링, 소/중형 프로젝트에 적합

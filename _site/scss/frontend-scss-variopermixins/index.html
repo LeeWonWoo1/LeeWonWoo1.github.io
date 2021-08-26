@@ -95,7 +95,13 @@
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
   rel="stylesheet">
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
-
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 <!-- end custom head snippets -->
   <style>
     ::-webkit-scrollbar {
@@ -348,7 +354,7 @@
   <label for="ac-toc">토글 메뉴</label>
   <ul class="nav__items" id="category_tag_menu">
       <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">75</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">89</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
 
@@ -360,6 +366,12 @@
                 
                     
                         <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -403,6 +415,12 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
             </ul>
             <ul>
                 
@@ -425,7 +443,13 @@
                     
                 
                     
-                        <li><a href="/categories/scss" class="">SCSS (2)</a></li>
+                        <li><a href="/categories/scss" class="">SCSS (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
                     
                 
             </ul>            
@@ -441,6 +465,12 @@
                 
                     
                         <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -478,11 +508,85 @@
                 
                     
                 
-            </ul>           
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bootstrap" class="">Bootstrap (4)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bundler" class="">Bundler (2)</a></li>
+                    
+                
+            </ul>          
 
       <!--Programming-->  
         <span class="nav__sub-title">Programming</span>
             <ul>
+                
+                    
+                
+                    
+                
+                    
                 
                     
                 
@@ -532,6 +636,43 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">Algorithm (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
             </ul>
 
       <!--ETC-->  
@@ -560,11 +701,23 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
             </ul>        
             <ul>
                 
                     
-                        <li><a href="/categories/blog" class="">Blog (2)</a></li>
+                        <li><a href="/categories/blog" class="">Blog (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -610,6 +763,12 @@
                 
                     
                 
+                    
+                
+                    
+                
+                    
+                
             </ul>
             <ul>
                 
@@ -627,6 +786,12 @@
                 
                     
                         <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -671,7 +836,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          2 분 소요
         
       </span>
     
@@ -850,10 +1015,92 @@
 </code></pre></div></div>
 
 <div class="container" style="width: 200px; height: 200px; background-color: orange; display: flex; justify-content: center; align-items: center;">
-  <div class="item" styple="width: 100px; height: 100px; background-color: royalblue; display: flex; justify-content: center; align-items: center;">
+  <div class="item" style="width: 100px; height: 100px; background-color: royalblue; display: flex; justify-content: center; align-items: center;">
     Mixin!
   </div>
 </div>
+
+<p><br /></p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ex 1) scss 재활용</span>
+
+<span class="k">@mixin</span> <span class="nf">center</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.container</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">center</span><span class="p">;</span>
+  <span class="nc">.item</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">center</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* ex 1) css */</span>
+
+<span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.container</span> <span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ex 2) scss 재활용($매개변수: 인수)</span>
+
+<span class="k">@mixin</span> <span class="nf">box</span><span class="p">(</span><span class="nv">$size</span><span class="o">:</span> <span class="m">100px</span><span class="o">,</span> <span class="nv">$color</span><span class="o">:</span> <span class="no">tomato</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nv">$size</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="nv">$size</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.container</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">box</span><span class="p">(</span><span class="m">200px</span><span class="o">,</span> <span class="no">red</span><span class="p">);</span>
+  <span class="nc">.item</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">box</span><span class="p">(</span><span class="nv">$color</span><span class="o">:</span> <span class="no">green</span><span class="p">);</span>  <span class="c1">// 키워드 인수</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">box</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* ex 2) css */</span>
+
+<span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.container</span> <span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">tomato</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
@@ -869,8 +1116,6 @@
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
-    
-      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
     
       <a href="/tags/#scss" class="page__taxonomy-item p-category" rel="tag">SCSS</a><span class="sep">, </span>
     
@@ -927,12 +1172,16 @@
 
 
 
+
+
+
+
 <nav class="pagination_prev_next">
   
   <a href="/scss/frontend-scss-start/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[SCSS] SCSS 개요, 참조, 중첩</a>
   
   
-  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  <a href="/scss/frontend-scss-forfuncimport/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[SCSS] SCSS 반복문, 함수, 가져오기</a>
   
 </nav>
 
@@ -956,18 +1205,23 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/scss/frontend-scss-start/" rel="permalink">[SCSS] SCSS 개요, 참조, 중첩
+      <a href="/bundler/frontend-bundler-parcelbabelcli/" rel="permalink">[Bundler] Parcel Babel, CLI
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.27
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#scss"
-      class="page__taxonomy-item-category" rel="tag">SCSS</a>
+  <span itemprop="keywords"><a href="/categories/#bundler"
+      class="page__taxonomy-item-category" rel="tag">Bundler</a>
+    
+    
+    <a href="/tags/#bundler"
+      class="page__taxonomy-item-tag" rel="tag">Bundler</a><span class="sep"> </span>
+    
     
     
     <a href="/tags/#npm"
@@ -975,8 +1229,8 @@
     
     
     
-    <a href="/tags/#scss"
-      class="page__taxonomy-item-tag" rel="tag">SCSS</a><span class="sep"> </span>
+    <a href="/tags/#parcel"
+      class="page__taxonomy-item-tag" rel="tag">Parcel</a><span class="sep"> </span>
     
     
     
@@ -986,7 +1240,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">SCSS Overview, Meister, Nesting
+    <p class="archive__item-excerpt" itemprop="description">Bundler Parcel Babel, CLI
 </p>
   </article>
 </div>
@@ -1000,42 +1254,47 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/typescript/frontend-typescript-generics/" rel="permalink">[Typescript] Generics
+      <a href="/blog/etc-blog-favicon/" rel="permalink">[Github 블로그] Favicon 등록
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.24
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.26
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#typescript"
-      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+  <span itemprop="keywords"><a href="/categories/#blog"
+      class="page__taxonomy-item-category" rel="tag">Blog</a>
     
     
-    <a href="/tags/#npm"
-      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#programming"
-      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
+    <a href="/tags/#blog"
+      class="page__taxonomy-item-tag" rel="tag">Blog</a><span class="sep"> </span>
     
     
     
-    <a href="/tags/#typescript"
-      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
+    <a href="/tags/#github"
+      class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
     
     
     
-    <a href="/tags/#web"
-      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    <a href="/tags/#git"
+      class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#jekyll"
+      class="page__taxonomy-item-tag" rel="tag">jekyll</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#minimal-mistake"
+      class="page__taxonomy-item-tag" rel="tag">minimal-mistake</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">Typescript Generics
+    <p class="archive__item-excerpt" itemprop="description">Github 블로그의 Favicon을 등록합니다.
 </p>
   </article>
 </div>
@@ -1049,37 +1308,42 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/ds/cs-ds-heap/" rel="permalink">[Data Structure] 힙(Heap)
+      <a href="/bundler/frontend-bundler-parcelstaticautopre/" rel="permalink">[Bundler] Parcel static, autoprefixer
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.26
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#ds"
-      class="page__taxonomy-item-category" rel="tag">DS</a>
+  <span itemprop="keywords"><a href="/categories/#bundler"
+      class="page__taxonomy-item-category" rel="tag">Bundler</a>
     
     
-    <a href="/tags/#cs"
-      class="page__taxonomy-item-tag" rel="tag">CS</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#ds"
-      class="page__taxonomy-item-tag" rel="tag">DS</a><span class="sep"> </span>
+    <a href="/tags/#bundler"
+      class="page__taxonomy-item-tag" rel="tag">Bundler</a><span class="sep"> </span>
     
     
     
-    <a href="/tags/#programming"
-      class="page__taxonomy-item-tag" rel="tag">Programming</a>
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#parcel"
+      class="page__taxonomy-item-tag" rel="tag">Parcel</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
     
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">자료구조 힙
+    <p class="archive__item-excerpt" itemprop="description">Bundler Parcel static, autoprefixer
 </p>
   </article>
 </div>
@@ -1093,32 +1357,27 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-      <a href="/typescript/frontend-typescript-class/" rel="permalink">[Typescript] Class
+      <a href="/bootstrap/frontend-bootstrap-customtree/" rel="permalink">[Bootstrap] 커스터마이징, 성능 최적화
 </a>
       
     </h2>
     <small>
-      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.23
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.25
       <!--Archive page 용-: (post -> page)-->
 <!--page__taxonomy.html에서 가져 옴-->
 
 <span class="page__taxonomy">
-  <span itemprop="keywords"><a href="/categories/#typescript"
-      class="page__taxonomy-item-category" rel="tag">Typescript</a>
+  <span itemprop="keywords"><a href="/categories/#bootstrap"
+      class="page__taxonomy-item-category" rel="tag">Bootstrap</a>
+    
+    
+    <a href="/tags/#bootstrap"
+      class="page__taxonomy-item-tag" rel="tag">Bootstrap</a><span class="sep"> </span>
+    
     
     
     <a href="/tags/#npm"
       class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#programming"
-      class="page__taxonomy-item-tag" rel="tag">Programming</a><span class="sep"> </span>
-    
-    
-    
-    <a href="/tags/#typescript"
-      class="page__taxonomy-item-tag" rel="tag">Typescript</a><span class="sep"> </span>
     
     
     
@@ -1128,7 +1387,7 @@
   </span>
 </span>
     </small>
-    <p class="archive__item-excerpt" itemprop="description">Typescript Class
+    <p class="archive__item-excerpt" itemprop="description">Bootstrap 테마 색상 Customizing, Tree Shaking
 </p>
   </article>
 </div>

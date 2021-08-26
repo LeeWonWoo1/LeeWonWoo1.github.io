@@ -1,0 +1,1515 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Bundler] Parcel static, autoprefixer | LWW’s Tech Blog</title>
+<meta name="description" content="Bundler Parcel static, autoprefixer">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Bundler] Parcel static, autoprefixer">
+<meta property="og:url" content="https://leewonwoo1.github.io/bundler/frontend-bundler-parcelstaticautopre/">
+
+
+  <meta property="og:description" content="Bundler Parcel static, autoprefixer">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-26T20:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-27T05:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/bundler/frontend-bundler-parcelstaticautopre/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#bundler" itemprop="item"><span itemprop="name">Bundler</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Bundler] Parcel static, autoprefixer</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">89</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bootstrap" class="">Bootstrap (4)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bundler" class="">Bundler (2)</a></li>
+                    
+                
+            </ul>          
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">Algorithm (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Bundler] Parcel static, autoprefixer">
+    <meta itemprop="description" content="Bundler Parcel static, autoprefixer">
+    <meta itemprop="datePublished" content="2021-08-26T20:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-27T05:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/bundler/frontend-bundler-parcelstaticautopre/" class="u-url" itemprop="url">[Bundler] Parcel static, autoprefixer
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-bundler-개요">1. Bundler 개요</a></li><li><a href="#2-프로젝트-시작">2. 프로젝트 시작</a></li><li><a href="#3-정적-파일-연결">3. 정적 파일 연결</a></li><li><a href="#4-autoprefixer">4. Autoprefixer</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-bundler-개요">1. Bundler 개요</h2>
+
+<ul>
+  <li>웹에서는 HTML, CSS, Javascript가 동작</li>
+  <li>순수하게 HTML, CSS, Javascript로 코딩하는 것은 비효율적</li>
+  <li>따라서 다양한 기능들을 이용해 웹 개발을 하는데, 그것들은 웹에서 직접적으로 동작하지 않음</li>
+  <li>그것을 변환하는 과정을 거져 HTML, CSS, Javascript로 바꿔서 웹에서 동작시킴</li>
+  <li>즉, Vue.js, React, Sass 등을 Bundler를 통해 웹에서 동작시킬 수 있는 형태로 바꿀 수 있음</li>
+  <li>Bundler 자체가 이해해서 변환해주는 것이 아니라 외부의 패키지의 도움을 받아 변환</li>
+  <li>수동의 작업을 Bundler에게 위임</li>
+  <li>Parcel : 구성 없는 단순한 자동 번들링, 소/중형 프로젝트에 적합</li>
+  <li>Webpack : 매우 꼼꼼한 구성, 중/대형 프로젝트에 적합</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/130965363-814c28a7-46fb-4ff7-8681-2a5610300750.PNG" alt="parcel-start2" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<h2 id="2-프로젝트-시작">2. 프로젝트 시작</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 프로젝트 생성</span>
+
+<span class="nv">$ </span><span class="nb">mkdir </span>parcel-template-basic
+<span class="nv">$ </span><span class="nb">cd </span>parcel-template-basic
+<span class="nv">$ </span>npm init <span class="nt">-y</span>
+<span class="nv">$ </span>npm i <span class="nt">-D</span> parcel-bundler
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">package.json</span><span class="w">
+
+</span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parcel index.html"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parcel build index.html"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Parcel Bundler<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"</span><span class="nt">&gt;</span>  <span class="c">&lt;!-- reset.css cdn--&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./scss/main.scss"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">defer</span> <span class="na">src=</span><span class="s">"./js/main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Hello Parcel!!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// scss/main.scss</span>
+
+<span class="nv">$color--black</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
+<span class="nv">$color--white</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$color--black</span><span class="p">;</span>
+  <span class="nt">h1</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nv">$color--white</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// js/main.js</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello Parcel!</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/130954644-502bc6bd-9e08-4836-b9fa-9c69dc65a993.PNG" alt="parcel-start" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<h2 id="3-정적-파일-연결">3. 정적 파일 연결</h2>
+
+<p class="notice--info"><a href="https://www.icoconverter.com/" target="_blank">https://www.icoconverter.com/</a>에서 원하는 이미지 변경</p>
+
+<ul>
+  <li>원본 이미지와 변환된 이미지를 프로젝트 폴더 루트 경로에 복사</li>
+  <li>원본 이미지는 images 폴더를 생성하고 이 폴더에 넣어줌</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/130966112-e1e85b2e-8ab4-47c2-9211-95ee1c18b299.PNG" alt="parcel-start3" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Hello Parcel!!<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"./images/bear.jpg"</span> <span class="na">alt=</span><span class="s">"Bear"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Favicon이 정상적으로 출력되지 않음</li>
+  <li>웹에서 확인하는 HTML 파일은 dist폴더에 있는 HTML 파일임</li>
+  <li>그것을 만들어내는 용도로 루트 경로에 있는 index.html 파일을 Parcel-Bundler가 사용</li>
+  <li>즉, favicon.ico파일을 dist 폴더로 넣어주면 됨</li>
+  <li>하지만 dist폴더는 언제든지 지울 수 있어야 하기 때문에 파일을 dist 폴더에 직접적으로 넣는 방식은 좋지 않음</li>
+  <li>따라서 해당하는 파일을 개발서버를 열거나 제품화시킬때 dist폴더로 자동으로 넣어줄 수 있는 패키지의 도움을 받아야 함</li>
+</ul>
+
+<p class="notice--info"><a href="https://www.npmjs.com/package/parcel-plugin-static-files-copy" target="_blank">https://www.npmjs.com/package/parcel-plugin-static-files-copy</a>에 접속해서 내용 확인</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span>npm i <span class="nt">-D</span> parcel-plugin-static-files-copy
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">package.json</span><span class="w">
+
+</span><span class="nl">"staticFiles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"staticPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"static"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>루트 경로에 static 폴더를 만들고 favicon.ico 파일을 넣어줌</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/130968669-b4717529-8ed7-491a-a44c-78114fe83a4a.PNG" alt="parcel-start4" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>dist 파일에 favicon.ico 파일이 복사됨</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/130984672-a80e377d-5aff-45cc-bece-0f2cde4893f2.PNG" alt="parcel-start5" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Favicon 출력 확인</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run dev
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="4-autoprefixer">4. Autoprefixer</h2>
+
+<ul>
+  <li>Autoprefixer는 공급 업체 접두사(Vender Prefix)를 자동으로 붙여줄 수 있는 패키지</li>
+  <li>CSS 스타일 보험</li>
+  <li>Vender Prefix는 모든 브라우저에서 CSS의 기능을 동일하게 사용하기 위하여 브라우저의 제조사별 접두어를 CSS에 표기하는 것</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+npm i <span class="nt">-D</span> postcss autoprefixer
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">package.json</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">현재</span><span class="w"> </span><span class="err">NPM</span><span class="w"> </span><span class="err">프로젝트에서</span><span class="w"> </span><span class="err">지원할</span><span class="w"> </span><span class="err">브라우저의</span><span class="w"> </span><span class="err">범위를</span><span class="w"> </span><span class="err">명시하는</span><span class="w"> </span><span class="err">용도</span><span class="w">
+</span><span class="err">//</span><span class="w"> </span><span class="err">이</span><span class="w"> </span><span class="err">명시를</span><span class="w"> </span><span class="err">Autoprefixer</span><span class="w"> </span><span class="err">패키지가</span><span class="w"> </span><span class="err">활용</span><span class="w">
+</span><span class="nl">"browserslist"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"&gt; 1%"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">점유율이</span><span class="w"> </span><span class="mi">1</span><span class="err">%</span><span class="w"> </span><span class="err">이상인</span><span class="w"> </span><span class="err">모든</span><span class="w"> </span><span class="err">브라우저</span><span class="w">
+  </span><span class="s2">"last 2 versions"</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">해당하는</span><span class="w"> </span><span class="err">브라우저의</span><span class="w"> </span><span class="err">마지막</span><span class="w"> </span><span class="mi">2</span><span class="err">개</span><span class="w"> </span><span class="err">버전</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .postcssrc.js</span>
+<span class="c1">// 뒤에 rc(Runtime Configuration)가 붙은 파일은 구성 파일을 의미</span>
+
+<span class="c1">// ESM : 브라우저 환경에서 동작</span>
+<span class="c1">// CommonJS : Node.js 환경 동작</span>
+
+<span class="c1">// import autoprefixer from 'autoprefixer'</span>
+<span class="kd">const</span> <span class="nx">autoprefixer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">autoprefixer</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="c1">// export {</span>
+<span class="c1">//   plugins: [</span>
+<span class="c1">//     autoprefixer</span>
+<span class="c1">//   ]</span>
+<span class="c1">// }</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">autoprefixer</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ---------------------------------------------------------</span>
+<span class="c1">// 간소화</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">autoprefixer</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// scss/main.scss</span>
+
+<span class="nv">$color--black</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
+<span class="nv">$color--white</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$color--black</span><span class="p">;</span>
+  <span class="nt">h1</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nv">$color--white</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span>npm run dev
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>Autoprefixer와 Postcss의 버전이 충돌하는 경우</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span>npm i <span class="nt">-D</span> autoprefixer@9
+<span class="nv">$ </span>npm run dev
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/130990211-bead634d-ef77-4607-a179-e4e613fd951a.PNG" alt="parcel-start6" class="align-center open-new" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#bundler" class="page__taxonomy-item p-category" rel="tag">Bundler</a><span class="sep">, </span>
+    
+      <a href="/tags/#npm" class="page__taxonomy-item p-category" rel="tag">NPM</a><span class="sep">, </span>
+    
+      <a href="/tags/#parcel" class="page__taxonomy-item p-category" rel="tag">Parcel</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#bundler" class="page__taxonomy-item p-category" rel="tag">Bundler</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-26">August 26, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BBundler%5D+Parcel+static%2C+autoprefixer%20https%3A%2F%2Fleewonwoo1.github.io%2Fbundler%2Ffrontend-bundler-parcelstaticautopre%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Fbundler%2Ffrontend-bundler-parcelstaticautopre%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Fbundler%2Ffrontend-bundler-parcelstaticautopre%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="#" class="pagination_prev_next--pager disabled">첫 번째 글입니다</a>
+  
+  
+  <a href="/bundler/frontend-bundler-parcelbabelcli/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[Bundler] Parcel Babel, CLI</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/bundler/frontend-bundler-parcelbabelcli/" rel="permalink">[Bundler] Parcel Babel, CLI
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.27
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#bundler"
+      class="page__taxonomy-item-category" rel="tag">Bundler</a>
+    
+    
+    <a href="/tags/#bundler"
+      class="page__taxonomy-item-tag" rel="tag">Bundler</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#parcel"
+      class="page__taxonomy-item-tag" rel="tag">Parcel</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Bundler Parcel Babel, CLI
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/blog/etc-blog-favicon/" rel="permalink">[Github 블로그] Favicon 등록
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.26
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#blog"
+      class="page__taxonomy-item-category" rel="tag">Blog</a>
+    
+    
+    <a href="/tags/#blog"
+      class="page__taxonomy-item-tag" rel="tag">Blog</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#github"
+      class="page__taxonomy-item-tag" rel="tag">Github</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#git"
+      class="page__taxonomy-item-tag" rel="tag">Git</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#jekyll"
+      class="page__taxonomy-item-tag" rel="tag">jekyll</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#minimal-mistake"
+      class="page__taxonomy-item-tag" rel="tag">minimal-mistake</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Github 블로그의 Favicon을 등록합니다.
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/bootstrap/frontend-bootstrap-customtree/" rel="permalink">[Bootstrap] 커스터마이징, 성능 최적화
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.25
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#bootstrap"
+      class="page__taxonomy-item-category" rel="tag">Bootstrap</a>
+    
+    
+    <a href="/tags/#bootstrap"
+      class="page__taxonomy-item-tag" rel="tag">Bootstrap</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#npm"
+      class="page__taxonomy-item-tag" rel="tag">NPM</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Bootstrap 테마 색상 Customizing, Tree Shaking
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/bootstrap/frontend-bootstrap-formodaltool/" rel="permalink">[Bootstrap] 양식, 모달, 툴팁
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.25
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#bootstrap"
+      class="page__taxonomy-item-category" rel="tag">Bootstrap</a>
+    
+    
+    <a href="/tags/#bootstrap"
+      class="page__taxonomy-item-tag" rel="tag">Bootstrap</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Bootstrap Forms, Modal, Tooltips
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/bundler/frontend-bundler-parcelstaticautopre/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/bundler/frontend-bundler-parcelstaticautopre"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

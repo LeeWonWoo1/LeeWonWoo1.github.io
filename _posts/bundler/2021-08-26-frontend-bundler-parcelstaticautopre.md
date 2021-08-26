@@ -6,6 +6,7 @@ categories:
 tags:
 - - Bundler
   - Web
+  - NPM
   - Parcel
 toc: true
 toc_sticky: true
@@ -160,7 +161,7 @@ $ npm i -D parcel-plugin-static-files-copy
 
 - dist 파일에 favicon.ico 파일이 복사됨
 
-![parcel-start5](https://user-images.githubusercontent.com/62803763/130984672-a80e377d-5aff-45cc-bece-0f2cde4893f2.PNG)
+![parcel-start5](https://user-images.githubusercontent.com/62803763/130984672-a80e377d-5aff-45cc-bece-0f2cde4893f2.PNG){: .align-center .open-new}
 
 <br>
 

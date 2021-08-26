@@ -52,7 +52,14 @@
                         <li><a href="/categories/bootstrap" class="">Bootstrap ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>           
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Bundler" %}
+                        <li><a href="/categories/bundler" class="">Bundler ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>          
 
       <!--Programming-->  
         <span class="nav__sub-title">Programming</span>

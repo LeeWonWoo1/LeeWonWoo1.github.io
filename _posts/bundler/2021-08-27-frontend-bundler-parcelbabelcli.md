@@ -1,6 +1,6 @@
 ---
 title: "[Bundler] Parcel Babel, CLI"
-excerpt: Bundler Parcel Babel, CLI
+excerpt: Parcel Babel, CLI
 categories:
 - Bundler
 tags:

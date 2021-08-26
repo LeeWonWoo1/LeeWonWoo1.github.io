@@ -1,6 +1,6 @@
 ---
 title: "[Bundler] Webpack Entry, Output, Plugins"
-excerpt: Webpack Entry, Output, Plugins
+excerpt: Webpack 프로젝트 세팅
 categories:
 - Bundler
 tags:

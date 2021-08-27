@@ -48,6 +48,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "Vue" %}
+                        <li><a href="/categories/vue" class="">Vue ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "Bootstrap" %}
                         <li><a href="/categories/bootstrap" class="">Bootstrap ({{category[1].size}})</a></li>
                     {% endif %}

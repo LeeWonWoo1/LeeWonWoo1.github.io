@@ -1,6 +1,6 @@
 ---
 title: "[Vue.js] 조건문, 반복문"
-excerpt: 
+excerpt: Vue.js의 조건문과 반복문
 categories:
 - Vue
 tags:
@@ -66,6 +66,11 @@ $ npm i
   }
 </style>>
 ```
+
+<br>
+
+![vue5](https://user-images.githubusercontent.com/62803763/131190862-960b8008-f9de-4a92-abfc-176b159585b1.PNG){: .align-center .open-new}
+
 
 <br>
 
@@ -151,3 +156,7 @@ export default {
   }
 </style>
 ```
+
+<br>
+
+![vue6](https://user-images.githubusercontent.com/62803763/131190883-816a2a4b-01e7-44bc-b322-b32b281ad493.PNG){: .align-center .open-new}

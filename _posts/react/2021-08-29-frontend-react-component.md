@@ -1,6 +1,6 @@
 ---
 title: "[React] Component를 만드는 법"
-excerpt: React Component를 만들기
+excerpt: React.createElement, JSX
 categories:
 - React
 tags:

@@ -6,7 +6,7 @@ categories:
 tags:
 - - Bundler
   - Web
-  - NPM
+  - Node.js
   - Parcel
 toc: true
 toc_sticky: true

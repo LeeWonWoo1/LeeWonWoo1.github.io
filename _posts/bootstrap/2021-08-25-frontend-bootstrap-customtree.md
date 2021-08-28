@@ -6,7 +6,7 @@ categories:
 tags:
 - - Bootstrap
   - Web
-  - NPM
+  - Node.js
 toc: true
 toc_sticky: true
 popular: true

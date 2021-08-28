@@ -6,7 +6,7 @@ categories:
 tags:
 - - SCSS
   - Web
-  - NPM
+  - Node.js
 toc: true
 toc_sticky: true
 popular: true

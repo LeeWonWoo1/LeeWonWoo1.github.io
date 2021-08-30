@@ -234,10 +234,293 @@ export default function NotFound() {
 
 ![react-router2](https://user-images.githubusercontent.com/62803763/131361609-419931cd-78de-4fb9-8610-41f52c109d0a.PNG){: .align-center .open-new}
 
-![react-router7](https://user-images.githubusercontent.com/62803763/131375570-be98e5b3-0cc6-4775-9e51-28932fb74b3d.PNG)
+![react-router7](https://user-images.githubusercontent.com/62803763/131375570-be98e5b3-0cc6-4775-9e51-28932fb74b3d.PNG){: .align-center .open-new}
 
 ![react-router1](https://user-images.githubusercontent.com/62803763/131361573-8ad896f6-9731-4b58-bef6-b0b7d9194d2f.PNG){: .align-center .open-new}
 
-![react-router8](https://user-images.githubusercontent.com/62803763/131375597-361ba213-9625-481a-9828-40e712edb930.PNG)
+![react-router8](https://user-images.githubusercontent.com/62803763/131375597-361ba213-9625-481a-9828-40e712edb930.PNG){: .align-center .open-new}
 
 <br>
+
+## 4. JSX 링크로 Routing 이동하기
+
+```js
+// src/App.js
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+import Links from "./components/Links";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Links />
+      <Switch>
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
+        <Route path="/" exact component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+```jsx
+// src/components/Links.jsx
+
+import { Link } from "react-router-dom";
+
+export default function Links() {
+  return (
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/profile">Profile</Link>
+      </li>
+      <li>
+        <Link to="/profile/LWW">Profile/LWW</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/about?name=LWW">About?name=LWW</Link>
+      </li>
+    </ul>
+  );
+}
+```
+
+<br>
+
+![react-router9](https://user-images.githubusercontent.com/62803763/131377349-8b6f6eab-847a-4220-ba07-6144956b7f18.PNG){: .align-center .open-new}
+
+<br>
+
+- import { NavLink } from 'react-router-dom';
+- activeClassName, activeStyle처럼 active 상태에 대한 스타일 지정 가능
+- Route의 path처럼 동작하기 때문에 exact가 있음
+
+```js
+// src/App.js
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+import Links from "./components/Links";
+import NavLinks from "./components/NavLinks";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Links />
+      <NavLinks />
+      <Switch>
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
+        <Route path="/" exact component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+```jsx
+// src/components/NavLinks.jsx
+
+import { NavLink } from "react-router-dom";
+
+const activeStyle = { color: "royalblue" };
+
+export default function NavLinks() {
+  return (
+    <ul>
+      <li>
+        <NavLink to="/" exact activeStyle={activeStyle}>
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/profile" exact activeStyle={activeStyle}>
+          Profile
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/profile/LWW" activeStyle={activeStyle}>
+          Profile/LWW
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          activeStyle={activeStyle}
+          isActive={(match, location) => {
+            console.log(match, location);
+            return match !== null && location.search === "";
+          }}
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about?name=LWW"
+          activeStyle={activeStyle}
+          isActive={(match, location) => {
+            return match !== null && location.search === "?name=LWW";
+          }}
+        >
+          About?name=LWW
+        </NavLink>
+      </li>
+    </ul>
+  );
+}
+```
+
+<br>
+
+![react-router10](https://user-images.githubusercontent.com/62803763/131379030-267ecaec-e468-4263-a740-7e6219ec12cb.PNG){: .align-center .open-new}
+
+<br>
+
+## 5. JS로 Routing 이동하기
+
+```js
+// src/App.js
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Links from "./components/Links";
+import NavLinks from "./components/NavLinks";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Links />
+      <NavLinks />
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
+        <Route path="/" exact component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+```jsx
+// src/pages/Login.jsx
+
+import LoginButton from "../components/LoginButton";
+
+export default function Login() {
+  return (
+    <div>
+      <h2>Login 페이지</h2>
+      <LoginButton />
+    </div>
+  );
+}
+```
+
+<br>
+
+```jsx
+// src/components/LoginButtons.jsx
+
+import { withRouter } from "react-router-dom";
+
+export default withRouter(function LoginButton(props) {
+  console.log(props);
+
+  function login() {
+    setTimeout(() => {
+      props.history.push("/");
+    }, 1000);
+  }
+
+  return <button onClick={login}>로그인하기</button>;
+});
+```
+
+<br>
+
+![react-router11](https://user-images.githubusercontent.com/62803763/131381551-73430641-c3a7-40a6-b7d4-1420dd9ab241.PNG){: .align-center .open-new}
+
+![react-router12](https://user-images.githubusercontent.com/62803763/131381838-d753c963-ea27-4b3c-ae5a-791efc1510c5.PNG){: .align-center .open-new}
+
+<br>
+
+## 6. Redirect
+
+```js
+// src/App.js
+
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Links from "./components/Links";
+import NavLinks from "./components/NavLinks";
+
+const isLogin = false;
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Links />
+      <NavLinks />
+      <Switch>
+        <Route
+          path="/login"
+          render={() => (isLogin ? <Redirect to="/" /> : <Login />)}
+        />
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
+        <Route path="/" exact component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+![react-router11](https://user-images.githubusercontent.com/62803763/131382362-3b625b08-5827-4beb-9dd7-3c71b7c768c0.PNG){: .align-center .open-new}

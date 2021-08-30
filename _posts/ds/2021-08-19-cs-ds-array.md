@@ -2,15 +2,16 @@
 title: "[Data Structure] 배열(Array)"
 excerpt: 자료구조 배열
 categories:
-- DS
+  - DS
 tags:
-- - DS
-  - CS
-  - Programming
+  - - DS
+    - CS
+    - Programming
+    - Python
 toc: true
 toc_sticky: true
 popular: true
-date: '2021-08-19T20:00:00'
+date: "2021-08-19T20:00:00"
 last_modified_at: 2021-08-19T20:00:00
 ---
 
@@ -19,16 +20,14 @@ last_modified_at: 2021-08-19T20:00:00
 - 데이터를 나열하고, 각 데이터를 index에 대응하도록 구성한 데이터 구조
 - Python에서는 리스트 타입이 배열 기능을 제공함
 
-
 ### - 배열은 왜 필요할까?
 
 - 같은 종류의 데이터를 효율적으로 관리하기 위해 사용
 - 같은 종류의 데이터를 순차적으로 저장
 - 장점: 빠른 접근 가능
-    - 첫 데이터의 위치에서 상대적인 위치로 데이터 접근(index 번호로 접근)
+  - 첫 데이터의 위치에서 상대적인 위치로 데이터 접근(index 번호로 접근)
 - 단점: 데이터 추가/삭제의 어려움
-    - 미리 최대 길이를 지정해야 함
-
+  - 미리 최대 길이를 지정해야 함
 
 ### - 파이썬과 C 언어의 배열 예제
 
@@ -40,7 +39,7 @@ int main(int argc, char * argv[])
 {
     char country[3] = "US";
     printf ("%c%c\n", country[0], country[1]);
-    printf ("%s\n", country);    
+    printf ("%s\n", country);
     return 0;
 }
 ```
@@ -56,7 +55,6 @@ print(country)  # US
 country = country + 'A'
 print(country)  # USA
 ```
-
 
 <br>
 
@@ -82,7 +80,6 @@ print(data_list[0][2])  # 3
 print(data_list[1][0])  # 4
 print(data_list[1][1])  # 5
 ```
-
 
 <br>
 

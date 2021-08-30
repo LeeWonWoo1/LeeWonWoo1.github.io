@@ -2,20 +2,20 @@
 title: "[Algorithm] 버블 정렬(Bubble Sort)"
 excerpt: 알고리즘 버블 정렬
 categories:
-- Algorithm
+  - Algorithm
 tags:
-- - Algorithm
-  - CS
-  - Programming
+  - - Algorithm
+    - CS
+    - Programming
+    - Python
 toc: true
 toc_sticky: true
 popular: true
-date: '2021-08-24T23:30:00'
+date: "2021-08-24T23:30:00"
 last_modified_at: 2021-08-24T23:30:00
 ---
 
-## 1. 버블 정렬 (Bubble Sort) 
-
+## 1. 버블 정렬 (Bubble Sort)
 
 ### - 정렬이란?
 
@@ -26,11 +26,10 @@ last_modified_at: 2021-08-24T23:30:00
 > 다양한 정렬 알고리즘 이해를 통해, 동일한 문제에 대해 다양한 알고리즘이 고안될 수 있음을 이해하고,
 > 각 알고리즘간 성능 비교를 통해, 알고리즘 성능 분석에 대해서도 이해할 수 있음
 
-
 ### - 버블 정렬이란?
 
-* 두 인접한 데이터를 비교해서, 앞에 있는 데이터가 뒤에 있는 데이터보다 크면, 자리를 바꾸는 정렬 알고리즘
-* 직접 눈으로 보기 : [https://visualgo.net/en/sorting](https://visualgo.net/en/sorting){:target="_blank"}
+- 두 인접한 데이터를 비교해서, 앞에 있는 데이터가 뒤에 있는 데이터보다 크면, 자리를 바꾸는 정렬 알고리즘
+- 직접 눈으로 보기 : [https://visualgo.net/en/sorting](https://visualgo.net/en/sorting){:target="\_blank"}
 
 <br>
 
@@ -40,34 +39,32 @@ last_modified_at: 2021-08-24T23:30:00
 
 > 출처: https://en.wikipedia.org/wiki/Bubble_sort
 
-
 ### - 어떻게 코드로 만들까?
 
 > 알고리즘 연습 방법에 기반해서 단계별로 생각
 
-* 데이터가 네 개 일때 : data_list = [1, 9, 3, 2]
-    - 1차 로직 적용
-        - 1 와 9 비교, 자리바꿈없음 [1, 9, 3, 2]
-        - 9 와 3 비교, 자리바꿈 [1, 3, 9, 2]
-        - 9 와 2 비교, 자리바꿈 [1, 3, 2, 9]
-    - 2차 로직 적용
-        - 1 와 3 비교, 자리바꿈없음 [1, 3, 2, 9]
-        - 3 과 2 비교, 자리바꿈 [1, 2, 3, 9]
-        - 3 와 9 비교, 자리바꿈없음 [1, 2, 3, 9]
-    - 3차 로직 적용
-        - 1 과 2 비교, 자리바꿈없음 [1, 2, 3, 9]
-        - 2 과 3 비교, 자리바꿈없음 [1, 2, 3, 9]
-        - 3 과 9 비교, 자리바꿈없음 [1, 2, 3, 9]
-
+- 데이터가 네 개 일때 : data_list = [1, 9, 3, 2]
+  - 1차 로직 적용
+    - 1 와 9 비교, 자리바꿈없음 [1, 9, 3, 2]
+    - 9 와 3 비교, 자리바꿈 [1, 3, 9, 2]
+    - 9 와 2 비교, 자리바꿈 [1, 3, 2, 9]
+  - 2차 로직 적용
+    - 1 와 3 비교, 자리바꿈없음 [1, 3, 2, 9]
+    - 3 과 2 비교, 자리바꿈 [1, 2, 3, 9]
+    - 3 와 9 비교, 자리바꿈없음 [1, 2, 3, 9]
+  - 3차 로직 적용
+    - 1 과 2 비교, 자리바꿈없음 [1, 2, 3, 9]
+    - 2 과 3 비교, 자리바꿈없음 [1, 2, 3, 9]
+    - 3 과 9 비교, 자리바꿈없음 [1, 2, 3, 9]
 
 <br>
 
 ## 2. 알고리즘 구현
 
-* **특이점 찾아보기**
-    - n개의 리스트가 있는 경우 최대 n-1번의 로직을 적용
-    - 로직을 1번 적용할 때마다 가장 큰 숫자가 뒤에서부터 1개씩 결정
-    - 로직이 경우에 따라 일찍 끝날 수도 있음. 따라서 로직을 적용할 때 한 번도 데이터가 교환된 적이 없다면 이미 정렬된 상태이므로 더 이상 로직을 반복 적용할 필요가 없음
+- **특이점 찾아보기**
+  - n개의 리스트가 있는 경우 최대 n-1번의 로직을 적용
+  - 로직을 1번 적용할 때마다 가장 큰 숫자가 뒤에서부터 1개씩 결정
+  - 로직이 경우에 따라 일찍 끝날 수도 있음. 따라서 로직을 적용할 때 한 번도 데이터가 교환된 적이 없다면 이미 정렬된 상태이므로 더 이상 로직을 반복 적용할 필요가 없음
 
 <br>
 
@@ -77,11 +74,11 @@ last_modified_at: 2021-08-24T23:30:00
 
 1. for num in range(len(data_list)) 반복
 2. swap = 0 (교환이 되었는지를 확인하는 변수를 둠)
-2. 반복문 안에서, for index in range(len(data_list) - num - 1) n - 1번 반복해야 하므로
-3. 반복문안의 반복문 안에서, if data_list[index] > data_list[index + 1] 이면
-4. data_list[index], data_list[index + 1] = data_list[index + 1], data_list[index]
-5. swap += 1
-6. 반복문 안에서, if swap == 0 이면, break 끝
+3. 반복문 안에서, for index in range(len(data_list) - num - 1) n - 1번 반복해야 하므로
+4. 반복문안의 반복문 안에서, if data_list[index] > data_list[index + 1] 이면
+5. data_list[index], data_list[index + 1] = data_list[index + 1], data_list[index]
+6. swap += 1
+7. 반복문 안에서, if swap == 0 이면, break 끝
 
 ```python
 def bubble_sort(data) :
@@ -103,11 +100,10 @@ data_list = random.sample(range(100), 10)
 print(bubble_sort(data_list))  # [8, 24, 39, 40, 63, 68, 69, 77, 86, 91]
 ```
 
-
 <br>
 
 ## 3. 알고리즘 분석
 
-* 반복문이 두 개 O($n^2$)
-* 최악의 경우, $\frac { n * (n - 1)}{ 2 }$
-* 완전 정렬이 되어 있는 상태라면 최선은 O(n)
+- 반복문이 두 개 O($n^2$)
+- 최악의 경우, $\frac { n * (n - 1)}{ 2 }$
+- 완전 정렬이 되어 있는 상태라면 최선은 O(n)

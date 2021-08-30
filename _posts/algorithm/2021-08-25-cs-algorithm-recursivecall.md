@@ -2,51 +2,51 @@
 title: "[Algorithm] 재귀 용법(Recursive Call)"
 excerpt: 알고리즘 재귀 호출
 categories:
-- Algorithm
+  - Algorithm
 tags:
-- - Algorithm
-  - CS
-  - Programming
+  - - Algorithm
+    - CS
+    - Programming
+    - Python
 toc: true
 toc_sticky: true
 popular: true
-date: '2021-08-25T02:30:00'
+date: "2021-08-25T02:30:00"
 last_modified_at: 2021-08-25T02:30:00
 ---
 
 ## 1. 재귀 용법 (recursive call, 재귀 호출)
 
-* 함수 안에서 동일한 함수를 호출하는 형태
-* 여러 알고리즘 작성시 사용
-
+- 함수 안에서 동일한 함수를 호출하는 형태
+- 여러 알고리즘 작성시 사용
 
 ### - 재귀 용법 예제
 
 - 팩토리얼을 구하는 알고리즘을 Recursive Call을 활용해서 알고리즘 작성
 - 간단한 경우부터 생각
-    * 2! = 1 X 2
-    * 3! = 1 X 2 X 3
-    * 4! = 1 X 2 X 3 X 4 = 4 X 3!
+  - 2! = 1 X 2
+  - 3! = 1 X 2 X 3
+  - 4! = 1 X 2 X 3 X 4 = 4 X 3!
 - 규칙 : n! = n X (n - 1)!
-    1. 함수를 만들어 봄
-    2. 함수(n) 은 n > 1 이면 return n X 함수(n - 1)
-    3. 함수(n) 은 n = 1 이면 return n
+  1. 함수를 만들어 봄
+  2. 함수(n) 은 n > 1 이면 return n X 함수(n - 1)
+  3. 함수(n) 은 n = 1 이면 return n
 - 검증 (코드로 검증하지 않고, 직접 간단한 경우부터 대입해서 검증)
-    1. 먼저 2! 부터 
-        - 함수(2) 이면, 2 > 1 이므로 2 X 함수(1)
-        - 함수(1) 은 1 이므로, return 2 X 1 = 2
-    2. 먼저 3! 부터 
-        - 함수(3) 이면, 3 > 1 이므로 3 X 함수(2)
-        - 함수(2) 는 결국 1번에 의해 2! 이므로, return 2 X 1 = 2 
-        - 3 X 함수(2) = 3 X 2 = 3 X 2 X 1 = 6
-    3. 먼저 4! 부터 
-        - 함수(4) 이면, 4 > 1 이므로 4 X 함수(3)
-        - 함수(3) 은 결국 2번에 의해 3 X 2 X 1 = 6 
-        - 4 X 함수(3) = 4 X 6 = 24
+  1. 먼저 2! 부터
+     - 함수(2) 이면, 2 > 1 이므로 2 X 함수(1)
+     - 함수(1) 은 1 이므로, return 2 X 1 = 2
+  2. 먼저 3! 부터
+     - 함수(3) 이면, 3 > 1 이므로 3 X 함수(2)
+     - 함수(2) 는 결국 1번에 의해 2! 이므로, return 2 X 1 = 2
+     - 3 X 함수(2) = 3 X 2 = 3 X 2 X 1 = 6
+  3. 먼저 4! 부터
+     - 함수(4) 이면, 4 > 1 이므로 4 X 함수(3)
+     - 함수(3) 은 결국 2번에 의해 3 X 2 X 1 = 6
+     - 4 X 함수(3) = 4 X 6 = 24
 - 코드 레벨로 적어보기
 
 ```python
-def factorial(num) : 
+def factorial(num) :
     if num > 1 :
         return num * factorial(num - 1)
     else :
@@ -65,11 +65,10 @@ for num in range(10) :
 <br>
 
 - 시간 복잡도와 공간 복잡도
-    * factorial(n) 은 n - 1 번의 factorial() 함수를 호출해서, 곱셈을 함 
-        - n-1번 반복문을 호출한 것과 동일
-        - factorial() 함수를 호출할 때마다, 지역변수 n 이 생성
-    * 시간 복잡도/공간 복잡도는 O(n-1) 이므로 결국, 둘 다 O(n)
-
+  - factorial(n) 은 n - 1 번의 factorial() 함수를 호출해서, 곱셈을 함
+    - n-1번 반복문을 호출한 것과 동일
+    - factorial() 함수를 호출할 때마다, 지역변수 n 이 생성
+  - 시간 복잡도/공간 복잡도는 O(n-1) 이므로 결국, 둘 다 O(n)
 
 <br>
 
@@ -117,16 +116,15 @@ for num in range(10) :
 <br>
 
 - 재귀 호출은 스택의 전형적인 예
-    * 함수는 내부적으로 스택처럼 관리
+  - 함수는 내부적으로 스택처럼 관리
 
 <br>
 
 <img src="https://www.fun-coding.org/00_Images/recursivecall.png" />
 
-* [코드분석]( http://pythontutor.com/live.html#code=%23%20factorial%20%ED%95%A8%EC%88%98%20%EC%95%88%EC%97%90%EC%84%9C%20factorial%20%ED%95%A8%EC%88%98%EB%A5%BC%20%ED%98%B8%EC%B6%9C%0Adef%20factorial%28num%29%3A%0A%20%20%20%20if%20num%20%3E%201%3A%0A%20%20%20%20%20%20%20%20return%20num%20*%20factorial%28num%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20num%0A%0Afactorial%285%29&cumulative=false&curInstr=22&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false){:target="_blank"}
+- [코드분석](http://pythontutor.com/live.html#code=%23%20factorial%20%ED%95%A8%EC%88%98%20%EC%95%88%EC%97%90%EC%84%9C%20factorial%20%ED%95%A8%EC%88%98%EB%A5%BC%20%ED%98%B8%EC%B6%9C%0Adef%20factorial%28num%29%3A%0A%20%20%20%20if%20num%20%3E%201%3A%0A%20%20%20%20%20%20%20%20return%20num%20*%20factorial%28num%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20num%0A%0Afactorial%285%29&cumulative=false&curInstr=22&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false){:target="\_blank"}
 
 > 참고: 파이썬에서 재귀 함수는 깊이가(한번에 호출되는) 1000회 이하
-
 
 <br>
 
@@ -238,23 +236,24 @@ palindrome('love')  # False
 <br>
 
 프로그래밍 연습<br>
+
 1. 정수 n에 대해<br>
 2. n이 홀수이면 3 X n + 1 을 하고,<br>
 3. n이 짝수이면 n 을 2로 나눔<br>
 4. 이렇게 계속 진행해서 n 이 결국 1이 될 때까지 2와 3의 과정을 반복<br>
-<br>
-예를 들어 n에 3을 넣으면,  
-<pre>
-3
-10
-5
-16
-8
-4
-2
-1
-</pre>
-이 됨
+   <br>
+   예를 들어 n에 3을 넣으면,
+   <pre>
+   3
+   10
+   5
+   16
+   8
+   4
+   2
+   1
+   </pre>
+   이 됨
 
 이렇게 정수 n을 입력받아, 위 알고리즘에 의해 1이 되는 과정을 모두 출력하는 함수를 작성
 
@@ -284,6 +283,7 @@ func(3)  # 3
 <br>
 
 프로그래밍 연습<br>
+
 <pre>
 문제: 정수 4를 1, 2, 3의 조합으로 나타내는 방법은 다음과 같이 총 7가지가 있음
 1+1+1+1
@@ -294,7 +294,7 @@ func(3)  # 3
 1+3
 3+1
 정수 n이 입력으로 주어졌을 때, n을 1, 2, 3의 합으로 나타낼 수 있는 방법의 수를 구하시오
-</pre>    
+</pre>
 
 힌트: 정수 n을 만들 수 있는 경우의 수를 리턴하는 함수를 f(n) 이라고 하면,<br>
 f(n)은 f(n-1) + f(n-2) + f(n-3) 과 동일하다는 패턴 찾기<br>

@@ -1,0 +1,1555 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Algorithm] 퀵 정렬(Quick Sort) | LWW’s Tech Blog</title>
+<meta name="description" content="알고리즘 퀵 정렬">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[Algorithm] 퀵 정렬(Quick Sort)">
+<meta property="og:url" content="https://leewonwoo1.github.io/algorithm/cs-algorithm-quicksort/">
+
+
+  <meta property="og:description" content="알고리즘 퀵 정렬">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-27T05:20:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-27T14:20:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/algorithm/cs-algorithm-quicksort/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#algorithm" itemprop="item"><span itemprop="name">Algorithm</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Algorithm] 퀵 정렬(Quick Sort)</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">104</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/vue" class="">Vue (2)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/react" class="">React (7)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bootstrap" class="">Bootstrap (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bundler" class="">Bundler (6)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>          
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">Algorithm (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Algorithm] 퀵 정렬(Quick Sort)">
+    <meta itemprop="description" content="알고리즘 퀵 정렬">
+    <meta itemprop="datePublished" content="2021-08-27T05:20:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-27T14:20:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/algorithm/cs-algorithm-quicksort/" class="u-url" itemprop="url">[Algorithm] 퀵 정렬(Quick Sort)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-퀵-정렬quick-sort">1. 퀵 정렬(Quick Sort)</a><ul><li><a href="#--어떻게-코드로-만들까">- 어떻게 코드로 만들까?</a></li></ul></li><li><a href="#2-알고리즘-구현">2. 알고리즘 구현</a></li><li><a href="#3-알고리즘-분석">3. 알고리즘 분석</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-퀵-정렬quick-sort">1. 퀵 정렬(Quick Sort)</h2>
+
+<ul>
+  <li>정렬 알고리즘의 꽃</li>
+  <li>기준점(pivot)을 정해서, pivot보다 작은 데이터는 왼쪽, 큰 데이터는 오른쪽으로 모으는 함수를 작성</li>
+  <li>각 왼쪽, 오른쪽은 재귀용법을 사용해서 다시 동일 함수를 호출하여 위 작업을 반복</li>
+  <li>함수는 왼쪽 + pivot + 오른쪽을 리턴</li>
+</ul>
+
+<h3 id="--어떻게-코드로-만들까">- 어떻게 코드로 만들까?</h3>
+
+<p>프로그래밍 연습<br />
+다음 리스트를 리스트 슬라이싱을 이용해서 세 개로 짤라서 각 리스트 변수에 넣고 출력해보기<br /></p>
+
+<pre>
+data_list = [1, 2, 3, 4, 5]
+출력:
+print (data1)
+print (data2)
+print (data3)
+[1, 2]
+3
+[4, 5]
+</pre>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">data3</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>  <span class="c1"># [1, 2]
+</span><span class="k">print</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>  <span class="c1"># 3
+</span><span class="k">print</span><span class="p">(</span><span class="n">data3</span><span class="p">)</span>  <span class="c1"># [4, 5]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<p>프로그래밍 연습<br />
+다음 리스트를 맨 앞에 데이터를 기준으로 작은 데이터는 left 변수에, 그렇지 않은 데이터는 right 변수에 넣기<br /></p>
+
+<pre>
+data_list = [4, 1, 2, 5, 7]
+</pre>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">))</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">pivot</span> <span class="o">&gt;</span> <span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">left</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">right</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>  <span class="c1"># [1, 2]
+</span><span class="k">print</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span>  <span class="c1"># 4
+</span><span class="k">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>  <span class="c1"># [5, 7]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<p>프로그래밍 연습<br />
+data_list 가 임의 길이일 때 리스트를 맨 앞에 데이터를 기준으로 작은 데이터는 left 변수에, 그렇지 않은 데이터는 right 변수에 넣기<br /></p>
+
+<pre>
+import random 
+data_list = random.sample(range(100), 10)
+
+left = list()
+right = list()
+pivot = data_list[0]
+
+for index in range(1, -----------------):
+    if data_list[index] &lt; pivot:
+        left.append(data_list[index])
+    else:
+        right.append(data_list[index])
+</pre>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">data_list</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">))</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">pivot</span> <span class="o">&gt;</span> <span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">left</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">right</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        
+<span class="k">print</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>  <span class="c1"># [2, 21]
+</span><span class="k">print</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span>  <span class="c1"># 22
+</span><span class="k">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>  <span class="c1"># [31, 24, 55, 40, 26, 97, 78]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="2-알고리즘-구현">2. 알고리즘 구현</h2>
+
+<ul>
+  <li>quicksort 함수 만들기
+    <ul>
+      <li>만약 리스트 갯수가 한개이면 해당 리스트 리턴</li>
+      <li>그렇지 않으면, 리스트 맨 앞의 데이터를 pivot으로 놓기</li>
+      <li>left, right 리스트 변수를 만들고,</li>
+      <li>맨 앞의 데이터를 뺀 나머지 데이터를 pivot과 비교
+        <ul>
+          <li>pivot보다 작으면 left.append(해당 데이터)</li>
+          <li>pivot보다 크면 right.append(해당 데이터)</li>
+        </ul>
+      </li>
+      <li>return quicksort(left) + pivot + quicksort(right) 로 재귀 호출</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>리스트로 만들어서 리턴 : return quick_sort(left) + [pivot] + quick_sort(right)</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">qsort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">pivot</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">:</span>
+            <span class="n">left</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">right</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">qsort</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">qsort</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+
+
+<span class="c1"># 테스트
+</span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">data_list</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">qsort</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>  <span class="c1"># [8, 15, 34, 38, 39, 42, 69, 70, 77, 82]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<p>프로그래밍 연습<br />
+위 퀵정렬 코드를 파이썬 list comprehension을 사용해서 더 깔끔하게 작성해보기<br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">qsort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">pivot</span> <span class="o">&gt;</span> <span class="n">item</span><span class="p">]</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">pivot</span> <span class="o">&lt;=</span> <span class="n">item</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">qsort</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">qsort</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+
+
+<span class="c1"># 테스트
+</span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">data_list</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">qsort</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>  <span class="c1"># [6, 53, 57, 61, 65, 81, 90, 92, 93, 94]
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="3-알고리즘-분석">3. 알고리즘 분석</h2>
+
+<ul>
+  <li>병합정렬과 유사, 시간복잡도는 O(nlogn)</li>
+  <li>단, 최악의 경우
+    <ul>
+      <li>맨 처음 pivot이 가장 크거나, 가장 작으면</li>
+      <li>모든 데이터를 비교하는 상황이 나옴</li>
+      <li>O($n^2$)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="https://www.fun-coding.org/00_Images/quicksortworks.jpg" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">Algorithm</a><span class="sep">, </span>
+    
+      <a href="/tags/#cs" class="page__taxonomy-item p-category" rel="tag">CS</a><span class="sep">, </span>
+    
+      <a href="/tags/#programming" class="page__taxonomy-item p-category" rel="tag">Programming</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#algorithm" class="page__taxonomy-item p-category" rel="tag">Algorithm</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-27">August 27, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BAlgorithm%5D+%ED%80%B5+%EC%A0%95%EB%A0%AC%28Quick+Sort%29%20https%3A%2F%2Fleewonwoo1.github.io%2Falgorithm%2Fcs-algorithm-quicksort%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Falgorithm%2Fcs-algorithm-quicksort%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Falgorithm%2Fcs-algorithm-quicksort%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="/algorithm/cs-algorithm-dpdc/" class="pagination_prev_next--pager"><span class="prev_next">이전 글 &nbsp</span>[Algorithm] 동적 계획법(DP), 분할 정복(DC)</a>
+  
+  
+  <a href="#" class="pagination_prev_next--pager disabled">가장 최근 글입니다</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-router/" rel="permalink">[React] Router
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">React Router
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-createreactproject/" rel="permalink">[React] Create React Project
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Create React App, ESLint, Prettier, husky, lint-staged, debugging
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-lifecycle/" rel="permalink">[React] Component Lifecycle
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">React Component Lifecycle
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-eventhandling/" rel="permalink">[React] Event Handling
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.29
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">React Event Handling
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/algorithm/cs-algorithm-quicksort/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/algorithm/cs-algorithm-quicksort"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1732 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[React] 개요, 라이브러리 | LWW’s Tech Blog</title>
+<meta name="description" content="React 개요, 라이브러리">
+
+
+  <meta name="author" content="LWW">
+  
+  <meta property="article:author" content="LWW">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="LWW's Tech Blog">
+<meta property="og:title" content="[React] 개요, 라이브러리">
+<meta property="og:url" content="https://leewonwoo1.github.io/react/frontend-react-start/">
+
+
+  <meta property="og:description" content="React 개요, 라이브러리">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-29T00:30:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-08-29T09:30:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://leewonwoo1.github.io/react/frontend-react-start/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "LWW",
+      "url": "https://leewonwoo1.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="LWW's Tech Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+  <!-- start custom head snippets -->
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap&subset=korean"
+  rel="stylesheet">
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- end custom head snippets -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #4b4f52;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #5e6265;
+      border-radius: 16px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd24c;
+    }
+
+    ::-webkit-scrollbar-button:start:decrement,
+    ::-webkit-scrollbar-button:end:increment {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body
+  class="layout--single">
+  <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+  <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+  
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          LWW's Tech Blog
+          <span class="site-subtitle">꾸준히 기록하는 블로그</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Year</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+  <div class="initial-content">
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#react" itemprop="item"><span itemprop="name">React</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[React] 개요, 라이브러리</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+<div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://leewonwoo1.github.io/">
+        <img src="/assets/images/profile/bear.jpg" alt="LWW" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://leewonwoo1.github.io/" itemprop="url">LWW</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>CS / FrontEnd / Programming / DataScience</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://LeeWonWoo1.github.io" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:plmplmdnjsdn@naver.com" rel="me" class="u-email">
+            <meta itemprop="email" content="plmplmdnjsdn@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+
+  
+  
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">104</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+
+      <!--Frontend-->  
+        <span class="nav__sub-title">Frontend</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/html" class="">HTML (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/css" class="">CSS (5)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/scss" class="">SCSS (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/javascript" class="">Javascript (22)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/typescript" class="">Typescript (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/vue" class="">Vue (2)</a></li>
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/react" class="">React (7)</a></li>
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bootstrap" class="">Bootstrap (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/bundler" class="">Bundler (6)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>          
+
+      <!--Programming-->  
+        <span class="nav__sub-title">Programming</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      
+      <!--CS-->  
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/ds" class="">Data Structure (8)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/algorithm" class="">Algorithm (7)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+      <!--ETC-->  
+        <span class="nav__sub-title">ETC</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/git" class="">Git & Github (4)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>        
+            <ul>
+                
+                    
+                        <li><a href="/categories/blog" class="">Blog (3)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jckp" class="">정보처리기사 필기 (21)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/jcks" class="">정보처리기사 실기 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>            
+      </li>
+  </ul>
+</nav>
+  
+
+</div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[React] 개요, 라이브러리">
+    <meta itemprop="description" content="React 개요, 라이브러리">
+    <meta itemprop="datePublished" content="2021-08-29T00:30:00+09:00">
+    <meta itemprop="dateModified" content="2021-08-29T09:30:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://leewonwoo1.github.io/react/frontend-react-start/" class="u-url" itemprop="url">[React] 개요, 라이브러리
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-react-keyword">1. React Keyword</a><ul><li><a href="#--react-vs-angular-vs-vue">- React vs Angular vs Vue</a></li><li><a href="#--component">- Component</a></li><li><a href="#--virtual-dom">- Virtual DOM</a></li><li><a href="#--jsx">- JSX</a></li><li><a href="#--client-side-rendering--server-side-rendering">- Client Side Rendering &amp; Server Side Rendering</a><ul><li><a href="#1-csr">@1. CSR</a></li><li><a href="#2-ssr">@2. SSR</a></li></ul></li></ul></li><li><a href="#2-library">2. Library</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-react-keyword">1. React Keyword</h2>
+
+<h3 id="--react-vs-angular-vs-vue">- React vs Angular vs Vue</h3>
+
+<ul>
+  <li>React
+    <ul>
+      <li>JavaScript library for building user interfaces</li>
+      <li>User Interface를 표현하고, 동작하는 것에 초점</li>
+      <li>View를 다루는 Library</li>
+      <li>오직 랜더링과 업데이트에만 관여되는 라이브러리
+        <ul>
+          <li>HTTP Client나 Style에 대한 기능들이 포함되지 않음</li>
+        </ul>
+      </li>
+      <li>Library 지향</li>
+    </ul>
+  </li>
+  <li>Angular
+    <ul>
+      <li>어떤 플랫폼에서도 하나의 코드 베이스로 결과물을 낼 수 있음</li>
+      <li>Full Development Story</li>
+      <li>전반적인 모든 기능 제공(클라이언트, 인증 등)</li>
+      <li>Full Framework 지향</li>
+    </ul>
+  </li>
+  <li>Vue.js
+    <ul>
+      <li>Progressive JavaScript Framework</li>
+      <li>React처럼 View를 다루는 Library로 쓸 수 있음</li>
+      <li>Angular처럼 여러가지 생태계를 끌어와서 전반적인 기능 제공할 수 있음</li>
+      <li>Library처럼도, Framework처럼도 쓸 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="--component">- Component</h3>
+
+<ul>
+  <li>컴포넌트 기반의 개발
+    <ul>
+      <li>독립적인 코드 블럭(HTML, CSS, JavaScript)</li>
+      <li>작업의 단위</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- HTML Element --&gt;</span>
+
+<span class="c">&lt;!-- 이미 정의되어 있는 Element --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"이미지 주소"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"클래스"</span><span class="nt">&gt;</span>버튼<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- 내가 만든 Component --&gt;</span>
+
+<span class="c">&lt;!-- HTML, CSS, JavaScript를 합쳐서 내가 만든 일종의 태그 --&gt;</span>
+<span class="nt">&lt;사용자지정이름</span> <span class="na">name=</span><span class="s">"LWW"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;사용자지정이름</span> <span class="na">prop=</span><span class="s">{false}</span><span class="nt">&gt;</span>내용<span class="nt">&lt;/사용자지정이름&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="--virtual-dom">- Virtual DOM</h3>
+
+<ul>
+  <li>
+    <p><strong>DOM을 직접 다루지 않음</strong></p>
+  </li>
+  <li>DOM을 직접 제어하는 경우
+    <ul>
+      <li>바뀐 부분만 정확히 바꿔야 함</li>
+    </ul>
+  </li>
+  <li>DOM을 직접 제어하지 않는 경우
+    <ul>
+      <li>가상의 DOM Tree를 사용해서 이전 상태와 이후 상태를 비교하여, 바뀐 부분을 찾아내서 자동으로 바꿈</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="--jsx">- JSX</h3>
+
+<ul>
+  <li>치환되는 템플릿이 아니라 순수한 JS로 transpile되는 문법(Babel, TypeScript)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="--client-side-rendering--server-side-rendering">- Client Side Rendering &amp; Server Side Rendering</h3>
+
+<ol>
+  <li>특정 웹 서비스에 접속하면 HTML이 다운로드</li>
+  <li>HTML이 화면에 보이면서 HTML 내부의 DOM요소가 보이거나, 스타일이 적용됨</li>
+</ol>
+
+<blockquote>
+  <p>이때 React는 JavaScript로 이루어진 하나의 커다란 웹 어플리케이션<br />
+이 웹 어플리케이션은 JS가 전체 다운로드 되어야 실행 가능</p>
+</blockquote>
+
+<h4 id="1-csr">@1. CSR</h4>
+
+<ol>
+  <li>HTML 다운로드 시 빈 껍데기의 HTML이 내려옴</li>
+  <li>HTML 안에 있는 JS 파일을 다시 요청</li>
+  <li>JS 파일 안에는 React 웹 어플리케이션 전체가 들어있음</li>
+  <li>JS 앱을 다시 다운로드 받음</li>
+  <li>다운로드 받은 후에 스크립트가 브라우저에서 로드, 실행됨</li>
+  <li>이렇게 실행되면 이제서야 React 웹 어플리케이션이 실행됨</li>
+  <li>React가 실행되면, React Component들이 화면에 그려짐</li>
+  <li>이때 화면이 보이고, 유저가 인터렉션이 가능함</li>
+</ol>
+
+<blockquote>
+  <p>JS가 전부 다운로드 되어 React 애플리케이션이 정상 실행되기 전까지 화면이 보이지 않음<br />
+JS가 전부 다운로드 되어 React 애플리케이션이 정상 실행된 후, 화면이 보이면서 유저가 인터렉션 가능<br />
+SSR을 활용하지 않는다면 React는 기본적으로 CSR로 동작</p>
+</blockquote>
+
+<h4 id="2-ssr">@2. SSR</h4>
+
+<ol>
+  <li>최초에 이미 HTML로 표현되어 있는 HTML을 다운</li>
+  <li>HTML 안의 JS를 다시 요청하는 과정에서는 HTML의 구성요소가 Render되고 있기 때문에 화면이 보임</li>
+  <li>대신 화면 안의 동작들은 JS가 실행되지 않았기 때문에 동작하지 않음</li>
+  <li>유저는 찰나의 순간에 동작하지 않는 Render된 결과물을 볼 수 있음</li>
+  <li>이 결과물을 보는 중간에 JS가 다운로드 됨</li>
+  <li>JS에 React 앱이 다운로드 되고, 소스코드를 실행하면 React가 실행됨</li>
+  <li>React 앱이 실행되면 실제로 JS를 통해 Component가 HTML 상에 다시 동작하는 순간부터 유저가 동작할 수 있음</li>
+</ol>
+
+<blockquote>
+  <p>JS가 전부 다운로드 되지 않아도, 일단 화면은 보이지만 유저가 사용할 수 없음<br />
+JS가 전부 다운로드 되어 React 어플리케이션이 정상 실행된 후, 유저가 사용 가능<br />
+유저가 찰나의 화면을 먼저 보는 것이 의미 있다면 SSR 기능 활용</p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="2-library">2. Library</h2>
+
+<ul>
+  <li>React 핵심 모듈로 React가 하는 일 알아보기</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. React Component -&gt; HTMLElement 연결</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-dom</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// 2. React Component 만들기</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>{ React Component } - JS, JSX ==&gt; &#60; HTMLElement &#62;
+    <ul>
+      <li>ReactDOM 라이브러리 이용</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">HelloMessage</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">LWW</span><span class="dl">"</span> <span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello-example</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="kd">class</span> <span class="nx">HelloMessage</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="nx">Hello</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>{ React Component } 만들 때 사용하는 API
+    <ul>
+      <li><a href="https://ko.reactjs.org/docs/react-api.html" target="_blank">https://ko.reactjs.org/docs/react-api.html</a></li>
+    </ul>
+  </li>
+  <li>React, ReactDOM Library를 CDN을 통해 사용해보기
+    <ul>
+      <li><a href="https://ko.reactjs.org/docs/cdn-links.html" target="_blank">https://ko.reactjs.org/docs/cdn-links.html</a></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># terminal</span>
+
+<span class="nv">$ </span><span class="nb">mkdir </span>what-is-react
+<span class="nv">$ </span><span class="nb">cd </span>what-is-react
+<span class="nv">$ </span>npm init <span class="nt">-y</span>
+<span class="nv">$ </span>code <span class="nb">.</span>
+<span class="nv">$ </span>npx serve
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/131225496-d0ae1cc3-4061-464b-906d-a97a94bd580a.PNG" alt="react-cdn1" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">crossorigin</span> <span class="na">src=</span><span class="s">"https://unpkg.com/react@17/umd/react.development.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">crossorigin</span> <span class="na">src=</span><span class="s">"https://unpkg.com/react-dom@17/umd/react-dom.development.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">React</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ReactDOM</span><span class="p">);</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/131225506-f15f6d6e-f542-43ab-a07e-3d03111115be.PNG" alt="react-cdn2" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Component를 활용한 프론트엔드
+    <ul>
+      <li>Component를 정의하고, 실제 DOM에 Component를 그려줌</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Example<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="o">*</span> <span class="p">{</span>
+      <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+      <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+      <span class="nl">border</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nf">#root</span> <span class="nt">p</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+      <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+      <span class="nl">background-color</span><span class="p">:</span> <span class="no">royalblue</span><span class="p">;</span>
+      <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+      <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nf">#btn_plus</span> <span class="p">{</span>
+      <span class="nl">background-color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+      <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="m">#000</span><span class="p">;</span>
+      <span class="nl">font-size</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+      <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"root"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"btn_plus"</span><span class="nt">&gt;</span>+<span class="nt">&lt;/button&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">crossorigin</span> <span class="na">src=</span><span class="s">"https://unpkg.com/react@17/umd/react.development.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">crossorigin</span> <span class="na">src=</span><span class="s">"https://unpkg.com/react-dom@17/umd/react-dom.development.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="kd">const</span> <span class="nx">component</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">init</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">count</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">`&lt;p&gt;</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="s2"> : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="s2">&lt;/p&gt;`</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="kd">function</span> <span class="nx">render</span><span class="p">(</span><span class="nx">rootElement</span><span class="p">,</span> <span class="nx">component</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">rootElement</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">component</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 초기화 </span>
+    <span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">),</span> <span class="nx">component</span><span class="p">);</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#btn_plus</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">component</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">update</span><span class="dl">'</span><span class="p">;</span>
+      <span class="nx">component</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">component</span><span class="p">.</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">),</span> <span class="nx">component</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/131225967-a6abd834-55b6-4a2a-8df8-15536b9ca893.PNG" alt="react-cdn3" class="align-center open-new" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>React를 활용한 프론트엔드</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"root"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"btn_plus"</span><span class="nt">&gt;</span>+<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">crossorigin</span> <span class="na">src=</span><span class="s">"https://unpkg.com/react@17/umd/react.development.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">crossorigin</span> <span class="na">src=</span><span class="s">"https://unpkg.com/react-dom@17/umd/react-dom.development.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">React</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ReactDOM</span><span class="p">);</span>
+
+    <span class="kd">const</span> <span class="nx">Component</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">`</span><span class="p">${</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="s2"> : </span><span class="p">${</span><span class="nx">props</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">Component</span><span class="p">,</span> <span class="p">{</span><span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">init</span><span class="dl">'</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="kc">null</span><span class="p">),</span> 
+      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">));</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#btn_plus</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+        <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+          <span class="nx">Component</span><span class="p">,</span> 
+          <span class="p">{</span><span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">update</span><span class="dl">'</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="mi">77</span><span class="p">},</span> 
+          <span class="kc">null</span>
+        <span class="p">),</span> 
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">)</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/62803763/131226266-9463daaf-832a-4b3d-9f45-a50914360def.PNG" alt="react-cdn4" class="align-center open-new" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#node-js" class="page__taxonomy-item p-category" rel="tag">Node.js</a><span class="sep">, </span>
+    
+      <a href="/tags/#react" class="page__taxonomy-item p-category" rel="tag">React</a><span class="sep">, </span>
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#react" class="page__taxonomy-item p-category" rel="tag">React</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-08-29">August 29, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BReact%5D+%EA%B0%9C%EC%9A%94%2C+%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%20https%3A%2F%2Fleewonwoo1.github.io%2Freact%2Ffrontend-react-start%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleewonwoo1.github.io%2Freact%2Ffrontend-react-start%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fleewonwoo1.github.io%2Freact%2Ffrontend-react-start%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination_prev_next">
+  
+  <a href="#" class="pagination_prev_next--pager disabled">첫 번째 글입니다</a>
+  
+  
+  <a href="/react/frontend-react-component/" class="pagination_prev_next--pager"><span class="prev_next">다음 글 &nbsp </span>[React] Component를 만드는 법</a>
+  
+</nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-router/" rel="permalink">[React] Router
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">React Router
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-createreactproject/" rel="permalink">[React] Create React Project
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">Create React App, ESLint, Prettier, husky, lint-staged, debugging
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-lifecycle/" rel="permalink">[React] Component Lifecycle
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.30
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">React Component Lifecycle
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/react/frontend-react-eventhandling/" rel="permalink">[React] Event Handling
+</a>
+      
+    </h2>
+    <small>
+      <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2021.08.29
+      <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+
+<span class="page__taxonomy">
+  <span itemprop="keywords"><a href="/categories/#react"
+      class="page__taxonomy-item-category" rel="tag">React</a>
+    
+    
+    <a href="/tags/#node-js"
+      class="page__taxonomy-item-tag" rel="tag">Node.js</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#react"
+      class="page__taxonomy-item-tag" rel="tag">React</a><span class="sep"> </span>
+    
+    
+    
+    <a href="/tags/#web"
+      class="page__taxonomy-item-tag" rel="tag">Web</a>
+    
+  </span>
+</span>
+    </small>
+    <p class="archive__item-excerpt" itemprop="description">React Event Handling
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+  </div>
+
+  
+  <div class="search-content">
+    <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="검색어를 입력하세요..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+  </div>
+  
+
+  <aside class="sidebar__top">
+    <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+  </aside>
+
+  <div id="footer" class="page__footer">
+    <footer>
+      <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+      <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:plmplmdnjsdn@naver.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/LeeWonWoo1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 LWW. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+    </footer>
+  </div>
+
+  
+<script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://leewonwoo1.github.io/react/frontend-react-start/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/react/frontend-react-start"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://LWW.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+</body>
+
+</html>

@@ -14,7 +14,7 @@ date: "2021-09-01T23:30:00"
 last_modified_at: 2021-09-01T23:30:00
 ---
 
-## 1. Controlled, Uncontrolled Component
+## Controlled, Uncontrolled Component
 
 - 상태를 가지고 있는 엘리먼트
   - input

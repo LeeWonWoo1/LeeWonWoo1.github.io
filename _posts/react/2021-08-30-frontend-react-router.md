@@ -457,7 +457,7 @@ export default function Login() {
 <br>
 
 ```jsx
-// src/components/LoginButtons.jsx
+// src/components/LoginButton.jsx
 
 import { withRouter } from "react-router-dom";
 

@@ -1,6 +1,6 @@
 ---
 title: "[Algorithm] 탐욕 알고리즘(Greedy)"
-excerpt: 알고리즘 탐욕 알고리즘
+excerpt: 탐욕 알고리즘
 categories:
   - Algorithm
 tags:

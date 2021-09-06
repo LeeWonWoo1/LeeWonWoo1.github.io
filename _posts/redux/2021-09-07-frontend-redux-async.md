@@ -233,7 +233,7 @@ export default function UserListContainer() {
 
   const getUsers = useCallback(async () => {
     try {
-      dispatch(getUsersStart);
+      dispatch(getUsersStart());
       const res = await axios.get("https://api.github.com/users");
       dispatch(getUsersSuccess(res.data));
     } catch (error) {
@@ -244,3 +244,7 @@ export default function UserListContainer() {
   return <UserList users={users} getUsers={getUsers} />;
 }
 ```
+
+<br>
+
+![redux-async](https://user-images.githubusercontent.com/62803763/132249142-b20f60ad-21db-4f2b-b295-1c04048cce32.PNG){: .align-center .open-new}

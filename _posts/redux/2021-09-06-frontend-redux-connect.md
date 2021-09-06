@@ -187,5 +187,139 @@ export default function TodoForm() {
 ```bash
 # terminal
 
-npm i react-redux
+$ npm i react-redux
 ```
+
+<br>
+
+```js
+// src/App.js
+
+import logo from "./logo.svg";
+import "./App.css";
+import TodoListContainer from "./containers/TodoListContainer";
+import TodoFormContainer from "./containers/TodoFormContainer";
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <TodoListContainer />
+        <TodoFormContainer />
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+```js
+// src/index.js
+
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import store from "./redux/store";
+import { Provider } from "react-redux";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+reportWebVitals();
+```
+
+<br>
+
+```jsx
+// src/components/TodoList.jsx
+
+export default function TodoList({ todos }) {
+  return (
+    <ul>
+      {todos.map((todo) => {
+        return <li>{todo.text}</li>;
+      })}
+    </ul>
+  );
+}
+```
+
+<br>
+
+```jsx
+// src/components/TodoForm.jsx
+
+import { useRef } from "react";
+
+export default function TodoForm({ add }) {
+  const inputRef = useRef();
+
+  return (
+    <div>
+      <input ref={inputRef} />
+      <button onClick={click}>추가</button>
+    </div>
+  );
+
+  function click() {
+    add(inputRef.current.value);
+  }
+}
+```
+
+<br>
+
+```jsx
+// src/containers/TodoListContainer.jsx
+
+import { useSelector } from "react-redux";
+import TodoList from "../components/TodoList";
+
+function TodoListContainer() {
+  const todos = useSelector((state) => state.todos);
+
+  return <TodoList todos={todos} />;
+}
+
+export default TodoListContainer;
+```
+
+<br>
+
+```jsx
+// src/containers/TodoFormContainer.jsx
+
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import TodoForm from "../components/TodoForm";
+import { addTodo } from "../redux/actions";
+
+export default function TodoFormContainer() {
+  const dispatch = useDispatch();
+
+  const add = useCallback(
+    (text) => {
+      dispatch(addTodo(text));
+    },
+    [dispatch]
+  );
+
+  return <TodoForm add={add} />;
+}
+```
+
+<br>
+
+![redux-connect2](https://user-images.githubusercontent.com/62803763/132241919-d0b20659-ebb1-4882-b125-1b93a906c8af.PNG){: .align-center .open-new}

@@ -25,7 +25,7 @@ last_modified_at: 2021-09-07T03:00:00
   - ...
   - reducer.js (or index.js)
 
-```js:filter.js
+```js
 // src/redux/modules/filter.js
 
 // 액션 타입 정의
@@ -60,7 +60,7 @@ export default function reducer(previousState = initialState, action) {
 
 <br>
 
-```js:todos.js
+```js
 // src/redux/modules/todos.js
 
 // 액션 타입 정의
@@ -108,7 +108,7 @@ export default function reducer(previousState = initialState, action) {
 
 <br>
 
-```js:todos.js
+```js
 // src/redux/modules/todos.js
 
 import axios from "axios";
@@ -230,7 +230,7 @@ export function getUsersPromise() {
 
 <br>
 
-```js:reducers.js
+```js
 // src/redux/modules/reducers.js
 
 import { combineReducers } from "redux";
@@ -249,7 +249,7 @@ export default reducer;
 
 <br>
 
-```jsx:UserListContainer.jsx
+```jsx
 // src/containers/UserListContainer.jsx
 
 import { useCallback } from "react";
@@ -270,7 +270,7 @@ export default function UserListContainer() {
 
 <br>
 
-```jsx:TodoFormContainer.jsx
+```jsx
 // src/containers/TodoFormContainer.jsx
 
 import { useCallback } from "react";

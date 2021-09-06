@@ -25,7 +25,7 @@ last_modified_at: 2021-09-07T02:00:00
   - 디스패치가 호출될 때 실제로 미들웨어를 통과하는 부분
 - dispatch 메소드를 통해 store로 가고 있는 액션을 가로채는 코드
 
-```js:store.js
+```js
 // src/redux/store.js
 
 import { applyMiddleware, createStore } from "redux";
@@ -76,7 +76,7 @@ $ npm i redux-devtools-extension -D
 
 <br>
 
-```js:store.js
+```js
 // src/redux/store.js
 
 import { applyMiddleware, createStore } from "redux";
@@ -116,7 +116,7 @@ $ npm i redux-thunk
 
 <br>
 
-```js:store.js
+```js
 // src/redux/store.js
 
 import { applyMiddleware, createStore } from "redux";
@@ -131,7 +131,7 @@ export default store;
 
 <br>
 
-```js:actions.js
+```js
 // src/redux/actions.js
 
 import axios from "axios";
@@ -205,7 +205,7 @@ export function getUsersThunk() {
 
 <br>
 
-```jsx:UserListContainer.jsx
+```jsx
 // src/containers/UserListContainer.jsx
 
 import { useCallback } from "react";
@@ -239,7 +239,7 @@ $ npm i redux-promise-middleware
 
 <br>
 
-```js:store.js
+```js
 // src/redux/store.js
 
 import { applyMiddleware, createStore } from "redux";
@@ -258,7 +258,7 @@ export default store;
 
 <br>
 
-```js:actions.js
+```js
 // src/redux/actions.js
 
 import axios from "axios";
@@ -349,7 +349,7 @@ export function getUsersPromise() {
 
 <br>
 
-```jsx:UserListContainer.jsx
+```jsx
 // src/containers/UserListContainer.jsx
 
 import { useCallback } from "react";
@@ -371,7 +371,7 @@ export default function UserListContainer() {
 
 <br>
 
-```js:users.js
+```js
 // src/redux/reducers/users.js
 
 import {

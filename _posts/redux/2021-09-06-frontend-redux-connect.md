@@ -172,3 +172,20 @@ export default function TodoForm() {
 <br>
 
 ## 2. react-redux 쓰고 연결하기
+
+**react-redux**
+<br>
+
+- Provider Component를 제공
+- connect 함수를 통해 컨테이너를 만들어 줌
+  - 컨테이너는 스토어의 state와 dispatch(액션)을 연결한 component에 props로 넣어주는 역할
+  - 필요한 것은
+    - 어떤 state를 어떤 props에 연결할 것인지에 대한 정의
+    - 어떤 dispatch(액션)을 어떤 props에 연결할 것인지에 대한 정의
+    - 그 props를 보낼 component를 정의
+
+```bash
+# terminal
+
+npm i react-redux
+```

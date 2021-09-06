@@ -99,11 +99,16 @@ function 액션생성자(...args) {
 
 ```js
 // src/redux/actions.js
-// 액션의 타입을 정의하고 액션 생성자 하나 만들기
 
+// 액션의 준비 코드
+// 액션의 타입 -> 액션 생성자 이름
+// ADD_TODO -> addTodo
 export const ADD_TODO = "ADD_TODO";
 
-function addTodo(todo) {
+// 액션 생산자
+// 액션의 타입은 미리 정의한 타입으로부터 가져와서 사용
+// 사용자가 인자로 주지 않음
+export function addTodo(todo) {
   return {
     type: ADD_TODO,
     todo,
@@ -138,7 +143,7 @@ import { ADD_TODO } from "./actions";
 
 const initialState = [];
 
-function todoApp(previousState = initialState, action) {
+export function todoApp(previousState = initialState, action) {
   // 초기값을 설정해주는 부분
   // if (previousState === undefined) {
   //   return [];

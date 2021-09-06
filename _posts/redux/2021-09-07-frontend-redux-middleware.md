@@ -25,9 +25,7 @@ last_modified_at: 2021-09-07T02:00:00
   - 디스패치가 호출될 때 실제로 미들웨어를 통과하는 부분
 - dispatch 메소드를 통해 store로 가고 있는 액션을 가로채는 코드
 
-```js
-// src/redux/store.js
-
+```js:src/redux/store.js
 import { applyMiddleware, createStore } from "redux";
 import todoApp from "./reducers/reducer";
 
@@ -68,17 +66,13 @@ export default store;
 
 ### - Redux-devtools
 
-```bash
-# terminal
-
+```bash:terminal
 $ npm i redux-devtools-extension -D
 ```
 
 <br>
 
-```js
-// src/redux/store.js
-
+```js:src/redux/store.js
 import { applyMiddleware, createStore } from "redux";
 import todoApp from "./reducers/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -108,17 +102,13 @@ export default store;
 - 액션 생성자를 활용하여 비동기 처리
 - 액션 생성자가 액션을 리턴하지 않고, 함수를 리턴
 
-```bash
-# terminal
-
+```bash:terminal
 $ npm i redux-thunk
 ```
 
 <br>
 
-```js
-// src/redux/store.js
-
+```js:src/redux/store.js
 import { applyMiddleware, createStore } from "redux";
 import todoApp from "./reducers/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -131,9 +121,7 @@ export default store;
 
 <br>
 
-```js
-// src/redux/actions.js
-
+```js:src/redux/actions.js
 import axios from "axios";
 
 export const ADD_TODO = "ADD_TODO";
@@ -205,9 +193,7 @@ export function getUsersThunk() {
 
 <br>
 
-```jsx
-// src/containers/UserListContainer.jsx
-
+```jsx:src/containers/UserListContainer.jsx
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserList from "../components/UserList";
@@ -231,16 +217,13 @@ export default function UserListContainer() {
 
 ### - Redux-promise-middleware
 
-```bash
-# terminal
-
+```bash:terminal
 $ npm i redux-promise-middleware
 ```
 
 <br>
 
-```js
-// src/redux/store.js
+```js:src/redux/store.js
 
 import { applyMiddleware, createStore } from "redux";
 import todoApp from "./reducers/reducer";
@@ -258,9 +241,7 @@ export default store;
 
 <br>
 
-```js
-// src/redux/actions.js
-
+```js:src/redux/actions.js
 import axios from "axios";
 
 export const ADD_TODO = "ADD_TODO";
@@ -349,8 +330,7 @@ export function getUsersPromise() {
 
 <br>
 
-```jsx
-// src/containers/UserListContainer.jsx
+```jsx:src/containers/UserListContainer.jsx
 
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -371,9 +351,7 @@ export default function UserListContainer() {
 
 <br>
 
-```js
-// src/redux/reducers/users.js
-
+```js:src/redux/reducers/users.js
 import {
   GET_USERS_FAIL,
   GET_USERS_FULFILLED,

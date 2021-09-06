@@ -61,7 +61,7 @@ CREATE TABLE PERSON_TABLE (
 
 - 해당 컬럼 안에 NULL 값이 들어올 수 없음
 
-![oracle-createtable](https://user-images.githubusercontent.com/62803763/132258041-b24e4760-d4dd-485e-83a8-29eb0008d74e.PNG){: .align-center .open-new}
+![oracle-constraint1](https://user-images.githubusercontent.com/62803763/132259391-35cc01cf-eb76-40f3-85db-46f7d35f31fa.PNG){: .align-center .open-new}
 
 > 에러 발생!
 
@@ -131,4 +131,4 @@ SELECT * FROM FK_TABLE
 
 ![oracle-constraint6](https://user-images.githubusercontent.com/62803763/132259234-0c82e3c5-73c5-4a4d-a800-f8e1ce203d67.PNG){: .align-center .open-new}
 
-> 15 < 19 이므로 ERROR!
+> 17 < 19 이므로 ERROR!

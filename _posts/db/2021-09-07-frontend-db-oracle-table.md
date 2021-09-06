@@ -27,3 +27,22 @@ CREATE TABLE 테이블명 (
   COLUMN명 데이터타입(크기) 제약조건
 )
 ```
+
+<br>
+
+```oracle
+CREATE TABLE PERSON_TABLE (
+  NAME VARCHAR2(8),
+  GENDER CHAR(2),
+  AGE NUMBER(5),
+  PHONE CHAR(13)
+)
+```
+
+<br>
+
+- 자주 쓰는 데이터 타입
+  - CHAR : 주로 고정 크기일 때 사용
+  - VARCHAR2 : 주로 가벼 크기일 때 사용
+  - NUMBER : 숫자
+  - DATE : 날짜

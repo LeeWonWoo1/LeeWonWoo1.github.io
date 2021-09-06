@@ -25,7 +25,9 @@ last_modified_at: 2021-09-07T03:00:00
   - ...
   - reducer.js (or index.js)
 
-```js:src/redux/modules/filter.js
+```js:filter.js
+// src/redux/modules/filter.js
+
 // 액션 타입 정의
 const SHOW_ALL = "redux-start/filter/SHOW_ALL";
 const SHOW_COMPLETE = "redux-start/filter/SHOW_COMPLETE";
@@ -58,7 +60,9 @@ export default function reducer(previousState = initialState, action) {
 
 <br>
 
-```js:src/redux/modules/todos.js
+```js:todos.js
+// src/redux/modules/todos.js
+
 // 액션 타입 정의
 export const ADD_TODO = "redux-start/todos/ADD_TODO";
 export const COMPLETE_TODO = "redux-start/todos/COMPLETE_TODO";
@@ -104,7 +108,9 @@ export default function reducer(previousState = initialState, action) {
 
 <br>
 
-```js:src/redux/modules/todos.js
+```js:todos.js
+// src/redux/modules/todos.js
+
 import axios from "axios";
 
 // 액션 타입 정의
@@ -224,7 +230,9 @@ export function getUsersPromise() {
 
 <br>
 
-```js:src/redux/modules/reducers.js
+```js:reducers.js
+// src/redux/modules/reducers.js
+
 import { combineReducers } from "redux";
 import todos from "./todos";
 import filter from "./filter";
@@ -241,7 +249,9 @@ export default reducer;
 
 <br>
 
-```jsx:src/containers/UserListContainer.jsx
+```jsx:UserListContainer.jsx
+// src/containers/UserListContainer.jsx
+
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserList from "../components/UserList";
@@ -260,7 +270,9 @@ export default function UserListContainer() {
 
 <br>
 
-```jsx:src/containers/TodoFormContainer.jsx
+```jsx:TodoFormContainer.jsx
+// src/containers/TodoFormContainer.jsx
+
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import TodoForm from "../components/TodoForm";

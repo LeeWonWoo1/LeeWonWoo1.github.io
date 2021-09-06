@@ -7,6 +7,7 @@ tags:
   - - Redux
     - Web
     - Node.js
+    - React
     - Jest
 toc: true
 toc_sticky: true

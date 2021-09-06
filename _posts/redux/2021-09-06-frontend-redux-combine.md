@@ -7,6 +7,7 @@ tags:
   - - Redux
     - Web
     - Node.js
+    - React
 toc: true
 toc_sticky: true
 popular: true
@@ -145,7 +146,7 @@ export default store;
 <br>
 
 ```js
-// index.js
+// src/index.js
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -173,4 +174,4 @@ ReactDOM.render(
 reportWebVitals();
 ```
 
-![redux-store6](https://user-images.githubusercontent.com/62803763/132227440-110bf8cf-44a8-4690-b84c-5e1d2cba7d80.PNG){: .align-center .open-new}
+![redux-combine](https://user-images.githubusercontent.com/62803763/132228135-30e0abfa-3885-4a17-b2f4-73ef2928f9fe.PNG){: .align-center .open-new}

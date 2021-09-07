@@ -25,6 +25,8 @@ INSERT INTO 테이블(컬럼) VALUES(값);
 INSERT INTO 데이블 VALUES(타입 순서대로 넣은 값);
 ```
 
+<br>
+
 ![oracle-insert1](https://user-images.githubusercontent.com/62803763/132394020-90abbb9f-ea9b-42a7-add5-32dbe3deafca.PNG){: .align-center .open-new}
 
 ![oracle-insert2](https://user-images.githubusercontent.com/62803763/132394022-3f5bec18-c0a6-489f-8b07-2a746d7da403.PNG){: .align-center .open-new}
@@ -38,6 +40,8 @@ SELECT * FROM 테이블  // 테이블의 모든 컬럼 조회
 SELECT 컬럼, 컬럼 ... FROM 테이블  // 테이블에서 원하는 컬럼만 조회
 ```
 
+<br>
+
 ![oracle-select1](https://user-images.githubusercontent.com/62803763/132394657-15e3efc4-1e72-451f-83bc-9a1355dcc1ef.PNG){: .align-center .open-new}
 
 ![oracle-select2](https://user-images.githubusercontent.com/62803763/132394660-2a565a60-53e9-43e7-9182-689b797d9bb8.PNG){: .align-center .open-new}
@@ -50,6 +54,8 @@ SELECT 컬럼, 컬럼 ... FROM 테이블  // 테이블에서 원하는 컬럼만
 UPDATE 테이블 SET 컬럼 = 바꿀 값
 WHERE 컬럼 = 변경 조건
 ```
+
+<br>
 
 ![oracle-update1](https://user-images.githubusercontent.com/62803763/132395358-8c843db2-4f45-4ad7-8114-214c3454b934.PNG){: .align-center .open-new}
 

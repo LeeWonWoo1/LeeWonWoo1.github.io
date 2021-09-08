@@ -165,3 +165,128 @@ export default function Error() {
   );
 }
 ```
+
+<br>
+
+## 2. 로그인, 로그아웃 처리
+
+```bash
+# terminal
+
+$ npm i redux react-redux redux-saga
+$ npm i redux-devtools-extension redux-actions
+$ npm i @types/react-redux @types/redux-actions -D
+```
+
+<br>
+
+### - 스토어 설정
+
+```ts
+// src/redux/create.ts
+
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reducer from "./modules/reducer";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./modules/rootSaga";
+
+const create = () => {
+  const sagaMiddleware = createSagaMiddleware();
+
+  const store = createStore(
+    reducer,
+    composeWithDevTools(applyMiddleware(sagaMiddleware))
+  );
+
+  sagaMiddleware.run(rootSaga);
+
+  return store;
+};
+
+export default create;
+```
+
+<br>
+
+```ts
+// src/redux/modules/auth.ts
+
+import { createActions, handleActions } from "redux-actions";
+
+interface AuthState {
+  token: string | null;
+  loading: boolean;
+  error: Error | null;
+}
+
+const initialState: AuthState = {
+  token: null,
+  loading: false,
+  error: null,
+};
+
+const prefix = "my-books/auth";
+
+export const { pending, success, fail } = createActions(
+  "PENDING",
+  "SUCCESS",
+  "FAIL",
+  { prefix }
+);
+
+const reducer = handleActions<AuthState, string>(
+  {
+    PENDING: (state) => ({
+      ...state,
+      loading: true,
+      error: null,
+    }),
+    SUCCESS: (state, action) => ({
+      token: action.payload,
+      loading: false,
+      error: null,
+    }),
+    FAIL: (state, action: any) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
+    }),
+  },
+  initialState,
+  { prefix }
+);
+
+export default reducer;
+
+// saga
+export function* authSaga() {}
+```
+
+<br>
+
+```ts
+// src/redux/modules/reducers.ts
+
+import { combineReducers } from "redux";
+import auth from "./auth";
+
+const reducer = combineReducers({
+  auth,
+});
+
+export default reducer;
+```
+
+<br>
+
+```ts
+// src/redux/modules/rootSaga.ts
+
+import { all } from "redux-saga/effects";
+import { authSaga } from "./auth";
+
+export default function* rootSaga() {
+  yield all([authSaga()]);
+}
+```

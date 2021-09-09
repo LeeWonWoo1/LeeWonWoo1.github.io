@@ -917,3 +917,763 @@ export default function Home() {
 ![react-book3](https://user-images.githubusercontent.com/62803763/132553087-64853601-a8a9-4d45-b960-4ef55173377e.PNG){: .align-center .open-new}
 
 ![react-book4](https://user-images.githubusercontent.com/62803763/132553089-74c818eb-ef39-40f7-86db-25ba2840999c.PNG){: .align-center .open-new}
+
+<br>
+
+## 3. 책 목록 보여주기
+
+```ts
+// src/redux/modules/books.ts
+
+import { createActions, handleActions } from "redux-actions";
+import { BooksState, BookType } from "../../types";
+
+const initialState: BooksState = {
+  books: null,
+  loading: false,
+  error: null,
+};
+
+const prefix = "my-books/books";
+
+export const { pending, success, fail } = createActions(
+  "PENDING",
+  "SUCCESS",
+  "FAIL",
+  { prefix }
+);
+
+const reducer = handleActions<BooksState, BookType[]>(
+  {
+    PENDING: (state) => ({ ...state, loading: true, error: null }),
+    SUCCESS: (state, action) => ({
+      books: action.payload,
+      loading: false,
+      error: null,
+    }),
+    FAIL: (state, action: any) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
+    }),
+  },
+  initialState,
+  { prefix }
+);
+
+export default reducer;
+
+// saga
+
+export function* booksSaga() {}
+```
+
+<br>
+
+```ts
+// src/redux/modules/rootSaga.ts
+
+import { all } from "redux-saga/effects";
+import { authSaga } from "./auth";
+import { booksSaga } from "./books";
+
+export default function* rootSaga() {
+  yield all([authSaga(), booksSaga()]);
+}
+```
+
+<br>
+
+```tsx
+// src/components/List.tsx
+
+export default function List() {
+  return (
+    <div>
+      <h1>List</h1>
+      <button onClick={click}>logout</button>
+    </div>
+  );
+
+  function click() {}
+}
+```
+
+<br>
+
+```tsx
+// src/containers/ListContainer.tsx
+
+import List from "../components/List";
+
+export default function ListContainer() {
+  return <List />;
+}
+```
+
+<br>
+
+```tsx
+// src/pages/Home.tsx
+
+import React from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { RootState } from "../types";
+import ListContainer from "../containers/ListContainer";
+
+export default function Home() {
+  const token = useSelector<RootState, string | null>(
+    (state) => state.auth.token
+  );
+
+  if (token === null) {
+    return <Redirect to="/signin" />;
+  }
+
+  return <ListContainer />;
+}
+```
+
+<br>
+
+```tsx
+// src/components/Layout.tsx
+
+import styles from "./Layout.module.css";
+
+const Layout: React.FC = ({ children }) => (
+  <div className={styles.layout}>{children}</div>
+);
+
+export default Layout;
+```
+
+<br>
+
+```css
+/* src/components/Layout.module.css */
+
+.layout {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  margin-bottom: 50px;
+}
+```
+
+<br>
+
+```tsx
+// src/components/List.tsx
+
+import { Button, PageHeader, Table } from "antd";
+import { BookType } from "../types";
+import Layout from "./Layout";
+
+interface ListProps {
+  books: BookType[] | null;
+  loading: boolean;
+}
+
+const List: React.FC<ListProps> = ({ books, loading }) => {
+  const goAdd = () => {};
+  const logout = () => {};
+
+  return (
+    <Layout>
+      <PageHeader
+        title={<div>Book List</div>}
+        extra={[
+          <Button key="2" type="primary" onClick={goAdd}>
+            Add Book
+          </Button>,
+          <Button key="1" type="primary" onClick={logout}>
+            Logout
+          </Button>,
+        ]}
+      />
+      <Table
+        dataSource={[]}
+        columns={[
+          {
+            title: "Book",
+            dataIndex: "book",
+            key: "book",
+            render: () => <div>book</div>,
+          },
+        ]}
+        loading={books === null || loading}
+        showHeader={false}
+        rowKey="bookId"
+        pagination={false}
+      />
+    </Layout>
+  );
+};
+
+export default List;
+```
+
+<br>
+
+```ts
+// src/types.ts
+
+import { RouterState } from "connected-react-router";
+import { AnyAction, Reducer } from "redux";
+
+export type LoginReqType = {
+  email: string;
+  password: string;
+};
+
+export interface AuthState {
+  token: string | null;
+  loading: boolean;
+  error: Error | null;
+}
+
+export interface BooksState {
+  books: BookType[] | null;
+  loading: boolean;
+  error: Error | null;
+}
+
+export interface RootState {
+  auth: AuthState;
+  books: BooksState;
+  router: Reducer<RouterState<unknown>, AnyAction>;
+}
+
+export interface BookType {
+  bookId: number;
+  title: string;
+  author: string;
+  createdAt: string;
+  url: string;
+}
+```
+
+<br>
+
+```tsx
+// src/containers/ListContainer.tsx
+
+import { useSelector } from "react-redux";
+import List from "../components/List";
+import { BookType, RootState } from "../types";
+
+export default function ListContainer() {
+  const books = useSelector<RootState, BookType[]>(
+    (state) => state.books.books
+  );
+  return <List books={books} />;
+}
+```
+
+<br>
+
+```ts
+// src/redux/modules/reducer.ts
+
+import { connectRouter } from "connected-react-router";
+import { combineReducers } from "redux";
+import auth from "./auth";
+import books from "./books";
+import { History } from "history";
+
+const reducer = (history: History<unknown>) =>
+  combineReducers({
+    auth,
+    books,
+    router: connectRouter(history),
+  });
+
+export default reducer;
+```
+
+<br>
+
+```tsx
+// src/containers/ListContainer.tsx
+
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import List from "../components/List";
+import { BookType, RootState } from "../types";
+import { getBooks as getBooksSagaStart } from "../redux/modules/books";
+
+export default function ListContainer() {
+  const books = useSelector<RootState, BookType[] | null>(
+    (state) => state.books.books
+  );
+  const loading = useSelector<RootState, boolean>(
+    (state) => state.books.loading
+  );
+
+  const dispatch = useDispatch();
+
+  const getBooks = useCallback(() => {
+    dispatch(getBooksSagaStart());
+  }, [dispatch]);
+
+  return <List books={books} loading={loading} getBooks={getBooks} />;
+}
+```
+
+<br>
+
+```tsx
+// src/components/List.tsx
+
+import { Button, PageHeader, Table } from "antd";
+import { useEffect } from "react";
+import { BookType } from "../types";
+import Layout from "./Layout";
+import Book from "./Book";
+
+interface ListProps {
+  books: BookType[] | null;
+  loading: boolean;
+  getBooks: () => void;
+}
+
+const List: React.FC<ListProps> = ({ books, loading, getBooks }) => {
+  useEffect(() => {
+    getBooks();
+  }, [getBooks]);
+
+  const goAdd = () => {};
+  const logout = () => {};
+
+  return (
+    <Layout>
+      <PageHeader
+        title={<div>Book List</div>}
+        extra={[
+          <Button key="2" type="primary" onClick={goAdd}>
+            Add Book
+          </Button>,
+          <Button key="1" type="primary" onClick={logout}>
+            Logout
+          </Button>,
+        ]}
+      />
+      <Table
+        dataSource={books || []}
+        columns={[
+          {
+            title: "Book",
+            dataIndex: "book",
+            key: "book",
+            render: (text, record) => <Book {...record} />,
+          },
+        ]}
+        loading={books === null || loading}
+        showHeader={false}
+        rowKey="bookId"
+        pagination={false}
+      />
+    </Layout>
+  );
+};
+
+export default List;
+```
+
+<br>
+
+```ts
+// src/redux/modules/books.ts
+
+import { call, put, select, takeLatest } from "@redux-saga/core/effects";
+import { createActions, handleActions } from "redux-actions";
+import { BooksState, BookType } from "../../types";
+import BookService from "../../services/BookService";
+
+const initialState: BooksState = {
+  books: null,
+  loading: false,
+  error: null,
+};
+
+const prefix = "my-books/books";
+
+export const { pending, success, fail } = createActions(
+  "PENDING",
+  "SUCCESS",
+  "FAIL",
+  { prefix }
+);
+
+const reducer = handleActions<BooksState, BookType[]>(
+  {
+    PENDING: (state) => ({ ...state, loading: true, error: null }),
+    SUCCESS: (state, action) => ({
+      books: action.payload,
+      loading: false,
+      error: null,
+    }),
+    FAIL: (state, action: any) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
+    }),
+  },
+  initialState,
+  { prefix }
+);
+
+export default reducer;
+
+// saga
+export const { getBooks } = createActions("GET_BOOKS", {
+  prefix,
+});
+
+function* getBooksSaga() {
+  try {
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    const books: BookType[] = yield call(BookService.getBooks, token);
+    yield put(success(books));
+  } catch (error: any) {
+    yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
+  }
+}
+
+export function* booksSaga() {
+  yield takeLatest(`${prefix}/GET_BOOKS`, getBooksSaga);
+}
+```
+
+<br>
+
+```ts
+// src/services/BookService.ts
+
+import axios from "axios";
+import { BookType } from "../types";
+
+const BOOK_API_URL = "https://api.marktube.tv/v1/book";
+
+export default class BookService {
+  public static async getBooks(token: string): Promise<BookType[]> {
+    const response = await axios.get(BOOK_API_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+}
+```
+
+<br>
+
+```bash
+# terminal
+
+$ npm i moment
+```
+
+<br>
+
+```tsx
+// src/components/Book.tsx
+
+import { Link } from "react-router-dom";
+import {
+  BookOutlined,
+  DeleteOutlined,
+  EditOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import { BookType } from "../types";
+import moment from "moment";
+import { Button, Tooltip } from "antd";
+import styles from "./Book.module.css";
+
+interface BookProps extends BookType {}
+
+const Book: React.FC<BookProps> = ({
+  bookId,
+  title,
+  author,
+  createdAt,
+  url,
+}) => (
+  <div className={styles.book}>
+    <div className={styles.title}>
+      <Link to={`/book/${bookId}`} className={styles.link_detail_title}>
+        <BookOutlined /> {title}
+      </Link>
+    </div>
+    <div className={styles.author}>
+      <Link to={`/book/${bookId}`} className={styles.link_detail_author}>
+        {author}
+      </Link>
+    </div>
+    <div className={styles.created}>
+      {moment(createdAt).format("MM-DD-YYYY hh:mm a")}
+    </div>
+    <div className={styles.tooltips}>
+      <Tooltip title={url}>
+        <a
+          href={url}
+          target="_BLANK"
+          rel="noreferrer"
+          className={styles.link_url}
+        >
+          <Button
+            size="small"
+            type="primary"
+            shape="circle"
+            icon={<HomeOutlined />}
+            className={styles.button_url}
+          />
+        </a>
+      </Tooltip>
+      <Tooltip title="Edit">
+        <Button
+          size="small"
+          shape="circle"
+          icon={<EditOutlined />}
+          className={styles.button_edit}
+        />
+      </Tooltip>
+      <Tooltip title="Delete">
+        <Button
+          size="small"
+          type="primary"
+          shape="circle"
+          danger
+          icon={<DeleteOutlined />}
+          className={styles.button_delete}
+        />
+      </Tooltip>
+    </div>
+  </div>
+);
+
+export default Book;
+```
+
+<br>
+
+```css
+/* src/components/Book.module.css */
+
+.book {
+  display: table;
+  overflow: hidden;
+}
+
+.title {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.link_detail_title {
+  color: #0a222e;
+}
+
+.author {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.link_detail_author {
+  color: #28546a;
+}
+
+.created {
+  color: #999999;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.tooltips {
+  color: #999999;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.link_url {
+  font-size: 12px;
+}
+
+.button_url {
+  margin-right: 5px;
+}
+
+.button_edit {
+  margin-right: 5px;
+}
+```
+
+<br>
+
+```tsx
+// src/components/List.tsx
+
+import { Button, PageHeader, Table } from "antd";
+import { useEffect } from "react";
+import { BookType } from "../types";
+import Layout from "./Layout";
+import Book from "./Book";
+import styles from "./List.module.css";
+
+interface ListProps {
+  books: BookType[] | null;
+  loading: boolean;
+  error: Error | null;
+  getBooks: () => void;
+  logout: () => void;
+}
+
+const List: React.FC<ListProps> = ({
+  books,
+  loading,
+  getBooks,
+  error,
+  logout,
+}) => {
+  useEffect(() => {
+    getBooks();
+  }, [getBooks]);
+
+  useEffect(() => {
+    if (error) {
+      logout();
+    }
+  }, [error, logout]);
+
+  const goAdd = () => {};
+
+  return (
+    <Layout>
+      <PageHeader
+        title={<div>Book List</div>}
+        extra={[
+          <Button
+            key="2"
+            type="primary"
+            onClick={goAdd}
+            className={styles.button}
+          >
+            Add Book
+          </Button>,
+          <Button
+            key="1"
+            type="primary"
+            onClick={logout}
+            className={styles.button}
+          >
+            Logout
+          </Button>,
+        ]}
+      />
+      <Table
+        dataSource={books || []}
+        columns={[
+          {
+            title: "Book",
+            dataIndex: "book",
+            key: "book",
+            render: (text, record) => <Book {...record} />,
+          },
+        ]}
+        loading={books === null || loading}
+        showHeader={false}
+        rowKey="bookId"
+        pagination={false}
+        className={styles.table}
+      />
+    </Layout>
+  );
+};
+
+export default List;
+```
+
+<br>
+
+```css
+/* src/components/List.module.css */
+
+.button {
+  border-color: #28546a;
+  background-color: #28546a;
+  text-transform: uppercase;
+  border-radius: 1px;
+  border-width: 2px;
+  color: white;
+}
+
+.table {
+  margin-top: 30px;
+}
+```
+
+<br>
+
+```tsx
+// src/containers/ListContainer.tsx
+
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import List from "../components/List";
+import { BookType, RootState } from "../types";
+import { getBooks as getBooksSagaStart } from "../redux/modules/books";
+import { logout as logoutSagaStart } from "../redux/modules/auth";
+
+export default function ListContainer() {
+  const books = useSelector<RootState, BookType[] | null>(
+    (state) => state.books.books
+  );
+
+  const loading = useSelector<RootState, boolean>(
+    (state) => state.books.loading
+  );
+
+  const error = useSelector<RootState, Error | null>(
+    (state) => state.books.error
+  );
+
+  const dispatch = useDispatch();
+
+  const getBooks = useCallback(() => {
+    dispatch(getBooksSagaStart());
+  }, [dispatch]);
+
+  const logout = useCallback(() => {
+    dispatch(logoutSagaStart());
+  }, [dispatch]);
+
+  return (
+    <List
+      books={books}
+      loading={loading}
+      getBooks={getBooks}
+      error={error}
+      logout={logout}
+    />
+  );
+}
+```
+
+<br>
+
+![react-book5](https://user-images.githubusercontent.com/62803763/132704143-6ae7bd45-8652-4e3f-94e8-5ee1842ef5d6.PNG){: .align-center .open-new}

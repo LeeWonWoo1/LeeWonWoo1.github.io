@@ -1677,3 +1677,670 @@ export default function ListContainer() {
 <br>
 
 ![react-book5](https://user-images.githubusercontent.com/62803763/132704143-6ae7bd45-8652-4e3f-94e8-5ee1842ef5d6.PNG){: .align-center .open-new}
+
+<br>
+
+## 4. 책 추가하기
+
+```tsx
+// src/containers/ListContainer.tsx
+
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import List from "../components/List";
+import { BookType, RootState } from "../types";
+import { getBooks as getBooksSagaStart } from "../redux/modules/books";
+import { logout as logoutSagaStart } from "../redux/modules/auth";
+import { push } from "connected-react-router";
+
+export default function ListContainer() {
+  const books = useSelector<RootState, BookType[] | null>(
+    (state) => state.books.books
+  );
+
+  const loading = useSelector<RootState, boolean>(
+    (state) => state.books.loading
+  );
+
+  const error = useSelector<RootState, Error | null>(
+    (state) => state.books.error
+  );
+
+  const dispatch = useDispatch();
+
+  const getBooks = useCallback(() => {
+    dispatch(getBooksSagaStart());
+  }, [dispatch]);
+
+  const logout = useCallback(() => {
+    dispatch(logoutSagaStart());
+  }, [dispatch]);
+
+  const goAdd = useCallback(() => {
+    dispatch(push("/add"));
+  }, [dispatch]);
+
+  return (
+    <List
+      books={books}
+      loading={loading}
+      getBooks={getBooks}
+      error={error}
+      logout={logout}
+      goAdd={goAdd}
+    />
+  );
+}
+```
+
+<br>
+
+```tsx
+// src/components/List.tsx
+
+import { Button, PageHeader, Table } from "antd";
+import { useEffect } from "react";
+import { BookType } from "../types";
+import Layout from "./Layout";
+import Book from "./Book";
+import styles from "./List.module.css";
+
+interface ListProps {
+  books: BookType[] | null;
+  loading: boolean;
+  error: Error | null;
+  getBooks: () => void;
+  logout: () => void;
+  goAdd: () => void;
+}
+
+const List: React.FC<ListProps> = ({
+  books,
+  loading,
+  getBooks,
+  error,
+  logout,
+  goAdd,
+}) => {
+  useEffect(() => {
+    getBooks();
+  }, [getBooks]);
+
+  useEffect(() => {
+    if (error) {
+      logout();
+    }
+  }, [error, logout]);
+
+  return (
+    <Layout>
+      <PageHeader
+        title={<div>Book List</div>}
+        extra={[
+          <Button
+            key="2"
+            type="primary"
+            onClick={goAdd}
+            className={styles.button}
+          >
+            Add Book
+          </Button>,
+          <Button
+            key="1"
+            type="primary"
+            onClick={logout}
+            className={styles.button}
+          >
+            Logout
+          </Button>,
+        ]}
+      />
+      <Table
+        dataSource={books || []}
+        columns={[
+          {
+            title: "Book",
+            dataIndex: "book",
+            key: "book",
+            render: (text, record) => <Book {...record} />,
+          },
+        ]}
+        loading={books === null || loading}
+        showHeader={false}
+        rowKey="bookId"
+        pagination={false}
+        className={styles.table}
+      />
+    </Layout>
+  );
+};
+
+export default List;
+```
+
+<br>
+
+```tsx
+// src/components/Add.tsx
+
+import { ForkOutlined } from "@ant-design/icons";
+import { Button, Input, PageHeader, message as messageDialog } from "antd";
+import TextArea from "antd/lib/input/TextArea";
+import Layout from "./Layout";
+import styles from "./Add.module.css";
+import { useRef } from "react";
+import TextAreaType from "rc-textarea";
+import { BookReqType } from "../types";
+
+interface AddProps {
+  loading: boolean;
+  back: () => void;
+  logout: () => void;
+  add: (book: BookReqType) => void;
+}
+
+const Add: React.FC<AddProps> = ({ loading, back, logout, add }) => {
+  const titleRef = useRef<Input>(null);
+  const messageRef = useRef<TextAreaType>(null);
+  const authorRef = useRef<Input>(null);
+  const urlRef = useRef<Input>(null);
+
+  return (
+    <Layout>
+      <PageHeader
+        onBack={back}
+        title={
+          <div>
+            <ForkOutlined /> Add Book
+          </div>
+        }
+        subTitle="Add Your Book"
+        extra={[
+          <Button
+            key="1"
+            type="primary"
+            onClick={logout}
+            className={styles.button_logout}
+          >
+            Logout
+          </Button>,
+        ]}
+      />
+
+      <div className={styles.add}>
+        <div className={styles.input_title}>
+          Title
+          <span className={styles.required}> *</span>
+        </div>
+        <div className={styles.input_area}>
+          <Input placeholder="Title" className={styles.input} ref={titleRef} />
+        </div>
+        <div className={styles.input_comment}>
+          Comment
+          <span className={styles.required}> *</span>
+        </div>
+        <div className={styles.input_area}>
+          <TextArea
+            rows={4}
+            placeholder="Comment"
+            className={styles.input}
+            ref={messageRef}
+          />
+        </div>
+        <div className={styles.input_author}>
+          Author
+          <span className={styles.required}> *</span>
+        </div>
+        <div className={styles.input_area}>
+          <Input
+            placeholder="Author"
+            className={styles.input}
+            ref={authorRef}
+          />
+        </div>
+        <div className={styles.input_url}>
+          URL
+          <span className={styles.required}> *</span>
+        </div>
+        <div className={styles.input_area}>
+          <Input placeholder="URL" className={styles.input} ref={urlRef} />
+        </div>
+        <div className={styles.button_area}>
+          <Button
+            size="large"
+            loading={loading}
+            onClick={click}
+            className={styles.button}
+          >
+            Add
+          </Button>
+        </div>
+      </div>
+    </Layout>
+  );
+
+  function click() {
+    const title = titleRef.current!.state.value;
+    const message = messageRef.current!.resizableTextArea.props.value as string;
+    const author = authorRef.current!.state.value;
+    const url = urlRef.current!.state.value;
+
+    if (
+      title === undefined ||
+      message === undefined ||
+      author === undefined ||
+      url === undefined
+    ) {
+      messageDialog.error("Please fill out all inputs");
+      return;
+    }
+
+    add({
+      title,
+      message,
+      author,
+      url,
+    });
+  }
+};
+
+export default Add;
+```
+
+<br>
+
+```tsx
+// src/containers/AddContainer.tsx
+
+import { goBack } from "connected-react-router";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Add from "../components/Add";
+import { BookReqType, RootState } from "../types";
+import { logout as logoutSagaStart } from "../redux/modules/auth";
+import { addBook as addBookSagaStart } from "../redux/modules/books";
+
+const AddContainer = () => {
+  const loading = useSelector<RootState, boolean>(
+    (state) => state.books.loading
+  );
+
+  const dispatch = useDispatch();
+
+  const back = useCallback(() => {
+    dispatch(goBack());
+  }, [dispatch]);
+
+  const logout = useCallback(() => {
+    dispatch(logoutSagaStart());
+  }, [dispatch]);
+
+  const add = useCallback(
+    (book: BookReqType) => {
+      dispatch(addBookSagaStart(book));
+    },
+    [dispatch]
+  );
+
+  return <Add loading={loading} back={back} logout={logout} add={add} />;
+};
+
+export default AddContainer;
+```
+
+<br>
+
+```tsx
+// src/pages/Add.tsx
+
+import { Redirect } from "react-router";
+import AddContainer from "../containers/AddContainer";
+import useToken from "../hooks/useToken";
+
+export default function Add() {
+  const token = useToken();
+
+  if (token === null) {
+    return <Redirect to="/signin" />;
+  }
+
+  return <AddContainer />;
+}
+```
+
+<br>
+
+```ts
+// src/hooks/useToken.ts
+
+import { useSelector } from "react-redux";
+import { RootState } from "../types";
+
+export default function useToken() {
+  const token = useSelector<RootState, string | null>(
+    (state) => state.auth.token
+  );
+
+  return token;
+}
+```
+
+<br>
+
+```tsx
+// src/pages/Home.tsx
+
+import { Redirect } from "react-router-dom";
+import ListContainer from "../containers/ListContainer";
+import useToken from "../hooks/useToken";
+
+export default function Home() {
+  const token = useToken();
+
+  if (token === null) {
+    return <Redirect to="/signin" />;
+  }
+
+  return <ListContainer />;
+}
+```
+
+<br>
+
+```tsx
+// src/pages/Signin.tsx
+
+import { Redirect } from "react-router";
+import SigninContainer from "../containers/SigninContainer";
+import useToken from "../hooks/useToken";
+
+export default function Signin() {
+  const token = useToken();
+
+  if (token !== null) {
+    return <Redirect to="/" />;
+  }
+
+  return <SigninContainer />;
+}
+```
+
+<br>
+
+```ts
+// src/types.ts
+
+import { RouterState } from "connected-react-router";
+import { AnyAction, Reducer } from "redux";
+
+export type LoginReqType = {
+  email: string;
+  password: string;
+};
+
+export interface AuthState {
+  token: string | null;
+  loading: boolean;
+  error: Error | null;
+}
+
+export interface BooksState {
+  books: BookType[] | null;
+  loading: boolean;
+  error: Error | null;
+}
+
+export interface RootState {
+  auth: AuthState;
+  books: BooksState;
+  router: Reducer<RouterState<unknown>, AnyAction>;
+}
+
+export interface BookType {
+  bookId: number;
+  title: string;
+  author: string;
+  createdAt: string;
+  url: string;
+}
+
+export interface BookReqType {
+  title: string;
+  message: string;
+  author: string;
+  url: string;
+}
+```
+
+<br>
+
+```ts
+// src/redux/modules/books.ts
+
+import {
+  call,
+  put,
+  select,
+  takeEvery,
+  takeLatest,
+} from "@redux-saga/core/effects";
+import { Action, createActions, handleActions } from "redux-actions";
+import { BookReqType, BooksState, BookType } from "../../types";
+import BookService from "../../services/BookService";
+import { push } from "connected-react-router";
+
+const initialState: BooksState = {
+  books: null,
+  loading: false,
+  error: null,
+};
+
+const prefix = "my-books/books";
+
+export const { pending, success, fail } = createActions(
+  "PENDING",
+  "SUCCESS",
+  "FAIL",
+  { prefix }
+);
+
+const reducer = handleActions<BooksState, BookType[]>(
+  {
+    PENDING: (state) => ({ ...state, loading: true, error: null }),
+    SUCCESS: (state, action) => ({
+      books: action.payload,
+      loading: false,
+      error: null,
+    }),
+    FAIL: (state, action: any) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
+    }),
+  },
+  initialState,
+  { prefix }
+);
+
+export default reducer;
+
+// saga
+export const { getBooks, addBook } = createActions("GET_BOOKS", "ADD_BOOK", {
+  prefix,
+});
+
+function* getBooksSaga() {
+  try {
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    const books: BookType[] = yield call(BookService.getBooks, token);
+    yield put(success(books));
+  } catch (error: any) {
+    yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
+  }
+}
+
+function* addBookSaga(action: Action<BookReqType>) {
+  try {
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    const book: BookType = yield call(
+      BookService.addBook,
+      token,
+      action.payload
+    );
+    const books: BookType[] = yield select((state) => state.books.books);
+    yield put(success([...books, book]));
+    yield put(push("/"));
+  } catch (error: any) {
+    yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
+  }
+}
+
+export function* booksSaga() {
+  yield takeLatest(`${prefix}/GET_BOOKS`, getBooksSaga);
+  yield takeEvery(`${prefix}/ADD_BOOK`, addBookSaga);
+}
+```
+
+<br>
+
+```ts
+// src/services/BookService.ts
+
+import axios from "axios";
+import { BookReqType, BookType } from "../types";
+
+const BOOK_API_URL = "https://api.marktube.tv/v1/book";
+
+export default class BookService {
+  public static async getBooks(token: string): Promise<BookType[]> {
+    const response = await axios.get(BOOK_API_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+
+  public static async addBook(
+    token: string,
+    book: BookReqType
+  ): Promise<BookType> {
+    const response = await axios.post(BOOK_API_URL, book, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+```
+
+<br>
+
+```css
+/* src/components/Add.module.css */
+
+.bg {
+  width: 100%;
+}
+
+.add {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input_title {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 40px;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.input_comment {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.input_author {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.input_url {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.required {
+  color: #971931;
+}
+
+.input_area {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.input {
+  width: 720px;
+  border-radius: 1px;
+  border-width: 1px;
+  font-family: Roboto;
+  margin-left: 40px;
+  margin-right: 40px;
+  min-height: 100;
+}
+
+.button_area {
+  text-align: right;
+  padding-right: 40px;
+  margin-top: 20px;
+}
+
+.button {
+  border-color: #28546a;
+  background-color: #28546a;
+  text-transform: uppercase;
+  border-radius: 1px;
+  border-width: 2px;
+  color: white;
+  width: 120px;
+}
+
+.button:hover {
+  background-color: #28546a;
+  color: white;
+}
+
+.button_logout {
+  border-color: #28546a;
+  background-color: #28546a;
+  text-transform: uppercase;
+  border-radius: 1px;
+  border-width: 2px;
+  color: white;
+}
+```
+
+<br>
+
+![react-book6](https://user-images.githubusercontent.com/62803763/132950566-4e0e0d3d-7b37-4889-a95f-5d700ae3fb16.PNG)
+
+![react-book7](https://user-images.githubusercontent.com/62803763/132950567-4dd18ac2-baf9-4ae4-8d5a-e553c325ad19.PNG)
+
+![react-book8](https://user-images.githubusercontent.com/62803763/132950568-5cccb7ce-963a-47f2-a57c-6fe06c969220.PNG)

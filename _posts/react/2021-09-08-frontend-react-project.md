@@ -2344,3 +2344,402 @@ export default class BookService {
 ![react-book7](https://user-images.githubusercontent.com/62803763/132950567-4dd18ac2-baf9-4ae4-8d5a-e553c325ad19.PNG)
 
 ![react-book8](https://user-images.githubusercontent.com/62803763/132950568-5cccb7ce-963a-47f2-a57c-6fe06c969220.PNG)
+
+<br>
+
+## 5. 책 삭제하기
+
+```tsx
+// src/components/Book.tsx
+
+import { Link } from "react-router-dom";
+import {
+  BookOutlined,
+  DeleteOutlined,
+  EditOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import { BookType } from "../types";
+import moment from "moment";
+import { Button, Tooltip } from "antd";
+import styles from "./Book.module.css";
+
+interface BookProps extends BookType {
+  deleteBook: (bookId: number) => void;
+}
+
+const Book: React.FC<BookProps> = ({
+  bookId,
+  title,
+  author,
+  createdAt,
+  url,
+  deleteBook,
+}) => {
+  return (
+    <div className={styles.book}>
+      <div className={styles.title}>
+        <Link to={`/book/${bookId}`} className={styles.link_detail_title}>
+          <BookOutlined /> {title}
+        </Link>
+      </div>
+      <div className={styles.author}>
+        <Link to={`/book/${bookId}`} className={styles.link_detail_author}>
+          {author}
+        </Link>
+      </div>
+      <div className={styles.created}>
+        {moment(createdAt).format("MM-DD-YYYY hh:mm a")}
+      </div>
+      <div className={styles.tooltips}>
+        <Tooltip title={url}>
+          <a
+            href={url}
+            target="_BLANK"
+            rel="noreferrer"
+            className={styles.link_url}
+          >
+            <Button
+              size="small"
+              type="primary"
+              shape="circle"
+              icon={<HomeOutlined />}
+              className={styles.button_url}
+            />
+          </a>
+        </Tooltip>
+        <Tooltip title="Edit">
+          <Button
+            size="small"
+            shape="circle"
+            icon={<EditOutlined />}
+            className={styles.button_edit}
+          />
+        </Tooltip>
+        <Tooltip title="Delete">
+          <Button
+            size="small"
+            type="primary"
+            shape="circle"
+            danger
+            icon={<DeleteOutlined />}
+            className={styles.button_delete}
+            onClick={clickDelete}
+          />
+        </Tooltip>
+      </div>
+    </div>
+  );
+
+  function clickDelete() {
+    deleteBook(bookId);
+  }
+};
+
+export default Book;
+```
+
+<br>
+
+```tsx
+// src/components/List.tsx
+
+import { Button, PageHeader, Table } from "antd";
+import { useEffect } from "react";
+import { BookType } from "../types";
+import Layout from "./Layout";
+import Book from "./Book";
+import styles from "./List.module.css";
+
+interface ListProps {
+  books: BookType[] | null;
+  loading: boolean;
+  error: Error | null;
+  getBooks: () => void;
+  logout: () => void;
+  goAdd: () => void;
+  deleteBook: (bookId: number) => void;
+}
+
+const List: React.FC<ListProps> = ({
+  books,
+  loading,
+  getBooks,
+  error,
+  logout,
+  goAdd,
+  deleteBook,
+}) => {
+  useEffect(() => {
+    getBooks();
+  }, [getBooks]);
+
+  useEffect(() => {
+    if (error) {
+      logout();
+    }
+  }, [error, logout]);
+
+  return (
+    <Layout>
+      <PageHeader
+        title={<div>Book List</div>}
+        extra={[
+          <Button
+            key="2"
+            type="primary"
+            onClick={goAdd}
+            className={styles.button}
+          >
+            Add Book
+          </Button>,
+          <Button
+            key="1"
+            type="primary"
+            onClick={logout}
+            className={styles.button}
+          >
+            Logout
+          </Button>,
+        ]}
+      />
+      <Table
+        dataSource={books || []}
+        columns={[
+          {
+            title: "Book",
+            dataIndex: "book",
+            key: "book",
+            render: (text, record) => (
+              <Book {...record} deleteBook={deleteBook} />
+            ),
+          },
+        ]}
+        loading={books === null || loading}
+        showHeader={false}
+        rowKey="bookId"
+        pagination={false}
+        className={styles.table}
+      />
+    </Layout>
+  );
+};
+
+export default List;
+```
+
+<br>
+
+```tsx
+// src/containers/ListContainer.tsx
+
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import List from "../components/List";
+import { BookType, RootState } from "../types";
+import {
+  getBooks as getBooksSagaStart,
+  deleteBook as deleteBookSagaStart,
+} from "../redux/modules/books";
+import { logout as logoutSagaStart } from "../redux/modules/auth";
+import { push } from "connected-react-router";
+
+export default function ListContainer() {
+  const books = useSelector<RootState, BookType[] | null>(
+    (state) => state.books.books
+  );
+
+  const loading = useSelector<RootState, boolean>(
+    (state) => state.books.loading
+  );
+
+  const error = useSelector<RootState, Error | null>(
+    (state) => state.books.error
+  );
+
+  const dispatch = useDispatch();
+
+  const getBooks = useCallback(() => {
+    dispatch(getBooksSagaStart());
+  }, [dispatch]);
+
+  const logout = useCallback(() => {
+    dispatch(logoutSagaStart());
+  }, [dispatch]);
+
+  const goAdd = useCallback(() => {
+    dispatch(push("/add"));
+  }, [dispatch]);
+
+  const deleteBook = useCallback(
+    (bookId: number) => {
+      dispatch(deleteBookSagaStart(bookId));
+    },
+    [dispatch]
+  );
+
+  return (
+    <List
+      books={books}
+      loading={loading}
+      getBooks={getBooks}
+      error={error}
+      logout={logout}
+      goAdd={goAdd}
+      deleteBook={deleteBook}
+    />
+  );
+}
+```
+
+<br>
+
+```ts
+// src/services/BookService.ts
+
+import axios from "axios";
+import { BookReqType, BookType } from "../types";
+
+const BOOK_API_URL = "https://api.marktube.tv/v1/book";
+
+export default class BookService {
+  public static async getBooks(token: string): Promise<BookType[]> {
+    const response = await axios.get(BOOK_API_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+
+  public static async addBook(
+    token: string,
+    book: BookReqType
+  ): Promise<BookType> {
+    const response = await axios.post(BOOK_API_URL, book, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+
+  public static async deleteBook(token: string, bookId: number) {
+    await axios.delete(`${BOOK_API_URL}/${bookId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+}
+```
+
+<br>
+
+```ts
+// src/redux/modules/books.ts
+
+import {
+  call,
+  put,
+  select,
+  takeEvery,
+  takeLatest,
+} from "@redux-saga/core/effects";
+import { Action, createActions, handleActions } from "redux-actions";
+import { BookReqType, BooksState, BookType } from "../../types";
+import BookService from "../../services/BookService";
+import { push } from "connected-react-router";
+
+const initialState: BooksState = {
+  books: null,
+  loading: false,
+  error: null,
+};
+
+const prefix = "my-books/books";
+
+export const { pending, success, fail } = createActions(
+  "PENDING",
+  "SUCCESS",
+  "FAIL",
+  { prefix }
+);
+
+const reducer = handleActions<BooksState, BookType[]>(
+  {
+    PENDING: (state) => ({ ...state, loading: true, error: null }),
+    SUCCESS: (state, action) => ({
+      books: action.payload,
+      loading: false,
+      error: null,
+    }),
+    FAIL: (state, action: any) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
+    }),
+  },
+  initialState,
+  { prefix }
+);
+
+export default reducer;
+
+// saga
+export const { getBooks, addBook, deleteBook } = createActions(
+  "GET_BOOKS",
+  "ADD_BOOK",
+  "DELETE_BOOK",
+  {
+    prefix,
+  }
+);
+
+function* getBooksSaga() {
+  try {
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    const books: BookType[] = yield call(BookService.getBooks, token);
+    yield put(success(books));
+  } catch (error: any) {
+    yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
+  }
+}
+
+function* addBookSaga(action: Action<BookReqType>) {
+  try {
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    const book: BookType = yield call(
+      BookService.addBook,
+      token,
+      action.payload
+    );
+    const books: BookType[] = yield select((state) => state.books.books);
+    yield put(success([...books, book]));
+    yield put(push("/"));
+  } catch (error: any) {
+    yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
+  }
+}
+
+function* deleteBookSaga(action: Action<number>) {
+  try {
+    const bookId = action.payload;
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    yield call(BookService.deleteBook, token, bookId);
+    const books: BookType[] = yield select((state) => state.books.books);
+    yield put(success(books.filter((book) => book.bookId !== bookId)));
+  } catch (error: any) {
+    yield put(fail(new Error(error?.response?.data.error || "UNKNOWN_ERROR")));
+  }
+}
+
+export function* booksSaga() {
+  yield takeLatest(`${prefix}/GET_BOOKS`, getBooksSaga);
+  yield takeEvery(`${prefix}/ADD_BOOK`, addBookSaga);
+  yield takeEvery(`${prefix}/DELETE_BOOK`, deleteBookSaga);
+}
+```

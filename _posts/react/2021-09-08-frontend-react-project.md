@@ -2339,11 +2339,11 @@ export default class BookService {
 
 <br>
 
-![react-book6](https://user-images.githubusercontent.com/62803763/132950566-4e0e0d3d-7b37-4889-a95f-5d700ae3fb16.PNG)
+![react-book6](https://user-images.githubusercontent.com/62803763/132950566-4e0e0d3d-7b37-4889-a95f-5d700ae3fb16.PNG){: .align-center .open-new}
 
-![react-book7](https://user-images.githubusercontent.com/62803763/132950567-4dd18ac2-baf9-4ae4-8d5a-e553c325ad19.PNG)
+![react-book7](https://user-images.githubusercontent.com/62803763/132950567-4dd18ac2-baf9-4ae4-8d5a-e553c325ad19.PNG){: .align-center .open-new}
 
-![react-book8](https://user-images.githubusercontent.com/62803763/132950568-5cccb7ce-963a-47f2-a57c-6fe06c969220.PNG)
+![react-book8](https://user-images.githubusercontent.com/62803763/132950568-5cccb7ce-963a-47f2-a57c-6fe06c969220.PNG){: .align-center .open-new}
 
 <br>
 
@@ -2743,3 +2743,9 @@ export function* booksSaga() {
   yield takeEvery(`${prefix}/DELETE_BOOK`, deleteBookSaga);
 }
 ```
+
+<br>
+
+![react-book9](https://user-images.githubusercontent.com/62803763/133085750-1c04a344-d518-4911-a7cb-1f29be72ad39.PNG){: .align-center .open-new}
+
+![react-book10](https://user-images.githubusercontent.com/62803763/133085756-cf227712-8e59-497d-a41a-5404e7615968.PNG){: .align-center .open-new}

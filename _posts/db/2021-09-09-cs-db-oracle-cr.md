@@ -29,9 +29,9 @@ ROLLBACK;
 
 <br>
 
-![oracle-cr1](https://user-images.githubusercontent.com/62803763/132707342-53147518-0d2e-4f02-a398-e8184138f766.PNG)
+![oracle-cr1](https://user-images.githubusercontent.com/62803763/132707342-53147518-0d2e-4f02-a398-e8184138f766.PNG){: .align-center .open-new}
 
-![oracle-cr2](https://user-images.githubusercontent.com/62803763/132707345-33afdbf5-b428-45b0-9ba4-fc0a58dc9750.PNG)
+![oracle-cr2](https://user-images.githubusercontent.com/62803763/132707345-33afdbf5-b428-45b0-9ba4-fc0a58dc9750.PNG){: .align-center .open-new}
 
 COMMIT 한 시점에서 두 줄만 삽입됐기 때문에<br>
 추가로 삽입한 내용은 들어가지 않고,<br>

@@ -1,5 +1,5 @@
 ---
-title: "[Oracle] Union"
+title: "[Oracle] UNION"
 excerpt: Oracle 유니온
 categories:
   - DB
@@ -17,7 +17,7 @@ last_modified_at: 2021-09-18T22:00:00
 [DB 무료 연습 사이트](http://www.sqlfiddle.com/){:target="\_blank"}
 {: .notice--info}
 
-## UNION
+## 1. UNION
 
 - 여러개의 테이블을 하나로 붙일때 사용
 - 붙이려는 테이블의 컬럼의 개수와 데이터 타입이 동일해야 함
@@ -29,7 +29,7 @@ last_modified_at: 2021-09-18T22:00:00
 
 <br>
 
-## UNION ALL
+## 2. UNION ALL
 
 - 중복을 제거하지 않고 합침
 

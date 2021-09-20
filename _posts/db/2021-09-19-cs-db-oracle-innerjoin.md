@@ -18,3 +18,5 @@ last_modified_at: 2021-09-18T22:00:00
 {: .notice--info}
 
 ## INNER JOIN
+
+## ANSI INNER JOIN

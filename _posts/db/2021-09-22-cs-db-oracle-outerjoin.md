@@ -1,6 +1,6 @@
 ---
-title: "[Oracle] INNER JOIN"
-excerpt: Oracle INNER JOIN
+title: "[Oracle] OUTER JOIN"
+excerpt: Oracle OUTER JOIN
 categories:
   - DB
 tags:

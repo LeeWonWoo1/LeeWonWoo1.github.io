@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 popular: true
 date: '2021-08-12T20:00:00'
-last_modified_at: 2021-08-12T20:00:00
+last_modified_at: 2021-08-12T21:00:00
 ---
 
 ## 데이터 불변성(Immutability)
